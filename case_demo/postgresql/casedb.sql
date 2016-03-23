@@ -5,8 +5,6 @@
 -- Dumped from database version 9.5.1
 -- Dumped by pg_dump version 9.5.1
 
--- Started on 2016-03-23 06:11:03 EDT
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -15,18 +13,79 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET row_security = off;
 
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.users DROP CONSTRAINT users_customer__id_fkey;
+ALTER TABLE ONLY public.policies DROP CONSTRAINT policies_customer__id_fkey;
+ALTER TABLE ONLY public.claims DROP CONSTRAINT claims_policy__id_fkey;
+ALTER TABLE ONLY public.claim_tasks DROP CONSTRAINT claim_tasks_claim__id_fkey;
+ALTER TABLE ONLY public.claim_documents DROP CONSTRAINT claim_documents_documentype__id_fkey;
+ALTER TABLE ONLY public.claim_documents DROP CONSTRAINT claim_documents_claim__id_fkey;
+ALTER TABLE ONLY public.users DROP CONSTRAINT users_pkey;
+ALTER TABLE ONLY public.users DROP CONSTRAINT users_email_key;
+ALTER TABLE ONLY public.policies DROP CONSTRAINT policies_pkey;
+ALTER TABLE ONLY public.documentypes DROP CONSTRAINT documentypes_pkey;
+ALTER TABLE ONLY public.customers DROP CONSTRAINT customers_pkey;
+ALTER TABLE ONLY public.claims DROP CONSTRAINT claims_pkey;
+ALTER TABLE ONLY public.claim_tasks DROP CONSTRAINT claim_tasks_pkey;
+ALTER TABLE ONLY public.claim_documents DROP CONSTRAINT claim_documents_pkey;
+ALTER TABLE ONLY public."Things" DROP CONSTRAINT "Things_pkey";
+ALTER TABLE ONLY public."Sessions" DROP CONSTRAINT "Sessions_sid_key";
+ALTER TABLE ONLY public."Sessions" DROP CONSTRAINT "Sessions_pkey";
+ALTER TABLE public.users ALTER COLUMN _id DROP DEFAULT;
+ALTER TABLE public.policies ALTER COLUMN _id DROP DEFAULT;
+ALTER TABLE public.documentypes ALTER COLUMN _id DROP DEFAULT;
+ALTER TABLE public.customers ALTER COLUMN _id DROP DEFAULT;
+ALTER TABLE public.claims ALTER COLUMN _id DROP DEFAULT;
+ALTER TABLE public.claim_tasks ALTER COLUMN _id DROP DEFAULT;
+ALTER TABLE public.claim_documents ALTER COLUMN _id DROP DEFAULT;
+ALTER TABLE public."Things" ALTER COLUMN _id DROP DEFAULT;
+ALTER TABLE public."Sessions" ALTER COLUMN id DROP DEFAULT;
+DROP SEQUENCE public.users__id_seq;
+DROP TABLE public.users;
+DROP SEQUENCE public.policies__id_seq;
+DROP TABLE public.policies;
+DROP SEQUENCE public.documentypes__id_seq;
+DROP TABLE public.documentypes;
+DROP SEQUENCE public.customers__id_seq;
+DROP TABLE public.customers;
+DROP SEQUENCE public.claims__id_seq;
+DROP TABLE public.claims;
+DROP SEQUENCE public.claim_tasks__id_seq;
+DROP TABLE public.claim_tasks;
+DROP SEQUENCE public.claim_documents__id_seq;
+DROP TABLE public.claim_documents;
+DROP SEQUENCE public."Things__id_seq";
+DROP TABLE public."Things";
+DROP SEQUENCE public."Sessions_id_seq";
+DROP TABLE public."Sessions";
+DROP EXTENSION plpgsql;
+DROP SCHEMA public;
 --
--- TOC entry 1 (class 3079 OID 12361)
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
+-- Name: public; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO postgres;
+
+--
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 2216 (class 0 OID 0)
--- Dependencies: 1
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
@@ -34,11 +93,12 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 SET search_path = public, pg_catalog;
 
+SET default_tablespace = '';
+
 SET default_with_oids = false;
 
 --
--- TOC entry 198 (class 1259 OID 22938)
--- Name: Sessions; Type: TABLE; Schema: public; Owner: -
+-- Name: Sessions; Type: TABLE; Schema: public; Owner: caseusr
 --
 
 CREATE TABLE "Sessions" (
@@ -50,9 +110,10 @@ CREATE TABLE "Sessions" (
 );
 
 
+ALTER TABLE "Sessions" OWNER TO caseusr;
+
 --
--- TOC entry 197 (class 1259 OID 22936)
--- Name: Sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: Sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: caseusr
 --
 
 CREATE SEQUENCE "Sessions_id_seq"
@@ -63,18 +124,17 @@ CREATE SEQUENCE "Sessions_id_seq"
     CACHE 1;
 
 
+ALTER TABLE "Sessions_id_seq" OWNER TO caseusr;
+
 --
--- TOC entry 2217 (class 0 OID 0)
--- Dependencies: 197
--- Name: Sessions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: Sessions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: caseusr
 --
 
 ALTER SEQUENCE "Sessions_id_seq" OWNED BY "Sessions".id;
 
 
 --
--- TOC entry 196 (class 1259 OID 22927)
--- Name: Things; Type: TABLE; Schema: public; Owner: -
+-- Name: Things; Type: TABLE; Schema: public; Owner: caseusr
 --
 
 CREATE TABLE "Things" (
@@ -87,9 +147,10 @@ CREATE TABLE "Things" (
 );
 
 
+ALTER TABLE "Things" OWNER TO caseusr;
+
 --
--- TOC entry 195 (class 1259 OID 22925)
--- Name: Things__id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: Things__id_seq; Type: SEQUENCE; Schema: public; Owner: caseusr
 --
 
 CREATE SEQUENCE "Things__id_seq"
@@ -100,18 +161,17 @@ CREATE SEQUENCE "Things__id_seq"
     CACHE 1;
 
 
+ALTER TABLE "Things__id_seq" OWNER TO caseusr;
+
 --
--- TOC entry 2218 (class 0 OID 0)
--- Dependencies: 195
--- Name: Things__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: Things__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: caseusr
 --
 
 ALTER SEQUENCE "Things__id_seq" OWNED BY "Things"._id;
 
 
 --
--- TOC entry 192 (class 1259 OID 22890)
--- Name: claim_documents; Type: TABLE; Schema: public; Owner: -
+-- Name: claim_documents; Type: TABLE; Schema: public; Owner: caseusr
 --
 
 CREATE TABLE claim_documents (
@@ -126,9 +186,10 @@ CREATE TABLE claim_documents (
 );
 
 
+ALTER TABLE claim_documents OWNER TO caseusr;
+
 --
--- TOC entry 191 (class 1259 OID 22888)
--- Name: claim_documents__id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: claim_documents__id_seq; Type: SEQUENCE; Schema: public; Owner: caseusr
 --
 
 CREATE SEQUENCE claim_documents__id_seq
@@ -139,18 +200,17 @@ CREATE SEQUENCE claim_documents__id_seq
     CACHE 1;
 
 
+ALTER TABLE claim_documents__id_seq OWNER TO caseusr;
+
 --
--- TOC entry 2219 (class 0 OID 0)
--- Dependencies: 191
--- Name: claim_documents__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: claim_documents__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: caseusr
 --
 
 ALTER SEQUENCE claim_documents__id_seq OWNED BY claim_documents._id;
 
 
 --
--- TOC entry 194 (class 1259 OID 22911)
--- Name: claim_tasks; Type: TABLE; Schema: public; Owner: -
+-- Name: claim_tasks; Type: TABLE; Schema: public; Owner: caseusr
 --
 
 CREATE TABLE claim_tasks (
@@ -164,9 +224,10 @@ CREATE TABLE claim_tasks (
 );
 
 
+ALTER TABLE claim_tasks OWNER TO caseusr;
+
 --
--- TOC entry 193 (class 1259 OID 22909)
--- Name: claim_tasks__id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: claim_tasks__id_seq; Type: SEQUENCE; Schema: public; Owner: caseusr
 --
 
 CREATE SEQUENCE claim_tasks__id_seq
@@ -177,18 +238,17 @@ CREATE SEQUENCE claim_tasks__id_seq
     CACHE 1;
 
 
+ALTER TABLE claim_tasks__id_seq OWNER TO caseusr;
+
 --
--- TOC entry 2220 (class 0 OID 0)
--- Dependencies: 193
--- Name: claim_tasks__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: claim_tasks__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: caseusr
 --
 
 ALTER SEQUENCE claim_tasks__id_seq OWNED BY claim_tasks._id;
 
 
 --
--- TOC entry 190 (class 1259 OID 22874)
--- Name: claims; Type: TABLE; Schema: public; Owner: -
+-- Name: claims; Type: TABLE; Schema: public; Owner: caseusr
 --
 
 CREATE TABLE claims (
@@ -199,15 +259,16 @@ CREATE TABLE claims (
     status character varying(255),
     info character varying(255),
     active boolean,
-    created_at timestamp with time zone NOT NULL,
-    updated_at timestamp with time zone NOT NULL,
+    created_at timestamp with time zone,
+    updated_at timestamp with time zone,
     policy__id integer
 );
 
 
+ALTER TABLE claims OWNER TO caseusr;
+
 --
--- TOC entry 189 (class 1259 OID 22872)
--- Name: claims__id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: claims__id_seq; Type: SEQUENCE; Schema: public; Owner: caseusr
 --
 
 CREATE SEQUENCE claims__id_seq
@@ -218,18 +279,17 @@ CREATE SEQUENCE claims__id_seq
     CACHE 1;
 
 
+ALTER TABLE claims__id_seq OWNER TO caseusr;
+
 --
--- TOC entry 2221 (class 0 OID 0)
--- Dependencies: 189
--- Name: claims__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: claims__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: caseusr
 --
 
 ALTER SEQUENCE claims__id_seq OWNED BY claims._id;
 
 
 --
--- TOC entry 184 (class 1259 OID 22831)
--- Name: customers; Type: TABLE; Schema: public; Owner: -
+-- Name: customers; Type: TABLE; Schema: public; Owner: caseusr
 --
 
 CREATE TABLE customers (
@@ -237,14 +297,15 @@ CREATE TABLE customers (
     name character varying(255),
     info character varying(255),
     active boolean,
-    created_at timestamp with time zone NOT NULL,
-    updated_at timestamp with time zone NOT NULL
+    created_at timestamp with time zone,
+    updated_at timestamp with time zone
 );
 
 
+ALTER TABLE customers OWNER TO caseusr;
+
 --
--- TOC entry 183 (class 1259 OID 22829)
--- Name: customers__id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: customers__id_seq; Type: SEQUENCE; Schema: public; Owner: caseusr
 --
 
 CREATE SEQUENCE customers__id_seq
@@ -255,18 +316,17 @@ CREATE SEQUENCE customers__id_seq
     CACHE 1;
 
 
+ALTER TABLE customers__id_seq OWNER TO caseusr;
+
 --
--- TOC entry 2222 (class 0 OID 0)
--- Dependencies: 183
--- Name: customers__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: customers__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: caseusr
 --
 
 ALTER SEQUENCE customers__id_seq OWNED BY customers._id;
 
 
 --
--- TOC entry 182 (class 1259 OID 22821)
--- Name: documentypes; Type: TABLE; Schema: public; Owner: -
+-- Name: documentypes; Type: TABLE; Schema: public; Owner: caseusr
 --
 
 CREATE TABLE documentypes (
@@ -278,9 +338,10 @@ CREATE TABLE documentypes (
 );
 
 
+ALTER TABLE documentypes OWNER TO caseusr;
+
 --
--- TOC entry 181 (class 1259 OID 22819)
--- Name: documentypes__id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: documentypes__id_seq; Type: SEQUENCE; Schema: public; Owner: caseusr
 --
 
 CREATE SEQUENCE documentypes__id_seq
@@ -291,18 +352,17 @@ CREATE SEQUENCE documentypes__id_seq
     CACHE 1;
 
 
+ALTER TABLE documentypes__id_seq OWNER TO caseusr;
+
 --
--- TOC entry 2223 (class 0 OID 0)
--- Dependencies: 181
--- Name: documentypes__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: documentypes__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: caseusr
 --
 
 ALTER SEQUENCE documentypes__id_seq OWNED BY documentypes._id;
 
 
 --
--- TOC entry 186 (class 1259 OID 22842)
--- Name: policies; Type: TABLE; Schema: public; Owner: -
+-- Name: policies; Type: TABLE; Schema: public; Owner: caseusr
 --
 
 CREATE TABLE policies (
@@ -312,15 +372,16 @@ CREATE TABLE policies (
     start_date timestamp with time zone,
     end_date timestamp with time zone,
     active boolean,
-    created_at timestamp with time zone NOT NULL,
-    updated_at timestamp with time zone NOT NULL,
+    created_at timestamp with time zone,
+    updated_at timestamp with time zone,
     customer__id integer
 );
 
 
+ALTER TABLE policies OWNER TO caseusr;
+
 --
--- TOC entry 185 (class 1259 OID 22840)
--- Name: policies__id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: policies__id_seq; Type: SEQUENCE; Schema: public; Owner: caseusr
 --
 
 CREATE SEQUENCE policies__id_seq
@@ -331,18 +392,17 @@ CREATE SEQUENCE policies__id_seq
     CACHE 1;
 
 
+ALTER TABLE policies__id_seq OWNER TO caseusr;
+
 --
--- TOC entry 2224 (class 0 OID 0)
--- Dependencies: 185
--- Name: policies__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: policies__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: caseusr
 --
 
 ALTER SEQUENCE policies__id_seq OWNED BY policies._id;
 
 
 --
--- TOC entry 188 (class 1259 OID 22855)
--- Name: users; Type: TABLE; Schema: public; Owner: -
+-- Name: users; Type: TABLE; Schema: public; Owner: caseusr
 --
 
 CREATE TABLE users (
@@ -359,9 +419,10 @@ CREATE TABLE users (
 );
 
 
+ALTER TABLE users OWNER TO caseusr;
+
 --
--- TOC entry 187 (class 1259 OID 22853)
--- Name: users__id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: users__id_seq; Type: SEQUENCE; Schema: public; Owner: caseusr
 --
 
 CREATE SEQUENCE users__id_seq
@@ -372,265 +433,219 @@ CREATE SEQUENCE users__id_seq
     CACHE 1;
 
 
+ALTER TABLE users__id_seq OWNER TO caseusr;
+
 --
--- TOC entry 2225 (class 0 OID 0)
--- Dependencies: 187
--- Name: users__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: users__id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: caseusr
 --
 
 ALTER SEQUENCE users__id_seq OWNED BY users._id;
 
 
 --
--- TOC entry 2049 (class 2604 OID 22941)
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: id; Type: DEFAULT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY "Sessions" ALTER COLUMN id SET DEFAULT nextval('"Sessions_id_seq"'::regclass);
 
 
 --
--- TOC entry 2048 (class 2604 OID 22930)
--- Name: _id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: _id; Type: DEFAULT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY "Things" ALTER COLUMN _id SET DEFAULT nextval('"Things__id_seq"'::regclass);
 
 
 --
--- TOC entry 2046 (class 2604 OID 22893)
--- Name: _id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: _id; Type: DEFAULT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY claim_documents ALTER COLUMN _id SET DEFAULT nextval('claim_documents__id_seq'::regclass);
 
 
 --
--- TOC entry 2047 (class 2604 OID 22914)
--- Name: _id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: _id; Type: DEFAULT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY claim_tasks ALTER COLUMN _id SET DEFAULT nextval('claim_tasks__id_seq'::regclass);
 
 
 --
--- TOC entry 2045 (class 2604 OID 22877)
--- Name: _id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: _id; Type: DEFAULT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY claims ALTER COLUMN _id SET DEFAULT nextval('claims__id_seq'::regclass);
 
 
 --
--- TOC entry 2041 (class 2604 OID 22834)
--- Name: _id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: _id; Type: DEFAULT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY customers ALTER COLUMN _id SET DEFAULT nextval('customers__id_seq'::regclass);
 
 
 --
--- TOC entry 2040 (class 2604 OID 22824)
--- Name: _id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: _id; Type: DEFAULT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY documentypes ALTER COLUMN _id SET DEFAULT nextval('documentypes__id_seq'::regclass);
 
 
 --
--- TOC entry 2042 (class 2604 OID 22845)
--- Name: _id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: _id; Type: DEFAULT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY policies ALTER COLUMN _id SET DEFAULT nextval('policies__id_seq'::regclass);
 
 
 --
--- TOC entry 2043 (class 2604 OID 22858)
--- Name: _id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: _id; Type: DEFAULT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY users ALTER COLUMN _id SET DEFAULT nextval('users__id_seq'::regclass);
 
 
 --
--- TOC entry 2209 (class 0 OID 22938)
--- Dependencies: 198
--- Data for Name: Sessions; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: Sessions; Type: TABLE DATA; Schema: public; Owner: caseusr
 --
 
-COPY "Sessions" (id, sid, data, "createdAt", "updatedAt") FROM stdin;
-1	lDZdi-KjNLVKfCFYk3zaAOVZ9xOFUiLk	{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}	2016-03-23 10:07:42.237+00	2016-03-23 10:07:42.237+00
-\.
-
-
---
--- TOC entry 2226 (class 0 OID 0)
--- Dependencies: 197
--- Name: Sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
---
-
-SELECT pg_catalog.setval('"Sessions_id_seq"', 1, true);
-
-
---
--- TOC entry 2207 (class 0 OID 22927)
--- Dependencies: 196
--- Data for Name: Things; Type: TABLE DATA; Schema: public; Owner: -
---
-
-COPY "Things" (_id, name, info, active, "createdAt", "updatedAt") FROM stdin;
-\.
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (1, 'lDZdi-KjNLVKfCFYk3zaAOVZ9xOFUiLk', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 10:07:42.237+00', '2016-03-23 10:07:42.237+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (2, 'KMdAfuaZaCFqqPDiBiQRSciJYJMxmYly', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 10:38:53.174+00', '2016-03-23 10:38:53.174+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (3, 'MxkwzWKNpg7sUxsqy3R6_v63dMH5aVJE', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 10:40:47.819+00', '2016-03-23 10:40:47.819+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (4, 'CV_J5VuC_dueeduzOKXjAVjuiYCkJ03b', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 10:40:54.172+00', '2016-03-23 10:40:54.172+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (5, 'pzSKbjVo7AZlINb6u5pBpX1AeHZK-kMQ', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 10:44:42.654+00', '2016-03-23 10:44:42.654+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (6, 'UgexZxYgG4x21jh1ynMXk2aafqH7lR3P', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 10:51:21.841+00', '2016-03-23 10:51:21.841+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (7, '48yH-NHHomLqhu831PTKS6WhP7YlF6Gb', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 10:51:22.107+00', '2016-03-23 10:51:22.107+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (8, 'k2HvpbbMYBQ8QSQk59fdmCLPT5Jpss5z', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 10:56:26.123+00', '2016-03-23 10:56:26.123+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (9, 'a0vR5mwQXfEQvv4NerFnCC7xPLtyThSY', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 11:00:11.109+00', '2016-03-23 11:00:11.109+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (10, 'fXFYcpepjLJBV-x6mm7Q1r_-O97m1B9J', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 11:00:11.417+00', '2016-03-23 11:00:11.417+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (11, 'O7Xd4JHpvo25LN4dH1DdWdGoL_jGFj5g', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 11:00:13.249+00', '2016-03-23 11:00:13.249+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (12, 'SN1XqZsoHZSX7GAcUOE1s0V1PrpLmT0Z', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 12:21:27.939+00', '2016-03-23 12:21:27.939+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (13, 'H7v8kPMYFG45cnDy46q3875PlMI9tTps', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 12:22:05.23+00', '2016-03-23 12:22:05.23+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (14, 'Eu-SmyJdsc7VZ3Mku6mUrzn-adb_N6U1', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 12:22:51.478+00', '2016-03-23 12:22:51.478+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (15, '1BT6n2FdD8SbPSzPbyGt5Gg54TRVT1pK', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 12:23:12.047+00', '2016-03-23 12:23:12.047+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (16, 'xgPUSerhB-Mymm2tYgvU-ISt9yaoBeYR', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 13:25:32.617+00', '2016-03-23 13:25:32.617+00');
+INSERT INTO "Sessions" (id, sid, data, "createdAt", "updatedAt") VALUES (17, 'qKJqDhs5-xWn8rNIg2rD4f5m36irVYGf', '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}', '2016-03-23 13:31:26.492+00', '2016-03-23 13:31:26.492+00');
 
 
 --
--- TOC entry 2227 (class 0 OID 0)
--- Dependencies: 195
--- Name: Things__id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: Sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: caseusr
+--
+
+SELECT pg_catalog.setval('"Sessions_id_seq"', 17, true);
+
+
+--
+-- Data for Name: Things; Type: TABLE DATA; Schema: public; Owner: caseusr
+--
+
+
+
+--
+-- Name: Things__id_seq; Type: SEQUENCE SET; Schema: public; Owner: caseusr
 --
 
 SELECT pg_catalog.setval('"Things__id_seq"', 1, false);
 
 
 --
--- TOC entry 2203 (class 0 OID 22890)
--- Dependencies: 192
--- Data for Name: claim_documents; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: claim_documents; Type: TABLE DATA; Schema: public; Owner: caseusr
 --
 
-COPY claim_documents (_id, info, url, active, created_at, updated_at, claim__id, documentype__id) FROM stdin;
-\.
 
 
 --
--- TOC entry 2228 (class 0 OID 0)
--- Dependencies: 191
--- Name: claim_documents__id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: claim_documents__id_seq; Type: SEQUENCE SET; Schema: public; Owner: caseusr
 --
 
 SELECT pg_catalog.setval('claim_documents__id_seq', 1, false);
 
 
 --
--- TOC entry 2205 (class 0 OID 22911)
--- Dependencies: 194
--- Data for Name: claim_tasks; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: claim_tasks; Type: TABLE DATA; Schema: public; Owner: caseusr
 --
 
-COPY claim_tasks (_id, description, content, active, created_at, updated_at, claim__id) FROM stdin;
-\.
 
 
 --
--- TOC entry 2229 (class 0 OID 0)
--- Dependencies: 193
--- Name: claim_tasks__id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: claim_tasks__id_seq; Type: SEQUENCE SET; Schema: public; Owner: caseusr
 --
 
 SELECT pg_catalog.setval('claim_tasks__id_seq', 1, false);
 
 
 --
--- TOC entry 2201 (class 0 OID 22874)
--- Dependencies: 190
--- Data for Name: claims; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: claims; Type: TABLE DATA; Schema: public; Owner: caseusr
 --
 
-COPY claims (_id, description, date_incident, date_reported, status, info, active, created_at, updated_at, policy__id) FROM stdin;
-\.
+INSERT INTO claims (_id, description, date_incident, date_reported, status, info, active, created_at, updated_at, policy__id) VALUES (1, 'xcsysf', '2016-03-01 00:00:00+00', '2016-03-05 00:00:00+00', 'fsdfesfes', 'efedsfdsf', true, NULL, NULL, 1);
 
 
 --
--- TOC entry 2230 (class 0 OID 0)
--- Dependencies: 189
--- Name: claims__id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: claims__id_seq; Type: SEQUENCE SET; Schema: public; Owner: caseusr
 --
 
-SELECT pg_catalog.setval('claims__id_seq', 1, false);
+SELECT pg_catalog.setval('claims__id_seq', 1, true);
 
 
 --
--- TOC entry 2195 (class 0 OID 22831)
--- Dependencies: 184
--- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: caseusr
 --
 
-COPY customers (_id, name, info, active, created_at, updated_at) FROM stdin;
-1	Acme Inc	\N	t	2016-03-23 10:07:40.523+00	2016-03-23 10:07:40.523+00
-\.
+INSERT INTO customers (_id, name, info, active, created_at, updated_at) VALUES (1, 'Acme Inc', NULL, true, '2016-03-23 10:07:40.523+00', '2016-03-23 10:07:40.523+00');
 
 
 --
--- TOC entry 2231 (class 0 OID 0)
--- Dependencies: 183
--- Name: customers__id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: customers__id_seq; Type: SEQUENCE SET; Schema: public; Owner: caseusr
 --
 
 SELECT pg_catalog.setval('customers__id_seq', 1, true);
 
 
 --
--- TOC entry 2193 (class 0 OID 22821)
--- Dependencies: 182
--- Data for Name: documentypes; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: documentypes; Type: TABLE DATA; Schema: public; Owner: caseusr
 --
 
-COPY documentypes (_id, name, active, created_at, updated_at) FROM stdin;
-\.
 
 
 --
--- TOC entry 2232 (class 0 OID 0)
--- Dependencies: 181
--- Name: documentypes__id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: documentypes__id_seq; Type: SEQUENCE SET; Schema: public; Owner: caseusr
 --
 
 SELECT pg_catalog.setval('documentypes__id_seq', 1, false);
 
 
 --
--- TOC entry 2197 (class 0 OID 22842)
--- Dependencies: 186
--- Data for Name: policies; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: policies; Type: TABLE DATA; Schema: public; Owner: caseusr
 --
 
-COPY policies (_id, reference, amount, start_date, end_date, active, created_at, updated_at, customer__id) FROM stdin;
-1	001	500000	2016-03-16 10:07:40.629+00	2017-02-23 11:07:40.631+00	t	2016-03-23 10:07:40.632+00	2016-03-23 10:07:40.67+00	1
-\.
+INSERT INTO policies (_id, reference, amount, start_date, end_date, active, created_at, updated_at, customer__id) VALUES (1, '001', 500000, '2016-03-16 10:07:40.629+00', '2017-02-23 11:07:40.631+00', true, '2016-03-23 10:07:40.632+00', '2016-03-23 10:07:40.67+00', 1);
+INSERT INTO policies (_id, reference, amount, start_date, end_date, active, created_at, updated_at, customer__id) VALUES (4, 'ssdfsw', 12345, '2016-03-01 00:00:00+00', '2017-03-31 00:00:00+00', true, NULL, NULL, 1);
 
 
 --
--- TOC entry 2233 (class 0 OID 0)
--- Dependencies: 185
--- Name: policies__id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: policies__id_seq; Type: SEQUENCE SET; Schema: public; Owner: caseusr
 --
 
-SELECT pg_catalog.setval('policies__id_seq', 1, true);
+SELECT pg_catalog.setval('policies__id_seq', 4, true);
 
 
 --
--- TOC entry 2199 (class 0 OID 22855)
--- Dependencies: 188
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: caseusr
 --
 
-COPY users (_id, name, email, role, password, provider, salt, created_at, updated_at, customer__id) FROM stdin;
-1	Admin	admin@example.com	admin	nD869Ek5/Psm3YrZGEIvzzEaODmQCrnYuVW+wA/mH6uwRZ3mn+dzKcNw79kYxxyMyRraKxbN6ZwdpKRHvAI8PA==	local	KNX32IUp44n0JluRzt115Q==	2016-03-23 10:07:40.605+00	2016-03-23 10:07:40.707+00	1
-\.
+INSERT INTO users (_id, name, email, role, password, provider, salt, created_at, updated_at, customer__id) VALUES (1, 'Admin', 'admin@example.com', 'admin', 'nD869Ek5/Psm3YrZGEIvzzEaODmQCrnYuVW+wA/mH6uwRZ3mn+dzKcNw79kYxxyMyRraKxbN6ZwdpKRHvAI8PA==', 'local', 'KNX32IUp44n0JluRzt115Q==', '2016-03-23 10:07:40.605+00', '2016-03-23 10:07:40.707+00', 1);
 
 
 --
--- TOC entry 2234 (class 0 OID 0)
--- Dependencies: 187
--- Name: users__id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: users__id_seq; Type: SEQUENCE SET; Schema: public; Owner: caseusr
 --
 
 SELECT pg_catalog.setval('users__id_seq', 1, true);
 
 
 --
--- TOC entry 2069 (class 2606 OID 22946)
--- Name: Sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: Sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY "Sessions"
@@ -638,8 +653,7 @@ ALTER TABLE ONLY "Sessions"
 
 
 --
--- TOC entry 2071 (class 2606 OID 22948)
--- Name: Sessions_sid_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: Sessions_sid_key; Type: CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY "Sessions"
@@ -647,8 +661,7 @@ ALTER TABLE ONLY "Sessions"
 
 
 --
--- TOC entry 2067 (class 2606 OID 22935)
--- Name: Things_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: Things_pkey; Type: CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY "Things"
@@ -656,8 +669,7 @@ ALTER TABLE ONLY "Things"
 
 
 --
--- TOC entry 2063 (class 2606 OID 22898)
--- Name: claim_documents_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: claim_documents_pkey; Type: CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY claim_documents
@@ -665,8 +677,7 @@ ALTER TABLE ONLY claim_documents
 
 
 --
--- TOC entry 2065 (class 2606 OID 22919)
--- Name: claim_tasks_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: claim_tasks_pkey; Type: CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY claim_tasks
@@ -674,8 +685,7 @@ ALTER TABLE ONLY claim_tasks
 
 
 --
--- TOC entry 2061 (class 2606 OID 22882)
--- Name: claims_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: claims_pkey; Type: CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY claims
@@ -683,8 +693,7 @@ ALTER TABLE ONLY claims
 
 
 --
--- TOC entry 2053 (class 2606 OID 22839)
--- Name: customers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: customers_pkey; Type: CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY customers
@@ -692,8 +701,7 @@ ALTER TABLE ONLY customers
 
 
 --
--- TOC entry 2051 (class 2606 OID 22826)
--- Name: documentypes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: documentypes_pkey; Type: CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY documentypes
@@ -701,8 +709,7 @@ ALTER TABLE ONLY documentypes
 
 
 --
--- TOC entry 2055 (class 2606 OID 22847)
--- Name: policies_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: policies_pkey; Type: CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY policies
@@ -710,8 +717,7 @@ ALTER TABLE ONLY policies
 
 
 --
--- TOC entry 2057 (class 2606 OID 22866)
--- Name: users_email_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: users_email_key; Type: CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY users
@@ -719,8 +725,7 @@ ALTER TABLE ONLY users
 
 
 --
--- TOC entry 2059 (class 2606 OID 22864)
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY users
@@ -728,8 +733,7 @@ ALTER TABLE ONLY users
 
 
 --
--- TOC entry 2075 (class 2606 OID 22899)
--- Name: claim_documents_claim__id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: claim_documents_claim__id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY claim_documents
@@ -737,8 +741,7 @@ ALTER TABLE ONLY claim_documents
 
 
 --
--- TOC entry 2076 (class 2606 OID 22904)
--- Name: claim_documents_documentype__id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: claim_documents_documentype__id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY claim_documents
@@ -746,8 +749,7 @@ ALTER TABLE ONLY claim_documents
 
 
 --
--- TOC entry 2077 (class 2606 OID 22920)
--- Name: claim_tasks_claim__id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: claim_tasks_claim__id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY claim_tasks
@@ -755,8 +757,7 @@ ALTER TABLE ONLY claim_tasks
 
 
 --
--- TOC entry 2074 (class 2606 OID 22883)
--- Name: claims_policy__id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: claims_policy__id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY claims
@@ -764,8 +765,7 @@ ALTER TABLE ONLY claims
 
 
 --
--- TOC entry 2072 (class 2606 OID 22848)
--- Name: policies_customer__id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: policies_customer__id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY policies
@@ -773,15 +773,22 @@ ALTER TABLE ONLY policies
 
 
 --
--- TOC entry 2073 (class 2606 OID 22867)
--- Name: users_customer__id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: users_customer__id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: caseusr
 --
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_customer__id_fkey FOREIGN KEY (customer__id) REFERENCES customers(_id) ON UPDATE CASCADE ON DELETE SET NULL;
 
 
--- Completed on 2016-03-23 06:11:08 EDT
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
 
 --
 -- PostgreSQL database dump complete

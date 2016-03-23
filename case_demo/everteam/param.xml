@@ -35,7 +35,7 @@
         <PARAMSEQ>DocJAIPrefix</PARAMSEQ>
         <USERCODE>all</USERCODE>
         <DESCRIPTION>ParamDocJAIPrefix</DESCRIPTION>
-        <CONTENT>/everteam</CONTENT>
+        <CONTENT>/everteam/</CONTENT>
     </param>
   <param>
         <PARAMSEQ>DocRootPrefix</PARAMSEQ>
@@ -47,7 +47,7 @@
         <PARAMSEQ>DocRoot</PARAMSEQ>
         <USERCODE>all</USERCODE>
         <DESCRIPTION>ParamDocRoot</DESCRIPTION>
-        <CONTENT>docks</CONTENT>
+        <CONTENT>docs</CONTENT>
     </param>
   <param>
         <PARAMSEQ>core-contexturl</PARAMSEQ>
@@ -151,7 +151,7 @@
                         <OriginalName>true</OriginalName>
                         <RecordMode>true</RecordMode>
                         <Description></Description>
-                        <BaseDir>../docs</BaseDir>
+                        <BaseDir>../everteam/docs</BaseDir>
                         <ClassName>es.cls.core.fs.SubPathBuilder</ClassName>
                         <ClassParams>
                             <DirName1>${DBName}</DirName1>
