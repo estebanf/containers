@@ -1,0 +1,53 @@
+version: '2'
+services:
+  case_demo_db:
+    image: estebanf/case_demo_db
+    ports:
+      - "5432:5432"
+    container_name: case_demo_db
+  case_demo_zookeeper:
+    image: estebanf/case_demo_zookeeper
+    container_name: case_demo_zookeeper
+  case_demo_solr:
+    image: estebanf/case_demo_solr
+    container_name: case_demo_solr
+    environment:
+      ZOO: case_demo_zookeeper
+    links:
+      - case_demo_zookeeper
+    depends_on:
+      - case_demo_zookeeper
+  case_demo_webapp:
+    image: estebanf/case_demo_webapp
+    container_name: case_demo_webapp
+    links:
+      - case_demo_db
+    depends_on:
+      - case_demo_db  
+  case_demo_everteam:
+    image: estebanf/case_demo_everteam
+    container_name: case_demo_everteam
+    extra_hosts:
+      - "everteam.local:127.0.0.1"
+    links:
+      - case_demo_db
+      - case_demo_zookeeper
+    depends_on:
+      - case_demo_db
+      - case_demo_zookeeper
+  case_demo_intalio:
+    image: estebanf/case_demo_intalio
+    container_name: case_demo_intalio
+    links:
+      - case_demo_db
+  case_demo_proxy:
+    image: estebanf/case_demo_nginx
+    container_name: case_demo_nginx
+    ports:
+      - "80:80"
+    links:
+      - case_demo_everteam
+      - case_demo_intalio
+    depends_on:
+      - case_demo_everteam
+      - case_demo_intalio

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<params>
+  <DBName>dPortal</DBName>
+  <Driver>org.postgresql.Driver</Driver>
+  <URL>jdbc:postgresql://case_demo_db:5432/everteamdb</URL>
+  <startdb>false</startdb>
+  <UserCode>everteamusr</UserCode>
+  <PassWord>everteam</PassWord>
+  <Schema></Schema>
+  <UpperCase>yes</UpperCase>
+  <DefaultLang>FR</DefaultLang>
+  <SecurityDB>dPortal</SecurityDB>
+  <DateFormat>
+    <internal>yyyyMMdd</internal>
+    <visible>yyyyMMdd</visible>
+    <sql>dd/MM/yyyy HH:mm:ss</sql>
+    <time>HH:mm:ss</time>
+  </DateFormat>
+  <FieldNames>
+    <PASSWORD>PASSWORD</PASSWORD>
+    <ROLE>ROLE</ROLE>
+    <ADMIN>ADMIN</ADMIN>
+    <ACTION>ACTION</ACTION>
+    <FIELDS>FIELDS</FIELDS>
+    <KEYS>KEYS</KEYS>
+  </FieldNames>
+</params>
+

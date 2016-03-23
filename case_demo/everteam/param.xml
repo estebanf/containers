@@ -1,0 +1,2403 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE params SYSTEM "param.dtd">
+<params>
+    <param>
+        <PARAMSEQ>coreStartService</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamcoreStartService</DESCRIPTION>
+        <CONTENT>true</CONTENT>
+    </param>
+    <param>
+        <PARAMSEQ>ldapfactoryclass</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>Paramldapfactoryclass</DESCRIPTION>
+        <CONTENT>com.sun.jndi.ldap.LdapCtxFactory</CONTENT>
+    </param>
+    <param>
+        <PARAMSEQ>LastModified</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamLastModified</DESCRIPTION>
+        <CONTENT>false</CONTENT>
+    </param>
+    <param>
+        <PARAMSEQ>MaxLastModified</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamMaxLastModified</DESCRIPTION>
+        <CONTENT>1000</CONTENT>
+    </param>
+    <param>
+        <PARAMSEQ>RoleAPI_CacheSize</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamRoleAPI_CacheSize</DESCRIPTION>
+        <CONTENT>500</CONTENT>
+    </param>
+  <param priority="true">
+        <PARAMSEQ>DocJAIPrefix</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamDocJAIPrefix</DESCRIPTION>
+        <CONTENT>/everteam</CONTENT>
+    </param>
+  <param>
+        <PARAMSEQ>DocRootPrefix</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamDocRootPrefix</DESCRIPTION>
+        <CONTENT></CONTENT>
+    </param>
+  <param priority="true">
+        <PARAMSEQ>DocRoot</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamDocRoot</DESCRIPTION>
+        <CONTENT>docks</CONTENT>
+    </param>
+  <param>
+        <PARAMSEQ>core-contexturl</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>Paramcore-contexturl</DESCRIPTION>
+        <CONTENT>http://case_demo_everteam:8080/everteam</CONTENT>
+    </param>
+  <param>
+        <PARAMSEQ>DocOSSPrefix</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamDocOSSPrefix</DESCRIPTION>
+        <CONTENT>http|host:port/webapp|dPortal|login|password</CONTENT>
+    </param>
+    <param>
+        <PARAMSEQ>DocDellPrefix</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamDocDellPrefix</DESCRIPTION>
+        <CONTENT>
+        <![CDATA[
+            <?xml version="1.0"?>
+            <Root>
+                <Pools>
+                    <Default>
+                        <Hosts></Hosts>
+                        <Realm></Realm>
+                        <Domain></Domain>
+                        <Bucket></Bucket>
+                        <UserName></UserName>
+                        <Password></Password>
+                        <MaxRetries>2</MaxRetries>         
+                        <ConnectionTimeout>10</ConnectionTimeout>         
+                    </Default >
+                    <Pluton>
+                        <Hosts></Hosts>
+                        <Realm></Realm>
+                        <Domain></Domain>
+                        <Bucket></Bucket>
+                        <UserName></UserName>
+                        <Password></Password>
+                        <MaxRetries>2</MaxRetries>         
+                        <ConnectionTimeout>10</ConnectionTimeout>         
+                    </Pluton>
+                </Pools>
+            </Root>
+        ]]>
+        </CONTENT>
+    </param>
+    <param>
+        <PARAMSEQ>DocCecurityPrefix</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamDocCecurityPrefix</DESCRIPTION>
+        <CONTENT>
+             <![CDATA[
+                 <?xml version="1.0"?>
+                 <Root>
+                     <Pools>
+                         <Default>
+                             <CEFCBase>https://abo.cecurity.com/cfec25</CEFCBase>
+                             <CFEC>61</CFEC>
+                             <CFE>10</CFE>
+                             <Folder>186</Folder>
+                         </Default>
+                         <Other>
+                             <CEFCBase>https://abo.cecurity.com/cfec25</CEFCBase>
+                             <CFEC>61</CFEC>
+                             <CFE>10</CFE>
+                             <Folder>38</Folder>
+                         </Other>
+                     </Pools>
+                 </Root>
+             ]]>
+        </CONTENT>
+
+    </param>
+    <param>
+        <PARAMSEQ>DocLocalPrefix</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamDocLocalPrefix</DESCRIPTION>
+        <CONTENT>
+        <![CDATA[
+            <?xml version="1.0"?>
+            <Root>
+                <Pools>
+                    <Default>
+                        <UniqueName>false</UniqueName>
+                        <OriginalName>true</OriginalName>
+                        <RecordMode>false</RecordMode>
+                        <Description></Description>
+                        <BaseDir></BaseDir>
+                        <ClassName>es.cls.core.fs.SubPathBuilder</ClassName>
+                        <ClassParams>
+                            <DirName1></DirName1>
+                            <DirName2></DirName2>
+                            <DateFormat></DateFormat>
+                            <TotalEntries></TotalEntries>
+                            <DirEntries></DirEntries>
+                        </ClassParams>
+                    </Default>
+                    <ESDoc>
+                        <UniqueName>false</UniqueName>
+                        <OriginalName>true</OriginalName>
+                        <RecordMode>true</RecordMode>
+                        <Description></Description>
+                        <BaseDir>../docs</BaseDir>
+                        <ClassName>es.cls.core.fs.SubPathBuilder</ClassName>
+                        <ClassParams>
+                            <DirName1>${DBName}</DirName1>
+                            <DirName2>${TableName}</DirName2>
+                            <TotalEntries>1000000000</TotalEntries>
+                            <DirEntries>1000</DirEntries>
+                        </ClassParams>
+                    </ESDoc>
+                </Pools>
+            </Root>
+        ]]>
+        </CONTENT>
+    </param>
+    <param>
+        <PARAMSEQ>DocHCPPrefix</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamDocHCPPrefix</DESCRIPTION>
+        <CONTENT>
+        <![CDATA[
+            <?xml version="1.0"?>
+            <Root>
+                <!-- Tags for version 2.6 -->
+                <MakeDirFile>true</MakeDirFile>
+                <!-- Tags common to versions 2.6 and 3 -->
+                <!-- Host>192.168.3.96</Host -->
+                <HTTPMode>http</HTTPMode>
+                <Host></Host> <!-- IP or http://namespace.tenant.cluster.dns.suffix -->
+                <BaseDir></BaseDir>
+                <!-- Tags for version 3 -->
+                <Port>443</Port>
+                <UserName>superadmin</UserName>
+                <Password>Hitachi2009</Password>
+                <Encoding>UTF-8</Encoding>
+                <NameSpaceName>name</NameSpaceName>
+                <TenantName>demo</TenantName>
+                <HCPName>vmhcp</HCPName>
+                <DomainName>domain.local</DomainName>
+                <AuthenticateServer>false</AuthenticateServer>
+                <!-- Tags understood starting from driver for HCP v4 -->
+                <Pools>
+                    <Defaults>
+                        <HTTPMode>https</HTTPMode>
+                        <Host></Host>  <!-- IP or http://namespace.tenant.cluster.dns.suffix -->
+                        <BaseDir>TestsJMF</BaseDir>
+                        <Port></Port>
+                        <UserName>jmf1</UserName>
+                        <Password>jmf1</Password>
+                        <Encoding>UTF-8</Encoding>
+                        <NameSpaceName>name</NameSpaceName>
+                        <TenantName>test</TenantName>
+                        <HCPName>hcp1</HCPName>
+                        <DomainName>domain.com</DomainName>
+                        <AuthenticateServer>false</AuthenticateServer>
+                        <RetryMax>0</RetryMax>
+                        <RetryDelay>5000</RetryDelay>
+                    </Defaults>
+                    <!-- Test3>
+                        <HTTPMode>https</HTTPMode>
+                        <Host></Host>
+                        <BaseDir>TestsJMF</BaseDir>
+                        <Port></Port>
+                        <UserName>jmf1</UserName>
+                        <Password>jmf1</Password>
+                        <Encoding>UTF-8</Encoding>
+                        <NameSpaceName>name</NameSpaceName>
+                        <TenantName>demo</TenantName>
+                        <HCPName>hcpvm</HCPName>
+                        <DomainName>demo.fr</DomainName>
+                        <AuthenticateServer>false</AuthenticateServer>
+                        <RetryMax>0</RetryMax>
+                        <RetryDelay>5000</RetryDelay>
+                    </Test3 -->
+                </Pools>
+            </Root>
+        ]]>
+        </CONTENT>
+    </param>
+    <param>
+        <PARAMSEQ>DocNETAPPPrefix</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamDocNETAPPPrefix</DESCRIPTION>
+        <CONTENT>
+            <![CDATA[
+                <?xml version="1.0"?>
+                <Netapp>
+                    <Pools>
+                        <Pool1>
+                            <Host>NETAPP</Host>                         <!-- host or IP -->
+                            <Port></Port>                               <!-- NOT MANDATORY if default port 80 is used -->
+                            <UserName>root</UserName>                   <!-- NOT MANDATORY if no authentication is required -->
+                            <Password>r0otr0ot</Password>               <!-- NOT MANDATORY if no authentication is required -->
+                            <HttpBaseDir>/vol/wormvol/</HttpBaseDir>    <!-- must end with "/" -->
+                            <FileBaseDir>Z:/</FileBaseDir>              <!-- must end with "/" -->
+                        </Pool1>
+                        <Pool2>
+                            <Host>NETAPP</Host>                         <!-- host or IP -->
+                            <Port></Port>                               <!-- NOT MANDATORY if default port 80 is used -->
+                            <UserName>root</UserName>                   <!-- NOT MANDATORY if no authentication is required -->
+                            <Password>r0otr0ot</Password>               <!-- NOT MANDATORY if no authentication is required -->
+                            <HttpBaseDir>/vol/vol0/</HttpBaseDir>       <!-- must end with "/" -->
+                            <FileBaseDir>Y:/</FileBaseDir>              <!-- must end with "/" -->
+                        </Pool2>
+                    </Pools>
+                </Netapp>
+            ]]>
+        </CONTENT>
+    </param>
+    <param>
+     <PARAMSEQ>EscapeQuotes</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamEscapeQuotes</DESCRIPTION>
+     <CONTENT></CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>DocClipBoardAsk</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamDocClipBoardAsk</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>DocClipBoardPersistent</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamDocClipBoardPersistent</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>DocRightClassChecker</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamDocRightClassChecker</DESCRIPTION>
+     <CONTENT></CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>TemplateCache</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamTemplateCache</DESCRIPTION>
+     <CONTENT></CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>maxConcurrentSchedulers</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParammaxConcurrentSchedulers</DESCRIPTION>
+     <CONTENT>5</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>schedulerDelay</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamschedulerDelay</DESCRIPTION>
+     <CONTENT>5000</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>schedulemanager</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>Paramschedulemanager</DESCRIPTION>
+     <CONTENT>
+        <![CDATA[<?xml version="1.0"?>
+<param>
+<!--
+     <task>
+        <class>es.cls.archives.workFlow.scheduler.LookForExpiredTasks</class>
+        <entrypoint>callFromScheduler</entrypoint>
+        <periodicity>86400000</periodicity>
+        <autostart>true</autostart>
+        <args>
+           <arg>dbname=dportal</arg>
+           <arg>processingdelay=30</arg>
+           <arg>taskname=A valider</arg>
+           <arg>processname=eliminationProcess</arg>
+           <arg>mailsubject=Tâche en retard</arg>
+           <arg>mailbody=archive/mail/mailWkfReminder.htm</arg>
+        </args>
+     </task>
+-->
+<!--
+     <task>
+        <class>es.cls.drm.SendModifRecords</class>
+        <entrypoint>callFromScheduler</entrypoint>
+        <periodicity>60000</periodicity>
+        <autostart>true</autostart>
+        <session>
+            <usercode>admin</usercode>
+        </session>
+     </task>
+-->
+<!--
+     <task>
+        <class>es.cls.core.schedule.testScheduler</class>
+        <entrypoint>callFromScheduler</entrypoint>
+        <periodicity>cron:3/30 40-45,50-55 * * * ?</periodicity>
+        <autostart>true</autostart>
+        <args>
+           <arg>cron:3/30 40-45,50-55 * * * ?</arg>
+        </args>
+     </task>
+-->
+<!--
+    example : PurgeEventsOlderThan= "5000 events", "19 logs", "7 months", "2 years", "3 days", "where ..."
+-->
+<!--
+     <task>
+        <class>es.cls.sae.log.LogBuilderSchedule</class>
+        <entrypoint>callFromScheduler</entrypoint>
+        <date>
+            <time>
+                <format>HOUR_OF_DAY</format>
+                <value>23</value>
+            </time>
+            <time>
+                <format>MINUTE</format>
+                <value>00</value>
+            </time>
+        </date>
+        <periodicity>3600000</periodicity>
+        <autostart>true</autostart>
+        <args>
+           <arg>ONELOGBYDAY</arg>
+           <arg>MaxEventsForOnePdf=5000</arg>
+           <arg>StoreLogXml=attachment</arg>
+           <arg>PurgeEventsOlderThan=10 logs</arg>
+        </args>
+     </task>
+-->
+<!--
+     <task>
+        <class>es.cls.capture.JobScheduler</class>
+        <entrypoint>callFromScheduler</entrypoint>
+        <periodicity>60000</periodicity>
+        <autostart>true</autostart>
+        <args/>
+     </task>
+-->
+<!--
+   params [0] : duration (second) : ignore jobs created under last N seconds"
+   params [1] : boolean (true/false) : delete associated files"
+-->
+<!--
+     <task>
+        <class>es.cls.dcs.schedule.ScheduledConversion</class>
+        <entrypoint>CleanEndedAsyncJobs</entrypoint>
+        <periodicity>1800000</periodicity>
+        <autostart>true</autostart>
+        <args>
+           <arg>3600</arg>
+           <arg>true</arg>
+        </args>
+     </task>
+-->
+<!--
+     params [0] : number of DCSJOB rows to be processed each time
+-->
+<!--
+     <task>
+        <class>es.cls.dcs.schedule.ScheduledConversion</class>
+        <entrypoint>StartAsyncJobs</entrypoint>
+        <periodicity>1800000</periodicity>
+        <autostart>true</autostart>
+        <args>
+           <arg>1800000</arg>
+        </args>
+     </task>
+-->
+<!--
+   params [0] : where clause for "select .. from PRET_ELEM where <where>"
+   params [1] : usercode for mailAdmin example : "es-archives"
+   params [2] : key of CSOMS_MAPPING used for PDF generation
+   params [3] : template for user mail
+   params [4] : template for admin mail
+   params [5] : title for user mail
+   params [6] : title for admin mail
+-->
+<!--
+      <task>
+          <class>es.cls.archives.mail.ScheduledRelancesGen</class>
+          <entrypoint>callFromScheduler</entrypoint>
+          <date>
+              <time>
+                  <format>HOUR_OF_DAY</format>
+                  <value>10</value>
+              </time>
+              <time>
+                  <format>MINUTE</format>
+                  <value>15</value>
+              </time>
+          </date>
+          <periodicity>360000</periodicity>
+          <autostart>true</autostart>
+          <args>
+              <arg></arg>
+              <arg>es-archives</arg>
+              <arg>6</arg>
+              <arg>../apps/ARCHIVES/Templates/comm/relance/mailRelance.htm</arg>
+              <arg>../apps/ARCHIVES/Templates/comm/relance/mailRelanceAdmin.htm</arg>
+              <arg>Archives - Relance de pret</arg>
+              <arg>Archives - Echec des relances de pret</arg>
+          </args>
+      </task>
+-->
+<!--
+      <task>
+        <class>es.cls.portal.voffice.clsDiffList</class>
+        <periodicity>300000</periodicity>
+        <autostart>false</autostart>
+        <args>
+          <arg></arg>
+        </args>
+      </task>
+-->
+<!--
+    <task>
+        <class>es.cls.oss.OSSCache</class>
+        <entrypoint>purgeCaches</entrypoint>
+        <periodicity>1800000</periodicity>
+        <autostart>true</autostart>
+        <args>
+            <arg>1800000</arg>
+        </args>
+    </task>
+-->
+<!--
+    <task>
+        <class>es.cls.ods.loader.SourceLoaderTask</class>
+        <entrypoint>callFromScheduler</entrypoint>
+        <periodicity>300000</periodicity>
+        <autostart>false</autostart>
+        <args>
+            <arg>...loader name...</arg>
+        </args>
+    </task>
+-->
+<!--
+    <task>
+        <class>es.cls.doc.transfer.DocTransferSchedule</class>
+        <entrypoint>callFromScheduler</entrypoint>
+        <periodicity>300000</periodicity>
+        <autostart>true</autostart>
+        <args>
+            <arg>dPortal</arg>
+            <arg>5000</arg>
+        </args>
+    </task>
+-->
+<!--
+    <task>
+        <class>es.cls.capture.PurgeFinishedJobs</class>
+        <entrypoint>callFromScheduler</entrypoint>
+        <periodicity>1800000</periodicity>
+        <autostart>true</autostart>
+        <args>
+            <arg>RunWebApp=this</arg>
+            <arg>JobName=Excel%</arg>
+            <arg>AfterDate=20120131</arg>
+            <arg>BeforeDate=20120301</arg>
+            <arg>BeforeDays=7</arg>
+        </args>
+    </task>
+-->
+<!--
+             Purge lock records from CSLOCKREC.
+             Criterions may include '%' as wilcards.
+             If an argument is empty, it is not inserted into the filter request.
+             
+             KeepSeconds : Records will be deletes until their creation date 
+                            is less than or equal to 'now' minus 'KeepSeconds'
+             Criterion1  : Optional filter for column of same name
+             Criterion2  : Optional filter for column of same name
+             Criterion3  : Optional filter for column of same name
+-->
+<!--
+    <task>
+        <class>es.cls.core.db.lockrec.PurgeCSLockRecScheduler</class>
+        <entrypoint>callFromScheduler</entrypoint>
+        <periodicity>1800000</periodicity>
+        <autostart>false</autostart>
+        <args>
+            <arg>KeepSeconds=10000</arg>
+            <arg>Criterion1=</arg>
+            <arg>Criterion2=\dPortal\VERSEMENTS\%</arg>
+            <arg>Criterion3=</arg>
+        </args>
+    </task>
+-->
+<!--
+             Purge lock records from CSLOCKMNG & CSLOCKTRANS, if not currently locked.
+             If KeepSeconds is Empty its value is set to DB_MaxLockDuration.
+             If Force is empty, it defaults to false.
+             Other arguments may include '%' as wilcards.
+             If an argument is empty, it is not inserted into the filter request.
+             
+             KeepSeconds : Records will be deletes until their creation date 
+                            is less than or equal to 'now' minus 'KeepSeconds'
+             DBName      : Optional DBname to identify the records to delete
+             TableName   : Optional Table name to identify the records to delete
+             RecordKey   : Optional Key to identify the records to delete
+             Force       : true allows to force delete records which have UNLOCKED=0
+-->
+<!--
+    <task>
+        <class>es.cls.core.db.lck.PurgeCSLockMngScheduler</class>
+        <entrypoint>callFromScheduler</entrypoint>
+        <periodicity>1800000</periodicity>
+        <autostart>false</autostart>
+        <args>
+            <arg>KeepSeconds=600</arg>
+            <arg>DBName=dPort%</arg>
+            <arg>TableName=</arg>
+            <arg>RecordKey=</arg>
+            <arg>Force=true</arg>
+        </args>
+    </task>
+-->
+<!--
+    <task>
+        <class>es.cls.core.provider.impl.asyncaction.AsyncActionScheduler</class>
+        <entrypoint>callFromScheduler</entrypoint>
+        <periodicity>60000</periodicity>
+        <autostart>true</autostart>
+        <args>
+            <arg>AbbyyRS</arg>
+            <arg>10</arg>
+        </args>
+    </task>
+-->
+<!--
+           param[0] Max folders to scan : leave it empty if you want to use default value
+           param[1] Max time execution in ms : leave it empty if you want to use default value
+           param[...] Directories to scan : one or more
+-->
+<!--
+   <task>
+        <class>es.cls.docs.DeleteEmptyFoldersInstances</class>
+        <entrypoint>callFromScheduler</entrypoint>
+        <periodicity>86400000</periodicity>
+        <autostart>false</autostart>
+        <args>
+           <arg>1000000</arg>
+           <arg>600000</arg>
+           <arg>D:\docs\dPortal\ESDMS_DEMO\000\000</arg>
+           <arg>D:\docs\dPortal\ESDMS_DEMO\000\001</arg>
+        </args>
+   </task>
+-->
+<!--
+        param[0] : export path
+        param[1] : leave it empty to export all spaces or assign space id
+        param[2] : set it to true if you want to use timeStamp (default : false)
+-->
+<!--
+   <task>
+      <class>es.cls.el.tools.ExportManager</class>
+      <entrypoint>callFromScheduler</entrypoint>
+      <periodicity>86400000</periodicity>
+      <autostart>false</autostart>
+      <args>
+        <arg>export/cws/scheduledExport</arg>
+      </args>
+      <session>
+         <usercode>admin</usercode>
+      </session>
+   </task>
+-->
+<!--
+   <task>
+      <class>es.cls.img.rendering.tools.DocCache</class>
+      <entrypoint>purgeCache</entrypoint>
+      <periodicity>7200000</periodicity>
+      <autostart>true</autostart>
+      <args>
+      </args>
+   </task>
+-->
+<!--
+   <task>
+      <class>es.cls.doc.ext.PDFProcessorScheduler</class>
+      <entrypoint>callFromScheduler</entrypoint>
+      <periodicity>10000</periodicity>
+      <autostart>false</autostart>
+      <session>
+         <usercode>admin</usercode>
+      </session>
+   </task>
+-->
+<!--
+   <task>
+      <class>es.cls.doc.ext.PDFExtractorScheduler</class>
+      <entrypoint>callFromScheduler</entrypoint>
+      <periodicity>10000</periodicity>
+      <autostart>false</autostart>
+      <session>
+         <usercode>admin</usercode>
+      </session>
+   </task>
+-->
+<!-- 
+	Example : "5000" log or which date is less than "02/25/2015 02:08:06" 
+-->
+<!--
+    <task>
+        <class>es.cls.trans.PurgeDataScheduler</class>
+        <entrypoint>callFromScheduler</entrypoint>
+        <periodicity>86400000</periodicity>
+        <autostart>true</autostart>
+        <args>
+           <arg>1000</arg>
+        </args>
+     </task>
+-->
+</param>
+        ]]>
+     </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>RMIServices</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamRMIServices</DESCRIPTION>
+     <CONTENT>
+     <!--RMI>
+      <port>2099</port>
+      <services>
+        <service>
+          <name>DocManager</name>
+          <class>es.cls.webdav.DocManagerImpl</class>
+        </service>
+      </services>
+    </RMI-->
+     </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>LoginConfig</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamLoginConfig</DESCRIPTION>
+     <CONTENT>
+        <![CDATA[
+    <?xml version="1.0"?>
+    <LoginConfiguration>
+
+        <IdentityRouters>
+            <!--
+              Definitions and parameters to detect identity route.
+              The choice of application for authentication depends on the source where
+               the user identity is found.
+            -->
+            
+            <!-- Two phases authentication -->
+            
+            <IdentityRouter>
+                <ClassName>es.cls.core.security.login.IdentityRouterForm</ClassName>
+                <TargetApplication>EverSuite_Servlet_Login_ParamGA1</TargetApplication>
+                <LoginRequest>login?UserGA1=${user}&amp;PasswordGA1=${password}&amp;redirect=none</LoginRequest>
+                <Params>
+                    <ParamUser>UserGA1</ParamUser>
+                    <ParamPassword>PasswordGA1</ParamPassword>
+                    <ParamSaveCookie>false</ParamSaveCookie>
+                </Params>
+            </IdentityRouter>
+            
+            <IdentityRouter>
+                <ClassName>es.cls.core.security.login.IdentityRouterForm</ClassName>
+                <TargetApplication>EverSuite_Servlet_Login_ParamGA2</TargetApplication>
+                <LoginRequest>login?UserGA2=${user}&amp;PasswordGA2=${password}&amp;CodeGA2=${authcode}&amp;redirect=none</LoginRequest>
+                <Params>
+                    <ParamUser>UserGA2</ParamUser>
+                    <ParamPassword>IdGA1</ParamPassword>
+                    <ParamAuthCode>CodeGA2</ParamAuthCode>
+                    <ParamSaveCookie>false</ParamSaveCookie>
+                </Params>
+            </IdentityRouter>
+
+            <!-- Two phases authentication -->
+            
+            <IdentityRouter>
+                <ClassName>es.cls.core.security.login.IdentityRouterForm</ClassName>
+                <TargetApplication>EverSuite_Servlet_Login_ParamTOTP1</TargetApplication>
+                <LoginRequest>login?UserTOTP1=${user}&amp;PasswordTOTP1=${password}&amp;redirect=none</LoginRequest>
+                <Params>
+                    <ParamUser>UserTOTP1</ParamUser>
+                    <ParamPassword>PasswordTOTP1</ParamPassword>
+                    <ParamSaveCookie>true</ParamSaveCookie>
+                </Params>
+            </IdentityRouter>
+            
+            <IdentityRouter>
+                <ClassName>es.cls.core.security.login.IdentityRouterForm</ClassName>
+                <TargetApplication>EverSuite_Servlet_Login_ParamTOTP2</TargetApplication>
+                <LoginRequest>login?UserTOTP2=${user}&amp;PasswordTOTP2=${password}&amp;CodeTOTP2=${authcode}&amp;redirect=none</LoginRequest>
+                <Params>
+                    <ParamUser>UserTOTP2</ParamUser>
+                    <ParamPassword>IdTOTP1</ParamPassword>
+                    <ParamAuthCode>CodeTOTP2</ParamAuthCode>
+                    <ParamSaveCookie>false</ParamSaveCookie>
+                </Params>
+            </IdentityRouter>
+
+            <!-- One phase authentication -->
+
+            <IdentityRouter>
+                <ClassName>es.cls.core.security.login.IdentityRouterForm</ClassName>
+                <TargetApplication>EverSuite_Servlet_Login_Param</TargetApplication>
+                <LoginRequest>login?user_name=${user}&amp;password=${password}&amp;redirect=none</LoginRequest>
+                <Params>
+                    <ParamUser>user_name</ParamUser>
+                    <ParamPassword>password</ParamPassword>
+                </Params>
+            </IdentityRouter>
+            <IdentityRouter>
+                <ClassName>es.cls.core.security.login.IdentityRouterToken</ClassName>
+                <TargetApplication>EverSuite_Servlet_Login_Token</TargetApplication>
+                <LoginRequest>login?user_token=${token}&amp;redirect=none</LoginRequest>
+                <Params>
+                    <ParamToken>user_token</ParamToken>
+                </Params>
+            </IdentityRouter>
+            <IdentityRouter>
+                <ClassName>es.cls.core.security.login.IdentityRouterSSO</ClassName>
+                <TargetApplication>EverSuite_Servlet_Login_SSO</TargetApplication>
+                <LoginRequest>login?redirect=none</LoginRequest>
+                <Params>
+                </Params>
+            </IdentityRouter>
+            <IdentityRouter>
+                <ClassName>es.cls.core.security.login.IdentityRouterKrbTGT</ClassName>
+                <TargetApplication>EverSuite_Servlet_Login_KrbTGT</TargetApplication>
+                <LoginRequest>login?krb_tgt=${tgt}&amp;redirect=none</LoginRequest>
+                <Params>
+                    <ParamTGT>krb_tgt</ParamTGT>
+                </Params>
+            </IdentityRouter>
+            <IdentityRouter>
+                <ClassName>es.cls.core.security.login.IdentityRouterCertificate</ClassName>
+                <TargetApplication>EverSuite_Servlet_Login_Certificate</TargetApplication>
+                <LoginRequest>login?redirect=none</LoginRequest>
+                <Params>
+                    <AttrUser>UID</AttrUser>
+                </Params>
+            </IdentityRouter>
+            <IdentityRouter>
+                <ClassName>es.cls.core.security.login.IdentityRouterHeaders</ClassName>
+                <TargetApplication>EverSuite_Servlet_Login_Headers</TargetApplication>
+                <LoginRequest>login?redirect=none</LoginRequest>
+                <Params>
+                    <HeaderUser>X-Auth-User</HeaderUser>
+                    <HeaderPassword>X-Auth-Password</HeaderPassword>
+                </Params>
+            </IdentityRouter>
+            <IdentityRouter>
+                <ClassName>es.cls.core.security.login.IdentityRouterCookies</ClassName>
+                <TargetApplication>EverSuite_Servlet_Login</TargetApplication>
+                <LoginRequest>login?user_name=guest&amp;password=guest&amp;redirect=none</LoginRequest>
+                <Params>
+                </Params>
+            </IdentityRouter>
+
+            <!-- When no identity found, provide a "guest" connection -->
+            <IdentityRouter>
+                <ClassName>es.cls.core.security.login.IdentityRouterGuest</ClassName>
+                <TargetApplication>EverSuite_Servlet_Login</TargetApplication>
+                <LoginRequest>login?user_name=guest&amp;password=guest&amp;redirect=none</LoginRequest>
+                <Params>
+                </Params>
+            </IdentityRouter>
+        </IdentityRouters>
+
+      <Applications>
+        <!--
+          Definitions which use modular LoginModules like LoginModuleLDAP
+          or LoginModuleCSUSER.
+        -->
+        <Application>
+          <Name>EverSuite_Servlet_Login_ParamGA1</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerImpl</ClassName>
+            <Params>
+              <DefaultRole>Public</DefaultRole>
+            </Params>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleCSUSER</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderCSUSER</UserRolesProvider>
+                <UpdateUserRoles>false</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+              </Params>
+            </LoginModule>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleGoogleAuth1</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <ValiditySeconds>30</ValiditySeconds>
+              </Params>
+            </LoginModule>
+          </LoginModules>
+        </Application>
+
+        <Application>
+          <Name>EverSuite_Servlet_Login_ParamGA2</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerImpl</ClassName>
+            <Params>
+              <DefaultRole>Public</DefaultRole>
+            </Params>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleGoogleAuth2</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderCSUSER</UserRolesProvider>
+                <UpdateUserRoles>false</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+                <CodeTryCOunt>3</CodeTryCOunt>
+              </Params>
+            </LoginModule>
+          </LoginModules>
+        </Application>
+
+
+
+        <Application>
+          <Name>EverSuite_Servlet_Login_ParamTOTP1</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerImpl</ClassName>
+            <Params>
+              <DefaultRole>Public</DefaultRole>
+            </Params>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleCSUSER</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderCSUSER</UserRolesProvider>
+                <UpdateUserRoles>false</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+              </Params>
+            </LoginModule>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleSMSOVH</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderCSUSER</UserRolesProvider>
+                <UpdateUserRoles>false</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+                <SMSAccount>sms-mj437367-1</SMSAccount>
+                <SMSLogin>alainrussier</SMSLogin>
+                <SMSPassword>sd5fg5g7</SMSPassword>
+                <SMSFrom>EVER TEAM</SMSFrom>
+                <SMSURL>https://www.ovh.com/cgi-bin/sms/http2sms.cgi?</SMSURL>
+                <SMSToNumberAttr>mobile</SMSToNumberAttr>
+                <SMSMessage>SMSAuthCodeMessage</SMSMessage>
+                <SMSValiditySeconds>300</SMSValiditySeconds>
+              </Params>
+            </LoginModule>
+          </LoginModules>
+        </Application>
+
+        <Application>
+          <Name>EverSuite_Servlet_Login_ParamTOTP2</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerImpl</ClassName>
+            <Params>
+              <DefaultRole>Public</DefaultRole>
+            </Params>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleTOTP2</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderCSUSER</UserRolesProvider>
+                <UpdateUserRoles>false</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+                <CodeTryCOunt>3</CodeTryCOunt>
+              </Params>
+            </LoginModule>
+          </LoginModules>
+        </Application>
+
+
+
+
+
+        <Application>
+          <Name>EverSuite_Servlet_Login_Token</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerToken</ClassName>
+            <Params>
+              <DefaultRole>Public</DefaultRole>
+            </Params>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleSSO</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderCSUSER</UserRolesProvider>
+                <UpdateUserRoles>true</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+              </Params>
+            </LoginModule>
+          </LoginModules>
+        </Application>
+
+        <Application>
+          <Name>EverSuite_Servlet_Login_SSO</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerSSO</ClassName>
+            <Params>
+              <DefaultRole>Public</DefaultRole>
+            </Params>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleSSO</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderLDAP</UserRolesProvider>
+                <UpdateUserRoles>true</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+                <UserRoleMemberAttrName>memberOf</UserRoleMemberAttrName>
+                <UserRoleRegExp>CN=(\w+)</UserRoleRegExp>
+                <LDAPConfig>
+                  <url>ldap://.../</url>
+                  <baseDN>DC=...,DC=...</baseDN>
+                  <userLogToLDAP>true</userLogToLDAP>
+                  <defaultUser></defaultUser>
+                  <defaultRole></defaultRole>
+                  <usersRoot></usersRoot>
+                  <adminLDAPLogin>CN=...,OU=...,OU=...,DC=...,DC=...</adminLDAPLogin>
+                  <adminLDAPPassword>...</adminLDAPPassword>
+                  <loginAttrName>sAMAccountName</loginAttrName>
+                  <roleAttrName></roleAttrName>
+                  <mapField>
+                    <USERCODE>cn</USERCODE>
+                    <LASTNAME>sn</LASTNAME>
+                    <FIRSTNAME>givenName</FIRSTNAME>
+                    <EMAIL static="true">mymail</EMAIL>
+                    <DESCRIPTION>distinguishedName</DESCRIPTION>
+                  </mapField>
+                </LDAPConfig>
+              </Params>
+              <!--
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderSP</UserRolesProvider>
+                <UpdateUserRoles>true</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+                <UserCaseSensitive>true</UserCaseSensitive>
+                <SPConfig>
+                     <SPSiteURL>http://sharepoint_server:1111/_layouts/EverSuite.SharePoint/UserInfo.aspx</SPSiteURL>
+                     <TimeOut>120000</TimeOut>
+                     <Domain>...</Domain>
+                     <adminSPUser>SharePoint Admin User</adminSPUser>
+                     <adminSPPassword> SharePoint Admin Password</adminSPPassword>
+                </SPConfig>
+              </Params>
+              -->
+            </LoginModule>
+          </LoginModules>
+        </Application>
+
+        <Application>
+          <Name>EverSuite_Servlet_Login_KrbTGT</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerKrbTGT</ClassName>
+            <Params>
+              <DefaultRole>Public</DefaultRole>
+              <MappedHostServer></MappedHostServer>
+              <KerberosRealm></KerberosRealm>
+              <KerberosKDC></KerberosKDC>
+            </Params>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleSSO</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderLDAP</UserRolesProvider>
+                <UpdateUserRoles>true</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+                <UserRoleMemberAttrName>memberOf</UserRoleMemberAttrName>
+                <UserRoleRegExp>CN=(\w+)</UserRoleRegExp>
+                <LDAPConfig>
+                  <url>ldap://.../</url>
+                  <baseDN>DC=...,DC=...</baseDN>
+                  <userLogToLDAP>true</userLogToLDAP>
+                  <defaultUser></defaultUser>
+                  <defaultRole></defaultRole>
+                  <usersRoot></usersRoot>
+                  <adminLDAPLogin>CN=...,OU=...,OU=...,DC=...,DC=...</adminLDAPLogin>
+                  <adminLDAPPassword>...</adminLDAPPassword>
+                  <loginAttrName>sAMAccountName</loginAttrName>
+                  <roleAttrName></roleAttrName>
+                  <mapField>
+                    <USERCODE>cn</USERCODE>
+                    <LASTNAME>sn</LASTNAME>
+                    <FIRSTNAME>givenName</FIRSTNAME>
+                    <EMAIL static="true">mymail</EMAIL>
+                    <DESCRIPTION>distinguishedName</DESCRIPTION>
+                  </mapField>
+                </LDAPConfig>
+              </Params>
+            </LoginModule>
+          </LoginModules>
+        </Application>
+
+        <Application>
+          <Name>EverSuite_Servlet_Login_Param</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerImpl</ClassName>
+            <Params/>
+          </CallbackHandler>
+
+          <LoginModules>
+
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleCSUSER</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderCSUSER</UserRolesProvider>
+                <UpdateUserRoles>true</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+                <UserCaseSensitive>true</UserCaseSensitive>
+              </Params>
+            </LoginModule>
+          </LoginModules>
+        </Application>
+
+        <Application>
+          <Name>EverSuite_Servlet_Login</Name>
+            <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerImpl</ClassName>
+            <Params/>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleCSUSER</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderCSUSER</UserRolesProvider>
+                <UpdateUserRoles>true</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+                <UserCaseSensitive>true</UserCaseSensitive>
+              </Params>
+            </LoginModule>
+              <!--
+                LDAP LoginModules try to find their own parameter list into the xml like below.
+                If they don't find "LDAPConfig", they use the standard EverSuite LDAP parameter
+                from CSPARAM.
+
+                config possible:
+
+                <UserRoleMemberAttrName>memberOf</UserRoleMemberAttrName>
+
+                or
+
+                <UserRoleMemberAttrName>member</UserRoleMemberAttrName>
+                <UserRoleMemberStorageAttrValue>distinguishedName</UserRoleMemberStorageAttrValue>
+                <LDAPRoleNode>OU=EVER-TEAM-Groupe-Distribution,DC=ever-team,DC=com</LDAPRoleNode>
+
+                <LoginModule>
+                  <ClassName>es.cls.core.security.login.module.LoginModuleLDAP</ClassName>
+                  <FlagName>Required</FlagName>
+                  <Params>
+                    <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderLDAP</UserRolesProvider>
+                    <UpdateUserRoles>true</UpdateUserRoles>
+                    <MayDeleteRoles>false</MayDeleteRoles>
+                    <DefaultRole>Public</DefaultRole>
+                    <UserRoleMemberAttrName>memberOf</UserRoleMemberAttrName>
+                    <UserRoleRegExp>CN=(\w+)</UserRoleRegExp>
+                    <LDAPConfig>
+                      <url>ldap://.../</url>
+                      <baseDN>DC=...,DC=...</baseDN>
+                      <userLogToLDAP>true</userLogToLDAP>
+                      <defaultUser></defaultUser>
+                      <defaultRole>Admin</defaultRole>
+                      <usersRoot></usersRoot>
+                      <adminLDAPLogin>CN=...,OU=...,OU=...,DC=...,DC=...</adminLDAPLogin>
+                      <adminLDAPPassword>...</adminLDAPPassword>
+                      <loginAttrName>sAMAccountName</loginAttrName>
+                      <roleAttrName></roleAttrName>
+                      <mapField>
+                        <USERCODE>cn</USERCODE>
+                        <LASTNAME>sn</LASTNAME>
+                        <FIRSTNAME>givenName</FIRSTNAME>
+                        <EMAIL static="true">mymail</EMAIL>
+                        <DESCRIPTION>distinguishedName</DESCRIPTION>
+                      </mapField>
+                    </LDAPConfig>
+                  </Params>
+                </LoginModule>
+              -->
+          </LoginModules>
+        </Application>
+
+        <Application>
+          <Name>EverSuite_Servlet_Login_Certificate</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerCertificate</ClassName>
+            <Params>
+                <StrictMode>false</StrictMode>
+                <USERCODE>SUBJ_UID</USERCODE>
+                <PASSWORD></PASSWORD>
+                <LASTNAME>SUBJ_CN</LASTNAME>
+                <FIRSTNAME></FIRSTNAME>
+                <ROLE></ROLE>
+                <PHONENBR></PHONENBR>
+                <FAXNBR></FAXNBR>
+                <MOBILE></MOBILE>
+                <EMAIL>SUBJ_EMailAddress</EMAIL>
+                <ADMIN></ADMIN>
+                <LANGUAGE>SUBJ_C</LANGUAGE>
+                <FIRSTMENU></FIRSTMENU>
+                <DESCRIPTION></DESCRIPTION>
+                <SERVICE>SUBJ_OU</SERVICE>
+                <PREFIX></PREFIX>
+                <STYLESHEET></STYLESHEET>
+                <DCHARSET></DCHARSET>
+                <APPNAME></APPNAME>
+                <dfltROLE>Public</dfltROLE>
+                <dfltLANGUAGE>FR</dfltLANGUAGE>
+                <dfltDCHARSET>ISO-8859-1</dfltDCHARSET>
+                <dfltFIRSTMENU>default</dfltFIRSTMENU>
+            </Params>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleCSUSER</ClassName>
+              <FlagName>sufficient</FlagName>
+              <Params>
+                  <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderCertificate</UserRolesProvider>
+                  <UpdateUserRoles>true</UpdateUserRoles>
+                  <MayDeleteRoles>false</MayDeleteRoles>
+                  <DefaultRole>Public</DefaultRole>
+              </Params>
+            </LoginModule>
+          </LoginModules>
+        </Application>
+
+        <Application>
+          <Name>EverSuite_Servlet_Login_Headers</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerHeaders</ClassName>
+            <Params>
+                <StrictMode>false</StrictMode>
+                <NoPassword>false</NoPassword>
+                <USERCODE>HeaderUserCode</USERCODE>
+                <PASSWORD>HeaderPassWord</PASSWORD>
+                <LASTNAME>HeaderLastName</LASTNAME>
+                <FIRSTNAME>HeaderFirstName</FIRSTNAME>
+                <ROLE>HeaderRole</ROLE>
+                <PHONENBR>HeaderPhoneNbr</PHONENBR>
+                <FAXNBR>HeaderFaxNbr</FAXNBR>
+                <MOBILE>HeaderMobile</MOBILE>
+                <EMAIL>HeaderEMail</EMAIL>
+                <ADMIN>HeaderAdmin</ADMIN>
+                <LANGUAGE>HeaderLanguage</LANGUAGE>
+                <FIRSTMENU>HeaderFirstmenu</FIRSTMENU>
+                <DESCRIPTION>HeaderDescription</DESCRIPTION>
+                <SERVICE>HeaderService</SERVICE>
+                <PREFIX>HeaderPrefix</PREFIX>
+                <STYLESHEET>HeaderStyleSheet</STYLESHEET>
+                <DCHARSET>HeaderDCharset</DCHARSET>
+                <APPNAME>HeaderAppName</APPNAME>
+                <dfltROLE>9</dfltROLE>
+                <dfltLANGUAGE>FR</dfltLANGUAGE>
+                <dfltDCHARSET>ISO-8859-1</dfltDCHARSET>
+                <AdminCode>ever</AdminCode>
+            </Params>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleSSO</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                  <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderHeaders</UserRolesProvider>
+                  <UpdateUserRoles>true</UpdateUserRoles>
+                  <MayDeleteRoles>false</MayDeleteRoles>
+                  <DefaultRole>Public</DefaultRole>
+              </Params>
+            </LoginModule>
+          </LoginModules>
+        </Application>
+
+        <Application>
+          <Name>EverSuite_Portlet_Login</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerImpl</ClassName>
+            <Params/>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleCSUSER</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderCSUSER</UserRolesProvider>
+                <UpdateUserRoles>true</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+              </Params>
+            </LoginModule>
+          </LoginModules>
+        </Application>
+
+        <Application>
+          <Name>EverSuite_WS_Login</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerImpl</ClassName>
+            <Params/>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleCSUSER</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderCSUSER</UserRolesProvider>
+                <UpdateUserRoles>true</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+              </Params>
+            </LoginModule>
+          </LoginModules>
+        </Application>
+
+        <Application>
+          <Name>EverSuite_Servlet_WebDAV_SSO</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerSSO</ClassName>
+            <Params>
+              <DefaultRole>Public</DefaultRole>
+            </Params>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleSSO</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderLDAP</UserRolesProvider>
+                <UpdateUserRoles>true</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+              </Params>
+            </LoginModule>
+          </LoginModules>
+        </Application>
+
+        <Application>
+          <Name>EverSuite_Servlet_WebDAV</Name>
+          <UserManagerHandler>
+            <ClassName></ClassName>
+            <Params/>
+          </UserManagerHandler>
+
+          <CallbackHandler>
+            <ClassName>es.cls.core.security.login.callback.CallbackHandlerHTTP</ClassName>
+            <Params/>
+          </CallbackHandler>
+
+          <LoginModules>
+            <LoginModule>
+              <ClassName>es.cls.core.security.login.module.LoginModuleCSUSER</ClassName>
+              <FlagName>Required</FlagName>
+              <Params>
+                <UserRolesProvider>es.cls.core.security.login.module.UserRolesProviderCSUSER</UserRolesProvider>
+                <UpdateUserRoles>true</UpdateUserRoles>
+                <MayDeleteRoles>false</MayDeleteRoles>
+                <DefaultRole>Public</DefaultRole>
+              </Params>
+            </LoginModule>
+          </LoginModules>
+        </Application>
+      </Applications>
+    </LoginConfiguration>
+        ]]>
+     </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>TmpDir</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamTmpDir</DESCRIPTION>
+     <CONTENT>
+        <![CDATA[
+           <TmpDir>
+               <TmpDirPath></TmpDirPath>
+               <TmpDirURL></TmpDirURL>
+           </TmpDir>
+        ]]>
+     </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>TokenHandler</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamTokenHandler</DESCRIPTION>
+     <CONTENT></CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>DeleteDocs</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamDeleteDocs</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+    <param>
+     <PARAMSEQ>mailer</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>Parammailer</DESCRIPTION>
+     <CONTENT><![CDATA[<param><host>smtpserver</host><from>root@myserver</from><to>noone</to><subject>Mail from EverSuite</subject><user_autentif></user_autentif><pass_autentif></pass_autentif></param>]]></CONTENT>
+  </param>
+    <param>
+     <PARAMSEQ>SendMsgMail</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSendMsgMail</DESCRIPTION>
+     <CONTENT>no</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>NonFilteredRoleSupercedesFilters</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamNonFilteredRoleSupercedesFilters</DESCRIPTION>
+     <CONTENT>no</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>ModeUpdFile</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamModeUpdFile</DESCRIPTION>
+     <CONTENT>Upload</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>ChunkSizeStreaming</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamChunkSizeStreaming</DESCRIPTION>
+     <CONTENT>-1</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>UploadMaxSize</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamUploadMaxSize</DESCRIPTION>
+     <CONTENT>2097152</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>ModeLockManager</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamModeLockManager</DESCRIPTION>
+     <CONTENT>HSH</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>ResourceCacheTime</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamResourceCacheTime</DESCRIPTION>
+     <CONTENT>10</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>ThumbnailsSmall</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamThumbnailsSmall</DESCRIPTION>
+     <CONTENT>no</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>URICacheTime</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamURICacheTime</DESCRIPTION>
+     <CONTENT>10</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>ClassRepository</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamClassRepository</DESCRIPTION>
+     <CONTENT>
+        <![CDATA[
+           <Factories>
+           <!-- default initialisation for feeds edit and uncomment this to override
+               <Factory  name="dao" >es.cls.orm.hib.DataAccess</Factory>
+               <Factory  name="site" >es.feeds.channel.Site</Factory>
+               <Factory  name="cm" >es.feeds.channel.ChannelManager</Factory>
+               <Factory  name="ucm" >es.feeds.subscription.UserChannelManager</Factory>
+               <Factory  name="im" >es.feeds.item.ItemManager</Factory>
+            -->
+            <!-- default class implementation for Pivot Rule
+               <Factory  name="PivotRuleDefaultImplementation" >es.cls.core.pivot.PivotImportRuleImpl</Factory>
+            -->
+           </Factories>
+        ]]>
+     </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>Def_Encoding</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamDef_Encoding</DESCRIPTION>
+     <CONTENT>ISO-8859-1</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>SO_Encoding</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSO_Encoding</DESCRIPTION>
+     <CONTENT>UTF-8</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>TDescMetaFullInitialize</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamTDescMetaFullInitialize</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>UKVClass</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamUKVClass</DESCRIPTION>
+     <CONTENT>es.cls.core.db.ukv.ukvSelect</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>KeysSplitterSliceSize</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamKeysSplitterSliceSize</DESCRIPTION>
+     <CONTENT>100</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>wanticon</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>Paramwanticon</DESCRIPTION>
+     <CONTENT>yes</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>escmUsePRF</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamescmUsePRF</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>escmSearch</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamescmSearch</DESCRIPTION>
+     <CONTENT>SEARCH</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>escmPrfAllViews</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamescmPrfAllViews</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>DCOMProvider</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamDCOMProvider</DESCRIPTION>
+     <CONTENT>
+        <![CDATA[
+            <?xml version="1.0"?>
+            <RootElement>
+                <Services>
+                <!--
+                    <Service name="MaxTools" progid="ESCtrlBridge.BMaxTools.1" uuid="1AE6983C-2A77-443A-936C-CCE0352F2C14">
+                        <Provider host="test-scan" domain="test-scan" user="Administrateur" password="admins"/>
+                    </Service>
+                    <Service name="MaxCold" progid="ESCtrlBridge.BMaxCold.1" uuid="1C652606-4615-4143-9A31-5641573B3CC0">
+                        <Provider host="test-scan" domain="test-scan" user="Administrateur" password="admins"/>
+                    </Service>
+                    <Service name="MaxBCod" progid="ESCtrlBridge.BMaxBCod.1" uuid="835F398B-B140-41C0-88D0-B165EFC155D9">
+                        <Provider host="test-scan" domain="test-scan" user="Administrateur" password="admins"/>
+                    </Service>
+                    <Service name="MaxICR" progid="ESCtrlBridge.BMaxICR.1" uuid="1EEAADA9-3F93-4106-A6EF-DD2AD1CFA814">
+                        <Provider host="test-scan" domain="test-scan" user="Administrateur" password="admins"/>
+                    </Service>
+                    <Service name="MaxOCR" progid="ESCtrlBridge.BMaxOCR.1" uuid="CAA4A2BC-2955-4ABE-B04C-3F01B48027F6">
+                        <Provider host="test-scan" domain="test-scan" user="Administrateur" password=""/>
+                    </Service>
+                -->
+                </Services>
+            </RootElement>
+        ]]>
+     </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>DocESFtpPrefix</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamDocESFtpPrefix</DESCRIPTION>
+     <CONTENT>
+        <![CDATA[
+            <?xml version="1.0"?>
+            <ftpserveurs>
+                <ftpserveur name="default">
+                    <host>myftpserver</host>
+                    <username>myusername</username>
+                    <password>myusercode</password>
+                    <folder>rootfolder</folder>
+                </ftpserveur>
+            </ftpserveurs>
+        ]]>
+     </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>DocCloudPrefix</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamDocCloudPrefix</DESCRIPTION>
+     <CONTENT>
+        <![CDATA[
+            <?xml version="1.0"?>
+            <cloud_file>
+                <connexion name="cloudG" type="googledoc">
+                    <user>ever.team@gmail.com</user>
+                    <pass>xxxxxx</pass>
+                </connexion>
+            </cloud_file>
+        ]]>
+     </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>AlwaysForceLogin</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamAlwaysForceLogin</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+   <param>
+     <PARAMSEQ>IsUpper</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamIsUpper</DESCRIPTION>
+     <CONTENT>yes</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>AccessMode</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamAccessMode</DESCRIPTION>
+     <CONTENT>read-write</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>NumberOfFailedLogin</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamNumberOfFailedLogin</DESCRIPTION>
+     <CONTENT>3</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>TimeOfFailedLogin</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamTimeOfFailedLogin</DESCRIPTION>
+     <CONTENT>1</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>CheckUnicityContentOn</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamCheckUnicityContentOn</DESCRIPTION>
+     <CONTENT>ALL</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>GlobalSignature</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamGlobalSignature</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>CheckFileFormat</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamCheckFileFormat</DESCRIPTION>
+     <CONTENT>BLOCK</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>FileFormatList</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamFileFormatList</DESCRIPTION>
+     <CONTENT>
+        <![CDATA[
+            <extensions>
+        <extension>eml</extension>
+        <extension>ai</extension>
+        <extension>aif</extension>
+        <extension>aifc</extension>
+        <extension>aiff</extension>
+        <extension>asc</extension>
+        <extension>au</extension>
+        <extension>avi</extension>
+        <extension>bcpio</extension>
+        <extension>bin</extension>
+        <extension>c</extension>
+        <extension>cc</extension>
+        <extension>ccad</extension>
+        <extension>cdf</extension>
+        <extension>class</extension>
+        <extension>cpio</extension>
+        <extension>cpt</extension>
+        <extension>csh</extension>
+        <extension>css</extension>
+        <extension>csv</extension>
+        <extension>dcr</extension>
+        <extension>dir</extension>
+        <extension>dms</extension>
+        <extension>doc</extension>
+        <extension>docx</extension>
+        <extension>drw</extension>
+        <extension>dvi</extension>
+        <extension>dwg</extension>
+        <extension>dxf</extension>
+        <extension>dxr</extension>
+        <extension>eps</extension>
+        <extension>etx</extension>
+        <extension>exe</extension>
+        <extension>ez</extension>
+        <extension>f</extension>
+        <extension>f90</extension>
+        <extension>fli</extension>
+        <extension>flv</extension>
+        <extension>gif</extension>
+        <extension>gtar</extension>
+        <extension>gz</extension>
+        <extension>h</extension>
+        <extension>hdf</extension>
+        <extension>hh</extension>
+        <extension>hqx</extension>
+        <extension>htm</extension>
+        <extension>html</extension>
+        <extension>ice</extension>
+        <extension>ief</extension>
+        <extension>iges</extension>
+        <extension>igs</extension>
+        <extension>ips</extension>
+        <extension>ipx</extension>
+        <extension>jpe</extension>
+        <extension>jpeg</extension>
+        <extension>jpg</extension>
+        <extension>js</extension>
+        <extension>kar</extension>
+        <extension>latex</extension>
+        <extension>lha</extension>
+        <extension>lic</extension>
+        <extension>lsp</extension>
+        <extension>lzh</extension>
+        <extension>m</extension>
+        <extension>man</extension>
+        <extension>me</extension>
+        <extension>mesh</extension>
+        <extension>mid</extension>
+        <extension>midi</extension>
+        <extension>mif</extension>
+        <extension>mime</extension>
+        <extension>mov</extension>
+        <extension>movie</extension>
+        <extension>mp2</extension>
+        <extension>mp3</extension>
+        <extension>mpe</extension>
+        <extension>mpeg</extension>
+        <extension>mpg</extension>
+        <extension>mpga</extension>
+        <extension>ms</extension>
+        <extension>msg</extension>
+        <extension>msh</extension>
+        <extension>nc</extension>
+        <extension>oda</extension>
+        <extension>pbm</extension>
+        <extension>odt</extension>
+        <extension>ods</extension>
+        <extension>odp</extension>
+        <extension>odg</extension>
+        <extension>odc</extension>
+        <extension>odf</extension>
+        <extension>odb</extension>
+        <extension>odi</extension>
+        <extension>odm</extension>
+        <extension>ott</extension>
+        <extension>ots</extension>
+        <extension>otp</extension>
+        <extension>otg</extension>
+        <extension>p12</extension>
+        <extension>pdb</extension>
+        <extension>pdf</extension>
+        <extension>pfx</extension>
+        <extension>pgm</extension>
+        <extension>pgn</extension>
+        <extension>png</extension>
+        <extension>pnm</extension>
+        <extension>pot</extension>
+        <extension>ppm</extension>
+        <extension>pps</extension>
+        <extension>ppsx</extension>
+        <extension>ppt</extension>
+        <extension>pptx</extension>
+        <extension>ppz</extension>
+        <extension>pre</extension>
+        <extension>prt</extension>
+        <extension>ps</extension>
+        <extension>qt</extension>
+        <extension>ra</extension>
+        <extension>ram</extension>
+        <extension>ras</extension>
+        <extension>rgb</extension>
+        <extension>rm</extension>
+        <extension>roff</extension>
+        <extension>rpm</extension>
+        <extension>rtf</extension>
+        <extension>rtx</extension>
+        <extension>scm</extension>
+        <extension>set</extension>
+        <extension>sgm</extension>
+        <extension>sgml</extension>
+        <extension>sh</extension>
+        <extension>shar</extension>
+        <extension>silo</extension>
+        <extension>sit</extension>
+        <extension>skd</extension>
+        <extension>skm</extension>
+        <extension>skp</extension>
+        <extension>skt</extension>
+        <extension>smi</extension>
+        <extension>smil</extension>
+        <extension>snd</extension>
+        <extension>sol</extension>
+        <extension>spl</extension>
+        <extension>src</extension>
+        <extension>step</extension>
+        <extension>stl</extension>
+        <extension>stp</extension>
+        <extension>sv4cpio</extension>
+        <extension>sv4crc</extension>
+        <extension>swf</extension>
+        <extension>sxc</extension>
+        <extension>stc</extension>
+        <extension>sxd</extension>
+        <extension>std</extension>
+        <extension>sxi</extension>
+        <extension>sti</extension>
+        <extension>sxm</extension>
+        <extension>sxw</extension>
+        <extension>sxg</extension>
+        <extension>stw</extension>
+        <extension>t</extension>
+        <extension>tar</extension>
+        <extension>tcl</extension>
+        <extension>tex</extension>
+        <extension>texi</extension>
+        <extension>texinfo</extension>
+        <extension>tif</extension>
+        <extension>tiff</extension>
+        <extension>tr</extension>
+        <extension>tsi</extension>
+        <extension>tsp</extension>
+        <extension>tsv</extension>
+        <extension>txt</extension>
+        <extension>unv</extension>
+        <extension>ustar</extension>
+        <extension>vcd</extension>
+        <extension>vda</extension>
+        <extension>viv</extension>
+        <extension>vivo</extension>
+        <extension>vrml</extension>
+        <extension>wav</extension>
+        <extension>wrl</extension>
+        <extension>xbm</extension>
+        <extension>xlc</extension>
+        <extension>xll</extension>
+        <extension>xlm</extension>
+        <extension>xls</extension>
+        <extension>xlsx</extension>
+        <extension>xlw</extension>
+        <extension>xml</extension>
+        <extension>xpm</extension>
+        <extension>xwd</extension>
+        <extension>xyz</extension>
+        <extension>zip</extension>
+            </extensions>
+        ]]>
+     </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>VerifyDocAfterPut</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamVerifyDocAfterPut</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>RetryCountOnInsertionException</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamRetryCountOnInsertionException</DESCRIPTION>
+     <CONTENT>1</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>RetryCountOnDeletionException</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamRetryCountOnDeletionException</DESCRIPTION>
+     <CONTENT>1</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>triggermanager</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>Paramtriggermanager</DESCRIPTION>
+     <CONTENT>
+    <![CDATA[
+            <triggers>
+            <!--
+              <trigger dbname="dPortal" tablename="MAILTABLE">
+                <class datatype="document" asynchron="false" mode="after">es.cls.core.db.trigger.TriggerDocumentHDS</class>
+              </trigger>
+              <trigger dbname="dPortal" tablename="MAILTABLE">
+                <class datatype="record" asynchron="false" mode="before">es.cls.core.db.trigger.TriggerHDS</class>
+              </trigger>
+              <trigger dbname="dPortal" tablename="ESDMS_DEMO">
+                <class>es.cls.core.db.trigger.TriggerLog</class>
+              </trigger>
+              <trigger dbname="dPortal" tablename="ESDMS_DEMO">
+                <class datatype="record" asynchron="false" mode="before">es.cls.core.db.trigger.TriggerLog</class>
+              </trigger>
+              <trigger dbname="dPortal" tablename="ESDMS_DEMO">
+                <class datatype="record" asynchron="false" mode="after">es.cls.core.db.trigger.TriggerLog</class>
+              </trigger>
+              <trigger dbname="dPortal" tablename="ESDMS_DEMO">
+                <class datatype="document" asynchron="true">es.cls.core.db.trigger.TriggerDocumentLog</class>
+              </trigger>
+              <trigger dbname="dPortal" tablename="ESDMS_DEMO">
+                <class datatype="document" asynchron="false" mode="before">es.cls.core.db.trigger.TriggerDocumentLog</class>
+              </trigger>
+              <trigger dbname="dPortal" tablename="ESDMS_DEMO">
+                <class datatype="document" asynchron="false" mode="after">es.cls.core.db.trigger.TriggerDocumentLog</class>
+              </trigger>
+              <trigger dbname="dPortal" tablename="ESDMS_DEMO">
+                <class datatype="document" asynchron="false" mode="after">es.cls.core.db.trigger.TriggerDocumentRights</class>
+              </trigger>
+              <trigger dbname="dPortal" tablename="ESDMS_DEMO">
+                <class datatype="document" asynchron="false" mode="after">es.cls.core.db.trigger.TriggerDocumentRetention</class>
+              </trigger>
+
+              <trigger dbname="dPortal" tablename="IBDOCS">
+                <class datatype="document" asynchron="true">es.cls.core.db.trigger.TriggerDocumentRendering</class>
+                <params>
+                    <param name="renderMode">first_thumb</param>
+                </params>
+              </trigger>
+              <trigger dbname="dPortal" tablename="IBCOMPANYHOLDING">
+                <class datatype="document" asynchron="true">es.cls.core.db.trigger.TriggerDocumentRendering</class>
+                <params>
+                    <param name="renderMode">first_thumb</param>
+                </params>
+              </trigger>
+              <trigger dbname="dPortal" tablename="IBORGANHOLDING">
+                <class datatype="document" asynchron="true">es.cls.core.db.trigger.TriggerDocumentRendering</class>
+                <params>
+                    <param name="renderMode">first_thumb</param>
+                </params>
+              </trigger>
+              
+              <trigger dbname="dPortal" tablename="DOCGED">
+                <class datatype="record" asynchron="false" mode="after">es.cls.core.db.trigger.TriggerDRM</class>
+              </trigger>
+              <trigger dbname="dPortal" tablename="DOCGED">
+                <class datatype="document" asynchron="false" mode="after">es.cls.core.db.trigger.TriggerDocumentDRM</class>
+              </trigger>
+              <trigger dbname="dPortal" tablename="ESDMS_DEMO">
+                <class datatype="document" asynchron="true" mode="after">es.cls.core.db.trigger.TriggerDocumentOCR</class>
+              </trigger>
+              <trigger dbname="dPortal" tablename="ESDMS_DEMO">
+                  <class datatype="record" asynchron="false" mode="after">es.cls.core.db.trigger.TriggerTransferRecord</class>
+                  <args>
+                   <arg>
+                    <configs>
+                      <config>
+                        <fields>
+                          <field>
+                            <name>EXTRAITDE</name>
+                            <pattern>Revue de Presse</pattern>
+                          </field>
+                          <field>
+                            <name>AUTEUR</name>
+                            <pattern>EVER-TEAM</pattern>
+                          </field>
+                        </fields>
+                        <trsfCfg>ESDMSDEMO</trsfCfg>
+                      </config>
+                    </configs>
+                   </arg>
+                  </args>
+                </trigger>
+            -->
+            </triggers>
+      ]]>
+      </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>userTableFilterExcludeRegExp</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamuserTableFilterExcludeRegExp</DESCRIPTION>
+     <CONTENT>HDS(.)*|PRF(.)*|CS(.)*|OSS(.)*|DSI_(.)*|CLD_(.)*|MMS(.)*|SCN(.)*|THESAURUS(.)*|XMLCONTENT(.)*|Z3950_PARAMS(.)*|CHANNEL|ITEM|ITEM_ARCHIVE|QUERY|USER_ITEM|USER_QUERY|DIRECTORY|FEED_USER|USER_CHANNEL|ONLINE_ELEM|JBPM(.)*|CASE_(.)*|TASK_(.)*|TSK(.)*|ESPUB(.)*|EMS(.)*|IB(.)*|EF(.)*|EW_URI|QUERYLOG|STT_MEDIA|WEBSITE</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>userTableFilterIncludeRegExp</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamuserTableFilterIncludeRegExp</DESCRIPTION>
+     <CONTENT>CSFOLDER|CSDATAROOM</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>AnnotDBName</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamAnnotDBName</DESCRIPTION>
+     <CONTENT>dPortal</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>OutputBufferSize</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamOutputBufferSize</DESCRIPTION>
+     <CONTENT></CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>DFL_DetailedLogging</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamDFL_DetailedLogging</DESCRIPTION>
+     <CONTENT>no</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>IncomingURIEncoding</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamIncomingURIEncoding</DESCRIPTION>
+     <CONTENT>ISO-8859-1</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>DBMaxTableNameLength</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamDBMaxTableNameLength</DESCRIPTION>
+     <CONTENT>30</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>DBMaxColumnNameLength</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamDBMaxColumnNameLength</DESCRIPTION>
+     <CONTENT>30</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>Sec_MayWriteDB</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSec_MayWriteDB</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>Sec_MayWriteFS</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSec_MayWriteFS</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>Sec_MayModifyMenus</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSec_MayModifyMenus</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>Sec_GlobalSystem</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSec_GlobalSystem</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>Sec_CheckOnRead</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSec_CheckOnRead</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>Sec_CheckServlets</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSec_CheckServlets</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>Sec_Confidentiality</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSec_Confidentiality</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>Sec_Record</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSec_Record</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>Sec_MayReloadTemplateMap</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSec_MayReloadTemplateMap</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>CheckTemplates</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamCheckTemplates</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>CheckTables</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamCheckTables</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>CheckTableQuery</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamCheckTableQuery</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>Sec_ShowErrorMessage</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSec_ShowErrorMessage</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>SecurityLearningMode</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSecurityLearningMode</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>LoginCookieMaxAge</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamLoginCookieMaxAge</DESCRIPTION>
+     <CONTENT>0</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>ESMIG_DATABASE_MAPPING</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamESMIG_DATABASE_MAPPING</DESCRIPTION>
+     <CONTENT>
+      <![CDATA[
+           <mappings>
+                <mapping dbType="hsqldb"         dbDriver="org.hsqldb.jdbcDriver"/>
+                <mapping dbType="oracle"         dbDriver="oracle.jdbc.driver.OracleDriver"/>
+                <mapping dbType="sqlserver"      dbDriver="net.sourceforge.jtds.jdbc.Driver"/>
+                <mapping dbType="sybase"         dbDriver="com.sybase.jdbc2.jdbc.SybDriver"/>
+                <mapping dbType="mysql"          dbDriver="org.gjt.mm.mysql.Driver"/>
+                <mapping dbType="informix"       dbDriver="com.informix.jdbc.IfxDriver"/>
+                <mapping dbType="postgresql"     dbDriver="org.postgresql.Driver"/>
+           </mappings>
+      ]]>
+     </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>ESMIG_FORBIDDEN_CMDS</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamESMIG_FORBIDDEN_CMDS</DESCRIPTION>
+     <CONTENT>
+      <![CDATA[
+          <commands>
+           <windows>
+                <cmds>(.)*copy(.)*|rmdir|move|format|erase|disk(.)*|del|chk(.)*</cmds>
+           </windows>
+           <linux>
+                <cmds>cp|rm|mv|kill|mkfs</cmds>
+           </linux>
+          </commands>
+      ]]>
+     </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>SessionInfo_UseIdForCache</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSessionInfo_UseIdForCache</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>URILabelsAttributesCount</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamURILabelsAttributesCount</DESCRIPTION>
+     <CONTENT>3</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>ExecQuerySafe</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamExecQuerySafe</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>DocRootPathBuilder</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamDocRootPathBuilder</DESCRIPTION>
+     <CONTENT>
+        <![CDATA[
+            <?xml version="1.0"?>
+            <SubPathBuilder>
+                <DirName1>${DBName}</DirName1>
+                <DirName2>${TableName}</DirName2>
+                <TotalEntries>1000000000</TotalEntries>
+                <DirEntries>1000</DirEntries>
+            </SubPathBuilder>
+        ]]>
+     </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>DocUseLocalURI</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamDocUseLocalURI</DESCRIPTION>
+     <CONTENT>true</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>ZipEntryCharset</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamZipEntryCharset</DESCRIPTION>
+     <CONTENT>UTF-8,CP437</CONTENT>
+  </param>
+   <param>
+     <PARAMSEQ>TreeDynDatabase</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamTreeDynDatabase</DESCRIPTION>
+     <CONTENT>dPortal</CONTENT>
+  </param>
+   <param>
+     <PARAMSEQ>SessionCallStack</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamSessionCallStack</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+
+  <param>
+    <PARAMSEQ>LinkKeys</PARAMSEQ>
+    <USERCODE>all</USERCODE>
+    <DESCRIPTION>ParamLinkKeys</DESCRIPTION>
+    <CONTENT>false</CONTENT>
+  </param>
+
+  <param>
+    <PARAMSEQ>Links_externalize</PARAMSEQ>
+    <USERCODE>all</USERCODE>
+    <DESCRIPTION>ParamLinks_externalize</DESCRIPTION>
+    <CONTENT>false</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>NFZ42013</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamNFZ42013</DESCRIPTION>
+     <CONTENT>false</CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>AbbyyRS</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamAbbyyRS</DESCRIPTION>
+        <CONTENT>
+        <![CDATA[
+            <?xml version="1.0"?>
+            <Root>
+                <ServerDir>\\host\share\rootdir</ServerDir>
+                <Timeout>120</Timeout>
+                <SleepDuration>3</SleepDuration>
+                <PDFCharThreshold>-1</PDFCharThreshold>
+            </Root>
+        ]]>
+        </CONTENT>
+  </param>
+  <param>
+     <PARAMSEQ>FPlanNodeTypes</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamFPlanNodeTypes</DESCRIPTION>
+        <CONTENT>
+        <![CDATA[
+            <?xml version="1.0" encoding="ISO-8859-1"?>
+            <TYPES>
+              <TYPE name="ROOT">
+                  <CHILDRENS>
+                     <CHILDREN>LDAP</CHILDREN>
+                     <CHILDREN>REPOSITORY</CHILDREN>
+                     <CHILDREN>SQL</CHILDREN>
+                     <CHILDREN>STATIC</CHILDREN>
+                  </CHILDRENS>
+               </TYPE>
+               <TYPE name="SQL" class="es.cls.core.filingplan.impl.SqlPlanType">
+                  <CHILDRENS>
+                     <CHILDREN>DOCSQL</CHILDREN>
+                     <CHILDREN>LDAP</CHILDREN>
+                     <CHILDREN>REPOSITORY</CHILDREN>
+                     <CHILDREN>SQL</CHILDREN>
+                     <CHILDREN>STATIC</CHILDREN>
+                  </CHILDRENS>
+               </TYPE>
+               <TYPE name="DOCSQL" class="es.cls.core.filingplan.impl.DocSqlPlanType">
+                  <CHILDRENS>
+                     <CHILDREN>LDAP</CHILDREN>
+                     <CHILDREN>REPOSITORY</CHILDREN>
+                     <CHILDREN>SQL</CHILDREN>
+                     <CHILDREN>STATIC</CHILDREN>
+                  </CHILDRENS>
+               </TYPE>
+               <TYPE name="REPOSITORY" class="es.cls.core.filingplan.impl.RepositoryPlanType">
+                  <CHILDRENS/>
+               </TYPE>
+               <TYPE name="LDAP" class="es.cls.core.filingplan.impl.LdapPlanType">
+                  <CHILDRENS>
+                     <CHILDREN>LDAP</CHILDREN>
+                     <CHILDREN>REPOSITORY</CHILDREN>
+                     <CHILDREN>SQL</CHILDREN>
+                     <CHILDREN>STATIC</CHILDREN>
+                  </CHILDRENS>
+               </TYPE>  
+               <TYPE name="STATIC" class="es.cls.core.filingplan.impl.StaticPlanType">
+                  <CHILDRENS>
+                     <CHILDREN>LDAP</CHILDREN>
+                     <CHILDREN>REPOSITORY</CHILDREN>
+                     <CHILDREN>SQL</CHILDREN>
+                     <CHILDREN>STATIC</CHILDREN>
+                  </CHILDRENS>
+               </TYPE>
+            </TYPES>
+        ]]>
+        </CONTENT>
+  </param>
+    <param>
+        <PARAMSEQ>PasswordConfig</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamPasswordConfig</DESCRIPTION>
+        <CONTENT>
+        <![CDATA[
+            <?xml version="1.0"?>
+            <Root>
+                <Configs>
+                    <!-- How to encode passwords when they are saved to the table CSUSER -->
+                    <CSUSER>
+                        <Transforms>S2B.UTF-8;SHA.256;AES.0;B2S.Hex</Transforms>
+                    </CSUSER>
+                    <!-- How passwords were encoded in the past when the column PASSTRANS did not exist into the table CSUSER -->
+                    <CSUSER_Old>
+                        <Transforms>S2B.Default;RSA.WebApp;B2S.Base64</Transforms>
+                    </CSUSER_Old>
+                    <!-- Allow to just use its digest instead of the password -->
+                    <SHA1-Base64>
+                        <Transforms>S2B.UTF-8;SHA.1;B2S.Base64</Transforms>
+                    </SHA1-Base64>
+                    
+                    <!-- 
+                    Password transformations are applied one after each other, the input
+                     of the next is the output of the previous, either string or bytes.
+                    Some are just encoding, as S2B (String to Byte) or B2S (Byte to String)
+                    Some are encrypting, as RSA or AES (eat bytes and produce bytes)
+                    Some are digests (hashing), like SHA or MD (eat bytes and produce bytes)
+                    Digests are not reversibles because they miss the original content
+                    
+                    Some examples of transformations :
+                        S2B.UTF-8;B2S.Base64
+                        S2B.UTF-8;B2S.Hex
+                        S2B.UTF-8;SHA.1;B2S.Base64
+                        S2B.UTF-8;SHA.256;B2S.Hex
+                        S2B.UTF-8;RSA.CryptUserPassword;B2S.Base64
+                        S2B.UTF-8;SHA.256;AES.0;B2S.Hex
+                        S2B.UTF-8;AES.0;B2S.Hex (key length is 128)
+                        S2B.UTF-8;AES.1;B2S.Hex (key length is 256 which need special policy jar from Oracle to be permitted)
+                    -->
+                </Configs>
+            </Root>
+        ]]>
+        </CONTENT>
+    </param>
+    <param>
+        <PARAMSEQ>WebAppTokenUser</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamWebAppTokenUser</DESCRIPTION>
+        <CONTENT>admin</CONTENT>
+    </param>
+    <param>
+        <PARAMSEQ>PasswordStrengthLevel</PARAMSEQ>
+        <USERCODE>all</USERCODE>
+        <DESCRIPTION>ParamPasswordStrengthLevel</DESCRIPTION>
+        <CONTENT>strong</CONTENT>
+    </param>
+
+    
+  <param>
+     <PARAMSEQ>coreLogClassNames</PARAMSEQ>
+     <USERCODE>all</USERCODE>
+     <DESCRIPTION>ParamcoreLogClassNames</DESCRIPTION>
+     <CONTENT>
+        <![CDATA[
+            <root>
+              <class>es.cls.bam.traces.BamLogSQLOverLimit</class>
+            </root>
+        ]]>
+     </CONTENT>
+  </param>
+</params>
