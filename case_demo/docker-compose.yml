@@ -40,6 +40,7 @@ services:
     container_name: case_demo_intalio
     links:
       - case_demo_db
+      - case_demo_everteam
   case_demo_proxy:
     image: estebanf/case_demo_nginx
     container_name: case_demo_nginx
