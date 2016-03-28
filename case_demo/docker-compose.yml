@@ -36,7 +36,7 @@ services:
       - case_demo_db
       - case_demo_zookeeper
   case_demo_intalio:
-    image: estebanf/case_demo_intalio
+    image: estebanf/intalio_dev:ubuntu
     container_name: case_demo_intalio
     links:
       - case_demo_db
