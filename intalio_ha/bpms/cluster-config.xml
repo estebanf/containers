@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <bean id="clusterConfig" class="org.intalio.deploy.deployment.impl.clustering.QuorumBasedCluster">
+        <property name="groupName" value="intalio"/>
+        <property name="serverId" value="server-01"/>
+    </bean>
+</beans>

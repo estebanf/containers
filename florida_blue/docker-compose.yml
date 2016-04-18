@@ -1,8 +1,8 @@
 version: '2'
 services:
   florida_blue_pg:
-    build: ./pg
-    image: florida_blue_pg
+    # build: ./pg
+    image: estebanf/florida_blue_pg
     ports: 
       - "5432:5432"
     container_name: florida_blue_pg
