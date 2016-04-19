@@ -19,6 +19,8 @@ services:
       - ibpms_mysql
     depends_on:
       - ibpms_mysql
+    extra_hosts: 
+      - "bpms.local:127.0.0.1"      
   ibpms_server2:
     image: estebanf/ibpms_ha_server
     container_name: ibpms_server2
@@ -30,6 +32,8 @@ services:
       - ibpms_mysql
     depends_on:
       - ibpms_mysql
+    extra_hosts: 
+      - "bpms.local:127.0.0.1"      
   ibpms_balancer:
     image: estebanf/ibpms_ha_balancer
     container_name: ibpms_balancer
