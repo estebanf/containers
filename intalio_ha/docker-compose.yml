@@ -39,6 +39,7 @@ services:
     container_name: ibpms_balancer
     ports:
       - "80:80"
+      - "8080:8080"
     links:
       - ibpms_server1
       - ibpms_server2
