@@ -30,17 +30,6 @@ services:
       - ibpms_mysql
     depends_on:
       - ibpms_mysql
-  ibpms_server3:
-    image: estebanf/ibpms_ha_server
-    container_name: ibpms_server3
-    environment:
-      NODE: 03
-    volumes_from:
-      - ibpms_files
-    links:
-      - ibpms_mysql
-    depends_on:
-      - ibpms_mysql    
   ibpms_balancer:
     image: estebanf/ibpms_ha_balancer
     container_name: ibpms_balancer
@@ -49,4 +38,3 @@ services:
     links:
       - ibpms_server1
       - ibpms_server2
-      - ibpms_server3
