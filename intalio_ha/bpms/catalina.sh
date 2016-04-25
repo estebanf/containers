@@ -98,6 +98,7 @@
 # -----------------------------------------------------------------------------
 
 # OS specific support.  $var _must_ be set to either true or false.
+sleep 30s
 sed -i "s/server-01/server-$NODE/g" /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config/cluster-config.xml
 container_ip=`ifconfig eth0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://'`
 sed -i "s/CONTAINER_IP/$container_ip/g" /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config/ode-axis2.properties
