@@ -7,7 +7,7 @@ services:
       - "5432:5432"
     container_name: florida_blue_pg
   florida_blue_bpms:
-    image: estebanf/intalio_dev
+    image: estebanf/intalio_dev:875
     ports: 
       - "8080:8080"
       - "9092:9092"
