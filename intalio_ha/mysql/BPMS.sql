@@ -152,6 +152,8 @@ ALTER TABLE tempo_pa add column isAdhoc TINYINT(1) NOT NULL DEFAULT 0;
 ALTER TABLE tempo_pa add column allowAdhoc TINYINT(1) NOT NULL DEFAULT 1;
 ALTER TABLE tempo_pa add column adhocIndex INTEGER NOT NULL DEFAULT 0;
 
+ALTER TABLE tempo_audit add column is_adhoc TINYINT(1) NOT NULL default 0;
+
 drop table IF exists intalio_config;
 drop table IF exists intalio_user_profile;
 drop table IF exists intalio_user_preferences;

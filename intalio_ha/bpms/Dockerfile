@@ -9,6 +9,8 @@ COPY mysql-connector-java-5.0.8-bin.jar /home/everteam-ibpms-ee-7.7.0-tomcat-7.0
 COPY deploy-service.xml /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config
 COPY cluster-config.xml /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config
 COPY ode-axis2.properties /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config
+COPY http-config.properties /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config
+COPY deploy.xml /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/deploy/TaskManager/TaskManager.ode
 COPY base-config.properties /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config/common
 COPY catalina.sh /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/bin
 RUN rm everteam-ibpms-ee-7.7.0-tomcat-7.0.68.zip
