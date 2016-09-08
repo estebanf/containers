@@ -1,7 +1,0 @@
-Build-By: intalio
-Build-Jdk: 1.7.0_45
-Implementation-Title: bpms-dashboard
-Implementation-Version: 
-Manifest-Version: 1.0
-Created-By: Buildr
-

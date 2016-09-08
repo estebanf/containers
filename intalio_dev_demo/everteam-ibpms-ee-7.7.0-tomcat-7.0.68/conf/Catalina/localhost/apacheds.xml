@@ -1,3 +1,0 @@
-<Context reloadable="true" crossContext="true">
-    <ResourceLink global="registry/DeployRegistry" name="registry/DeployRegistry" type="org.intalio.deploy.registry.Registry"/>
-</Context>

@@ -1,7 +1,0 @@
-Build-By: intalio
-Build-Jdk: 1.6.0_27
-Implementation-Title: Embedded CAS Server
-Implementation-Version: 
-Manifest-Version: 1.0
-Created-By: Buildr
-

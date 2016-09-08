@@ -1,8 +1,0 @@
-http.connection.timeout=100000
-http.socket.timeout=600000
-mex.timeout=300000
-# this line needs to be commented when deploying process behind the proxy which doesnt
-# support chunking
-#http.request.chunk=false
-
-#for more please check : http://wiki.intalio.com/How_to_set_timeouts

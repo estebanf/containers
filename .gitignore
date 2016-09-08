@@ -4,3 +4,4 @@
 *.war
 license
 case_demo_webapp/
+EmailWS.properties

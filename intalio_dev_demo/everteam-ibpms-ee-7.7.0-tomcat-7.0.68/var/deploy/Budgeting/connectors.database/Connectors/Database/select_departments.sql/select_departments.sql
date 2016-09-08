@@ -1,1 +1,0 @@
-select DEPARTMENT_ID,DEPARTMENT_NAME,DIRECTOR from Departments order by DEPARTMENT_ID;

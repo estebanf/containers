@@ -1,1 +1,0 @@
-SELECT id, name, sex, age, diabetes, heartattack, highbloodpressure FROM member; 
