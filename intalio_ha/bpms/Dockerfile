@@ -13,6 +13,8 @@ COPY http-config.properties /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/conf
 COPY deploy.xml /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/deploy/TaskManager/TaskManager.ode
 COPY base-config.properties /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config/common
 COPY catalina.sh /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/bin
+COPY workflow.properties /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config/workflow
+COPY setenv.sh /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/bin
 RUN rm everteam-ibpms-ee-7.7.0-tomcat-7.0.68.zip
 RUN rm -rf /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/deploy
 RUN chmod -R 700 everteam-ibpms-ee-7.7.0-tomcat-7.0.68

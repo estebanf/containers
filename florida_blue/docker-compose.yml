@@ -3,7 +3,7 @@ services:
   florida_blue_pg:
     # build: ./pg
     image: estebanf/florida_blue_pg
-    ports: 
+    ports:
       - "5432:5432"
     container_name: florida_blue_pg
   florida_blue_bpms:
@@ -12,9 +12,9 @@ services:
       - "8080:8080"
       - "9092:9092"
     container_name: florida_blue_bpms
-    links: 
+    links:
       - florida_blue_pg
-    depends_on: 
+    depends_on:
       - florida_blue_pg
-    extra_hosts: 
+    extra_hosts:
       - "bpms.local:127.0.0.1"

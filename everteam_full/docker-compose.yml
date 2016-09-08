@@ -1,25 +1,25 @@
 version: '2'
 services:
-  case_demo_zookeeper:
+  et_zookeeper:
     image: estebanf/case_demo_zookeeper
-    container_name: case_demo_zookeeper
-  case_demo_solr:
+    container_name: et_zookeeper
+  et_solr:
     image: estebanf/case_demo_solr
-    container_name: case_demo_solr
+    container_name: et_solr
     environment:
-      ZOO: case_demo_zookeeper
+      ZOO: et_zookeeper
     links:
-      - case_demo_zookeeper
+      - et_zookeeper
     depends_on:
-      - case_demo_zookeeper
-  case_demo_everteam:
+      - et_zookeeper
+  et_webapp:
     image: estebanf/everteam
-    container_name: case_demo_everteam
+    container_name: et_webapp
     ports:
       - "8080:8080"
     extra_hosts:
       - "everteam.local:127.0.0.1"
     links:
-      - case_demo_zookeeper
+      - et_zookeeper
     depends_on:
-      - case_demo_zookeeper
+      - et_zookeeper
