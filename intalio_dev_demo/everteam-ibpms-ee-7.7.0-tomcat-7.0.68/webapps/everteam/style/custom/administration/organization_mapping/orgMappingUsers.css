@@ -1,0 +1,57 @@
+.dd-list .dd-item button {
+	margin-left: 35px;
+}
+.org-users {
+	padding-right: 0px;
+	padding-left: 0px;
+	max-width: 1200px;
+}
+.dd {
+	max-width: 1200px;
+	margin-top: 10px;
+}
+.importUsersTable td {
+	padding: 5px;
+}
+.org-users-submit {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 50px;
+    max-width: 1200px;
+}
+.users-search {
+	height: 28px;
+}
+.highlight {
+	background-color: #41cac0;
+	color: white;
+}
+.delete-user .lbl {
+	font-size: 13px;
+}
+.users-right-buttons{
+	width: 200px;
+	height: 30px;
+}
+.search-users {
+	width: 160px;
+
+}
+.user-option-icon {
+	width: 25px;
+}
+#draggableUsers {
+	min-height: 50px;
+}
+.dd-handle, .dd2-content{
+	color:#393939;
+	font-weight: normal;
+}
+.dd-handle:hover, .dd2-content:hover{
+	color: #393939;
+	font-weight: normal;
+}
+#importUsersModal .modal-dialog{
+	width: 500px !important;
+}

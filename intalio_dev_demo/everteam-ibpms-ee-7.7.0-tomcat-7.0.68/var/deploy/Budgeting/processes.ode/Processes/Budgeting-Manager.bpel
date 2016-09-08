@@ -1,0 +1,369 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ode="http://www.apache.org/ode/type/extension" xmlns:Variables="http://test.com/xvar/example" xmlns:AttachmentManagement-process="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/process" xmlns:diag="http://budgeting.example.everteam.com/Processes/Budgeting" xmlns:ManagerimplicitPartner="http://budgeting.example.everteam.com/Processes/Budgeting/ManagerimplicitPartner" xmlns:this="http://budgeting.example.everteam.com/Processes/Budgeting/Manager" xmlns:Department_director="http://budgeting.example.everteam.com/Processes/Budgeting/Department_director" xmlns:project="http://www.intalio.com/Budgeting/Webcontents/project.html" xmlns:Business="http://budgeting.example.everteam.com/Types/Business" xmlns:tns="http://budgeting.example.everteam.com/Types/Technical" xmlns:attachments="http://www.intalio.com/Budgeting/Webcontents/project.html/attachments" xmlns:bpmn="http://www.intalio.com/bpms" xmlns:atomic="http://ode.apache.org/atomicScope" queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" bpmn:label="Manager" name="Manager" bpmn:id="_o4kG4KA3EeW6r4g6sr4TOg" targetNamespace="http://budgeting.example.everteam.com/Processes/Budgeting/Manager">
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Budgeting" location="Budgeting.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Budgeting/Department_director" location="Budgeting-Department_director.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Budgeting/Manager" location="Budgeting-Manager.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/process" location="Integrations/AttachmentManagement-process.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://www.intalio.com/Budgeting/Webcontents/project.html" location="../Webcontents/project.html.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Types/Technical" location="../Schemas/Technical.xsd" importType="http://www.w3.org/2001/XMLSchema"></bpel:import>
+  <bpel:partnerLinks>
+    <bpel:partnerLink name="managerAndDepartment_directorPlkVar" partnerLinkType="diag:ManagerAndDepartment_director" initializePartnerRole="yes" myRole="Manager_for_Department_director" partnerRole="Department_director_for_Manager"></bpel:partnerLink>
+    <bpel:partnerLink name="wFmagic_mrSvVtEREeWIHuPdUr6NDgPlkVar" partnerLinkType="diag:WFmagic_mrSvVtEREeWIHuPdUr6NDg" initializePartnerRole="no" myRole="Manage_for_ManagerimplicitPartnerForThePortTypeProcess" partnerRole="ManagerimplicitPartner_for_ManagerForTnsPort"></bpel:partnerLink>
+    <bpel:partnerLink name="managerimplicitPartnerAndManagerForCanonicPortPlkVar" partnerLinkType="diag:ManagerimplicitPartnerAndManagerForCanonicPortPlk" initializePartnerRole="yes" partnerRole="ManagerimplicitPartner_for_Manager"></bpel:partnerLink>
+  </bpel:partnerLinks>
+  <bpel:variables xmlns:xvar="http://ode.apache.org/externalVariables">
+    <bpel:variable name="thisRecieve_project_requestRequest2Msg" messageType="this:Recieve_project_requestRequest"></bpel:variable>
+    <bpel:variable name="thisRecieve_project_requestResponse2Msg" messageType="this:Recieve_project_requestResponse"></bpel:variable>
+    <bpel:variable name="ExcerciseProject-keys" element="Variables:ExcerciseProject-keys"></bpel:variable>
+    <bpel:variable name="ExcerciseProject" element="Variables:ExcerciseProject" xvar:id="ExcerciseProject-_epeCYKBHEeW6r4g6sr4TOg" xvar:relates-to="ExcerciseProject-keys"></bpel:variable>
+    <bpel:variable name="department_directorRecieve_project_requirementRequest1Msg" messageType="Department_director:Recieve_project_requirementRequest"></bpel:variable>
+    <bpel:variable name="department_directorRecieve_project_requirementResponse2Msg" messageType="Department_director:Recieve_project_requirementResponse"></bpel:variable>
+    <bpel:variable name="projectCreateTaskSingleActivityResponse1Msg" messageType="project:createTaskSingleActivityResponse"></bpel:variable>
+    <bpel:variable name="projectCreateTaskSingleActivityRequest1Msg" messageType="project:createTaskSingleActivityRequest"></bpel:variable>
+  </bpel:variables>
+  <bpel:sequence>
+    <bpel:receive partnerLink="managerAndDepartment_directorPlkVar" portType="this:ForDepartment_director" operation="Recieve_project_request" variable="thisRecieve_project_requestRequest2Msg" createInstance="yes" bpmn:label="Recieve project request" name="Recieve_project_request" bpmn:id="_KaMDcKA4EeW6r4g6sr4TOg"></bpel:receive>
+    <bpel:assign name="init-variables-Manager" bpmn:id="_KaMDcKA4EeW6r4g6sr4TOg">
+      <bpel:copy bpmn:label="$thisRecieve_project_requestResponse2Msg">
+        <bpel:from>
+          <bpel:literal>
+<this:Recieve_project_requestResponse>
+  <tns:InstanceId></tns:InstanceId>
+  <tns:Timestamp></tns:Timestamp>
+</this:Recieve_project_requestResponse></bpel:literal>
+        </bpel:from>
+        <bpel:to>$thisRecieve_project_requestResponse2Msg.body</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>
+          <bpel:literal><Variables:ExcerciseProject><Variables:project_id></Variables:project_id><Variables:excercise_id></Variables:excercise_id><Variables:DepartmentId></Variables:DepartmentId></Variables:ExcerciseProject></bpel:literal>
+        </bpel:from>
+        <bpel:to>$ExcerciseProject-keys</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$department_directorRecieve_project_requirementRequest1Msg">
+        <bpel:from>
+          <bpel:literal>
+<Department_director:Recieve_project_requirementRequest>
+  <Business:ExcerciseId></Business:ExcerciseId>
+  <Business:DepartmentId></Business:DepartmentId>
+  <Business:ProjectId></Business:ProjectId>
+</Department_director:Recieve_project_requirementRequest></bpel:literal>
+        </bpel:from>
+        <bpel:to>$department_directorRecieve_project_requirementRequest1Msg.body</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$projectCreateTaskSingleActivityRequest1Msg">
+        <bpel:from>
+          <bpel:literal>
+<project:createTaskSingleActivityRequest>
+  <project:taskMetaData>
+    <project:taskId>_mrSvVtEREeWIHuPdUr6NDg</project:taskId>
+    <project:allowadhoc>true</project:allowadhoc>
+    <project:taskState></project:taskState>
+    <project:taskType></project:taskType>
+    <project:description/>
+    <project:processId></project:processId>
+    <project:instanceId></project:instanceId>
+    <project:business>
+      <project:processName></project:processName>
+      <project:instanceId></project:instanceId>
+      <project:stepName></project:stepName>
+      <project:customData></project:customData>
+    </project:business>
+    <project:creationDate></project:creationDate>
+    <project:userOwner/>
+    <project:roleOwner/>
+    <project:claimAction>
+      <project:user></project:user>
+      <project:role></project:role>
+    </project:claimAction>
+    <project:revokeAction>
+      <project:user></project:user>
+      <project:role></project:role>
+    </project:revokeAction>
+    <project:saveAction>
+      <project:user></project:user>
+      <project:role></project:role>
+    </project:saveAction>
+    <project:completeAction>
+      <project:user></project:user>
+      <project:role></project:role>
+    </project:completeAction>
+    <project:formUrl>/smrofmotsuc/Webcontents/project.html</project:formUrl>
+    <project:failureCode></project:failureCode>
+    <project:failureReason></project:failureReason>
+    <project:priority></project:priority>
+    <project:scheduledActions>
+      <project:expiration>
+        <project:until></project:until>
+        <project:for></project:for>
+      </project:expiration>
+      <project:deferActivation>
+        <project:until></project:until>
+        <project:for></project:for>
+      </project:deferActivation>
+    </project:scheduledActions>
+    <project:attachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description/>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </project:attachments>
+    <project:globalAttachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description/>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </project:globalAttachments>
+    <project:userProcessCompleteSOAPAction/>
+    <project:isChainedBefore></project:isChainedBefore>
+    <project:previousTaskId></project:previousTaskId>
+    <project:userProcessEndpoint/>
+    <project:userProcessNamespaceURI>http://www.intalio.com/Budgeting/Webcontents/project.html</project:userProcessNamespaceURI>
+    <project:customMetaData></project:customMetaData>
+  </project:taskMetaData>
+  <project:participantToken></project:participantToken>
+  <project:taskInput>
+    <Business:ProjectDefinitionInput>
+      <Business:id>
+        <Business:ExcerciseId></Business:ExcerciseId>
+        <Business:DepartmentId></Business:DepartmentId>
+        <Business:ProjectId></Business:ProjectId>
+      </Business:id>
+      <Business:Project>
+        <Business:ProjectName></Business:ProjectName>
+        <Business:ProjectResponsible></Business:ProjectResponsible>
+        <Business:TargetBudget></Business:TargetBudget>
+        <Business:Notes></Business:Notes>
+      </Business:Project>
+    </Business:ProjectDefinitionInput>
+  </project:taskInput>
+</project:createTaskSingleActivityRequest></bpel:literal>
+        </bpel:from>
+        <bpel:to>$projectCreateTaskSingleActivityRequest1Msg.root</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:assign bpmn:label="Recieve project request" name="Recieve_project_request-1" bpmn:id="_KaMDcKA4EeW6r4g6sr4TOg">
+      <bpel:copy>
+        <bpel:from>$ode:pid</bpel:from>
+        <bpel:to>$thisRecieve_project_requestResponse2Msg.body/tns:InstanceId</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>current-dateTime()</bpel:from>
+        <bpel:to>$thisRecieve_project_requestResponse2Msg.body/tns:Timestamp</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:reply partnerLink="managerAndDepartment_directorPlkVar" portType="this:ForDepartment_director" operation="Recieve_project_request" variable="thisRecieve_project_requestResponse2Msg" bpmn:label="Recieve project request" name="Recieve_project_request-2" bpmn:id="_KaMDcKA4EeW6r4g6sr4TOg"></bpel:reply>
+    <bpel:assign bpmn:label="Load project" name="Load_project" bpmn:id="_llziYKBHEeW6r4g6sr4TOg">
+      <bpel:copy>
+        <bpel:from>$thisRecieve_project_requestRequest2Msg.body/Business:ExcerciseId</bpel:from>
+        <bpel:to>$ExcerciseProject-keys/Variables:excercise_id</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$thisRecieve_project_requestRequest2Msg.body/Business:DepartmentId</bpel:from>
+        <bpel:to>$ExcerciseProject-keys/Variables:DepartmentId</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$thisRecieve_project_requestRequest2Msg.body/Business:ProjectId</bpel:from>
+        <bpel:to>$ExcerciseProject-keys/Variables:project_id</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:assign bpmn:label="Request project budget definition" name="Request_project_budget_definition" bpmn:id="_mrSvVtEREeWIHuPdUr6NDg">
+      <bpel:copy>
+        <bpel:from>concat("Define budget requirements for: ", $ExcerciseProject/Variables:name)</bpel:from>
+        <bpel:to>$projectCreateTaskSingleActivityRequest1Msg.root/project:taskMetaData/project:description</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$ExcerciseProject/Variables:responsible</bpel:from>
+        <bpel:to>$projectCreateTaskSingleActivityRequest1Msg.root/project:taskMetaData/project:userOwner[1]</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$thisRecieve_project_requestRequest2Msg.body</bpel:from>
+        <bpel:to>$projectCreateTaskSingleActivityRequest1Msg.root/project:taskInput/Business:ProjectDefinitionInput/Business:id</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$ExcerciseProject/Variables:name</bpel:from>
+        <bpel:to>$projectCreateTaskSingleActivityRequest1Msg.root/project:taskInput/Business:ProjectDefinitionInput/Business:Project/Business:ProjectName</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$ExcerciseProject/Variables:responsible</bpel:from>
+        <bpel:to>$projectCreateTaskSingleActivityRequest1Msg.root/project:taskInput/Business:ProjectDefinitionInput/Business:Project/Business:ProjectResponsible</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$ExcerciseProject/Variables:target_budget</bpel:from>
+        <bpel:to>$projectCreateTaskSingleActivityRequest1Msg.root/project:taskInput/Business:ProjectDefinitionInput/Business:Project/Business:TargetBudget</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$ExcerciseProject/Variables:notes</bpel:from>
+        <bpel:to>$projectCreateTaskSingleActivityRequest1Msg.root/project:taskInput/Business:ProjectDefinitionInput/Business:Project/Business:Notes</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:assign>
+      <bpel:copy>
+        <bpel:from>"_mrSvVtEREeWIHuPdUr6NDg"</bpel:from>
+        <bpel:to>$projectCreateTaskSingleActivityRequest1Msg.root/project:taskMetaData/project:taskId</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$ode:pid</bpel:from>
+        <bpel:to>$projectCreateTaskSingleActivityRequest1Msg.root/project:taskMetaData/project:instanceId</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:invoke partnerLink="wFmagic_mrSvVtEREeWIHuPdUr6NDgPlkVar" portType="project:Workflow" operation="createTaskSingleActivity" inputVariable="projectCreateTaskSingleActivityRequest1Msg" outputVariable="projectCreateTaskSingleActivityResponse1Msg" bpmn:label="Request project budget definition" name="Request_project_budget_definition-1" bpmn:id="_mrSvVtEREeWIHuPdUr6NDg"></bpel:invoke>
+    <bpel:receive partnerLink="wFmagic_mrSvVtEREeWIHuPdUr6NDgPlkVar" portType="project:Process" operation="notifyTaskCompletionSingleActivity" variable="projectCreateTaskSingleActivityResponse1Msg" bpmn:label="Request project budget definition" name="Request_project_budget_definition-2" bpmn:id="_mrSvVtEREeWIHuPdUr6NDg"></bpel:receive>
+    <bpel:flow bpmn:label="Parallel_Gateway" name="Parallel_Gateway" bpmn:id="_szaw4KBNEeW6r4g6sr4TOg">
+      <bpel:sequence>
+        <bpel:assign bpmn:label="Save project" name="Save_project" bpmn:id="_wLgHAKBNEeW6r4g6sr4TOg">
+          <bpel:copy>
+            <bpel:from>$projectCreateTaskSingleActivityResponse1Msg.root/project:taskOutput/Business:ProjectDefinitionOutput/Business:Id/Business:ExcerciseId</bpel:from>
+            <bpel:to>$ExcerciseProject-keys/Variables:excercise_id</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$projectCreateTaskSingleActivityResponse1Msg.root/project:taskOutput/Business:ProjectDefinitionOutput/Business:Id/Business:DepartmentId</bpel:from>
+            <bpel:to>$ExcerciseProject-keys/Variables:DepartmentId</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$projectCreateTaskSingleActivityResponse1Msg.root/project:taskOutput/Business:ProjectDefinitionOutput/Business:Id/Business:ProjectId</bpel:from>
+            <bpel:to>$ExcerciseProject-keys/Variables:project_id</bpel:to>
+          </bpel:copy>
+          <bpel:copy ignoreUninitializedFromVariable="yes" ignoreMissingFromData="yes">
+            <bpel:from>$projectCreateTaskSingleActivityResponse1Msg.root/project:taskOutput/Business:ProjectDefinitionOutput/Business:Requirements/Business:LastYearBudget</bpel:from>
+            <bpel:to>$ExcerciseProject/Variables:LastYearBudget</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$projectCreateTaskSingleActivityResponse1Msg.root/project:taskOutput/Business:ProjectDefinitionOutput/Business:Requirements/Business:Budget</bpel:from>
+            <bpel:to>$ExcerciseProject/Variables:Budget</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$projectCreateTaskSingleActivityResponse1Msg.root/project:taskOutput/Business:ProjectDefinitionOutput/Business:Requirements/Business:Priority</bpel:from>
+            <bpel:to>$ExcerciseProject/Variables:Priority</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$projectCreateTaskSingleActivityResponse1Msg.root/project:taskOutput/Business:ProjectDefinitionOutput/Business:Requirements/Business:StartExecution</bpel:from>
+            <bpel:to>$ExcerciseProject/Variables:StartExecution</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$projectCreateTaskSingleActivityResponse1Msg.root/project:taskOutput/Business:ProjectDefinitionOutput/Business:Requirements/Business:EndExecution</bpel:from>
+            <bpel:to>$ExcerciseProject/Variables:EndExecution</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$projectCreateTaskSingleActivityResponse1Msg.root/project:taskOutput/Business:ProjectDefinitionOutput/Business:Requirements/Business:NewProject</bpel:from>
+            <bpel:to>$ExcerciseProject/Variables:NewProject</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$projectCreateTaskSingleActivityResponse1Msg.root/project:taskOutput/Business:ProjectDefinitionOutput/Business:Requirements/Business:Description</bpel:from>
+            <bpel:to>$ExcerciseProject/Variables:Description</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$projectCreateTaskSingleActivityResponse1Msg.root/project:taskOutput/Business:ProjectDefinitionOutput/Business:Requirements/Business:Justification</bpel:from>
+            <bpel:to>$ExcerciseProject/Variables:Justification</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>current-dateTime()</bpel:from>
+            <bpel:to>$ExcerciseProject/Variables:DefinedDate</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>true()</bpel:from>
+            <bpel:to>$ExcerciseProject/Variables:included</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>true()</bpel:from>
+            <bpel:to>$ExcerciseProject/Variables:approved</bpel:to>
+          </bpel:copy>
+        </bpel:assign>
+      </bpel:sequence>
+      <bpel:sequence>
+        <bpel:if>
+          <bpel:condition>exists($projectCreateTaskSingleActivityResponse1Msg.root/project:taskMetaData/project:attachments)</bpel:condition>
+          <bpel:scope bpmn:label="Store attachments" name="Store_attachments" bpmn:id="_rzsOsKBMEeW6r4g6sr4TOg">
+            <bpel:variables>
+              <bpel:variable name="Attachments" element="tns:Attachments"></bpel:variable>
+              <bpel:variable name="attachmentManagement-processStore_attachmentsResponse1Msg" messageType="AttachmentManagement-process:Store_attachmentsResponse"></bpel:variable>
+              <bpel:variable name="attachmentManagement-processStore_attachments1Msg" messageType="AttachmentManagement-process:Store_attachmentsRequest"></bpel:variable>
+            </bpel:variables>
+            <bpel:sequence>
+              <bpel:assign name="init-variables-Store_attachments" bpmn:id="_rzsOsKBMEeW6r4g6sr4TOg">
+                <bpel:copy bpmn:label="$Attachments">
+                  <bpel:from>
+                    <bpel:literal>
+<tns:Attachments>
+  <tns:attachment>
+    <tns:mimeType></tns:mimeType>
+    <tns:fileName></tns:fileName>
+    <tns:title></tns:title>
+    <tns:description></tns:description>
+    <tns:creationDate></tns:creationDate>
+    <tns:payloadUrl></tns:payloadUrl>
+  </tns:attachment>
+</tns:Attachments></bpel:literal>
+                  </bpel:from>
+                  <bpel:to>$Attachments</bpel:to>
+                </bpel:copy>
+                <bpel:copy bpmn:label="$attachmentManagement-processStore_attachments1Msg">
+                  <bpel:from>
+                    <bpel:literal>
+<AttachmentManagement-process:Store_attachmentsRequest>
+  <tns:Reference></tns:Reference>
+  <tns:Attachments>
+    <tns:attachment>
+      <tns:mimeType></tns:mimeType>
+      <tns:fileName></tns:fileName>
+      <tns:title></tns:title>
+      <tns:description></tns:description>
+      <tns:creationDate></tns:creationDate>
+      <tns:payloadUrl></tns:payloadUrl>
+    </tns:attachment>
+  </tns:Attachments>
+</AttachmentManagement-process:Store_attachmentsRequest></bpel:literal>
+                  </bpel:from>
+                  <bpel:to>$attachmentManagement-processStore_attachments1Msg.body</bpel:to>
+                </bpel:copy>
+              </bpel:assign>
+              <bpel:empty bpmn:label="Empty_Start_Event" name="Empty_Start_Event" bpmn:id="_lnnuAKBMEeW6r4g6sr4TOg"></bpel:empty>
+              <bpel:assign bpmn:label="Extract attachments" name="Extract_attachments" bpmn:id="_nGQPMKBMEeW6r4g6sr4TOg">
+                <bpel:copy>
+                  <bpel:from>bpel:doXslTransform("../XSLT/transform_get_global_attachments.xsl", $projectCreateTaskSingleActivityResponse1Msg.root/project:taskMetaData/project:attachments)</bpel:from>
+                  <bpel:to>$Attachments</bpel:to>
+                </bpel:copy>
+              </bpel:assign>
+              <bpel:assign bpmn:label="Save attachments" name="Save_attachments" bpmn:id="_pmq9gKBMEeW6r4g6sr4TOg">
+                <bpel:copy>
+                  <bpel:from>concat("P", $thisRecieve_project_requestRequest2Msg.body/Business:ExcerciseId, "-", $thisRecieve_project_requestRequest2Msg.body/Business:DepartmentId, "-", $thisRecieve_project_requestRequest2Msg.body/Business:ProjectId)</bpel:from>
+                  <bpel:to>$attachmentManagement-processStore_attachments1Msg.body/tns:Reference</bpel:to>
+                </bpel:copy>
+                <bpel:copy>
+                  <bpel:from>$Attachments</bpel:from>
+                  <bpel:to>$attachmentManagement-processStore_attachments1Msg.body/tns:Attachments</bpel:to>
+                </bpel:copy>
+              </bpel:assign>
+              <bpel:invoke partnerLink="managerimplicitPartnerAndManagerForCanonicPortPlkVar" portType="AttachmentManagement-process:Forcaller" operation="Store_attachments" inputVariable="attachmentManagement-processStore_attachments1Msg" outputVariable="attachmentManagement-processStore_attachmentsResponse1Msg" bpmn:label="Save attachments" name="Save_attachments-1" bpmn:id="_pmq9gKBMEeW6r4g6sr4TOg"></bpel:invoke>
+            </bpel:sequence>
+          </bpel:scope>
+        </bpel:if>
+        <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway" bpmn:id="_ig3voKHlEeWujqVpfVkA2w">
+          <bpel:links>
+            <bpel:targets></bpel:targets>
+          </bpel:links>
+        </bpel:empty>
+        <bpel:assign bpmn:label="Message_Intermediate_Event" name="Message_Intermediate_Event" bpmn:id="_x_r24KBMEeW6r4g6sr4TOg">
+          <bpel:copy>
+            <bpel:from>$thisRecieve_project_requestRequest2Msg.body</bpel:from>
+            <bpel:to>$department_directorRecieve_project_requirementRequest1Msg.body</bpel:to>
+          </bpel:copy>
+        </bpel:assign>
+        <bpel:invoke partnerLink="managerAndDepartment_directorPlkVar" portType="Department_director:ForManager" operation="Recieve_project_requirement" inputVariable="department_directorRecieve_project_requirementRequest1Msg" outputVariable="department_directorRecieve_project_requirementResponse2Msg" bpmn:label="Message_Intermediate_Event" name="Message_Intermediate_Event-1" bpmn:id="_x_r24KBMEeW6r4g6sr4TOg"></bpel:invoke>
+      </bpel:sequence>
+    </bpel:flow>
+    <bpel:empty bpmn:label="Empty_End_Event" name="Empty_End_Event" bpmn:id="_CMPXEKXJEeW1o-GnJ_ijAQ"></bpel:empty>
+  </bpel:sequence>
+</bpel:process>

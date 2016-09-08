@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:metrics="http://test.com/xvar/example" xmlns:diag="http://floridabluedemo.com/Processes/Education" xmlns:Education_process="http://floridabluedemo.com/Processes/Education/Education_process" xmlns:Education_processimplicitPartner="http://floridabluedemo.com/Processes/Education/Education_processimplicitPartner" xmlns:Master_process="http://floridabluedemo.com/Processes/Education/Master_process" xmlns:tns="http://www.example.org/Demo" xmlns:Technical="http://www.example.org/Technical" xmlns:formless="http://www.intalio.com/formless" xmlns:formless-ytivitca="http://www.intalio.com/formless/attachments" xmlns:frmMember="http://www.intalio.com/gi/Forms/frmMember.gi" xmlns:attachments="http://www.intalio.com/gi/Forms/frmMember.gi/attachments" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" targetNamespace="http://floridabluedemo.com/Processes/Education">
+    <wsdl:import namespace="http://floridabluedemo.com/Processes/Education/Education_process" location="Education-Education_process.wsdl"/>
+    <wsdl:import namespace="http://www.intalio.com/formless" location="../formless-ytivitca.wsdl"/>
+    <wsdl:import namespace="http://www.intalio.com/gi/Forms/frmMember.gi" location="../Forms/frmMember.gi.wsdl"/>
+    <pnlk:partnerLinkType name="Education_processimplicitPartnerAndEducation_processForFormlessPortPlk">
+        <pnlk:role name="Education_processimplicitPartner_for_Education_process" portType="formless:Workflow"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="Master_processAndEducation_process">
+        <pnlk:role name="Education_process_for_Master_process" portType="Education_process:ForMaster_process"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="WFmagic_a2GM0e93EeW-F9Cnjo6rGQ"><pnlk:role name="Education_processForFr_for_Education_processimplicitPartnerForThePortTypeProcess" portType="frmMember:Process"/>
+        <pnlk:role name="Education_processimplicitPartner_for_Education_processForFrmMemberPort" portType="frmMember:Workflow"/>
+    </pnlk:partnerLinkType>
+</wsdl:definitions>

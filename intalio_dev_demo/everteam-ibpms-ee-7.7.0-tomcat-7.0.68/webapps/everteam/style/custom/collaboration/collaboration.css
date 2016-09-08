@@ -1,0 +1,514 @@
+#container1 {
+margin-left:10px;
+margin-right:16px;
+margin-top:10px;
+width:auto;
+padding:0;
+max-width:100%;
+}
+
+#loadingMore,#loadingGif,#loadingGifCommits,#loadingMoreCommits,#loadingGifSearch,#loadingMoreSearch {
+width:95%;
+margin-bottom:20px;
+}
+
+#icon1 {
+margin-top:3px;
+}
+
+#commitList {
+overflow:hidden;
+margin-top:0;
+}
+
+#commitsList,.projectCommitsList {
+margin-top:-11px;
+}
+
+.select_list {
+margin-right:0;
+}
+
+.select_list select {
+width:130px;
+margin-bottom:0;
+}
+
+.search_box {
+height:35px;
+line-height:40px;
+}
+
+.search_text {
+margin-left:0;
+font-size:14px;
+}
+
+#commits-tab .nav {
+margin-bottom:2px;
+}
+
+#horizontalLine {
+margin-top:4px;
+}
+
+#project-tab {
+height:auto;
+}
+
+#project-page-branch {
+background:none;
+}
+
+#repo-close {
+margin-top: -2px;
+}
+
+#dropdown-branch {
+min-width:120px;
+margin-top:20px;
+}
+
+#rlist {
+font-size:13px;
+}
+
+#project-widget {
+min-height:300px;
+}
+
+#collb-column1 {
+margin-left:0;
+float:left;
+padding-left:0px;
+}
+
+#collb-column2 {
+float:right;
+margin-left:0;
+margin-top:-12px;
+width:287px;
+}
+
+#btn-scroll-up {
+margin-bottom:10px;
+margin-right:10px;
+}
+
+#repoList {
+min-width:287px;
+max-width:287px;
+}
+
+#projectsName {
+width:145px;
+}
+
+#repo-delete {
+margin-top: -2px;
+right: -5px;
+}
+
+#container-row {
+margin-left:0;
+margin-right:0;
+}
+
+#project-page {
+margin-top:-12px;
+}
+
+.active-class {
+background:#f4f4f4;
+border-radius:0;
+}
+
+#lock_table th.sorting_desc,#lock_table th.sorting_asc {
+background-color:#ffffff;
+background-image:none;
+}
+
+.dataTables_wrapper .row:first-child {
+background-color:#FFF;
+padding:5px 0 0;
+}
+
+.tab-content.no-border {
+margin-top:10px;
+padding:0;
+}
+
+#project-widget .widget-main {
+padding:0;
+}
+
+.itemdiv.memberdiv {
+width:32%;
+}
+
+.itemdiv {
+min-height:50px;
+}
+
+hr {
+margin:10px 0;
+}
+
+#commitsList:first-child,.projectCommitsList:first-child {
+margin-top:0;
+}
+
+#collab-header {
+float:none;
+}
+
+#svg_container {
+overflow:auto;
+height:auto;
+}
+#commitsList:hover,.projectCommitsList:hover {
+background-color:#f4f4f4;
+}
+#rlist:hover,#plist:hover {
+border-radius:0;
+background-color:#f4f4f4;
+}
+#proList{
+margin-left:0px;
+margin-top:4px;
+}
+#proList a{
+padding:5px 0px 5px 5px;
+}
+#source-table,#lock-table {
+border-top:none;
+margin-top:0px;
+}
+.source_row
+{
+border-bottom: 1px solid #F4F4F4;
+border-top: medium none;
+font-size: 13px;
+padding: 6px;
+line-height:21px;
+}
+.source_row:hover {
+background-color:#F1F1F1;
+}
+.projectLockRow:hover{
+background-color:#F1F1F1;
+}
+.tab-content.no-border {
+margin-top: 2px;
+padding: 0;
+}
+#commitList .tab-content{
+ border: 0 solid #C5D0DC;
+}
+#repository_list{
+height:34px;
+}
+
+#lock_table_head,#tab-td {
+font-size:13px;
+padding-bottom:6px;
+border-bottom:1px solid #f4f4f4;
+border-top:none;
+}
+#svg-description{
+font-size:13px;
+}
+#svgInfo{
+font-size:13px;
+}
+.documentation
+{
+padding:6px;
+min-height:60px;
+border: 1px solid #F4F4F4;
+}
+.action-buttons a{
+outline:none;
+
+}
+#tags td {
+border-bottom: 1px solid #DDDDDD;
+}
+.inbox-tabs.nav-tabs.tab-size-bigger > li > a {
+font-size: 12px;
+padding: 6px 15px;
+}
+.comments
+{
+padding:6px;
+min-height:150px;
+border: 1px solid #F4F4F4;
+font-size:12px;
+}
+.commentsScroll  .body {
+    margin-left: 10px;
+	}
+.commentsScroll{
+height:auto;
+}	
+.action-buttons a {
+width:20px;
+}
+#listComments .comments {
+border:0;
+}
+.in{
+margin-bottom:20px;
+
+}
+.comments-row td{
+height:0;
+padding:0;
+}
+.even{
+background-color:#ffffff;
+
+}
+#tags_heading{
+font-size:17px;
+}
+
+@media screen and min-width1300px{
+#collb-column1 {
+width:750px;
+}
+}
+
+@media screen and max-width770px{
+#collb-column2 {
+float:none;
+}
+}
+
+.projectDescription {
+ font-size: 18px;
+ font-weight: normal;
+}
+
+.projectDescriptionIcon {
+ font-size: 13px;
+ margin-top:8px;
+ margin-right:1px;
+}
+
+#descSuccessMessage {
+font-size: 13px;
+ margin-right:8px;
+}
+#descriptionText {
+width:100%;
+margin-top:5px;
+margin-bottom:3px;
+}
+#newcomment{
+width:100%;
+margin-top:5px;
+margin-bottom:3px;
+}
+#collab-header ul.nav-tabs{
+border:0;
+}
+.repository{
+width:362px;
+display:inline-block;
+margin:6px;
+cursor:pointer;
+}
+.repo-info-box{
+width:200px;
+height:60px;
+border-color:#d8d8d8;
+border-style:dotted;
+border-width:1px;
+display:inline-block;
+margin: -5px 0 0 -3px;
+-moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+border-radius:0;
+ box-shadow: none;
+ border-collapse:collapse;
+}
+.infobox > .infobox-data > .infobox-data-number {
+font-size:18px;
+}
+.infobox{
+width:169px;
+height:60px;
+}
+.grid2 {
+text-align:center;
+}
+.hr{
+margin:7px 0;
+}
+.itemdiv .commitBody {
+margin-left:0px;
+margin-right:0px;
+}
+.itemdiv .body .commitText {
+padding-bottom:1px;
+font-size: 15px;
+}
+.itemdiv .tools {
+bottom:0px;
+}
+.itemdiv > .commitBody > .text:after {
+border:none;
+}
+#commitsList {
+padding:0px;
+overflow-y:auto;
+overflow-x:hidden;
+overflow-x:-moz-hidden-unscrollable;
+border:0px;
+}
+#commitsList .commentdiv {
+padding-bottom:5px;
+padding-top:5px;
+padding-right:0px;
+border-bottom:thin dotted #cccccc;
+margin-left:1px;
+margin-right:1px;
+}
+
+#activitiesList .widget-main {
+padding-top:0px;
+}
+#ace-settings-box a{
+text-decoration:none;
+outline:none;
+}
+.infobox > .infobox-data > .infobox-data-number {
+    font-size: 12px;
+}
+.infobox > .infobox-data {
+font-size:12px;
+}
+.icon_repo {
+    display: inline-block;
+    float: left;
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: 10px;
+}
+.itemdiv > .body > .time {
+font-weight:500;
+}
+ul.breadcrumb  li  a.noDecoration {
+text-decoration:none;
+outline:none;
+color:#555555;
+}
+
+#projectPage_Template .widget-toolbar, #branchPage_Template .widget-toolbar{
+float:left;
+}
+#ace-settings-btn {
+background : linear-gradient(to bottom, #999999 0px, #999999 100%) repeat-x scroll 0 0 #999999 !important
+}
+.ace-settings-box {
+    border-color: #999999;
+}
+.btn.btn-app.btn-xs {
+    font-size: 16px;
+}
+.btn-warning, .btn-warning:focus {
+background-color: #999999;
+}
+.btn-app.btn-warning, .btn-app.btn-warning.no-hover:hover, .btn-app.btn-warning.disabled:hover{
+    background:linear-gradient(to bottom, #999999 0px, #999999 100%) repeat-x scroll 0 0 #999999 !important
+}
+#commitsList:hover {
+background-color:#ffffff;
+}
+#repositories {
+padding-left:0px;
+}
+#activitiesList {
+padding-right:0px;
+float: right;
+}
+#collab-container {
+margin:0px;
+width:100%;
+}
+#commitsList .commentdiv .time{
+right:0px;
+}
+#commitsList .commentdiv .tools{
+right:0px;
+}
+#sources-tab {
+margin-top:-8px;
+}
+#branchPage_Template {
+margin-left:5px;
+}
+#unLockButton {
+margin-bottom:10px;
+}
+.commentdiv .commitComments {
+float:right;
+margin-top:-20px;
+}
+#loadMoreCommits {
+margin-top:3px;
+}
+#lockFiles_filter input, #collabProjectBranch_filter input, #collabProjectTags_filter input{
+margin-right:0px;
+}
+.infobox > .infobox-data {
+min-width:0px;
+}
+#activitiesList .widget-toolbar {
+padding-right:0px;
+}
+#activitiesList .widget-header {
+    color:#777777;
+}
+#activitiesList .action-buttons a {
+    color:#777777;
+}
+#ace-settings-box {
+    height: 40px;
+    line-height: 35px;
+    width: 200px;
+}
+ #contributors-list .itemdiv > .body { 
+    line-height:28px;
+    margin-left: 40px;
+}
+.commitUser {
+    color:#777777;
+}
+.noDecorationFile {
+    color:#585858;
+}#showSVG .svgDocumentation{
+    margin-top:15px;
+}
+#showSVG .modal-dialog{
+    margin-top:15px;
+}
+a.noUnderLine{
+    text-decoration: none;
+    outline: none;
+}
+#repositories .table_refresh_icon {
+    margin-left: 5px;
+}
+.collab-rss {
+    font-size: 18px;
+}
+.repository .widget-main {
+    padding: 10px;
+}
+#collabDeleteConfirm .modal-dialog{
+    width: 400px !important;
+}

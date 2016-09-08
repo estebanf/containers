@@ -1,0 +1,14 @@
+set -e
+print_jars() {
+	echo -n $1
+	shift
+	for i; do
+		echo -n :$i
+	done
+}
+d="`dirname $0`"
+java \
+"-Dorg.apache.ode.validator=pl.touk.ode.validator.Validator" \
+-cp `print_jars "$d"/*.jar`:"$d" org.apache.ode.tools.bpelc.cline.BpelC \
+"$@"                     
+

@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://tempo.intalio.org/security/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempo.intalio.org/security/tokenService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempo.intalio.org/security/tokenService/">
+   <wsdl:documentation>
+<imported:imported xmlns:imported="http://www.intalio.com/designer/remote-services-import" imported:importTime="2015-12-08T10:51:52-0500" imported:sourceURI="http://bpms.local:8080/intalio/ode/processes/TokenService?wsdl" imported:baseImportDir="Budgeting/Services/SOAP" imported:isRootImport="true" imported:isIndented="true"/>TokenService</wsdl:documentation>
+   <wsdl:types>
+      <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tempo.intalio.org/security/tokenService/">
+         <xsd:complexType name="PropertyType">
+            <xsd:sequence>
+               <xsd:element name="name" type="xsd:string"/>
+               <xsd:element name="value" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="Properties">
+            <xsd:sequence>
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:PropertyType"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="authenticateUserType">
+            <xsd:sequence>
+               <xsd:element name="user" type="xsd:string"/>
+               <xsd:element name="password" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:element name="authenticateUser" type="tns:authenticateUserType"/>
+         <xsd:element name="authenticateEncryptedUser" type="tns:authenticateUserType"/>
+         <xsd:element name="authenticateUserWithCredentials">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="user" type="xsd:string"/>
+                  <xsd:element name="credentials" type="tns:Properties"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="authenticateUserResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="token" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="getTokenProperties">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="token" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="getTokenPropertiesResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="properties" type="tns:Properties"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="isWorkflowAdmin">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="user" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="isSuperAdmin">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="role" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="isWorkflowAdminResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="isWorkflowAdmin" type="xsd:boolean"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="isSuperAdminResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="isSuperAdmin" type="xsd:boolean"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="isRoleCaseSensitive">
+            <xsd:complexType>
+               <xsd:sequence/>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="isRoleCaseSensitiveResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="isRoleCaseSensitive" type="xsd:boolean"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="getTokenResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="out" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="proxyTicket">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="ticket" type="xsd:string"/>
+                  <xsd:element name="serviceURL" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="openssoTicket">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="openssoToken" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="authenticateUserFromSSOToken">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="token" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="authenticateUserFromSSOTokenResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="token" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="authenticateUserFromSSOTokenRequest">
+      <wsdl:part name="payload" element="tns:authenticateUserFromSSOToken"/>
+   </wsdl:message>
+   <wsdl:message name="authenticateUserFromSSOTokenResponse">
+      <wsdl:part name="payload" element="tns:authenticateUserFromSSOTokenResponse"/>
+   </wsdl:message>
+   <wsdl:message name="authenticateEncryptedUser">
+      <wsdl:part name="payload" element="tns:authenticateEncryptedUser"/>
+   </wsdl:message>
+   <wsdl:message name="authenticateEncryptedUserResponse">
+      <wsdl:part name="payload" element="tns:authenticateUserResponse"/>
+   </wsdl:message>
+   <wsdl:message name="authenticateUser">
+      <wsdl:part name="payload" element="tns:authenticateUser"/>
+   </wsdl:message>
+   <wsdl:message name="authenticateUserResponse">
+      <wsdl:part name="payload" element="tns:authenticateUserResponse"/>
+   </wsdl:message>
+   <wsdl:message name="isSuperAdminRequest">
+      <wsdl:part name="payload" element="tns:isSuperAdmin"/>
+   </wsdl:message>
+   <wsdl:message name="isSuperAdminResponse">
+      <wsdl:part name="payload" element="tns:isSuperAdminResponse"/>
+   </wsdl:message>
+   <wsdl:message name="isWorkflowAdminRequest">
+      <wsdl:part name="payload" element="tns:isWorkflowAdmin"/>
+   </wsdl:message>
+   <wsdl:message name="isWorkflowAdminResponse">
+      <wsdl:part name="payload" element="tns:isWorkflowAdminResponse"/>
+   </wsdl:message>
+   <wsdl:message name="getTokenFromOpenSSOTokenRequest">
+      <wsdl:part name="payload" element="tns:openssoTicket"/>
+   </wsdl:message>
+   <wsdl:message name="getTokenFromOpenSSOTokenResponse">
+      <wsdl:part name="payload" element="tns:authenticateUserResponse"/>
+   </wsdl:message>
+   <wsdl:message name="isRoleCaseSensitiveRequest">
+      <wsdl:part name="payload" element="tns:isRoleCaseSensitive"/>
+   </wsdl:message>
+   <wsdl:message name="isRoleCaseSensitiveResponse">
+      <wsdl:part name="payload" element="tns:isRoleCaseSensitiveResponse"/>
+   </wsdl:message>
+   <wsdl:message name="authenticateUserWithCredentials">
+      <wsdl:part name="payload" element="tns:authenticateUserWithCredentials"/>
+   </wsdl:message>
+   <wsdl:message name="getTokenProperties">
+      <wsdl:part name="payload" element="tns:getTokenProperties"/>
+   </wsdl:message>
+   <wsdl:message name="getTokenPropertiesResponse">
+      <wsdl:part name="payload" element="tns:getTokenPropertiesResponse"/>
+   </wsdl:message>
+   <wsdl:message name="getTokenFromTicketRequest">
+      <wsdl:part name="payload" element="tns:proxyTicket"/>
+   </wsdl:message>
+   <wsdl:message name="getTokenFromTicketResponse">
+      <wsdl:part name="payload" element="tns:authenticateUserResponse"/>
+   </wsdl:message>
+   <wsdl:portType name="TokenServicePortType">
+      <wsdl:operation name="authenticateUserFromSSOToken">
+         <wsdl:input message="tns:authenticateUserFromSSOTokenRequest" wsaw:Action="authenticateUserFromSSOToken"/>
+         <wsdl:output message="tns:authenticateUserFromSSOTokenResponse" wsaw:Action="http://tempo.intalio.org/security/tokenService/TokenService/authenticateUserFromSSOTokenResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="authenticateEncryptedUser">
+         <wsdl:input message="tns:authenticateEncryptedUser" wsaw:Action="authenticateEncryptedUser"/>
+         <wsdl:output message="tns:authenticateEncryptedUserResponse" wsaw:Action="http://tempo.intalio.org/security/tokenService/TokenService/authenticateEncryptedUserResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="authenticateUser">
+         <wsdl:input message="tns:authenticateUser" wsaw:Action="authenticateUser"/>
+         <wsdl:output message="tns:authenticateUserResponse" wsaw:Action="http://tempo.intalio.org/security/tokenService/TokenService/authenticateUserResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="isSuperAdmin">
+         <wsdl:input message="tns:isSuperAdminRequest" wsaw:Action="isSuperAdmin"/>
+         <wsdl:output message="tns:isSuperAdminResponse" wsaw:Action="http://tempo.intalio.org/security/tokenService/TokenService/isSuperAdminResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="isWorkflowAdmin">
+         <wsdl:input message="tns:isWorkflowAdminRequest" wsaw:Action="isWorkflowAdmin"/>
+         <wsdl:output message="tns:isWorkflowAdminResponse" wsaw:Action="http://tempo.intalio.org/security/tokenService/TokenService/isWorkflowAdminResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="getTokenFromOpenSSOToken">
+         <wsdl:input message="tns:getTokenFromOpenSSOTokenRequest" wsaw:Action="getTokenFromOpenSSOToken"/>
+         <wsdl:output message="tns:getTokenFromOpenSSOTokenResponse" wsaw:Action="http://tempo.intalio.org/security/tokenService/TokenService/getTokenFromOpenSSOTokenResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="isRoleCaseSensitive">
+         <wsdl:input message="tns:isRoleCaseSensitiveRequest" wsaw:Action="isRoleCaseSensitive"/>
+         <wsdl:output message="tns:isRoleCaseSensitiveResponse" wsaw:Action="http://tempo.intalio.org/security/tokenService/TokenService/isRoleCaseSensitiveResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="authenticateUserWithCredentials">
+         <wsdl:input message="tns:authenticateUserWithCredentials" wsaw:Action="authenticateUserWithCredentials"/>
+         <wsdl:output message="tns:authenticateUserResponse" wsaw:Action="http://tempo.intalio.org/security/tokenService/TokenService/authenticateUserWithCredentialsResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="getTokenProperties">
+         <wsdl:input message="tns:getTokenProperties" wsaw:Action="getTokenProperties"/>
+         <wsdl:output message="tns:getTokenPropertiesResponse" wsaw:Action="http://tempo.intalio.org/security/tokenService/TokenService/getTokenPropertiesResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="getTokenFromTicket">
+         <wsdl:input message="tns:getTokenFromTicketRequest" wsaw:Action="getTokenFromTicket"/>
+         <wsdl:output message="tns:getTokenFromTicketResponse" wsaw:Action="http://tempo.intalio.org/security/tokenService/TokenService/getTokenFromTicketResponse"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="TokenServiceSOAP" type="tns:TokenServicePortType">
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+      <wsdl:operation name="authenticateUserFromSSOToken">
+         <soap:operation soapAction="authenticateUserFromSSOToken" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="authenticateEncryptedUser">
+         <soap:operation soapAction="authenticateEncryptedUser" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="authenticateUser">
+         <soap:operation soapAction="authenticateUser" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="isSuperAdmin">
+         <soap:operation soapAction="isSuperAdmin" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="isWorkflowAdmin">
+         <soap:operation soapAction="isWorkflowAdmin" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="getTokenFromOpenSSOToken">
+         <soap:operation soapAction="getTokenFromOpenSSOToken" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="isRoleCaseSensitive">
+         <soap:operation soapAction="isRoleCaseSensitive" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="authenticateUserWithCredentials">
+         <soap:operation soapAction="authenticateUserWithCredentials" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="getTokenProperties">
+         <soap:operation soapAction="getTokenProperties" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="getTokenFromTicket">
+         <soap:operation soapAction="getTokenFromTicket" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="TokenService">
+      <wsdl:port name="Service" binding="tns:TokenServiceSOAP">
+         <soap:address location="http://bpms.local:8080/intalio/ode/processes/TokenService.Service/"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

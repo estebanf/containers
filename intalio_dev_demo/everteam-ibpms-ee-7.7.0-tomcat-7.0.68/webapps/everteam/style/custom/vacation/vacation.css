@@ -1,0 +1,53 @@
+/*
+ Copyright (c) 2005-2013 Intalio inc.
+
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+ Intalio inc. - initial API and implementation
+*/
+
+.chzn-container-single .chzn-single {
+border-radius: 0px 0px 0px 0px;
+box-shadow: 0 0 3px #FFFFFF inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+background:#FFFFFF ;
+height:30px;
+}
+
+#createVacation tr td{
+  vertical-align:middle;
+}
+
+#createVacation input {
+  height:30px;
+  padding:4px 2px;
+  width :176px;
+}
+#createVacation .chzn-drop input {
+	width:205px;
+}
+#createVacation textarea {
+  width :215px;
+}
+
+#vacationErrorDiv{
+  display:none;
+}
+#vacationsTableDiv {
+	padding:0px;
+}
+table#createVacation {
+	margin-bottom: 0px;
+}
+#saveVacationModal .modal-footer {
+	margin-top: 0px;
+}
+#saveVacationModal .modal-dialog{
+  width: 425px !important;
+}
+#deleteVacationModal .modal-dialog{
+  width: 400px !important;
+}

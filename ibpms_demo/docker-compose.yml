@@ -1,0 +1,30 @@
+version: '2'
+services:
+  ibpms_demo_mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    container_name: ibpms_demo_mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=everteam
+      - MYSQL_DATABASE=everteam
+      - MYSQL_USER=everteam
+      - MYSQL_PASSWORD=everteam
+  ibpms_demo_rest:
+    image: estebanf/ibpms_demo_rest
+    container_name: ibpms_demo_rest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - ibpms_demo_mysql
+    links:
+      - ibpms_demo_mysql
+  # ibpms_server:
+  #   image: estebanf/ibpms_server:demo
+  #   container_name: ibpms_server
+  #   ports:
+  #     - "8080:8080"
+  #     - "9092:9092"
+  #   links:
+  #     - ibpms_demo_mysql
+  #     - ibpms_demo_rest

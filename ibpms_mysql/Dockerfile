@@ -1,0 +1,7 @@
+FROM mysql:5.7.14
+COPY BPMS.sql /docker-entrypoint-initdb.d
+ENV MYSQL_ROOT_PASSWORD=everteam
+ENV MYSQL_USER=bpms
+ENV MYSQL_PASSWORD=bpms
+ENV MYSQL_DATABASE=bpmsdb
+EXPOSE 3306

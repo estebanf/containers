@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:this="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments/process" xmlns:processimplicitPartner="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments/processimplicitPartner" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="urn:intalio.com:connectors:database:budgeting:select_departmentsservice" xmlns:tns="http://budgeting.example.everteam.com/Types/Business" xmlns:Technical="http://budgeting.example.everteam.com/Types/Technical" xmlns:diag="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments" xmlns:Caller="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments/Caller" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments/process">
+    <wsdl:types>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments/process">
+            <xs:import namespace="http://budgeting.example.everteam.com/Types/Business" schemaLocation="../../Schemas/Business.xsd"/>
+            <xs:import namespace="http://budgeting.example.everteam.com/Types/Technical" schemaLocation="../../Schemas/Technical.xsd"/>
+            <xs:element name="Recieve_requestGetDepartmentFault" type="Technical:ErrorType"/>
+            <xs:element name="Recieve_requestRequest" type="xs:string"/>
+            <xs:element name="Recieve_requestResponse" type="tns:DepartmentsType"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="Recieve_requestGetDepartmentFault">
+        <wsdl:part name="body" element="this:Recieve_requestGetDepartmentFault"/>
+    </wsdl:message>
+    <wsdl:message name="Recieve_requestRequest">
+        <wsdl:part name="body" element="this:Recieve_requestRequest"/>
+    </wsdl:message>
+    <wsdl:message name="Recieve_requestResponse">
+        <wsdl:part name="body" element="this:Recieve_requestResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ForCaller">
+        <wsdl:operation name="Recieve_request">
+            <wsdl:input message="this:Recieve_requestRequest" name="Recieve_request"/>
+            <wsdl:output message="this:Recieve_requestResponse" name="Recieve_requestResponse"/>
+            <wsdl:fault name="GetDepartmentFault" message="this:Recieve_requestGetDepartmentFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CanonicBindingForCaller" type="this:ForCaller">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Recieve_request">
+            <soap:operation style="document" soapAction="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments/process/ForCaller/Recieve_request"/>
+            <wsdl:input name="Recieve_request">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="Recieve_requestResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="GetDepartmentFault">
+                <soap:fault name="GetDepartmentFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CanonicServiceForCaller">
+        <wsdl:port name="canonicPort" binding="this:CanonicBindingForCaller">
+            <soap:address location="http://bpms.local:8080/everteam/ode/processes/Budgeting/Processes/Integrations/GetDepartments/process/Caller"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

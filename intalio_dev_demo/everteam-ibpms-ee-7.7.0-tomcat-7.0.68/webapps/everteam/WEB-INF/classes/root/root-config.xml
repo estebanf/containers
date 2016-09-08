@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+    <bean id="intalioSystemProperties" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+	  <property name="targetObject">
+		<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		      <property name="targetClass" value="java.lang.System" />
+		      <property name="targetMethod" value="getProperties" />
+		</bean>
+	  </property>
+	  <property name="targetMethod" value="putAll" />
+	  <property name="arguments">
+		<util:map>
+		      <entry key="org.intalio.tempo.configDirectory" value="#{systemProperties['INTALIO_CONF']}" />
+		      <entry key="org.intalio.deploy.configDirectory" value="#{systemProperties['INTALIO_CONF']}" />
+		      <entry key="com.intalio.bpms.configDirectory" value="#{systemProperties['INTALIO_CONF']}" />
+		      <entry key="org.apache.ode.configDir" value="#{systemProperties['INTALIO_CONF']}" />
+		</util:map>
+	  </property>
+    </bean>
+
+    <bean id="placeholderProperties"
+	  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+	  depends-on="intalioSystemProperties">
+	  <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+	  <property name="searchSystemEnvironment" value="true" />
+	  <property name="location" value="file:${INTALIO_CONF}/common/base-config.properties" />
+    </bean>
+
+    <bean id="intalioAuditingProperties"
+	  class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"
+	  depends-on="placeholderProperties">
+	  <property name="targetObject">
+		<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		      <property name="targetClass" value="java.lang.System" />
+		      <property name="targetMethod" value="getProperties" />
+		</bean>
+	  </property>
+	  <property name="targetMethod" value="putAll" />
+	  <property name="arguments">
+		<util:map>
+		      <entry key="spring.profiles.active" value="${com.intalio.bpms.audit-enabled}" />
+		      <entry key="com.intalio.bpms.bre.repository" value="${com.intalio.bpms.bre.repository}" />
+		      <entry key="security.provider.case.sensitive" value="${com.intalio.bpms.security.provider.case.sensitive}" />
+		      <entry key="com.intalio.bpms.jndi.bpmsdb" value="${com.intalio.bpms.jndi.bpmsdb}" />
+		      <entry key="com.intalio.bpms.single-sign-on.skip" value="${com.intalio.bpms.single-sign-on.skip}" />
+		      <entry key="com.intalio.bpms.customforms.repository" value="${com.intalio.bpms.customforms.repository}" />
+		      <entry key="com.intalio.bpms.customforms.url" value="${com.intalio.bpms.customforms.url}" />
+		      <entry key="com.intalio.bpms.role.default" value="${com.intalio.bpms.role.default}" />
+		</util:map>
+	  </property>
+    </bean>
+
+    <import resource="file:${INTALIO_CONF}/securityConfig.xml" />
+
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver" />
+
+    <bean id="applicationState" class="org.intalio.tempo.uiframework.UIFWApplicationState"/>
+
+    <bean class="org.springframework.web.servlet.view.XmlViewResolver">
+	  <property name="location">
+		<value>/WEB-INF/views.xml</value>
+	  </property>
+	  <property name="order" value="0"/>
+    </bean>
+
+    <bean id="webAuthFilter" class="org.intalio.tempo.web.LoginFilter" >
+	  <property name="excludeURL">
+	    <list>
+		<value>/everteam/login.*</value><!-- by passing login page -->
+		<value>.*\.do</value><!-- for collaboration -->
+		<value>.*\.au</value><!-- for collaboration -->
+		<value>/everteam/encrypt*</value>
+	    </list>
+	  </property>
+	  <property name="welcomePage" value="index.htm" />
+    </bean>
+
+    <bean id="tokenService" class="org.intalio.tempo.security.ws.TokenClient">
+	  <constructor-arg value="http://${com.intalio.bpms.server.baseUrl}/${com.intalio.bpms.endpoint.token-service}" />
+    </bean>
+
+    <import resource="classpath:workflow/tempo-users.xml" />
+
+    <bean id="loginController" class="org.intalio.tempo.web.controller.LoginController">
+	  <constructor-arg index="0" ref="tokenServiceImpl"/>
+	  <constructor-arg index="1" value="index.htm"/>
+	  <property name="commandClass" value="org.intalio.tempo.web.controller.LoginCommand"/>
+	  <property name="commandName">
+		<value>login</value>
+	  </property>
+	  <property name="validator">
+		<bean id="loginValidator"
+		    class="org.intalio.tempo.web.controller.LoginController$LoginValidator"/>
+	  </property>
+	  <property name="displayName" value="${com.intalio.bpms.ldap.property.user-name}"/>
+	  <property name="loginPageURL" value="/everteam/login.htm"/>
+	  <property name="userService" ref="user.userService"/>
+    </bean>
+</beans>

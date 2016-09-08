@@ -1,0 +1,143 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:this="http://floridabluedemo.com/Processes/Scheduling/Scheduling" xmlns:SchedulingimplicitPartner="http://floridabluedemo.com/Processes/Scheduling/SchedulingimplicitPartner" xmlns:metrics="http://test.com/xvar/example" xmlns:select_providers="urn:intalio.com:connectors:database:floridabluedemo:select_providersservice" xmlns:provider="http://floridabluedemo.com/Processes/Scheduling/provider" xmlns:formless-ytivitca="http://www.intalio.com/formless/attachments" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diag="http://floridabluedemo.com/Processes/Scheduling" xmlns:ns="urn:intalio.com:connectors:database:floridabluedemo:select_primaryservice" xmlns:attachments="http://www.intalio.com/gi/Forms/frmScheduling.gi/attachments" xmlns:Master_process="http://floridabluedemo.com/Processes/Scheduling/Master_process" xmlns:tns="http://www.example.org/Demo" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:frmScheduling="http://www.intalio.com/gi/Forms/frmScheduling.gi" xmlns:formless="http://www.intalio.com/formless" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://floridabluedemo.com/Processes/Scheduling/Scheduling">
+    <wsdl:types>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://floridabluedemo.com/Processes/Scheduling/Scheduling">
+            <xs:import namespace="http://www.example.org/Demo" schemaLocation="../Schemas/Demo.xsd"/>
+            <xs:element name="Recieve_appointment_claimRequest" type="xs:string"/>
+            <xs:element name="Recieve_appointment_claimResponse" type="tns:ACKType"/>
+            <xs:element name="Recieve_member_infoRequest" type="tns:MemberSchedulingType"/>
+            <xs:element name="Recieve_member_infoResponse" type="tns:ACKType"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="Recieve_appointment_claimRequest">
+        <wsdl:part name="body" element="this:Recieve_appointment_claimRequest"/>
+    </wsdl:message>
+    <wsdl:message name="Recieve_appointment_claimResponse">
+        <wsdl:part name="body" element="this:Recieve_appointment_claimResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Recieve_member_infoRequest">
+        <wsdl:part name="body" element="this:Recieve_member_infoRequest"/>
+    </wsdl:message>
+    <wsdl:message name="Recieve_member_infoResponse">
+        <wsdl:part name="body" element="this:Recieve_member_infoResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ForMaster_process">
+        <wsdl:operation name="Recieve_member_info">
+            <wsdl:input message="this:Recieve_member_infoRequest" name="Recieve_member_info"/>
+            <wsdl:output message="this:Recieve_member_infoResponse" name="Recieve_member_infoResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="Forprovider">
+        <wsdl:operation name="Recieve_appointment_claim">
+            <wsdl:input message="this:Recieve_appointment_claimRequest" name="Recieve_appointment_claim"/>
+            <wsdl:output message="this:Recieve_appointment_claimResponse" name="Recieve_appointment_claimResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CanonicBindingForMaster_process" type="this:ForMaster_process">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Recieve_member_info">
+            <soap:operation style="document" soapAction="http://floridabluedemo.com/Processes/Scheduling/Scheduling/ForMaster_process/Recieve_member_info"/>
+            <wsdl:input name="Recieve_member_info">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="Recieve_member_infoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="CanonicBindingForprovider" type="this:Forprovider">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Recieve_appointment_claim">
+            <soap:operation style="document" soapAction="http://floridabluedemo.com/Processes/Scheduling/Scheduling/Forprovider/Recieve_appointment_claim"/>
+            <wsdl:input name="Recieve_appointment_claim">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="Recieve_appointment_claimResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CanonicServiceForMaster_process">
+        <wsdl:port name="canonicPort" binding="this:CanonicBindingForMaster_process">
+            <soap:address location="http://bpms.local:8080/everteam/ode/processes/FloridaBlueDemo/Processes/Scheduling/Scheduling/Master_process"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:service name="CanonicServiceForprovider">
+        <wsdl:port name="canonicPort" binding="this:CanonicBindingForprovider">
+            <soap:address location="http://bpms.local:8080/everteam/ode/processes/FloridaBlueDemo/Processes/Scheduling/Scheduling/provider"/>
+        </wsdl:port>
+    </wsdl:service>
+    <vprop:property name="case_id" type="xs:string"/>
+    <vprop:propertyAlias propertyName="this:case_id" messageType="this:Recieve_appointment_claimRequest" part="body">
+        <vprop:query>text()</vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="this:case_id" messageType="this:Recieve_member_infoResponse" part="body">
+        <vprop:query>tns:ProcessID/text()</vprop:query>
+    </vprop:propertyAlias>
+	<wsdl:import namespace="http://www.intalio.com/gi/Forms/frmScheduling.gi" location="../Forms/frmScheduling.gi.wsdl"/>
+	<wsdl:binding name="WFmagic_Cb8n9u_AEeW-F9Cnjo6rGQServiceBinding" type="frmScheduling:Process">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="initProcess">
+			<soap:operation style="document" soapAction="http://www.intalio.com/gi/Forms/frmScheduling.gi/Process/initProcess"/>
+			<wsdl:input name="initProcessRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="initProcessResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="notifyTaskCompletion">
+			<soap:operation style="document" soapAction="http://www.intalio.com/gi/Forms/frmScheduling.gi/Process/notifyTaskCompletion"/>
+			<wsdl:input name="notifyTaskCompletionRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="notifyTaskCompletionResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="notifyTaskCompletionSingleActivity">
+			<soap:operation style="document" soapAction="http://www.intalio.com/gi/Forms/frmScheduling.gi/Process/notifyTaskCompletionSingleActivity"/>
+			<wsdl:input name="createTaskSingleActivityResponse">
+				<soap:body use="literal"/>
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="WFmagic_Cb8n9u_AEeW-F9Cnjo6rGQService">
+		<wsdl:port name="SchedulingForFrmSch_for_SchedulingimplicitPartnerForThePortTypeProcessPort" binding="this:WFmagic_Cb8n9u_AEeW-F9Cnjo6rGQServiceBinding">
+			<soap:address location="http://bpms.local:8080//everteam/ode/processes/FloridaBlueDemo/Processes/Scheduling/SchedulingForFrmSch/SchedulingimplicitPartner/WFmagic_Cb8n9u_AEeW-F9Cnjo6rGQ"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:import namespace="http://www.intalio.com/formless" location="../formless-ytivitca.wsdl"/>
+	<wsdl:binding name="WFmagic_l0nlsO_AEeW-F9Cnjo6rGQServiceBinding" type="formless:Process">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="initProcess">
+			<soap:operation style="document" soapAction="http://www.intalio.com/formless/Process/initProcess"/>
+			<wsdl:input name="initProcessRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="initProcessResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="notifyTaskCompletion">
+			<soap:operation style="document" soapAction="http://www.intalio.com/formless/Process/notifyTaskCompletion"/>
+			<wsdl:input name="notifyTaskCompletionRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="notifyTaskCompletionResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="notifyTaskCompletionSingleActivity">
+			<soap:operation style="document" soapAction="http://www.intalio.com/formless/Process/notifyTaskCompletionSingleActivity"/>
+			<wsdl:input name="createTaskSingleActivityResponse">
+				<soap:body use="literal"/>
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="WFmagic_l0nlsO_AEeW-F9Cnjo6rGQService">
+		<wsdl:port name="Scheduling_for_SchedulingimplicitPartnerForThePortTypeProcessPort" binding="this:WFmagic_l0nlsO_AEeW-F9Cnjo6rGQServiceBinding">
+			<soap:address location="http://bpms.local:8080//everteam/ode/processes/FloridaBlueDemo/Processes/Scheduling/Scheduling/SchedulingimplicitPartner/WFmagic_l0nlsO_AEeW-F9Cnjo6rGQ"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

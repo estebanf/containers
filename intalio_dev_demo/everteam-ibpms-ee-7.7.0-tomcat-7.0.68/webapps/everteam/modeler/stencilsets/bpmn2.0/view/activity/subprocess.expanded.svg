@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" 
+     id="Layer_1" 
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns:wapama="http://www.wapama.net/diagram" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     x="0px" 
+     y="0px" 
+     width="201px" 
+     height="161px"
+     viewBox="0 0 201 161" 
+     enable-background="new 0 0 201 161">
+  <wapama:magnets>
+    <wapama:magnet wapama:cx="1" wapama:cy="50" wapama:anchors="left" />
+    <wapama:magnet wapama:cx="1" wapama:cy="80" wapama:anchors="left" />
+    <wapama:magnet wapama:cx="1" wapama:cy="110" wapama:anchors="left" />
+    
+    <wapama:magnet wapama:cx="70" wapama:cy="159" wapama:anchors="bottom" />
+    <wapama:magnet wapama:cx="100" wapama:cy="159" wapama:anchors="bottom" />
+    <wapama:magnet wapama:cx="130" wapama:cy="159" wapama:anchors="bottom" />
+    
+    <wapama:magnet wapama:cx="199" wapama:cy="50" wapama:anchors="right" />
+    <wapama:magnet wapama:cx="199" wapama:cy="80" wapama:anchors="right" />
+    <wapama:magnet wapama:cx="199" wapama:cy="110" wapama:anchors="right" />
+    
+    <wapama:magnet wapama:cx="70" wapama:cy="1" wapama:anchors="top" />
+    <wapama:magnet wapama:cx="100" wapama:cy="1" wapama:anchors="top" />
+    <wapama:magnet wapama:cx="130" wapama:cy="1" wapama:anchors="top" />
+    
+    <wapama:magnet wapama:cx="100" wapama:cy="80" wapama:default="yes" />
+  </wapama:magnets>
+<g  pointer-events="fill" wapama:minimumSize="100 80" originalSize="101 81">
+    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="100.4995" y1="0.5" x2="100.4995"
+ y2="160.5005">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+        <stop id="fill_el" offset="100%" stop-color="#b1c2d6" stop-opacity="1"/>
+    </linearGradient>
+    <rect id="text_frame" wapama:anchors="bottom top right left" x="0" y="0" width="198" height="158"
+ rx="10" ry="10" stroke="none" fill="none" />
+    <rect id="bg_frame" wapama:monitorShapeType="rect" 
+        wapama:resize="vertical horizontal" x="0.5" y="0.5" width="200" height="160" rx="10" ry="10"
+ stroke="#444444" stroke-width="1" fill="url(#SVGID_1_)" />
+    <text 
+        font-size="12" 
+        id="text_name" 
+        x="8" 
+        y="10" 
+        wapama:align="top left"
+        wapama:fittoelem="text_frame"
+        wapama:anchors="left top" 
+        stroke="black"
+    ></text>
+    <a id="collapse" onclick="return false;">
+        <g id="b" wapama:anchors="bottom">
+            <rect wapama:anchors="bottom" x="95" y="146" width="12" height="12" fill="none" stroke="black"
+ stroke-width="1" display="none"/>
+            <path id="expand" wapama:anchors="bottom" fill="none" stroke="black" d="M 101 148 v8 M 97
+ 152 h8" stroke-width="1" display="none"/>
+            <path id="collapse" wapama:anchors="bottom" fill="none" stroke="black" d="M 97 152 h8" stroke-width
+="1" display="none"/>
+        </g>
+    </a>
+    <g class="refViews">
+        <g id="none" style="display:none"></g>
+        <g id="standard" style="display:none">
+            <path
+                 wapama:anchors="bottom"
+                style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.5;stroke-linecap
+:round;stroke-linejoin:round;stroke-miterlimit:2.0999999;stroke-dasharray:none;stroke-opacity:1"
+                 id="path2396"
+                 d="M 82.5,152 L 82.5,155 L 79.5,155 M 82.5,155 A 4.875,4.875 0 1 1 86.5,155"
+                />
+        </g>
+    
+        <g id="mi_parallel" style="display:none">
+            <path wapama:anchors="bottom" fill="none" stroke="black" d="M81 147 v10 M85 147 v10 M89 147
+ v10" stroke-width="2" />
+        </g>
+        <g id="mi_sequential" style="display:none">
+            <path wapama:anchors="bottom" fill="none" stroke="#000000" stroke-width="2" d="M81,156h10
+ M81,152h10 M81,148h10"/>
+        </g>
+    </g>
+</g>
+</svg>

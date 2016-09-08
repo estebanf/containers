@@ -1,0 +1,45 @@
+.manageFilter{
+margin-top:-4px;
+}
+#taskFilterTable td{
+vertical-align:middle;
+}
+#taskFilterName,#tasksFilters{
+width:304px;
+height:29px;
+}
+ul#filterTasksDropdown li{
+cursor:pointer;
+}
+#FilterCreationDatePicker,#FilterDueDatePicker{
+width:160px;
+height:31px;	
+background-color:#FFFFFF !important;
+cursor: pointer !important;
+}
+#creationDateOperator,#dueDateOperator{
+	height: 31px !important;
+	width: 58px !important;
+}
+#tasksPackageFilter_chzn > .chzn-single,#tasksFilters_chzn > .chzn-single{
+height: 31px !important;
+margin-left: -1px;
+}
+#tasksPackageFilter_chzn > .chzn-single > span,#tasksFilters_chzn > .chzn-single > span{
+    padding-bottom: 2px !important;
+    padding-top: 2px !important;
+}
+#filterTaskModal .modal-dialog{
+	margin-top: 15px !important;
+	padding-bottom: 0px;
+	width: 545px !important;
+}
+#filterTaskModal .modal-body{
+	padding-bottom: 0px;
+}
+#tasksFilters_chzn{
+	left:50px !important;
+}
+#taskFilterUpdateTable{
+	margin-bottom: 1px;
+}

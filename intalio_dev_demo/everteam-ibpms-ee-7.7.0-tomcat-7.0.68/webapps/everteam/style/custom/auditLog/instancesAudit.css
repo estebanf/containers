@@ -1,0 +1,31 @@
+#variableXmlDiff .modal-dialog{
+width:1200px;
+}
+
+#variableXmlDiff .modal-body{
+padding-top:0px;
+}
+#varXmlDifference{
+overflow:auto;
+}
+#previousXml{
+font-weight:600;
+margin-left:190px;
+}
+#updatedXml{
+font-weight:600;
+margin-left:190px;
+}
+.CodeMirror-merge{
+background-color:#DDDDDD;
+border-top:0px;
+}
+.CodeMirror-merge, .CodeMirror-merge .CodeMirror{
+height:auto;
+}
+.CodeMirror-merge-pane{
+background-color:#FFFFFF;
+}
+a.noColor {
+	color :#393939;
+}

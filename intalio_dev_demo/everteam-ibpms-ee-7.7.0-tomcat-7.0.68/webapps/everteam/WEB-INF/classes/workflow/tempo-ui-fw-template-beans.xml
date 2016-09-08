@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+          "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+ <import resource="file:${INTALIO_CONF}/hibernate/hibernate-properties.xml" />
+ <bean id="abs.AbstractJPAConnectionFactory" class="org.intalio.tempo.workflow.dao.AbstractJPAConnectionFactory" abstract="true">
+	 <constructor-arg index="0" type="java.lang.String" value="org.intalio.tempo.tms" />
+	 <constructor-arg index="1" ref="hibernatePropertiesMap" />
+ </bean>
+</beans>

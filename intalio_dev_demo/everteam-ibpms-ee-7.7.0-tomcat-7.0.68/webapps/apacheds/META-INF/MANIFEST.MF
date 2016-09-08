@@ -1,0 +1,7 @@
+Build-By: intalio
+Build-Jdk: 1.6.0_27
+Implementation-Title: Embedded Apache Directory Service
+Implementation-Version: 
+Manifest-Version: 1.0
+Created-By: Buildr
+

@@ -1,0 +1,35 @@
+@media  (max-width:1000px)
+{
+	.no-mobile {
+		display: none;
+	}
+	#menu-toggler {
+		display: inline-block;
+	}
+	.dataTables_paginate{
+		display: inline-block;
+    	float: left !important;
+    	padding-top: 5px;
+	}
+	.showEntries{
+		text-align: left !important;
+		padding-top: 10px;
+	}
+}
+@media (min-width:1000px)
+{
+	.no-mobile {
+		display: inline-block;
+	}
+	#menu-toggler {
+		display: none;
+	}
+	.dataTables_paginate{
+		display: block;
+    	float: right !important;
+    	padding-top: 0px;
+	}
+	.showEntries{
+		text-align: center;
+	}
+}

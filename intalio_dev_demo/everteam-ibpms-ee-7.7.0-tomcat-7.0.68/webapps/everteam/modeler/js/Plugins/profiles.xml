@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<profiles>
+	<!-- name default is reserved for the standard profile -->
+	<profile name="default" stencilset="stencilsets/bpmn2.0/bpmn2.0.json">
+		<stencilsetextension namespace="http://www.wapama.net/stencilsets/extensions/bpmncosts#"/>
+	</profile>
+
+</profiles>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+	<context:property-placeholder
+		location="file:${INTALIO_CONF}/common/base-config.properties" order="1" ignore-unresolvable="false" />
+
+	<context:component-scan base-package="com.intalio.bpms.analytics" >
+	  <context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<context:annotation-config />
+
+	<tx:annotation-driven transaction-manager="analytics.transactionManager" />
+
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="mediaTypes">
+		<map>
+			<entry key="html" value="text/html"/>
+			<entry key="json" value="application/json"/>
+		</map>
+		</property>
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+					<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+					<property name="prefix" value="/WEB-INF/jsp/"/>
+					<property name="suffix" value=".jsp"/>
+				</bean>
+			</list>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+					<property name="prefixJson" value="true"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="analytics.messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>bpms-analytics/analytics-messages</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="ds"></property>
+	</bean>
+
+	<bean id="ds"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>${com.intalio.bpms.jndi.bpmsdb}</value>
+		</property>
+	</bean>
+
+	<util:map id="instancesSelectorMap" value-type="com.intalio.bpms.analytics.service.selector.intf.InstancesSelector">
+        <entry key="all">
+			<bean class="com.intalio.bpms.analytics.service.selector.impl.AllInstancesSelector" />
+		</entry>
+		<entry key="completedInATimeRange">
+			<bean class="com.intalio.bpms.analytics.service.selector.impl.InstancesCompletedInATimeRangeSelector" />
+		</entry>
+		<entry key="completedInLastXDays">
+			<bean class="com.intalio.bpms.analytics.service.selector.impl.InstancesCompletedInLastXDaysSelector" />
+		</entry>
+		<entry key="completedSinceADate">
+			<bean class="com.intalio.bpms.analytics.service.selector.impl.InstancesCompletedSinceADateSelector" />
+		</entry>
+		<entry key="startedInATimeRange">
+			<bean class="com.intalio.bpms.analytics.service.selector.impl.InstancesStartedInATimeRangeSelector" />
+		</entry>
+		<entry key="startedInLastXDays">
+			<bean class="com.intalio.bpms.analytics.service.selector.impl.InstancesStartedInLastXDaysSelector" />
+		</entry>
+		<entry key="startedSinceADate">
+			<bean class="com.intalio.bpms.analytics.service.selector.impl.InstancesStartedSinceADateSelector" />
+		</entry>
+		<entry key="lastXCompletedInstances">
+			<bean class="com.intalio.bpms.analytics.service.selector.impl.LastXCompletedInstancesSelector" />
+		</entry>
+
+	</util:map>
+
+	<bean id="analytics.configuration" class="com.intalio.bpms.analytics.util.Configuration">
+		<property name="taskExecutionInterval" value="${com.intalio.bpms.analytics.task.execution.interval.default}" />
+	    <property name="startPSInternal" value="${com.intalio.bpms.analytics.internal.enable}" />
+	    <property name="taskPollInterval" value="${com.intalio.bpms.analytics.task.poll.interval}" />
+	
+	</bean>
+
+	<bean id="analytics.transactionManager"
+		class="org.springframework.transaction.jta.JtaTransactionManager">
+		<property name="transactionManagerName" value="${com.intalio.bpms.jndi.txmanager}" />
+		<property name="userTransactionName" value="${com.intalio.bpms.jndi.usertx}" />
+	</bean>
+
+</beans>

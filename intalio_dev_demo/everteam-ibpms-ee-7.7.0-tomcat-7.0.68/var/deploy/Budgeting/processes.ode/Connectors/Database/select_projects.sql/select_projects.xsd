@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:intalio.com:connectors:database:budgeting:select_projectsservice" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:intalio.com:connectors:database:budgeting:select_projectsservice">
+  <xsd:element name="select_projectsParameterSet">
+    <xsd:annotation>
+      <xsd:documentation>Main element in request message for operation - select_projects</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="connection">
+          <xsd:annotation>
+            <xsd:documentation>The database credentials</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="user">
+                <xsd:annotation>
+                  <xsd:documentation>The type definition for  user</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element name="password">
+                <xsd:annotation>
+                  <xsd:documentation>The type definition for  password</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="execute">
+          <xsd:annotation>
+            <xsd:documentation>Execution with input parameter</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element form="qualified" name="parameters">
+                <xsd:annotation>
+                  <xsd:documentation>The query parameters</xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="EXCERCISE_ID">
+                      <xsd:annotation>
+                        <xsd:documentation>The parameter value</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                          <xsd:totalDigits value="15"/>
+                          <xsd:fractionDigits value="2"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="DEPARTMENTID">
+                      <xsd:annotation>
+                        <xsd:documentation>The parameter value</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                          <xsd:totalDigits value="15"/>
+                          <xsd:fractionDigits value="2"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="select_projectsFault">
+    <xsd:annotation>
+      <xsd:documentation>The fault element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:all>
+        <xsd:element name="errorMessage" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>The error message</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:all>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="select_projectsResultSet">
+    <xsd:annotation>
+      <xsd:documentation>Main element in response message for operation - select_projects</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="rows">
+          <xsd:annotation>
+            <xsd:documentation/>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element form="qualified" name="row" maxOccurs="unbounded">
+                <xsd:annotation>
+                  <xsd:documentation>The row taken from database query</xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="EXCERCISE_ID">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  EXCERCISE_ID</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                          <xsd:totalDigits value="10"/>
+                          <xsd:fractionDigits value="0"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="DEPARTMENTID">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  DEPARTMENTID</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                          <xsd:totalDigits value="10"/>
+                          <xsd:fractionDigits value="0"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="PROJECT_ID">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  PROJECT_ID</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                          <xsd:totalDigits value="10"/>
+                          <xsd:fractionDigits value="0"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element nillable="true" name="NAME">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  NAME</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                          <xsd:maxLength value="250"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element nillable="true" name="RESPONSIBLE">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  RESPONSIBLE</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                          <xsd:maxLength value="250"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="TARGET_BUDGET">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  TARGET_BUDGET</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:double"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element nillable="true" name="NOTES">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  NOTES</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                          <xsd:maxLength value="250"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="LASTYEARBUDGET">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  LASTYEARBUDGET</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:double"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="BUDGET">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  BUDGET</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:double"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element nillable="true" name="PRIORITY">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  PRIORITY</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                          <xsd:maxLength value="250"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="STARTEXECUTION">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  STARTEXECUTION</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:dateTime"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="ENDEXECUTION">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  ENDEXECUTION</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:dateTime"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element nillable="true" name="NEWPROJECT">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  NEWPROJECT</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:boolean"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element nillable="true" name="DESCRIPTION">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  DESCRIPTION</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                          <xsd:maxLength value="250"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element nillable="true" name="JUSTIFICATION">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  JUSTIFICATION</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                          <xsd:maxLength value="250"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

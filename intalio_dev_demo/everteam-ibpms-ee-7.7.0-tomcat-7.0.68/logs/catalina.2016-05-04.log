@@ -1,0 +1,330 @@
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat/7.0.68
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Feb 8 2016 20:25:54 UTC
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.68.0
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Linux
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            4.2.0-35-generic
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             /opt/jdk1.7.0_80/jre
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.7.0_80-b15
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/conf/logging.properties
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -XX:MaxPermSize=512m
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Xms64m
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Xmx512m
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dfile.encoding=UTF-8
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dorg.apache.el.parser.SKIP_IDENTIFIER_CHECK=true
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -DINTALIO_CONF=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dode.connection.isolation=2
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dh2.baseDir=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/h2
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dh2.port=9092
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dh2.serverCachedObjects=2048
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Ddbfeed.transport.local=true
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djavax.net.ssl.trustStore=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config/intalio-keystore.jks
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dbtm.root=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dbitronix.tm.configuration=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config/btm-config.properties
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dbtm.root=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcom.sun.management.jmxremote
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dlog4j.configuration=file:///home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config/log4j.xml
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dintalio.contextPath=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/everteam
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/endorsed
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/temp
+May 04, 2016 10:40:28 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+May 04, 2016 10:40:28 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-0.0.0.0-8080"]
+May 04, 2016 10:40:28 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+May 04, 2016 10:40:28 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 474 ms
+May 04, 2016 10:40:29 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+May 04, 2016 10:40:29 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.68
+May 04, 2016 10:40:29 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/conf/Catalina/localhost/apacheds.xml
+May 04, 2016 10:40:29 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/conf/Catalina/localhost/cas.xml
+May 04, 2016 10:40:29 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:40:29 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:40:30 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/conf/Catalina/localhost/cas.xml has finished in 1,408 ms
+May 04, 2016 10:40:31 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/conf/Catalina/localhost/apacheds.xml has finished in 1,846 ms
+May 04, 2016 10:40:31 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/everteam.war
+May 04, 2016 10:40:32 AM bitronix.tm.integration.tomcat55.BTMLifecycleListener lifecycleEvent
+INFO: Starting Bitronix Transaction Manager
+May 04, 2016 10:40:33 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deployment of web application archive /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/everteam.war has finished in 15,239 ms
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/host-manager
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/manager
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/ROOT
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/examples
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/docs
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/docs has finished in 490 ms
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/ROOT has finished in 494 ms
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/host-manager has finished in 496 ms
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/manager has finished in 496 ms
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/examples has finished in 588 ms
+May 04, 2016 10:40:46 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-0.0.0.0-8080"]
+May 04, 2016 10:40:46 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+May 04, 2016 10:40:46 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 17935 ms
+May 04, 2016 10:41:39 AM org.apache.jasper.compiler.TldLocationsCache tldScanJar
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:42:36 AM org.apache.catalina.startup.HostConfig reload
+INFO: Reloading context [/everteam]
+May 04, 2016 10:42:36 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/everteam] has started
+May 04, 2016 10:42:37 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads
+SEVERE: The web application [/everteam] appears to have started a thread named [Dehydrator] but has failed to stop it. This is very likely to create a memory leak.
+May 04, 2016 10:42:37 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads
+SEVERE: The web application [/everteam] appears to have started a thread named [Timer-2] but has failed to stop it. This is very likely to create a memory leak.
+May 04, 2016 10:42:37 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads
+SEVERE: The web application [/everteam] appears to have started a thread named [Thread-23] but has failed to stop it. This is very likely to create a memory leak.
+May 04, 2016 10:42:37 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads
+SEVERE: The web application [/everteam] appears to have started a thread named [pool-8-thread-1] but has failed to stop it. This is very likely to create a memory leak.
+May 04, 2016 10:42:37 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads
+SEVERE: The web application [/everteam] appears to have started a thread named [pool-6-thread-1] but has failed to stop it. This is very likely to create a memory leak.
+May 04, 2016 10:42:37 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads
+SEVERE: The web application [/everteam] appears to have started a thread named [Thread-29] but has failed to stop it. This is very likely to create a memory leak.
+May 04, 2016 10:42:37 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/everteam] created a ThreadLocal with key of type [org.apache.xmlbeans.XmlBeans$1] (value [org.apache.xmlbeans.XmlBeans$1@70276df3]) and a value of type [java.lang.ref.SoftReference] (value [java.lang.ref.SoftReference@2ca3a60b]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+May 04, 2016 10:42:37 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/everteam] created a ThreadLocal with key of type [org.apache.xmlbeans.impl.store.Locale$1] (value [org.apache.xmlbeans.impl.store.Locale$1@2bea3312]) and a value of type [java.lang.ref.SoftReference] (value [java.lang.ref.SoftReference@1cbef944]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+May 04, 2016 10:42:37 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/everteam] created a ThreadLocal with key of type [org.apache.axiom.util.UIDGenerator$1] (value [org.apache.axiom.util.UIDGenerator$1@3ddeee1a]) and a value of type [long[]] (value [[J@76e20cb1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+May 04, 2016 10:42:37 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/everteam] created a ThreadLocal with key of type [org.apache.xmlbeans.impl.schema.SchemaTypeLoaderImpl$1] (value [org.apache.xmlbeans.impl.schema.SchemaTypeLoaderImpl$1@72af7570]) and a value of type [java.util.ArrayList] (value [[java.lang.ref.SoftReference@5d4746e2]]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+May 04, 2016 10:42:37 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/everteam] created a ThreadLocal with key of type [java.lang.ThreadLocal] (value [java.lang.ThreadLocal@727ecf45]) and a value of type [org.apache.ode.utils.GUID.LocalUUID] (value [org.apache.ode.utils.GUID$LocalUUID@7c46ad8]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+May 04, 2016 10:42:37 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/everteam] created a ThreadLocal with key of type [org.apache.axiom.util.UIDGenerator$1] (value [org.apache.axiom.util.UIDGenerator$1@3ddeee1a]) and a value of type [long[]] (value [[J@70428ee3]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+May 04, 2016 10:42:37 AM bitronix.tm.integration.tomcat55.BTMLifecycleListener lifecycleEvent
+INFO: Shutting down Bitronix Transaction Manager
+May 04, 2016 10:42:37 AM bitronix.tm.integration.tomcat55.BTMLifecycleListener lifecycleEvent
+INFO: Starting Bitronix Transaction Manager
+May 04, 2016 10:42:38 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:42:49 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/everteam] is completed
+May 04, 2016 10:43:45 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-0.0.0.0-8080"]
+May 04, 2016 10:43:45 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-bio-8009"]
+May 04, 2016 10:43:45 AM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+May 04, 2016 10:43:46 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesThreads
+SEVERE: The web application [/apacheds] appears to have started a thread named [pool-1-thread-1] but has failed to stop it. This is very likely to create a memory leak.
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat/7.0.68
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Feb 8 2016 20:25:54 UTC
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.68.0
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Linux
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            4.2.0-35-generic
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             /opt/jdk1.7.0_80/jre
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.7.0_80-b15
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/conf/logging.properties
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -XX:MaxPermSize=4096m
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Xms1024m
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Xmx4096m
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dfile.encoding=UTF-8
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dorg.apache.el.parser.SKIP_IDENTIFIER_CHECK=true
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -DINTALIO_CONF=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dode.connection.isolation=2
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dh2.baseDir=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/h2
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dh2.port=9092
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dh2.serverCachedObjects=2048
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Ddbfeed.transport.local=true
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djavax.net.ssl.trustStore=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config/intalio-keystore.jks
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dbtm.root=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dbitronix.tm.configuration=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config/btm-config.properties
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dbtm.root=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcom.sun.management.jmxremote
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dlog4j.configuration=file:///home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/var/config/log4j.xml
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dintalio.contextPath=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/everteam
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/endorsed
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=/home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/temp
+May 04, 2016 10:43:56 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+May 04, 2016 10:43:56 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-0.0.0.0-8080"]
+May 04, 2016 10:43:56 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+May 04, 2016 10:43:56 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 441 ms
+May 04, 2016 10:43:57 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+May 04, 2016 10:43:57 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.68
+May 04, 2016 10:43:57 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/conf/Catalina/localhost/cas.xml
+May 04, 2016 10:43:57 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/conf/Catalina/localhost/apacheds.xml
+May 04, 2016 10:43:57 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/conf/Catalina/localhost/everteam.xml
+May 04, 2016 10:43:57 AM bitronix.tm.integration.tomcat55.BTMLifecycleListener lifecycleEvent
+INFO: Starting Bitronix Transaction Manager
+May 04, 2016 10:43:57 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:43:57 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:43:58 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:46:32 AM org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+INFO: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [153,725] milliseconds.
+May 04, 2016 10:46:32 AM org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+INFO: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [148,572] milliseconds.
+May 04, 2016 10:46:32 AM org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+INFO: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [153,991] milliseconds.
+May 04, 2016 10:46:32 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/conf/Catalina/localhost/apacheds.xml has finished in 155,383 ms
+May 04, 2016 10:46:32 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/conf/Catalina/localhost/cas.xml has finished in 155,761 ms
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/conf/Catalina/localhost/everteam.xml has finished in 163,152 ms
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/host-manager
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/docs
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/ROOT
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/manager
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/examples
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/docs has finished in 18 ms
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/ROOT has finished in 26 ms
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/host-manager has finished in 27 ms
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/manager has finished in 27 ms
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.TldConfig execute
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory /home/everteam-ibpms-ee-7.7.0-tomcat-7.0.68/webapps/examples has finished in 97 ms
+May 04, 2016 10:46:40 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-0.0.0.0-8080"]
+May 04, 2016 10:46:40 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+May 04, 2016 10:46:40 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 163481 ms
+May 04, 2016 10:49:13 AM org.apache.jasper.compiler.TldLocationsCache tldScanJar
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.

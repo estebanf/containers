@@ -1,0 +1,7 @@
+table#logFile tr th {
+	line-height: 0.7;
+}
+table#logFile .verticalAlign {
+	display: inline-block;
+	vertical-align: middle;
+}

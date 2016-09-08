@@ -1,0 +1,21 @@
+{
+	"partitions": 
+	{
+		"intalio": {
+			"dn":"dc=intalio,dc=com",
+			"attributes": {
+				"dc":"intalio",
+				"objectClass":["top","domain","extensibleObject"
+				]
+			}
+		},
+		"samples": {
+			"dn":"dc=examples,dc=com",
+			"attributes": {
+				"dc":"examples",
+				"objectClass":["top","domain","extensibleObject"
+				]
+			}
+		}
+	}
+}

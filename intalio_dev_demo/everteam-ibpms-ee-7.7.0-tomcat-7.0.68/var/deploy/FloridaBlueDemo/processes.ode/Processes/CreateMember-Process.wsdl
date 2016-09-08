@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:this="http://floridabluedemo.com/Processes/CreateMember/Process" xmlns:ProcessimplicitPartner="http://floridabluedemo.com/Processes/CreateMember/ProcessimplicitPartner" xmlns:tns="http://www.example.org/Demo" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diag="http://floridabluedemo.com/Processes/CreateMember" xmlns:ns="urn:intalio.com:connectors:database:floridabluedemo:insert_memberservice" xmlns:Caller="http://floridabluedemo.com/Processes/CreateMember/Caller" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://floridabluedemo.com/Processes/CreateMember/Process">
+    <wsdl:types>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://floridabluedemo.com/Processes/CreateMember/Process">
+            <xs:import namespace="http://www.example.org/Demo" schemaLocation="../Schemas/Demo.xsd"/>
+            <xs:element name="Recieve_new_member_infoRequest" type="tns:MemberType"/>
+            <xs:element name="Recieve_new_member_infoResponse" type="xs:string"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="Recieve_new_member_infoRequest">
+        <wsdl:part name="body" element="this:Recieve_new_member_infoRequest"/>
+    </wsdl:message>
+    <wsdl:message name="Recieve_new_member_infoResponse">
+        <wsdl:part name="body" element="this:Recieve_new_member_infoResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ForCaller">
+        <wsdl:operation name="Recieve_new_member_info">
+            <wsdl:input message="this:Recieve_new_member_infoRequest" name="Recieve_new_member_info"/>
+            <wsdl:output message="this:Recieve_new_member_infoResponse" name="Recieve_new_member_infoResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CanonicBindingForCaller" type="this:ForCaller">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Recieve_new_member_info">
+            <soap:operation style="document" soapAction="http://floridabluedemo.com/Processes/CreateMember/Process/ForCaller/Recieve_new_member_info"/>
+            <wsdl:input name="Recieve_new_member_info">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="Recieve_new_member_infoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CanonicServiceForCaller">
+        <wsdl:port name="canonicPort" binding="this:CanonicBindingForCaller">
+            <soap:address location="http://bpms.local:8080/everteam/ode/processes/FloridaBlueDemo/Processes/CreateMember/Process/Caller"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jdbc:descriptor wsdlLocation="select_project_attachments.sql.wsdl" targetNamespace="urn:intalio.com:connectors:database:budgeting:select_project_attachmentsservice" xmlns:jdbc="http://bpms.intalio.com/connectors/jdbc/">
+    <jdbc:service name="select_project_attachmentsService">
+        <jdbc:operation name="urn:select_project_attachments" sqlStatement="select REFERENCE,ATTACHMENT_ID,MIMETYPE,FILENAME,TITLE,DESCRIPTION,CREATIONDATE,PAYLOADURL from budgetingattachments where REFERENCE LIKE concat('P',?,'-',?,'-%');" event="false" dynamicCredentials="true" xmlns:urn="urn:intalio.com:connectors:database:budgeting:select_project_attachmentsservice">
+            <jdbc:input>
+                <jdbc:parameter>
+                    <jdbc:mode>1</jdbc:mode>
+                    <jdbc:name>excercise</jdbc:name>
+                    <jdbc:type>40</jdbc:type>
+                    <jdbc:length>10</jdbc:length>
+                    <jdbc:typeName xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    <jdbc:precision>0</jdbc:precision>
+                    <jdbc:scale>0</jdbc:scale>
+                    <jdbc:nullable>false</jdbc:nullable>
+                    <jdbc:index>0</jdbc:index>
+                </jdbc:parameter>
+                <jdbc:parameter>
+                    <jdbc:mode>1</jdbc:mode>
+                    <jdbc:name>department</jdbc:name>
+                    <jdbc:type>40</jdbc:type>
+                    <jdbc:length>10</jdbc:length>
+                    <jdbc:typeName xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    <jdbc:precision>0</jdbc:precision>
+                    <jdbc:scale>0</jdbc:scale>
+                    <jdbc:nullable>false</jdbc:nullable>
+                    <jdbc:index>1</jdbc:index>
+                </jdbc:parameter>
+            </jdbc:input>
+            <jdbc:filter rowsToSendService="1" rowsToFetch="-1" duration="-PT1S">
+                <jdbc:unique scope="none"/>
+            </jdbc:filter>
+            <jdbc:output/>
+        </jdbc:operation>
+        <jdbc:port>
+            <jdbc:address location="http://bpms.local:8080/intalio/ode/processes/select_project_attachmentsService"/>
+        </jdbc:port>
+        <jdbc:connection jndiName="java:comp/env/jdbc/">
+            <jdbc:databaseProductName>Generic JDBC</jdbc:databaseProductName>
+            <jdbc:databaseProductVersion>1.0</jdbc:databaseProductVersion>
+            <jdbc:driverClass>org.h2.Driver</jdbc:driverClass>
+            <jdbc:databaseUrl>jdbc:h2:tcp://bpms.local:9092/BPMSDB;SCHEMA=bpms;MODE=MYSQL;DATABASE_TO_UPPER=FALSE;MVCC=TRUE</jdbc:databaseUrl>
+            <jdbc:databaseName>BPMSDB</jdbc:databaseName>
+            <jdbc:userName>sa</jdbc:userName>
+            <jdbc:password/>
+        </jdbc:connection>
+    </jdbc:service>
+</jdbc:descriptor>

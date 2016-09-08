@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<urlrewrite>
+
+    <rule match-type="regex">
+       <from>(/gi/.*)$</from>
+       <to context="everteam" qsappend="true" type="forward">$1</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>(/intalio/gi/.*)$</from>
+       <to context="everteam" qsappend="true" type="forward">$1</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>(/ode/.*)$</from>
+       <to context="everteam" qsappend="true" type="forward">$1</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>(/intalio/ode/.*)$</from>
+       <to context="everteam" qsappend="true" type="forward">$1</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/ode$</from>
+       <to type="redirect">/everteam/axis2-web/index.jsp</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>^/intalio/ode$</from>
+       <to type="redirect">/everteam/axis2-web/index.jsp</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/bam$</from>
+       <to type="redirect">/everteam/reports.htm</to>
+    </rule>
+	
+	   <rule match-type="regex">
+       <from>^/intalio/bam$</from>
+       <to type="redirect">/everteam/reports.htm</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/ui-fw/script/empty.jsp$</from>
+       <to type="redirect">/everteam/workflow/script/empty.jsp</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>^/intalio/workflow/script/empty.jsp$</from>
+       <to type="redirect">/everteam/workflow/script/empty.jsp</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/ui-fw$</from>
+       <to type="redirect">/everteam/index.htm</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>^/intalio/ui-fw$</from>
+       <to type="redirect">/everteam/index.htm</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/ui-fw/tasks.htm(.*)$</from>
+       <to type="redirect">/everteam/index.htm</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>^/intalio/ui-fw/tasks.htm(.*)$</from>
+       <to type="redirect">/everteam/index.htm</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/axis2$</from>
+       <to type="redirect">/everteam/axis2-web/index.jsp</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/intalio/axis2$</from>
+       <to type="redirect">/everteam/axis2-web/index.jsp</to>
+    </rule>
+
+	<rule match-type="regex">
+        <from>^/axis2/services/DeploymentService(.*)$</from>
+        <to context="everteam" qsappend="true" type="forward">/ode/processes/DeployService$1</to>
+    </rule>
+	
+	<rule match-type="regex">
+        <from>^/intalio/axis2/services/DeploymentService(.*)$</from>
+        <to context="everteam" qsappend="true" type="forward">/ode/processes/DeployService$1</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/axis2/services/(.*)$</from>
+       <to context="everteam" qsappend="true" type="forward">/ode/processes/$1</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>^/intalio/axis2/services/(.*)$</from>
+       <to context="everteam" qsappend="true" type="forward">/ode/processes/$1</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^(/collaboration/.*)$</from>
+       <to context="everteam" qsappend="true" type="forward">$1</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>^(/intalio/collaboration/.*)$</from>
+       <to context="everteam" qsappend="true" type="forward">$1</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^(/intalio/errors/.*)$</from>
+       <to qsappend="true" type="redirect">/everteam/errors$1</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>^(/errors/.*)$</from>
+       <to qsappend="true" type="redirect">/everteam/errors$1</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/intalio/bre$</from>
+       <to type="redirect">/everteam/axis2-web/index.jsp</to>
+    </rule>
+    
+    <rule match-type="regex">
+       <from>^/bre$</from>
+       <to type="redirect">/everteam/axis2-web/index.jsp</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/bre/services/(.*)$</from>
+       <to context="everteam" qsappend="true" type="forward">/ode/processes/$1</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>^/intalio/bre/services/(.*)$</from>
+       <to context="everteam" qsappend="true" type="forward">/ode/processes/$1</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>^/ui-fw/atask.htm</from>
+       <to context="everteam" qsappend="true" type="redirect">/everteam/ui-fw/atask.htm</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>^/intalio/ui-fw/atask.htm</from>
+       <to context="everteam" qsappend="true" type="redirect">/everteam/ui-fw/atask.htm</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>^(/wds/.*)$</from>
+       <to context="everteam" qsappend="true" type="forward">$1</to>
+    </rule>
+	
+	<rule match-type="regex">
+       <from>^(/intalio/wds/.*)$</from>
+       <to context="everteam" qsappend="true" type="forward">$1</to>
+    </rule>
+	
+	<rule match-type="regex">
+		<from>(/intalio/customforms/.*)$</from>
+		<to context="everteam" qsappend="true" type="forward">$1</to>
+	</rule>
+	
+	<rule match-type="regex">
+		<from>(/intalio/scripts/.*)$</from>
+		<to context="everteam" qsappend="true" type="forward">$1</to>
+	</rule>
+	
+	<rule match-type="regex">
+		<from>(/intalio/.*)$</from>
+		<to context="everteam" qsappend="true" type="forward">$1</to>
+	</rule>
+	
+	<rule match-type="regex">
+		<from>(//intalio/.*)$</from>
+		<to context="everteam" qsappend="true" type="forward">$1</to>
+	</rule>
+	
+	<rule match-type="regex">
+		<from>(/intalio/pdfgen/.*)$</from>
+		<to context="everteam" qsappend="true" type="forward">$1</to>
+	</rule>
+
+</urlrewrite>

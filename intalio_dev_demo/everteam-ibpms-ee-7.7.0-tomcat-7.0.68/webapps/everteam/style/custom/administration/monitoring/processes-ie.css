@@ -1,0 +1,11 @@
+#createProcessFilter input.ace{
+	width: 20px;
+	margin-top: 5px;
+} 
+
+#createProcessFilter .filterChoiceTable tr td label {
+	padding-bottom:15px;
+}
+.manageFilter{
+	margin-top: -14px;
+}

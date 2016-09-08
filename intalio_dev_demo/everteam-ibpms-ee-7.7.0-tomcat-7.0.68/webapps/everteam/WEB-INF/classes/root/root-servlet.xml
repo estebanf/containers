@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+      <bean id="jspViewResolver"
+	  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	  <property name="viewClass">
+	      <value>org.springframework.web.servlet.view.JstlView</value>
+	  </property>
+	  <property name="prefix">
+	      <value>/WEB-INF/jsp/</value>
+	  </property>
+	  <property name="suffix">
+	      <value>.jsp</value>
+	  </property>
+	  <property name="order" value="2"/>
+      </bean>
+
+      <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	  <property name="basename" value="messages" />
+      </bean>
+
+      <bean id="paramJsonView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="index"/>
+      </bean>
+
+      <bean id="roleView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="roles"/>
+      </bean>
+
+      <bean id="userView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="users"/>
+      </bean>
+
+      <bean id="headerView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="header"/>
+      </bean>
+
+      <bean id="sidebarView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="sidebar"/>
+      </bean>
+
+      <bean id="dashboardView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="dashboard"/>
+      </bean>
+
+      <bean id="collabView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="collaboration"/>
+      </bean>
+
+      <bean id="moduleAccessView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="moduleAccess"/>
+      </bean>
+
+      <bean id="tasksView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="tasks"/>
+      </bean>
+
+      <bean id="notificationsView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="notifications"/>
+      </bean>
+
+      <bean id="processesView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="processes"/>
+      </bean>
+
+      <bean id="workflowAuditView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="workflowAuditLog"/>
+      </bean>
+
+      <bean id="instancesAuditView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="instancesAuditLog"/>
+      </bean>
+
+      <bean id="manageTimersView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="manageTimers"/>
+      </bean>
+
+      <bean id="monitoringProcessesView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="monitoringProcesses"/>
+      </bean>
+
+      <bean id="deploymentView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="deployment"/>
+      </bean>
+
+      <bean id="instancesView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="instances"/>
+      </bean>
+
+      <bean id="vacationsView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="vacations"/>
+      </bean>
+
+      <bean id="ConfigFileView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="downloadConfigFile"/>
+      </bean>
+
+      <bean id="LogView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="downloadLogFile"/>
+      </bean>
+
+      <bean id="Log4jConfigurationView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	  <property name="viewName" value="log4j"/>
+      </bean>
+	<bean id="orgMappingRolesView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="orgMappingRoles"/>
+	</bean>
+	<bean id="businessRulesView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="businessRules"/>
+	</bean>
+	 <bean id="orgMappingUsersView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+     <property name="viewName" value="orgMappingUsers"/>
+	 </bean>
+	 <bean id="productInfoView" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="productInfo"/>
+	 </bean>
+	 <bean id="bamAdhocReports" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+     <property name="viewName" value="adhocReports"/>
+	 </bean>
+	<bean id="userPreferences" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+     <property name="viewName" value="userPreferences"/>
+	</bean>
+	<bean id="breAudit" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+     <property name="viewName" value="breAudit"/>
+	</bean>
+	<bean id="modeler" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="modeler"/>
+    </bean>
+    <bean id="modelling" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName" value="modelling"/>
+    </bean>
+      <bean id="root.urlMapping"
+	    class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	    <property name="mappings">
+		<props>
+		    <prop key="/login.htm">loginController</prop>
+		    <prop key="/index.htm">paramJsonView</prop>
+		    <prop key="/header.htm">headerView</prop>
+		    <prop key="/sidebar.htm">sidebarView</prop>
+		    <prop key="/dashboard.htm">dashboardView</prop>
+		    <prop key="/roles.htm">roleView</prop>
+		    <prop key="/monitoringUsers.htm">userView</prop>
+		    <prop key="/collab.htm">collabView</prop>
+		    <prop key="/tasks.htm">tasksView</prop>
+		    <prop key="/notifications.htm">notificationsView</prop>
+		    <prop key="/workflowProcesses.htm">processesView</prop>
+		    <prop key="/monitoringInstances.htm">instancesView</prop>
+		    <prop key="/moduleAccess.htm">moduleAccessView</prop>
+		    <prop key="/monitoringProcesses.htm">monitoringProcessesView</prop>
+		    <prop key="/deployment.htm">deploymentView</prop>
+		    <prop key="/workflowAuditLog.htm">workflowAuditView</prop>
+		    <prop key="/instancesAuditLog.htm">instancesAuditView</prop>
+		    <prop key="/manageTimers.htm">manageTimersView</prop>
+		    <prop key="/vacations.htm">vacationsView</prop>
+		    <prop key="/configFile.htm">ConfigFileView</prop>
+		    <prop key="/logFile.htm">LogView</prop>
+		    <prop key="/log4j.htm">Log4jConfigurationView</prop>
+		    <prop key="/orgMappingRoles.htm">orgMappingRolesView</prop>
+			<prop key="/orgMappingUsers.htm">orgMappingUsersView</prop>
+			<prop key="/adhocReport.htm">bamAdhocReports</prop>
+			<prop key="/businessRules.htm">businessRulesView</prop>
+			<prop key="/productInfo.htm">productInfoView</prop>
+			<prop key="/userPreferences.htm">userPreferences</prop>
+			<prop key="/breAudit.htm">breAudit</prop>
+			<prop key="/modeler.htm">modeler</prop>
+			<prop key="/modelling.htm">modelling</prop>
+		</props>
+	    </property>
+      </bean>
+</beans>

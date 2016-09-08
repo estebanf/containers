@@ -1,0 +1,43 @@
+﻿<wsdl:definitions targetNamespace="urn:intalio.com:connectors:database:budgeting:select_single_departmentservice" xmlns:tns="urn:intalio.com:connectors:database:budgeting:select_single_departmentservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="urn:intalio.com:connectors:database:budgeting:select_single_departmentservice">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import schemaLocation="select_single_department.xsd" namespace="urn:intalio.com:connectors:database:budgeting:select_single_departmentservice"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="select_single_departmentInput">
+        <wsdl:part name="parameters" element="ns:select_single_departmentParameterSet"/>
+    </wsdl:message>
+    <wsdl:message name="select_single_departmentOutput">
+        <wsdl:part name="parameters" element="ns:select_single_departmentResultSet"/>
+    </wsdl:message>
+    <wsdl:message name="select_single_departmentFault">
+        <wsdl:part name="fault" element="ns:select_single_departmentFault"/>
+    </wsdl:message>
+    <wsdl:portType name="select_single_departmentPort">
+        <wsdl:operation name="select_single_department">
+            <wsdl:input message="tns:select_single_departmentInput"/>
+            <wsdl:output message="tns:select_single_departmentOutput"/>
+            <wsdl:fault message="tns:select_single_departmentFault" name="nsselect_single_departmentFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="select_single_departmentPortSoapBinding" type="tns:select_single_departmentPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="select_single_department">
+            <soap:operation style="document" soapAction="urn:intalio:connector:jdbc:query:select_single_department"/>
+            <wsdl:input>
+                <soap:body namespace="urn:intalio.com:connectors:database:budgeting:select_single_departmentservice" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="urn:intalio.com:connectors:database:budgeting:select_single_departmentservice" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="nsselect_single_departmentFault">
+                <soap:body namespace="urn:intalio.com:connectors:database:budgeting:select_single_departmentservice" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="select_single_departmentService">
+        <wsdl:port binding="tns:select_single_departmentPortSoapBinding" name="select_single_departmentPort">
+            <soap:address location="http://bpms.local:8080/everteam/ode/processes/Budgeting/Connectors/Database/select_single_department"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

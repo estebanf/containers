@@ -1,0 +1,25 @@
+{
+"result" :
+  {
+  "data" : [
+    {
+      "id" : "cat-1-42",
+      "title" : "Average Instance Completion Time",
+      "description" : "Average time for the instances of a process to complete.",
+      "creator" : "Intalio Inc",
+      "url" : "widgets/processes/average_completion_time.jsp",
+      "filter":"",
+      "image": "images/avg_completion.png"
+    },
+    {
+      "id" : "cat-1-59",
+      "title" : "Process Analytics",
+      "description" : "Showing mean & median of the process based on the completion time.",
+      "creator" : "Intalio Inc",
+      "url" : "widgets/processes/process_analytics.jsp",
+      "filter":"",
+      "image": "images/avg_completion.png"
+    }
+  ]
+  }
+}

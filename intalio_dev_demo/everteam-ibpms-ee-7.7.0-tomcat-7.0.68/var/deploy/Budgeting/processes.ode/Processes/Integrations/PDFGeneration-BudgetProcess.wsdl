@@ -1,0 +1,38 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:this="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration/BudgetProcess" xmlns:ns="urn:intalio.com:connectors:database:budgeting:select_approved_projectsservice" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BudgetProcessimplicitPartner="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration/BudgetProcessimplicitPartner" xmlns:diag="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration" xmlns:Caller="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration/Caller" xmlns:ns0="http://bpms.intalio.com/tools/webservices/javainternalservices/pdf/_iPCZUKmnEeWuKtJ8pPF9gQ" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration/BudgetProcess">
+    <wsdl:types>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration/BudgetProcess">
+            <xs:element name="StartRequest" type="xs:string"/>
+            <xs:element name="StartResponse" type="xs:string"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="StartRequest">
+        <wsdl:part name="body" element="this:StartRequest"/>
+    </wsdl:message>
+    <wsdl:message name="StartResponse">
+        <wsdl:part name="body" element="this:StartResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ForCaller">
+        <wsdl:operation name="Start">
+            <wsdl:input message="this:StartRequest" name="Start"/>
+            <wsdl:output message="this:StartResponse" name="StartResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CanonicBindingForCaller" type="this:ForCaller">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Start">
+            <soap:operation style="document" soapAction="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration/BudgetProcess/ForCaller/Start"/>
+            <wsdl:input name="Start">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="StartResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CanonicServiceForCaller">
+        <wsdl:port name="canonicPort" binding="this:CanonicBindingForCaller">
+            <soap:address location="http://bpms.local:8080/everteam/ode/processes/Budgeting/Processes/Integrations/PDFGeneration/BudgetProcess/Caller"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

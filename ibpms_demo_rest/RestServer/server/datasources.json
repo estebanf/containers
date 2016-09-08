@@ -1,0 +1,12 @@
+{
+  "demo_mysql": {
+    "host": "ibpms_demo_mysql",
+    "port": 3306,
+    "url": "mysql://everteam:everteam@ibpms_demo_mysql:3306/everteam",
+    "database": "everteam",
+    "password": "everteam",
+    "name": "demo_mysql",
+    "user": "everteam",
+    "connector": "mysql"
+  }
+}

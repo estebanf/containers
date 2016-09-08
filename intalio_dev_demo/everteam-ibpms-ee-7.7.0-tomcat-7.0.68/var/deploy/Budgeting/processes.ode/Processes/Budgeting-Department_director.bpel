@@ -1,0 +1,602 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ode="http://www.apache.org/ode/type/extension" xmlns:Variables="http://test.com/xvar/example" xmlns:AttachmentManagement-process="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/process" xmlns:department_review="http://www.intalio.com/Budgeting/Webcontents/department_review.html" xmlns:GetTeamMembers-Process="http://budgeting.example.everteam.com/Processes/Integrations/GetTeamMembers/Process" xmlns:Department_directorimplicitPartner="http://budgeting.example.everteam.com/Processes/Budgeting/Department_directorimplicitPartner" xmlns:diag="http://budgeting.example.everteam.com/Processes/Budgeting" xmlns:attachments="http://www.intalio.com/Budgeting/Webcontents/department_review.html/attachments" xmlns:requirements1="http://www.intalio.com/Budgeting/Webcontents/requirements.html" xmlns:Chief_financial_officer="http://budgeting.example.everteam.com/Processes/Budgeting/Chief_financial_officer" xmlns:Manager="http://budgeting.example.everteam.com/Processes/Budgeting/Manager" xmlns:this="http://budgeting.example.everteam.com/Processes/Budgeting/Department_director" xmlns:requirements="http://www.intalio.com/Budgeting/Webcontents/requirements.html/attachments" xmlns:Business="http://budgeting.example.everteam.com/Types/Business" xmlns:tns="http://budgeting.example.everteam.com/Types/Technical" xmlns:GetSingleDepartment-Process="http://budgeting.example.everteam.com/Processes/Integrations/GetSingleDepartment/Process" xmlns:bpmn="http://www.intalio.com/bpms" xmlns:atomic="http://ode.apache.org/atomicScope" queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" bpmn:label="Department director" name="Department_director" bpmn:id="_nNN-MKAdEeW6r4g6sr4TOg" targetNamespace="http://budgeting.example.everteam.com/Processes/Budgeting/Department_director">
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Budgeting" location="Budgeting.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Budgeting/Chief_financial_officer" location="Budgeting-Chief_financial_officer.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Budgeting/Department_director" location="Budgeting-Department_director.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Budgeting/Manager" location="Budgeting-Manager.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/process" location="Integrations/AttachmentManagement-process.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/GetSingleDepartment/Process" location="Integrations/GetSingleDepartment-Process.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/GetTeamMembers/Process" location="Integrations/GetTeamMembers-Process.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://www.intalio.com/Budgeting/Webcontents/department_review.html" location="../Webcontents/department_review.html.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://www.intalio.com/Budgeting/Webcontents/requirements.html" location="../Webcontents/requirements.html.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Types/Business" location="../Schemas/Business.xsd" importType="http://www.w3.org/2001/XMLSchema"></bpel:import>
+  <bpel:partnerLinks>
+    <bpel:partnerLink name="department_directorAndChief_financial_officerPlkVar" partnerLinkType="diag:Department_directorAndChief_financial_officer" initializePartnerRole="yes" myRole="Department_director_for_Chief_financial_officer" partnerRole="Chief_financial_officer_for_Department_director"></bpel:partnerLink>
+    <bpel:partnerLink name="department_directorimplicitPartnerAndDepartment_directorForCanonicPortPlk1Var" partnerLinkType="diag:Department_directorimplicitPartnerAndDepartment_directorForCanonicPortPlk1" initializePartnerRole="yes" partnerRole="Department_directorimplicitPartner_for_Department_director"></bpel:partnerLink>
+    <bpel:partnerLink name="department_directorimplicitPartnerAndDepartment_directorForCanonicPortPlk2Var" partnerLinkType="diag:Department_directorimplicitPartnerAndDepartment_directorForCanonicPortPlk2" initializePartnerRole="yes" partnerRole="Department_directorimplicitPartner_for_Department_director"></bpel:partnerLink>
+    <bpel:partnerLink name="department_directorimplicitPartnerAndDepartment_directorForCanonicPortPlk0Var" partnerLinkType="diag:Department_directorimplicitPartnerAndDepartment_directorForCanonicPortPlk0" initializePartnerRole="yes" partnerRole="Department_directorimplicitPartner_for_Department_director"></bpel:partnerLink>
+    <bpel:partnerLink name="wFmagic_MqbZBtESEeWIHuPdUr6NDgPlkVar" partnerLinkType="diag:WFmagic_MqbZBtESEeWIHuPdUr6NDg" initializePartnerRole="no" myRole="Department_directo_for_Department_directorimplicitPartnerForThePortTypeProcess" partnerRole="Department_directorimplicitPartner_for_Department_directorForTnsPort"></bpel:partnerLink>
+    <bpel:partnerLink name="wFmagic_OrlN5tEREeWIHuPdUr6NDgPlkVar" partnerLinkType="diag:WFmagic_OrlN5tEREeWIHuPdUr6NDg" initializePartnerRole="no" myRole="Department_directo_for_Department_directorimplicitPartnerForThePortTypeProcess" partnerRole="Department_directorimplicitPartner_for_Department_directorForTnsPort"></bpel:partnerLink>
+  </bpel:partnerLinks>
+  <bpel:variables xmlns:xvar="http://ode.apache.org/externalVariables">
+    <bpel:variable name="BudgetingVar-keys" element="Variables:BudgetingVar-keys"></bpel:variable>
+    <bpel:variable name="BudgetingVar" element="Variables:BudgetingVar" xvar:id="BudgetingVar-_84hNBqAdEeW6r4g6sr4TOg" xvar:relates-to="BudgetingVar-keys"></bpel:variable>
+    <bpel:variable name="getSingleDepartment-ProcessRecieve__requestResponse1Msg" messageType="GetSingleDepartment-Process:Recieve__requestResponse"></bpel:variable>
+    <bpel:variable name="getSingleDepartment-ProcessRecieve__request1Msg" messageType="GetSingleDepartment-Process:Recieve__requestRequest"></bpel:variable>
+    <bpel:variable name="getTeamMembers-ProcessRecieve_requestResponse1Msg" messageType="GetTeamMembers-Process:Recieve_requestResponse"></bpel:variable>
+    <bpel:variable name="getTeamMembers-ProcessRecieve_request1Msg" messageType="GetTeamMembers-Process:Recieve_requestRequest"></bpel:variable>
+    <bpel:variable name="attachmentManagement-processGet_attachmentsResponse1Msg" messageType="AttachmentManagement-process:Get_attachmentsResponse"></bpel:variable>
+    <bpel:variable name="attachmentManagement-processGet_attachments1Msg" messageType="AttachmentManagement-process:Get_attachmentsRequest"></bpel:variable>
+    <bpel:variable name="thisRecieve_requirement_requestRequest2Msg" messageType="this:Recieve_requirement_requestRequest"></bpel:variable>
+    <bpel:variable name="thisRecieve_requirement_requestResponse1Msg" messageType="this:Recieve_requirement_requestResponse"></bpel:variable>
+    <bpel:variable name="chief_financial_officerRecieve_department_requirementsRequest1Msg" messageType="Chief_financial_officer:Recieve_department_requirementsRequest"></bpel:variable>
+    <bpel:variable name="chief_financial_officerRecieve_department_requirementsResponse1Msg" messageType="Chief_financial_officer:Recieve_department_requirementsResponse"></bpel:variable>
+    <bpel:variable name="department_reviewCreateTaskSingleActivityResponse1Msg" messageType="department_review:createTaskSingleActivityResponse"></bpel:variable>
+    <bpel:variable name="department_reviewCreateTaskSingleActivityRequest1Msg" messageType="department_review:createTaskSingleActivityRequest"></bpel:variable>
+    <bpel:variable name="requirements1CreateTaskSingleActivityResponse1Msg" messageType="requirements1:createTaskSingleActivityResponse"></bpel:variable>
+    <bpel:variable name="requirements1CreateTaskSingleActivityRequest1Msg" messageType="requirements1:createTaskSingleActivityRequest"></bpel:variable>
+  </bpel:variables>
+  <bpel:sequence>
+    <bpel:receive partnerLink="department_directorAndChief_financial_officerPlkVar" portType="this:ForChief_financial_officer" operation="Recieve_requirement_request" variable="thisRecieve_requirement_requestRequest2Msg" createInstance="yes" bpmn:label="Recieve requirement request" name="Recieve_requirement_request" bpmn:id="_qWPkoKAdEeW6r4g6sr4TOg"></bpel:receive>
+    <bpel:assign name="init-variables-Department_director" bpmn:id="_qWPkoKAdEeW6r4g6sr4TOg">
+      <bpel:copy>
+        <bpel:from>
+          <bpel:literal><Variables:BudgetingVar><Variables:excercise_id></Variables:excercise_id></Variables:BudgetingVar></bpel:literal>
+        </bpel:from>
+        <bpel:to>$BudgetingVar-keys</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$getSingleDepartment-ProcessRecieve__request1Msg">
+        <bpel:from>
+          <bpel:literal>
+<GetSingleDepartment-Process:Recieve__requestRequest></GetSingleDepartment-Process:Recieve__requestRequest></bpel:literal>
+        </bpel:from>
+        <bpel:to>$getSingleDepartment-ProcessRecieve__request1Msg.body</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$getTeamMembers-ProcessRecieve_request1Msg">
+        <bpel:from>
+          <bpel:literal>
+<GetTeamMembers-Process:Recieve_requestRequest></GetTeamMembers-Process:Recieve_requestRequest></bpel:literal>
+        </bpel:from>
+        <bpel:to>$getTeamMembers-ProcessRecieve_request1Msg.body</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$attachmentManagement-processGet_attachments1Msg">
+        <bpel:from>
+          <bpel:literal>
+<AttachmentManagement-process:Get_attachmentsRequest></AttachmentManagement-process:Get_attachmentsRequest></bpel:literal>
+        </bpel:from>
+        <bpel:to>$attachmentManagement-processGet_attachments1Msg.body</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$thisRecieve_requirement_requestResponse1Msg">
+        <bpel:from>
+          <bpel:literal>
+<this:Recieve_requirement_requestResponse>
+  <tns:InstanceId></tns:InstanceId>
+  <tns:Timestamp></tns:Timestamp>
+</this:Recieve_requirement_requestResponse></bpel:literal>
+        </bpel:from>
+        <bpel:to>$thisRecieve_requirement_requestResponse1Msg.body</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$chief_financial_officerRecieve_department_requirementsRequest1Msg">
+        <bpel:from>
+          <bpel:literal>
+<Chief_financial_officer:Recieve_department_requirementsRequest>
+  <tns:Reference></tns:Reference>
+  <tns:DepartmentId></tns:DepartmentId>
+</Chief_financial_officer:Recieve_department_requirementsRequest></bpel:literal>
+        </bpel:from>
+        <bpel:to>$chief_financial_officerRecieve_department_requirementsRequest1Msg.body</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$department_reviewCreateTaskSingleActivityRequest1Msg">
+        <bpel:from>
+          <bpel:literal>
+<department_review:createTaskSingleActivityRequest>
+  <department_review:taskMetaData>
+    <department_review:taskId>_OrlN5tEREeWIHuPdUr6NDg</department_review:taskId>
+    <department_review:allowadhoc>true</department_review:allowadhoc>
+    <department_review:taskState></department_review:taskState>
+    <department_review:taskType></department_review:taskType>
+    <department_review:description/>
+    <department_review:processId></department_review:processId>
+    <department_review:instanceId></department_review:instanceId>
+    <department_review:business>
+      <department_review:processName></department_review:processName>
+      <department_review:instanceId></department_review:instanceId>
+      <department_review:stepName></department_review:stepName>
+      <department_review:customData></department_review:customData>
+    </department_review:business>
+    <department_review:creationDate></department_review:creationDate>
+    <department_review:userOwner/>
+    <department_review:roleOwner/>
+    <department_review:claimAction>
+      <department_review:user></department_review:user>
+      <department_review:role></department_review:role>
+    </department_review:claimAction>
+    <department_review:revokeAction>
+      <department_review:user></department_review:user>
+      <department_review:role></department_review:role>
+    </department_review:revokeAction>
+    <department_review:saveAction>
+      <department_review:user></department_review:user>
+      <department_review:role></department_review:role>
+    </department_review:saveAction>
+    <department_review:completeAction>
+      <department_review:user></department_review:user>
+      <department_review:role></department_review:role>
+    </department_review:completeAction>
+    <department_review:formUrl>/smrofmotsuc/Webcontents/department_review.html</department_review:formUrl>
+    <department_review:failureCode></department_review:failureCode>
+    <department_review:failureReason></department_review:failureReason>
+    <department_review:priority></department_review:priority>
+    <department_review:scheduledActions>
+      <department_review:expiration>
+        <department_review:until></department_review:until>
+        <department_review:for></department_review:for>
+      </department_review:expiration>
+      <department_review:deferActivation>
+        <department_review:until></department_review:until>
+        <department_review:for></department_review:for>
+      </department_review:deferActivation>
+    </department_review:scheduledActions>
+    <department_review:attachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description/>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </department_review:attachments>
+    <department_review:globalAttachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description/>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </department_review:globalAttachments>
+    <department_review:userProcessCompleteSOAPAction/>
+    <department_review:isChainedBefore></department_review:isChainedBefore>
+    <department_review:previousTaskId></department_review:previousTaskId>
+    <department_review:userProcessEndpoint/>
+    <department_review:userProcessNamespaceURI>http://www.intalio.com/Budgeting/Webcontents/department_review.html</department_review:userProcessNamespaceURI>
+    <department_review:customMetaData></department_review:customMetaData>
+  </department_review:taskMetaData>
+  <department_review:participantToken></department_review:participantToken>
+  <department_review:taskInput>
+    <Business:ProjectDepartmentIdentifier>
+      <Business:DepartmentId></Business:DepartmentId>
+      <Business:ExcerciseId></Business:ExcerciseId>
+    </Business:ProjectDepartmentIdentifier>
+  </department_review:taskInput>
+</department_review:createTaskSingleActivityRequest></bpel:literal>
+        </bpel:from>
+        <bpel:to>$department_reviewCreateTaskSingleActivityRequest1Msg.root</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$requirements1CreateTaskSingleActivityRequest1Msg">
+        <bpel:from>
+          <bpel:literal>
+<requirements1:createTaskSingleActivityRequest>
+  <requirements1:taskMetaData>
+    <requirements1:taskId>_MqbZBtESEeWIHuPdUr6NDg</requirements1:taskId>
+    <requirements1:allowadhoc>true</requirements1:allowadhoc>
+    <requirements1:taskState></requirements1:taskState>
+    <requirements1:taskType></requirements1:taskType>
+    <requirements1:description/>
+    <requirements1:processId></requirements1:processId>
+    <requirements1:instanceId></requirements1:instanceId>
+    <requirements1:business>
+      <requirements1:processName></requirements1:processName>
+      <requirements1:instanceId></requirements1:instanceId>
+      <requirements1:stepName></requirements1:stepName>
+      <requirements1:customData></requirements1:customData>
+    </requirements1:business>
+    <requirements1:creationDate></requirements1:creationDate>
+    <requirements1:userOwner/>
+    <requirements1:roleOwner/>
+    <requirements1:claimAction>
+      <requirements1:user></requirements1:user>
+      <requirements1:role></requirements1:role>
+    </requirements1:claimAction>
+    <requirements1:revokeAction>
+      <requirements1:user></requirements1:user>
+      <requirements1:role></requirements1:role>
+    </requirements1:revokeAction>
+    <requirements1:saveAction>
+      <requirements1:user></requirements1:user>
+      <requirements1:role></requirements1:role>
+    </requirements1:saveAction>
+    <requirements1:completeAction>
+      <requirements1:user></requirements1:user>
+      <requirements1:role></requirements1:role>
+    </requirements1:completeAction>
+    <requirements1:formUrl>/smrofmotsuc/Webcontents/requirements.html</requirements1:formUrl>
+    <requirements1:failureCode></requirements1:failureCode>
+    <requirements1:failureReason></requirements1:failureReason>
+    <requirements1:priority></requirements1:priority>
+    <requirements1:scheduledActions>
+      <requirements1:expiration>
+        <requirements1:until></requirements1:until>
+        <requirements1:for></requirements1:for>
+      </requirements1:expiration>
+      <requirements1:deferActivation>
+        <requirements1:until></requirements1:until>
+        <requirements1:for></requirements1:for>
+      </requirements1:deferActivation>
+    </requirements1:scheduledActions>
+    <requirements1:attachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description/>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </requirements1:attachments>
+    <requirements1:globalAttachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description/>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </requirements1:globalAttachments>
+    <requirements1:userProcessCompleteSOAPAction/>
+    <requirements1:isChainedBefore></requirements1:isChainedBefore>
+    <requirements1:previousTaskId></requirements1:previousTaskId>
+    <requirements1:userProcessEndpoint/>
+    <requirements1:userProcessNamespaceURI>http://www.intalio.com/Budgeting/Webcontents/requirements.html</requirements1:userProcessNamespaceURI>
+    <requirements1:customMetaData></requirements1:customMetaData>
+  </requirements1:taskMetaData>
+  <requirements1:participantToken></requirements1:participantToken>
+  <requirements1:taskInput>
+    <Business:RequirementDefinitionInput>
+      <Business:Variables>
+        <Business:ExcerciseId></Business:ExcerciseId>
+        <Business:FiscalYear></Business:FiscalYear>
+        <Business:TargetExpenses></Business:TargetExpenses>
+        <Business:ExpectedIncrease></Business:ExpectedIncrease>
+        <Business:NewInvestments></Business:NewInvestments>
+        <Business:TargetSubmission></Business:TargetSubmission>
+        <Business:TargetApproval></Business:TargetApproval>
+      </Business:Variables>
+      <Business:DepartmentInfo>
+        <Business:DepartmentId></Business:DepartmentId>
+        <Business:DeparmentName></Business:DeparmentName>
+        <Business:DepartmentDirector></Business:DepartmentDirector>
+      </Business:DepartmentInfo>
+      <Business:Team>
+        <Business:Member>
+          <Business:DisplayName></Business:DisplayName>
+          <Business:username></Business:username>
+        </Business:Member>
+      </Business:Team>
+    </Business:RequirementDefinitionInput>
+  </requirements1:taskInput>
+</requirements1:createTaskSingleActivityRequest></bpel:literal>
+        </bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:assign bpmn:label="Recieve requirement request" name="Recieve_requirement_request-1" bpmn:id="_qWPkoKAdEeW6r4g6sr4TOg">
+      <bpel:copy>
+        <bpel:from>$ode:pid</bpel:from>
+        <bpel:to>$thisRecieve_requirement_requestResponse1Msg.body/tns:InstanceId</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>current-dateTime()</bpel:from>
+        <bpel:to>$thisRecieve_requirement_requestResponse1Msg.body/tns:Timestamp</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:reply partnerLink="department_directorAndChief_financial_officerPlkVar" portType="this:ForChief_financial_officer" operation="Recieve_requirement_request" variable="thisRecieve_requirement_requestResponse1Msg" bpmn:label="Recieve requirement request" name="Recieve_requirement_request-2" bpmn:id="_qWPkoKAdEeW6r4g6sr4TOg"></bpel:reply>
+    <bpel:flow bpmn:label="Parallel_Gateway" name="Parallel_Gateway" bpmn:id="_AV89MKAeEeW6r4g6sr4TOg">
+      <bpel:sequence>
+        <bpel:assign bpmn:label="Load variables" name="Load_variables" bpmn:id="_A0y1UKAeEeW6r4g6sr4TOg">
+          <bpel:copy>
+            <bpel:from>$thisRecieve_requirement_requestRequest2Msg.body/tns:Reference</bpel:from>
+            <bpel:to>$BudgetingVar-keys/Variables:excercise_id</bpel:to>
+          </bpel:copy>
+        </bpel:assign>
+      </bpel:sequence>
+      <bpel:sequence>
+        <bpel:assign bpmn:label="Get department information" name="Get_department_information" bpmn:id="_DkCp1qAeEeW6r4g6sr4TOg">
+          <bpel:copy>
+            <bpel:from>$thisRecieve_requirement_requestRequest2Msg.body/tns:DepartmentId</bpel:from>
+            <bpel:to>$getSingleDepartment-ProcessRecieve__request1Msg.body</bpel:to>
+          </bpel:copy>
+        </bpel:assign>
+        <bpel:invoke partnerLink="department_directorimplicitPartnerAndDepartment_directorForCanonicPortPlk1Var" portType="GetSingleDepartment-Process:ForCaller" operation="Recieve__request" inputVariable="getSingleDepartment-ProcessRecieve__request1Msg" outputVariable="getSingleDepartment-ProcessRecieve__requestResponse1Msg" bpmn:label="Get department information" name="Get_department_information-1" bpmn:id="_DkCp1qAeEeW6r4g6sr4TOg"></bpel:invoke>
+        <bpel:assign bpmn:label="Get Team Members" name="Get_Team_Members" bpmn:id="_GHgFFqAeEeW6r4g6sr4TOg">
+          <bpel:copy>
+            <bpel:from>$getSingleDepartment-ProcessRecieve__requestResponse1Msg.body/Business:DepartmentDirector</bpel:from>
+            <bpel:to>$getTeamMembers-ProcessRecieve_request1Msg.body</bpel:to>
+          </bpel:copy>
+        </bpel:assign>
+        <bpel:invoke partnerLink="department_directorimplicitPartnerAndDepartment_directorForCanonicPortPlk2Var" portType="GetTeamMembers-Process:ForCaller" operation="Recieve_request" inputVariable="getTeamMembers-ProcessRecieve_request1Msg" outputVariable="getTeamMembers-ProcessRecieve_requestResponse1Msg" bpmn:label="Get Team Members" name="Get_Team_Members-1" bpmn:id="_GHgFFqAeEeW6r4g6sr4TOg"></bpel:invoke>
+      </bpel:sequence>
+      <bpel:sequence>
+        <bpel:assign bpmn:label="Retrieve attachments" name="Retrieve_attachments" bpmn:id="_ICvCtqAeEeW6r4g6sr4TOg">
+          <bpel:copy>
+            <bpel:from>$thisRecieve_requirement_requestRequest2Msg.body/tns:Reference</bpel:from>
+            <bpel:to>$attachmentManagement-processGet_attachments1Msg.body</bpel:to>
+          </bpel:copy>
+        </bpel:assign>
+        <bpel:invoke partnerLink="department_directorimplicitPartnerAndDepartment_directorForCanonicPortPlk0Var" portType="AttachmentManagement-process:Forcaller" operation="Get_attachments" inputVariable="attachmentManagement-processGet_attachments1Msg" outputVariable="attachmentManagement-processGet_attachmentsResponse1Msg" bpmn:label="Retrieve attachments" name="Retrieve_attachments-1" bpmn:id="_ICvCtqAeEeW6r4g6sr4TOg"></bpel:invoke>
+      </bpel:sequence>
+    </bpel:flow>
+    <bpel:assign bpmn:label="Request department requirements" name="Request_department_requirements" bpmn:id="_MqbZBtESEeWIHuPdUr6NDg">
+      <bpel:copy>
+        <bpel:from>concat("Set the ", $getSingleDepartment-ProcessRecieve__requestResponse1Msg.body/Business:DeparmentName, " budget requirements for ", $BudgetingVar/Variables:fiscal_year)</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskMetaData/requirements1:description</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$getSingleDepartment-ProcessRecieve__requestResponse1Msg.body/Business:DepartmentDirector</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskMetaData/requirements1:userOwner[1]</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>bpel:doXslTransform("../XSLT/transform_attachments_to_global_form.xsl", $attachmentManagement-processGet_attachmentsResponse1Msg.body)</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskMetaData/requirements1:globalAttachments</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$BudgetingVar-keys/Variables:excercise_id</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskInput/Business:RequirementDefinitionInput/Business:Variables/Business:ExcerciseId</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$BudgetingVar/Variables:fiscal_year</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskInput/Business:RequirementDefinitionInput/Business:Variables/Business:FiscalYear</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$BudgetingVar/Variables:target_expenses</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskInput/Business:RequirementDefinitionInput/Business:Variables/Business:TargetExpenses</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$BudgetingVar/Variables:expected_increase</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskInput/Business:RequirementDefinitionInput/Business:Variables/Business:ExpectedIncrease</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$BudgetingVar/Variables:new_investments</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskInput/Business:RequirementDefinitionInput/Business:Variables/Business:NewInvestments</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$BudgetingVar/Variables:target_submission</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskInput/Business:RequirementDefinitionInput/Business:Variables/Business:TargetSubmission</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$BudgetingVar/Variables:target_approval</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskInput/Business:RequirementDefinitionInput/Business:Variables/Business:TargetApproval</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$getSingleDepartment-ProcessRecieve__requestResponse1Msg.body</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskInput/Business:RequirementDefinitionInput/Business:DepartmentInfo</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$getTeamMembers-ProcessRecieve_requestResponse1Msg.body</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskInput/Business:RequirementDefinitionInput/Business:Team</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:assign>
+      <bpel:copy>
+        <bpel:from>"_MqbZBtESEeWIHuPdUr6NDg"</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskMetaData/requirements1:taskId</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$ode:pid</bpel:from>
+        <bpel:to>$requirements1CreateTaskSingleActivityRequest1Msg.root/requirements1:taskMetaData/requirements1:instanceId</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:invoke partnerLink="wFmagic_MqbZBtESEeWIHuPdUr6NDgPlkVar" portType="requirements1:Workflow" operation="createTaskSingleActivity" inputVariable="requirements1CreateTaskSingleActivityRequest1Msg" outputVariable="requirements1CreateTaskSingleActivityResponse1Msg" bpmn:label="Request department requirements" name="Request_department_requirements-1" bpmn:id="_MqbZBtESEeWIHuPdUr6NDg"></bpel:invoke>
+    <bpel:receive partnerLink="wFmagic_MqbZBtESEeWIHuPdUr6NDgPlkVar" portType="requirements1:Process" operation="notifyTaskCompletionSingleActivity" variable="requirements1CreateTaskSingleActivityResponse1Msg" bpmn:label="Request department requirements" name="Request_department_requirements-2" bpmn:id="_MqbZBtESEeWIHuPdUr6NDg"></bpel:receive>
+    <bpel:scope bpmn:label="outer-Get project requirements" name="outer-Get_project_requirements" bpmn:id="_5kLUIKAtEeW6r4g6sr4TOg">
+      <bpel:forEach bpmn:label="Get project requirements" name="Get_project_requirements" bpmn:id="_5kLUIKAtEeW6r4g6sr4TOg" parallel="yes" counterName="Get_project_requirementsCounter">
+        <bpel:startCounterValue>1</bpel:startCounterValue>
+        <bpel:finalCounterValue>count($requirements1CreateTaskSingleActivityResponse1Msg.root/requirements1:taskOutput/Business:RequirementDefinisionOutput/Business:Projects)</bpel:finalCounterValue>
+        <bpel:scope bpmn:label="Get project requirements" name="Get_project_requirements-1" bpmn:id="_5kLUIKAtEeW6r4g6sr4TOg">
+          <bpel:partnerLinks>
+            <bpel:partnerLink name="managerAndDepartment_directorPlkVar" partnerLinkType="diag:ManagerAndDepartment_director" initializePartnerRole="yes" myRole="Department_director_for_Manager" partnerRole="Manager_for_Department_director"></bpel:partnerLink>
+          </bpel:partnerLinks>
+          <bpel:correlationSets>
+            <bpel:correlationSet name="projectRequirements-CS" properties="this:excercise this:department this:project" unique="yes"></bpel:correlationSet>
+          </bpel:correlationSets>
+          <bpel:variables xmlns:xvar="http://ode.apache.org/externalVariables">
+            <bpel:variable name="Project" element="Business:Project"></bpel:variable>
+            <bpel:variable name="ExcerciseProject-keys" element="Variables:ExcerciseProject-keys"></bpel:variable>
+            <bpel:variable name="ExcerciseProject" element="Variables:ExcerciseProject" xvar:id="ExcerciseProject-_gzmZoKAxEeW6r4g6sr4TOg" xvar:relates-to="ExcerciseProject-keys"></bpel:variable>
+            <bpel:variable name="managerRecieve_project_requestRequest2Msg" messageType="Manager:Recieve_project_requestRequest"></bpel:variable>
+            <bpel:variable name="managerRecieve_project_requestResponse2Msg" messageType="Manager:Recieve_project_requestResponse"></bpel:variable>
+            <bpel:variable name="thisRecieve_project_requirementRequest1Msg" messageType="this:Recieve_project_requirementRequest"></bpel:variable>
+            <bpel:variable name="thisRecieve_project_requirementResponse2Msg" messageType="this:Recieve_project_requirementResponse"></bpel:variable>
+          </bpel:variables>
+          <bpel:sequence>
+            <bpel:assign name="init-variables-Get_project_requirements" bpmn:id="_5kLUIKAtEeW6r4g6sr4TOg">
+              <bpel:copy bpmn:label="$Project">
+                <bpel:from>
+                  <bpel:literal>
+<Business:Project>
+  <Business:ProjectName></Business:ProjectName>
+  <Business:ProjectResponsible></Business:ProjectResponsible>
+  <Business:TargetBudget></Business:TargetBudget>
+  <Business:Notes></Business:Notes>
+</Business:Project></bpel:literal>
+                </bpel:from>
+                <bpel:to>$Project</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>
+                  <bpel:literal><Variables:ExcerciseProject><Variables:project_id></Variables:project_id><Variables:excercise_id></Variables:excercise_id><Variables:DepartmentId></Variables:DepartmentId></Variables:ExcerciseProject></bpel:literal>
+                </bpel:from>
+                <bpel:to>$ExcerciseProject-keys</bpel:to>
+              </bpel:copy>
+              <bpel:copy bpmn:label="$managerRecieve_project_requestRequest2Msg">
+                <bpel:from>
+                  <bpel:literal>
+<Manager:Recieve_project_requestRequest>
+  <Business:ExcerciseId></Business:ExcerciseId>
+  <Business:DepartmentId></Business:DepartmentId>
+  <Business:ProjectId></Business:ProjectId>
+</Manager:Recieve_project_requestRequest></bpel:literal>
+                </bpel:from>
+                <bpel:to>$managerRecieve_project_requestRequest2Msg.body</bpel:to>
+              </bpel:copy>
+              <bpel:copy bpmn:label="$thisRecieve_project_requirementResponse2Msg">
+                <bpel:from>
+                  <bpel:literal>
+<this:Recieve_project_requirementResponse>
+  <tns:InstanceId></tns:InstanceId>
+  <tns:Timestamp></tns:Timestamp>
+</this:Recieve_project_requirementResponse></bpel:literal>
+                </bpel:from>
+                <bpel:to>$thisRecieve_project_requirementResponse2Msg.body</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+            <bpel:empty bpmn:label="Empty_Start_Event" name="Empty_Start_Event" bpmn:id="_7t3kgKAtEeW6r4g6sr4TOg"></bpel:empty>
+            <bpel:assign bpmn:label="Extract project" name="Extract_project" bpmn:id="_GwxRQKAuEeW6r4g6sr4TOg">
+              <bpel:copy>
+                <bpel:from>$requirements1CreateTaskSingleActivityResponse1Msg.root/requirements1:taskOutput/Business:RequirementDefinisionOutput/Business:Projects[$Get_project_requirementsCounter]</bpel:from>
+                <bpel:to>$Project</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+            <bpel:assign bpmn:label="Save project" name="Save_project" bpmn:id="_M4-loKAuEeW6r4g6sr4TOg">
+              <bpel:copy>
+                <bpel:from>$BudgetingVar-keys/Variables:excercise_id</bpel:from>
+                <bpel:to>$ExcerciseProject-keys/Variables:excercise_id</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$thisRecieve_requirement_requestRequest2Msg.body/tns:DepartmentId</bpel:from>
+                <bpel:to>$ExcerciseProject-keys/Variables:DepartmentId</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$Get_project_requirementsCounter</bpel:from>
+                <bpel:to>$ExcerciseProject-keys/Variables:project_id</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$Project/Business:ProjectName</bpel:from>
+                <bpel:to>$ExcerciseProject/Variables:name</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$Project/Business:ProjectResponsible</bpel:from>
+                <bpel:to>$ExcerciseProject/Variables:responsible</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$Project/Business:TargetBudget</bpel:from>
+                <bpel:to>$ExcerciseProject/Variables:target_budget</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>current-dateTime()</bpel:from>
+                <bpel:to>$ExcerciseProject/Variables:RequestedDate</bpel:to>
+              </bpel:copy>
+              <bpel:copy ignoreUninitializedFromVariable="yes" ignoreMissingFromData="yes">
+                <bpel:from>$Project/Business:Notes</bpel:from>
+                <bpel:to>$ExcerciseProject/Variables:notes</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+            <bpel:assign bpmn:label="Request project requirement" name="Request_project_requirement" bpmn:id="_PNPuUKAuEeW6r4g6sr4TOg">
+              <bpel:copy>
+                <bpel:from>$ExcerciseProject-keys/Variables:excercise_id</bpel:from>
+                <bpel:to>$managerRecieve_project_requestRequest2Msg.body/Business:ExcerciseId</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$ExcerciseProject-keys/Variables:DepartmentId</bpel:from>
+                <bpel:to>$managerRecieve_project_requestRequest2Msg.body/Business:DepartmentId</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$ExcerciseProject-keys/Variables:project_id</bpel:from>
+                <bpel:to>$managerRecieve_project_requestRequest2Msg.body/Business:ProjectId</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+            <bpel:invoke partnerLink="managerAndDepartment_directorPlkVar" portType="Manager:ForDepartment_director" operation="Recieve_project_request" inputVariable="managerRecieve_project_requestRequest2Msg" outputVariable="managerRecieve_project_requestResponse2Msg" bpmn:label="Request project requirement" name="Request_project_requirement-1" bpmn:id="_PNPuUKAuEeW6r4g6sr4TOg">
+              <bpel:correlations>
+                <bpel:correlation set="projectRequirements-CS" initiate="join" pattern="request"></bpel:correlation>
+              </bpel:correlations>
+            </bpel:invoke>
+            <bpel:receive partnerLink="managerAndDepartment_directorPlkVar" portType="this:ForManager" operation="Recieve_project_requirement" variable="thisRecieve_project_requirementRequest1Msg" bpmn:label="Recieve project requirement" name="Recieve_project_requirement" bpmn:id="_ZK2O0KBNEeW6r4g6sr4TOg">
+              <bpel:correlations>
+                <bpel:correlation set="projectRequirements-CS" initiate="join"></bpel:correlation>
+              </bpel:correlations>
+            </bpel:receive>
+            <bpel:assign bpmn:label="Recieve project requirement" name="Recieve_project_requirement-1" bpmn:id="_ZK2O0KBNEeW6r4g6sr4TOg">
+              <bpel:copy>
+                <bpel:from>$ode:pid</bpel:from>
+                <bpel:to>$thisRecieve_project_requirementResponse2Msg.body/tns:InstanceId</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>current-dateTime()</bpel:from>
+                <bpel:to>$thisRecieve_project_requirementResponse2Msg.body/tns:Timestamp</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$thisRecieve_requirement_requestRequest2Msg.body/tns:Reference</bpel:from>
+                <bpel:to>$ExcerciseProject-keys/Variables:excercise_id</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$thisRecieve_requirement_requestRequest2Msg.body/tns:DepartmentId</bpel:from>
+                <bpel:to>$ExcerciseProject-keys/Variables:DepartmentId</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$Get_project_requirementsCounter</bpel:from>
+                <bpel:to>$ExcerciseProject-keys/Variables:project_id</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>current-dateTime()</bpel:from>
+                <bpel:to>$ExcerciseProject/Variables:DefinedDate</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+            <bpel:reply partnerLink="managerAndDepartment_directorPlkVar" portType="this:ForManager" operation="Recieve_project_requirement" variable="thisRecieve_project_requirementResponse2Msg" bpmn:label="Recieve project requirement" name="Recieve_project_requirement-2" bpmn:id="_ZK2O0KBNEeW6r4g6sr4TOg"></bpel:reply>
+          </bpel:sequence>
+        </bpel:scope>
+      </bpel:forEach>
+    </bpel:scope>
+    <bpel:assign bpmn:label="Review requirements" name="Review_requirements" bpmn:id="_OrlN5tEREeWIHuPdUr6NDg">
+      <bpel:copy>
+        <bpel:from>concat("Review the ", $BudgetingVar/Variables:fiscal_year, " budget requirements for ", $getSingleDepartment-ProcessRecieve__requestResponse1Msg.body/Business:DeparmentName)</bpel:from>
+        <bpel:to>$department_reviewCreateTaskSingleActivityRequest1Msg.root/department_review:taskMetaData/department_review:description</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$getSingleDepartment-ProcessRecieve__requestResponse1Msg.body/Business:DepartmentDirector</bpel:from>
+        <bpel:to>$department_reviewCreateTaskSingleActivityRequest1Msg.root/department_review:taskMetaData/department_review:userOwner[1]</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$getSingleDepartment-ProcessRecieve__requestResponse1Msg.body/Business:DepartmentId</bpel:from>
+        <bpel:to>$department_reviewCreateTaskSingleActivityRequest1Msg.root/department_review:taskInput/Business:ProjectDepartmentIdentifier/Business:DepartmentId</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$BudgetingVar-keys/Variables:excercise_id</bpel:from>
+        <bpel:to>$department_reviewCreateTaskSingleActivityRequest1Msg.root/department_review:taskInput/Business:ProjectDepartmentIdentifier/Business:ExcerciseId</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:assign>
+      <bpel:copy>
+        <bpel:from>"_OrlN5tEREeWIHuPdUr6NDg"</bpel:from>
+        <bpel:to>$department_reviewCreateTaskSingleActivityRequest1Msg.root/department_review:taskMetaData/department_review:taskId</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$ode:pid</bpel:from>
+        <bpel:to>$department_reviewCreateTaskSingleActivityRequest1Msg.root/department_review:taskMetaData/department_review:instanceId</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:invoke partnerLink="wFmagic_OrlN5tEREeWIHuPdUr6NDgPlkVar" portType="department_review:Workflow" operation="createTaskSingleActivity" inputVariable="department_reviewCreateTaskSingleActivityRequest1Msg" outputVariable="department_reviewCreateTaskSingleActivityResponse1Msg" bpmn:label="Review requirements" name="Review_requirements-1" bpmn:id="_OrlN5tEREeWIHuPdUr6NDg"></bpel:invoke>
+    <bpel:receive partnerLink="wFmagic_OrlN5tEREeWIHuPdUr6NDgPlkVar" portType="department_review:Process" operation="notifyTaskCompletionSingleActivity" variable="department_reviewCreateTaskSingleActivityResponse1Msg" bpmn:label="Review requirements" name="Review_requirements-2" bpmn:id="_OrlN5tEREeWIHuPdUr6NDg"></bpel:receive>
+    <bpel:assign bpmn:label="Message_End_Event" name="Message_End_Event" bpmn:id="_q9wRkKKDEeWFS7bBQTvFJw">
+      <bpel:copy>
+        <bpel:from>$thisRecieve_requirement_requestRequest2Msg.body/tns:Reference</bpel:from>
+        <bpel:to>$chief_financial_officerRecieve_department_requirementsRequest1Msg.body/tns:Reference</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$thisRecieve_requirement_requestRequest2Msg.body/tns:DepartmentId</bpel:from>
+        <bpel:to>$chief_financial_officerRecieve_department_requirementsRequest1Msg.body/tns:DepartmentId</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:invoke partnerLink="department_directorAndChief_financial_officerPlkVar" portType="Chief_financial_officer:ForDepartment_director" operation="Recieve_department_requirements" inputVariable="chief_financial_officerRecieve_department_requirementsRequest1Msg" outputVariable="chief_financial_officerRecieve_department_requirementsResponse1Msg" bpmn:label="Message_End_Event" name="Message_End_Event-1" bpmn:id="_q9wRkKKDEeWFS7bBQTvFJw"></bpel:invoke>
+  </bpel:sequence>
+</bpel:process>

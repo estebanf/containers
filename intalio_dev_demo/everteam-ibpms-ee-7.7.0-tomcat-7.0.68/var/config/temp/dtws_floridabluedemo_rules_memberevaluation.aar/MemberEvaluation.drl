@@ -1,0 +1,37 @@
+package MemberEvaluation;
+#generated from Decision Table
+import bre.Member;
+import bre.MemberActions;
+rule "MemberEvaluation #1: (Member.sex '*') and (Member.age '*') and (Member.diabetes '*') and (Member.highBloodPressure '*') and (Member.heartAttack =='true')"
+	
+	salience 0
+	when
+		member:Member(
+heartAttack==true)
+		memberActions:MemberActions( )
+	then
+		memberActions.setReferral(new Boolean("true"));
+end
+
+rule "MemberEvaluation #2: (Member.sex '*') and (Member.age '*') and (Member.diabetes '*') and (Member.highBloodPressure =='true') and (Member.heartAttack '*')"
+	
+	salience 0
+	when
+		member:Member(
+highBloodPressure==true)
+		memberActions:MemberActions( )
+	then
+		memberActions.setPhysical(new Boolean("true"));
+end
+
+rule "MemberEvaluation #3: (Member.sex '*') and (Member.age '*') and (Member.diabetes =='true') and (Member.highBloodPressure '*') and (Member.heartAttack '*')"
+	
+	salience 0
+	when
+		member:Member(
+diabetes==true)
+		memberActions:MemberActions( )
+	then
+		memberActions.setEducation(new Boolean("true"));
+end
+

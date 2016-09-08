@@ -1,0 +1,285 @@
+
+.pNameAlignment{
+	margin-left:8px;
+}
+
+.propertyAlign{
+	text-align:center;
+}
+.iconCursor{
+	cursor:pointer;
+}
+.io-package-row {
+	background-color: #F9F9F9 !important;
+}
+#processResourceList{
+	overflow-y: auto;
+}
+#monitoring_process tr.even {
+	background-color: white;
+}
+#monitoring_process tr.odd {
+	background-color: white;
+}
+.sorting_disabled{
+color:#555555;
+}
+#processData tr td {
+	border-top: 0px solid #DDDDDD;
+}
+#processResourceTable tr td {
+	border-top: 0px solid #DDDDDD;
+}
+#createProcessFilter .modal-dialog {
+    width: 525px !important;
+}
+
+#createProcessFilter input {
+	height:26px;
+	padding:4px 2px;
+	width :160px;
+}
+
+#filterProcessName {
+	width:160px;
+}
+
+#createProcessFilter table {
+	margin-bottom: 10px;
+}
+#createProcessFilter table tr td {
+	vertical-align: middle;
+}
+#createProcessFilter table tr td input {
+	width:315px;
+	height: 32px;
+}
+.chzn-container-multi .chzn-choices .search-field input {
+	height:15px;
+}
+#processResourceTable tr th{
+	border-top:0px;
+}
+.ace-file-input{
+	height: 15px;
+	margin-bottom: 10px;
+}
+.ace-file-input .file-label:before {
+	background-color: #428BCA !important;
+}
+.ace-file-input .file-label {
+	height: 27px;
+}
+.manageFilter{
+	margin-top: -3px;
+}
+#createProcessFilter .modal-body {
+    padding-top: 10px;
+}
+#deletefilterModal .modal-dialog{
+	z-index: 1080;
+}
+#deletefilterModal {
+	z-index: 1060;
+}
+.dropdown-menu{
+	min-width: 115px;
+}
+#file {
+	width:auto;
+}
+#showDiagram {
+	overflow: auto;
+}
+#processInformation{
+	overflow: auto;
+}
+#processInfo .modal-dialog{
+	padding-bottom:10px;
+}
+.label-text {
+	line-height: 23px;
+	vertical-align: middle;
+}
+#sortProcessModal .modal-dialog {
+    width: 40%;
+}
+.packageInfo
+{
+	font-size:10px;
+	font-family:'Open Sans';
+	color:#777777;
+}
+#noProcessSelected {
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+#monitoring_process tr th {
+padding-top: 3px;
+padding-bottom: 3px;
+}
+.infoProcessId{
+	word-wrap: break-word;
+}
+
+
+#processStartTimerTable tr td,#durationTable tr td {
+border-top-width: 0px; 
+}
+#processStartTimerTable{
+margin-bottom:5px;
+}
+#durationTable tr > td{
+padding:5px;
+}
+.durationExp{
+width:65%;
+}
+.expressionParameters .bootstrap-timepicker-widget table td input {
+width:30px;
+}
+
+.expressionParameters .bootstrap-timepicker-widget table tr td{
+padding:5px;
+}
+.expressionParameters .separator{
+vertical-align:middle;
+}
+.cron-val {
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 16px;
+}
+.every-star {
+	cursor: pointer;
+	font-size: 18px;
+}
+#accordion .panel-heading {
+	padding: 5px;
+	padding-left: 10px;
+}
+.panel-group .panel {
+	overflow: visible;
+}
+.nextScheduleTable tr td {
+	border-top-width: 0px !important;
+}
+.nextScheduleTable {
+    margin-bottom: -10px;
+    margin-top: 15px !important;
+}
+.timerInfoSpan:hover{
+color:#478FCA !important;
+}
+.timerDateTime {
+	width: 171px;
+}
+.soapReqTable tr td {
+	padding:7px;
+}
+#startOperation .modal-body {
+	overflow: auto;
+}
+ul#filterProcessDropdown li{
+cursor:pointer;
+}
+#createProcessFilter tr td .selectize-input.items.not-full{
+	width: 315px;
+	padding: 0px 7px;
+}
+#createProcessFilter tr td .selectize-input.items.full{
+	width: 315px;
+	padding: 7px;
+}
+#startedDeployedAfter,#startedDeployedBefore{
+	width: 276px !important;
+}
+#configureStatistics{
+	height: 30px;
+}
+#configureAnalytics .col-sm-10{
+	padding-left: 0px !important;
+}
+#mean,#median,#mode,#range,#analyticsDescription{
+	padding-left: 0px;
+}
+#analyticsModal .form-group > label{
+	padding-top: 0px !important;
+}
+#analyticsModal .modal-dialog{
+	padding-top: 0px !important;
+	width:701px;
+	margin-top: 2px;
+}
+#configureAnalytics .form-group{
+	padding-bottom: 30px;
+}
+.statParam{
+	width:65%;
+}
+.col-sm-8,.col-sm-6{
+	padding-left: 0px !important;
+}
+.datepicker{
+	z-index: 1060 !important;
+}
+.infoIns{
+	padding-left: 8px;
+}
+.actInsBtn{
+	padding-left: 9px;
+}
+.instanceSummaryInfo{
+	padding-left: 20px;
+}
+
+#analyticsDescription,#analyticsConfigureNote{
+	font-family: open sans;
+    font-size: 11px;
+    padding-left: 11px;
+}
+.infoModalHigh,.infoModalLow,.infoModalLowMode{
+	padding-left: 12px;
+}
+#dateStart{
+	width: 280px;
+}
+#enableAnalytics{
+	margin-left: -6px;
+}
+.input-daterange input#dateStart{
+	text-align: left;
+}
+#procAnalytics .form-group:first-child{
+	margin-bottom: 5px;
+}
+.analyticsTime li:before{
+	width: 0%!important;
+}
+.analyticsTime li .title{
+	font-size: 13px;
+	text-align: left;
+}
+.analyticsTime li{
+	display: inline-table;
+}
+.analyticsTime > li{
+	width: 80px;
+	display: inline-table;
+	text-align: left;
+}
+.analyticsTime li .step{
+	width: 30px;
+	line-height:15px;
+	height: 25px;
+	font-size: 11px;	
+}
+span.step{
+	cursor: pointer;
+}
+.analyticsInfo{
+	padding-left: 20px;
+}
+.analyticsTime{
+	width: 60%;
+}

@@ -1,0 +1,134 @@
+May 04, 2016 10:40:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext
+May 04, 2016 10:40:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'cas'
+May 04, 2016 10:40:33 AM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+May 04, 2016 10:40:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext
+May 04, 2016 10:40:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-pdfgen-spring-servlet'
+May 04, 2016 10:40:44 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-wsi-servlet'
+May 04, 2016 10:40:44 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'collab-spring-servlet'
+May 04, 2016 10:40:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'mobi-spring-servlet'
+May 04, 2016 10:40:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'organization-mapping-spring-servlet'
+May 04, 2016 10:40:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-analytics-spring-servlet'
+May 04, 2016 10:40:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'social-spring-servlet'
+May 04, 2016 10:40:46 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'modeler-spring-servlet'
+May 04, 2016 10:40:46 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+May 04, 2016 10:40:46 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+May 04, 2016 10:40:46 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: attributeAdded('org.apache.jasper.compiler.TldLocationsCache', 'org.apache.jasper.compiler.TldLocationsCache@2a52e96f')
+May 04, 2016 10:41:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'intalio-spring-servlet'
+May 04, 2016 10:41:55 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'tempo-spring-servlet'
+May 04, 2016 10:41:55 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-dashboard-spring-servlet'
+May 04, 2016 10:41:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-console-spring-servlet'
+May 04, 2016 10:42:36 AM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'bpms-pdfgen-spring-servlet'
+May 04, 2016 10:42:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'bpms-wsi-servlet'
+May 04, 2016 10:42:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'collab-spring-servlet'
+May 04, 2016 10:42:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'intalio-spring-servlet'
+May 04, 2016 10:42:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'mobi-spring-servlet'
+May 04, 2016 10:42:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'bpms-console-spring-servlet'
+May 04, 2016 10:42:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'organization-mapping-spring-servlet'
+May 04, 2016 10:42:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'bpms-analytics-spring-servlet'
+May 04, 2016 10:42:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'social-spring-servlet'
+May 04, 2016 10:42:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'modeler-spring-servlet'
+May 04, 2016 10:42:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'tempo-spring-servlet'
+May 04, 2016 10:42:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'bpms-dashboard-spring-servlet'
+May 04, 2016 10:42:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Closing Spring root WebApplicationContext
+May 04, 2016 10:42:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+May 04, 2016 10:42:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext
+May 04, 2016 10:42:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-pdfgen-spring-servlet'
+May 04, 2016 10:42:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-wsi-servlet'
+May 04, 2016 10:42:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'collab-spring-servlet'
+May 04, 2016 10:42:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'mobi-spring-servlet'
+May 04, 2016 10:42:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'organization-mapping-spring-servlet'
+May 04, 2016 10:42:49 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-analytics-spring-servlet'
+May 04, 2016 10:42:49 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'social-spring-servlet'
+May 04, 2016 10:42:49 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'modeler-spring-servlet'
+May 04, 2016 10:43:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: Destroying Spring FrameworkServlet 'bpms-pdfgen-spring-servlet'
+May 04, 2016 10:43:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: Closing Spring root WebApplicationContext
+May 04, 2016 10:43:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+May 04, 2016 10:43:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()
+May 04, 2016 10:43:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext
+May 04, 2016 10:43:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: No Spring WebApplicationInitializer types detected on classpath
+May 04, 2016 10:44:00 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext
+May 04, 2016 10:46:32 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'cas'
+May 04, 2016 10:46:32 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-pdfgen-spring-servlet'
+May 04, 2016 10:46:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-wsi-servlet'
+May 04, 2016 10:46:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'collab-spring-servlet'
+May 04, 2016 10:46:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'mobi-spring-servlet'
+May 04, 2016 10:46:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'organization-mapping-spring-servlet'
+May 04, 2016 10:46:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-analytics-spring-servlet'
+May 04, 2016 10:46:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'social-spring-servlet'
+May 04, 2016 10:46:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'modeler-spring-servlet'
+May 04, 2016 10:46:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+May 04, 2016 10:46:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+May 04, 2016 10:46:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: attributeAdded('org.apache.jasper.compiler.TldLocationsCache', 'org.apache.jasper.compiler.TldLocationsCache@134375ad')
+May 04, 2016 10:46:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'intalio-spring-servlet'
+May 04, 2016 10:46:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'tempo-spring-servlet'
+May 04, 2016 10:46:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-dashboard-spring-servlet'
+May 04, 2016 10:46:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-console-spring-servlet'
+May 04, 2016 10:49:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bpms-adhocreport-spring-servlet'
+May 04, 2016 12:19:34 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'bre-dtdeployment-spring-servlet'

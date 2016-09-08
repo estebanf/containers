@@ -1,0 +1,11 @@
+﻿<sub:subscriptions xmlns:sub="http://bpms.intalio.com/connectors/jdbc/subscriptions">
+    <sub:service name="business_databaseAndProcessForMemberPortPlkService">
+        <sub:operation name="member">
+            <sub:subscription>
+                <sub:wsdlUrl>http://bpms.local:8080/everteam/ode/processes/FloridaBlueDemo/Processes/Monitor/process/business_database/business_databaseAndProcessForMemberPortPlk</sub:wsdlUrl>
+                <sub:serviceName>business_databaseAndProcessForMemberPortPlkService</sub:serviceName>
+                <sub:portType>memberPort</sub:portType>
+            </sub:subscription>
+        </sub:operation>
+    </sub:service>
+</sub:subscriptions>

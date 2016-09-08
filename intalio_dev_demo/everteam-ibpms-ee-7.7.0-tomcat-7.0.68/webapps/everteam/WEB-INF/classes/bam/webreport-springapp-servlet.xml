@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+    <!--
+    <bean id="tokenService" class="org.intalio.tempo.security.ws.TokenClient">
+      <constructor-arg value="http://localhost:8080/intalio/ode/processes/TokenService"/>
+    </bean>
+    -->
+    
+    <bean id="viewResolver"
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass">
+            <value>org.springframework.web.servlet.view.JstlView</value>
+        </property>
+        <property name="prefix">
+            <value>/WEB-INF/jsp/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+
+    <bean id="reportsDefaultAction"
+        class="org.intalio.tempo.web.controller.ActionDef">
+        <property name="actionName" value="default"/>
+        <property name="actionClass"
+                  value="com.intalio.bpms.webreport.ReportsController$ReportsAction"/>
+    </bean>
+
+    <bean id="reportsController" class="com.intalio.bpms.webreport.ReportsController">
+        <!--property name="commandClass" value="com.intalio.bpms.webreport.ReportsCommand"/-->
+        <property name="defaultAction">
+            <ref bean="reportsDefaultAction"/>
+        </property>
+        <property name="actionDefs">
+            <list>
+                <ref bean="reportsDefaultAction"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="messageSource"
+        class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename">
+            <value>messages</value>
+        </property>
+    </bean>
+
+    <bean id="urlMapping"
+        class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/reports.htm">reportsController</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,19 @@
+version: '2'
+services:
+  ibpms_db:
+    image: estebanf/ibpms_mysql:928
+    ports:
+      - "3306:3306"
+    container_name: ibpms_mysql
+  ibpms_server:
+    image: estebanf/ibpms_server:928
+    container_name: ibpms_server
+    extra_hosts:
+      - "bpms.local:127.0.0.1"
+    ports:
+      - "8080:8080"
+    links:
+      - ibpms_db
+    depends_on:
+      - ibpms_db
+      

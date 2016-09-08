@@ -1,0 +1,43 @@
+﻿<wsdl:definitions targetNamespace="urn:intalio.com:connectors:database:floridabluedemo:select_primaryservice" xmlns:tns="urn:intalio.com:connectors:database:floridabluedemo:select_primaryservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="urn:intalio.com:connectors:database:floridabluedemo:select_primaryservice">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import schemaLocation="select_primary.xsd" namespace="urn:intalio.com:connectors:database:floridabluedemo:select_primaryservice"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="select_primaryInput">
+        <wsdl:part name="parameters" element="ns:select_primaryParameterSet"/>
+    </wsdl:message>
+    <wsdl:message name="select_primaryOutput">
+        <wsdl:part name="parameters" element="ns:select_primaryResultSet"/>
+    </wsdl:message>
+    <wsdl:message name="select_primaryFault">
+        <wsdl:part name="fault" element="ns:select_primaryFault"/>
+    </wsdl:message>
+    <wsdl:portType name="select_primaryPort">
+        <wsdl:operation name="select_primary">
+            <wsdl:input message="tns:select_primaryInput"/>
+            <wsdl:output message="tns:select_primaryOutput"/>
+            <wsdl:fault message="tns:select_primaryFault" name="nsselect_primaryFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="select_primaryPortSoapBinding" type="tns:select_primaryPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="select_primary">
+            <soap:operation style="document" soapAction="urn:intalio:connector:jdbc:query:select_primary"/>
+            <wsdl:input>
+                <soap:body namespace="urn:intalio.com:connectors:database:floridabluedemo:select_primaryservice" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="urn:intalio.com:connectors:database:floridabluedemo:select_primaryservice" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="nsselect_primaryFault">
+                <soap:body namespace="urn:intalio.com:connectors:database:floridabluedemo:select_primaryservice" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="select_primaryService">
+        <wsdl:port binding="tns:select_primaryPortSoapBinding" name="select_primaryPort">
+            <soap:address location="http://bpms.local:8080/everteam/ode/processes/FloridaBlueDemo/Connectors/Database/select_primary"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

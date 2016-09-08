@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<!--
+  ~ Copyright (c) 2001-2011, TIBCO Software Inc.
+  ~
+  ~ The program(s) herein may be used and/or copied only with the
+  ~ written permission of Intalio Inc. or in accordance with the terms
+  ~ and conditions stipulated in the agreement/contract under which the
+  ~ program(s) have been supplied.
+  -->
+<data jsxid="jsxroot">
+  <record include="master.xml" group="object"/>
+
+  <record include="master.xml" group="series_xy">
+    <record jsxid="magnitude" jsxtext="Magnitude"
+        jsxtip="Sets the magnitude value to use for all points in this series."
+        docgetter="getMagnitude" docsetter="setMagnitude"
+        docdefault="DEFAULT_MAGNITUDE (&lt;code&gt;jsx3.chart.PointSeries.DEFAULT_MAGNITUDE&lt;/code&gt;)"
+        eval="1"
+        jsxmask="jsxtext"/>
+  </record>
+
+  <record include="master.xml" group="pointsonly">
+    <record include="master.xml" group="colorFunction" children="1"/>
+  </record>
+
+  <record include="master.xml" group="component"/>
+  <record include="master.xml" group="interaction"/>
+</data>

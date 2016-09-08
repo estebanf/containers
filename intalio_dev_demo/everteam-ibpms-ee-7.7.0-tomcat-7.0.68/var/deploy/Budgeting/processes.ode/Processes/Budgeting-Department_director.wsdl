@@ -1,0 +1,162 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:department_review="http://www.intalio.com/Budgeting/Webcontents/department_review.html" xmlns:Variables="http://test.com/xvar/example" xmlns:Chief_financial_officer="http://budgeting.example.everteam.com/Processes/Budgeting/Chief_financial_officer" xmlns:Business="http://budgeting.example.everteam.com/Types/Business" xmlns:AttachmentManagement-process="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/process" xmlns:Department_directorimplicitPartner="http://budgeting.example.everteam.com/Processes/Budgeting/Department_directorimplicitPartner" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:requirements1="http://www.intalio.com/Budgeting/Webcontents/requirements.html" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:GetTeamMembers-Process="http://budgeting.example.everteam.com/Processes/Integrations/GetTeamMembers/Process" xmlns:requirements="http://www.intalio.com/Budgeting/Webcontents/requirements.html/attachments" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:diag="http://budgeting.example.everteam.com/Processes/Budgeting" xmlns:tns="http://budgeting.example.everteam.com/Types/Technical" xmlns:Manager="http://budgeting.example.everteam.com/Processes/Budgeting/Manager" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:attachments="http://www.intalio.com/Budgeting/Webcontents/department_review.html/attachments" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:this="http://budgeting.example.everteam.com/Processes/Budgeting/Department_director" xmlns:GetSingleDepartment-Process="http://budgeting.example.everteam.com/Processes/Integrations/GetSingleDepartment/Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://budgeting.example.everteam.com/Processes/Budgeting/Department_director">
+    <wsdl:types>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://budgeting.example.everteam.com/Processes/Budgeting/Department_director">
+            <xs:import namespace="http://budgeting.example.everteam.com/Types/Business" schemaLocation="../Schemas/Business.xsd"/>
+            <xs:import namespace="http://budgeting.example.everteam.com/Types/Technical" schemaLocation="../Schemas/Technical.xsd"/>
+            <xs:element name="Recieve_project_requirementRequest" type="Business:ProjectIdentifierType"/>
+            <xs:element name="Recieve_project_requirementResponse" type="tns:AcknowledgementType"/>
+            <xs:element name="Recieve_requirement_requestRequest" type="tns:DepartmentsRequirementType"/>
+            <xs:element name="Recieve_requirement_requestResponse" type="tns:AcknowledgementType"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:import namespace="http://budgeting.example.everteam.com/Processes/Budgeting/Manager" location="Budgeting-Manager.wsdl"/>
+    <wsdl:message name="Recieve_project_requirementRequest">
+        <wsdl:part name="body" element="this:Recieve_project_requirementRequest"/>
+    </wsdl:message>
+    <wsdl:message name="Recieve_project_requirementResponse">
+        <wsdl:part name="body" element="this:Recieve_project_requirementResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Recieve_requirement_requestRequest">
+        <wsdl:part name="body" element="this:Recieve_requirement_requestRequest"/>
+    </wsdl:message>
+    <wsdl:message name="Recieve_requirement_requestResponse">
+        <wsdl:part name="body" element="this:Recieve_requirement_requestResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ForChief_financial_officer">
+        <wsdl:operation name="Recieve_requirement_request">
+            <wsdl:input message="this:Recieve_requirement_requestRequest" name="Recieve_requirement_request"/>
+            <wsdl:output message="this:Recieve_requirement_requestResponse" name="Recieve_requirement_requestResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="ForManager">
+        <wsdl:operation name="Recieve_project_requirement">
+            <wsdl:input message="this:Recieve_project_requirementRequest" name="Recieve_project_requirement"/>
+            <wsdl:output message="this:Recieve_project_requirementResponse" name="Recieve_project_requirementResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CanonicBindingForChief_financial_officer" type="this:ForChief_financial_officer">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Recieve_requirement_request">
+            <soap:operation style="document" soapAction="http://budgeting.example.everteam.com/Processes/Budgeting/Department_director/ForChief_financial_officer/Recieve_requirement_request"/>
+            <wsdl:input name="Recieve_requirement_request">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="Recieve_requirement_requestResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="CanonicBindingForManager" type="this:ForManager">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Recieve_project_requirement">
+            <soap:operation style="document" soapAction="http://budgeting.example.everteam.com/Processes/Budgeting/Department_director/ForManager/Recieve_project_requirement"/>
+            <wsdl:input name="Recieve_project_requirement">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="Recieve_project_requirementResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CanonicServiceForChief_financial_officer">
+        <wsdl:port name="canonicPort" binding="this:CanonicBindingForChief_financial_officer">
+            <soap:address location="http://bpms.local:8080/everteam/ode/processes/Budgeting/Processes/Budgeting/Department_director/Chief_financial_officer"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:service name="CanonicServiceForManager">
+        <wsdl:port name="canonicPort" binding="this:CanonicBindingForManager">
+            <soap:address location="http://bpms.local:8080/everteam/ode/processes/Budgeting/Processes/Budgeting/Department_director/Manager"/>
+        </wsdl:port>
+    </wsdl:service>
+    <vprop:property name="department" type="xs:int"/>
+    <vprop:property name="deptoId" type="xs:int"/>
+    <vprop:property name="excercise" type="xs:int"/>
+    <vprop:property name="excerciseId" type="xs:int"/>
+    <vprop:property name="project" type="xs:int"/>
+    <vprop:property name="projectId" type="xs:int"/>
+    <vprop:propertyAlias propertyName="this:department" messageType="this:Recieve_project_requirementRequest" part="body">
+        <vprop:query>Business:DepartmentId/text()</vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="this:excercise" messageType="Manager:Recieve_project_requestRequest" part="body">
+        <vprop:query>Business:ExcerciseId/text()</vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="this:project" messageType="Manager:Recieve_project_requestRequest" part="body">
+        <vprop:query>Business:ProjectId/text()</vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="this:excercise" messageType="this:Recieve_project_requirementRequest" part="body">
+        <vprop:query>Business:ExcerciseId/text()</vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="this:department" messageType="Manager:Recieve_project_requestRequest" part="body">
+        <vprop:query>Business:DepartmentId/text()</vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="this:project" messageType="this:Recieve_project_requirementRequest" part="body">
+        <vprop:query>Business:ProjectId/text()</vprop:query>
+    </vprop:propertyAlias>
+	<wsdl:import namespace="http://www.intalio.com/Budgeting/Webcontents/requirements.html" location="../Webcontents/requirements.html.wsdl"/>
+	<wsdl:binding name="WFmagic_MqbZBtESEeWIHuPdUr6NDgServiceBinding" type="requirements1:Process">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="initProcess">
+			<soap:operation style="document" soapAction="http://www.intalio.com/Budgeting/Webcontents/requirements.html/Process/initProcess"/>
+			<wsdl:input name="initProcessRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="initProcessResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="notifyTaskCompletion">
+			<soap:operation style="document" soapAction="http://www.intalio.com/Budgeting/Webcontents/requirements.html/Process/notifyTaskCompletion"/>
+			<wsdl:input name="notifyTaskCompletionRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="notifyTaskCompletionResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="notifyTaskCompletionSingleActivity">
+			<soap:operation style="document" soapAction="http://www.intalio.com/Budgeting/Webcontents/requirements.html/Process/notifyTaskCompletionSingleActivity"/>
+			<wsdl:input name="createTaskSingleActivityResponse">
+				<soap:body use="literal"/>
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="WFmagic_MqbZBtESEeWIHuPdUr6NDgService">
+		<wsdl:port name="Department_directo_for_Department_directorimplicitPartnerForThePortTypeProcessPort" binding="this:WFmagic_MqbZBtESEeWIHuPdUr6NDgServiceBinding">
+			<soap:address location="http://bpms.local:8080//everteam/ode/processes/Budgeting/Processes/Budgeting/Department_directo/Department_directorimplicitPartner/WFmagic_MqbZBtESEeWIHuPdUr6NDg"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:import namespace="http://www.intalio.com/Budgeting/Webcontents/department_review.html" location="../Webcontents/department_review.html.wsdl"/>
+	<wsdl:binding name="WFmagic_OrlN5tEREeWIHuPdUr6NDgServiceBinding" type="department_review:Process">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="initProcess">
+			<soap:operation style="document" soapAction="http://www.intalio.com/Budgeting/Webcontents/department_review.html/Process/initProcess"/>
+			<wsdl:input name="initProcessRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="initProcessResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="notifyTaskCompletion">
+			<soap:operation style="document" soapAction="http://www.intalio.com/Budgeting/Webcontents/department_review.html/Process/notifyTaskCompletion"/>
+			<wsdl:input name="notifyTaskCompletionRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="notifyTaskCompletionResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="notifyTaskCompletionSingleActivity">
+			<soap:operation style="document" soapAction="http://www.intalio.com/Budgeting/Webcontents/department_review.html/Process/notifyTaskCompletionSingleActivity"/>
+			<wsdl:input name="createTaskSingleActivityResponse">
+				<soap:body use="literal"/>
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="WFmagic_OrlN5tEREeWIHuPdUr6NDgService">
+		<wsdl:port name="Department_directo_for_Department_directorimplicitPartnerForThePortTypeProcessPort" binding="this:WFmagic_OrlN5tEREeWIHuPdUr6NDgServiceBinding">
+			<soap:address location="http://bpms.local:8080//everteam/ode/processes/Budgeting/Processes/Budgeting/Department_directo/Department_directorimplicitPartner/WFmagic_OrlN5tEREeWIHuPdUr6NDg"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

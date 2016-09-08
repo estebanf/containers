@@ -1,0 +1,29 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:metrics="http://test.com/xvar/example" xmlns:diag="http://floridabluedemo.com/Processes/Scheduling" xmlns:Master_process="http://floridabluedemo.com/Processes/Scheduling/Master_process" xmlns:Scheduling="http://floridabluedemo.com/Processes/Scheduling/Scheduling" xmlns:SchedulingimplicitPartner="http://floridabluedemo.com/Processes/Scheduling/SchedulingimplicitPartner" xmlns:provider="http://floridabluedemo.com/Processes/Scheduling/provider" xmlns:tns="http://www.example.org/Demo" xmlns:formless="http://www.intalio.com/formless" xmlns:formless-ytivitca="http://www.intalio.com/formless/attachments" xmlns:frmScheduling="http://www.intalio.com/gi/Forms/frmScheduling.gi" xmlns:attachments="http://www.intalio.com/gi/Forms/frmScheduling.gi/attachments" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="urn:intalio.com:connectors:database:floridabluedemo:select_primaryservice" xmlns:select_providers="urn:intalio.com:connectors:database:floridabluedemo:select_providersservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" targetNamespace="http://floridabluedemo.com/Processes/Scheduling">
+    <wsdl:import namespace="http://floridabluedemo.com/Processes/Scheduling/Scheduling" location="Scheduling-Scheduling.wsdl"/>
+    <wsdl:import namespace="http://www.intalio.com/formless" location="../formless-ytivitca.wsdl"/>
+    <wsdl:import namespace="http://www.intalio.com/gi/Forms/frmScheduling.gi" location="../Forms/frmScheduling.gi.wsdl"/>
+    <wsdl:import namespace="urn:intalio.com:connectors:database:floridabluedemo:select_primaryservice" location="../Connectors/Database/select_primary.sql/select_primary.sql.wsdl"/>
+    <wsdl:import namespace="urn:intalio.com:connectors:database:floridabluedemo:select_providersservice" location="../Connectors/Database/select_providers.sql/select_providers.sql.wsdl"/>
+    <pnlk:partnerLinkType name="SchedulingAndMaster_process">
+        <pnlk:role name="Scheduling_for_Master_process" portType="Scheduling:ForMaster_process"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="SchedulingAndProvider">
+        <pnlk:role name="Scheduling_for_provider" portType="Scheduling:Forprovider"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="SchedulingimplicitPartnerAndSchedulingForFormlessPortPlk">
+        <pnlk:role name="SchedulingimplicitPartner_for_Scheduling" portType="formless:Workflow"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="SchedulingimplicitPartnerAndSchedulingForSelect_primaryPortPlk">
+        <pnlk:role name="SchedulingimplicitPartner_for_Scheduling" portType="ns:select_primaryPort"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="SchedulingimplicitPartnerAndSchedulingForSelect_providersPortPlk">
+        <pnlk:role name="SchedulingimplicitPartner_for_Scheduling" portType="select_providers:select_providersPort"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="WFmagic_Cb8n9u_AEeW-F9Cnjo6rGQ"><pnlk:role name="SchedulingForFrmSch_for_SchedulingimplicitPartnerForThePortTypeProcess" portType="frmScheduling:Process"/>
+        <pnlk:role name="SchedulingimplicitPartner_for_SchedulingForFrmSchedulingPort" portType="frmScheduling:Workflow"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="WFmagic_l0nlsO_AEeW-F9Cnjo6rGQ"><pnlk:role name="Scheduling_for_SchedulingimplicitPartnerForThePortTypeProcess" portType="formless:Process"/>
+        <pnlk:role name="SchedulingimplicitPartner_for_SchedulingForFormlessPort" portType="formless:Workflow"/>
+    </pnlk:partnerLinkType>
+</wsdl:definitions>

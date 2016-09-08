@@ -1,0 +1,15 @@
+<service name="dtws_floridabluedemo_rules_memberevaluation" class="com.intalio.bre.dtws.runtime.DTServiceLifeCycle">
+	<description>This web service is auto-generated from Decision Table MemberEvaluation
+	</description>
+	<messageReceivers>
+		<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only" class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+		<messageReceiver  mep="http://www.w3.org/2004/08/wsdl/in-out" class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+	</messageReceivers>
+	<parameter name="ServiceClass">floridabluedemo.rules.memberevaluation.dtws_floridabluedemo_rules_memberevaluation</parameter>
+	<parameter name="com.intalio.bre.drl">/MemberEvaluation.drl</parameter>
+	<parameter name="use_rules_repo">false</parameter>
+	<packageMapping>
+		<mapping packageName="floridabluedemo.rules.memberevaluation" qName="http://memberevaluation.rules.floridabluedemo/xsd"/>
+		<mapping packageName="bre" qName="http://memberevaluation.rules.floridabluedemo/bre"/>
+	</packageMapping>
+</service>

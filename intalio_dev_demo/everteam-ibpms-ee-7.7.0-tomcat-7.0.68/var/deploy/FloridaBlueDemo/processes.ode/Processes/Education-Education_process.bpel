@@ -1,0 +1,357 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ode="http://www.apache.org/ode/type/extension" xmlns:metrics="http://test.com/xvar/example" xmlns:Technical="http://www.example.org/Technical" xmlns:formless-ytivitca="http://www.intalio.com/formless/attachments" xmlns:this="http://floridabluedemo.com/Processes/Education/Education_process" xmlns:frmMember="http://www.intalio.com/gi/Forms/frmMember.gi" xmlns:diag="http://floridabluedemo.com/Processes/Education" xmlns:Master_process="http://floridabluedemo.com/Processes/Education/Master_process" xmlns:tns="http://www.example.org/Demo" xmlns:formless="http://www.intalio.com/formless" xmlns:Education_processimplicitPartner="http://floridabluedemo.com/Processes/Education/Education_processimplicitPartner" xmlns:attachments="http://www.intalio.com/gi/Forms/frmMember.gi/attachments" xmlns:bpmn="http://www.intalio.com/bpms" xmlns:atomic="http://ode.apache.org/atomicScope" queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" bpmn:label="Education process" name="Education_process" bpmn:id="_3_W3cO92EeW-F9Cnjo6rGQ" targetNamespace="http://floridabluedemo.com/Processes/Education/Education_process">
+  <bpel:import namespace="http://floridabluedemo.com/Processes/Education" location="Education.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://floridabluedemo.com/Processes/Education/Education_process" location="Education-Education_process.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://www.intalio.com/formless" location="../formless-ytivitca.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://www.intalio.com/gi/Forms/frmMember.gi" location="../Forms/frmMember.gi.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://www.example.org/Technical" location="../Schemas/Technical.xsd" importType="http://www.w3.org/2001/XMLSchema"></bpel:import>
+  <bpel:partnerLinks>
+    <bpel:partnerLink name="master_processAndEducation_processPlkVar" partnerLinkType="diag:Master_processAndEducation_process" myRole="Education_process_for_Master_process"></bpel:partnerLink>
+    <bpel:partnerLink name="education_processimplicitPartnerAndEducation_processForFormlessPortPlkVar" partnerLinkType="diag:Education_processimplicitPartnerAndEducation_processForFormlessPortPlk" initializePartnerRole="yes" partnerRole="Education_processimplicitPartner_for_Education_process"></bpel:partnerLink>
+    <bpel:partnerLink name="wFmagic_a2GM0e93EeW-F9Cnjo6rGQPlkVar" partnerLinkType="diag:WFmagic_a2GM0e93EeW-F9Cnjo6rGQ" initializePartnerRole="no" myRole="Education_processForFr_for_Education_processimplicitPartnerForThePortTypeProcess" partnerRole="Education_processimplicitPartner_for_Education_processForFrmMemberPort"></bpel:partnerLink>
+  </bpel:partnerLinks>
+  <bpel:variables xmlns:xvar="http://ode.apache.org/externalVariables">
+    <bpel:variable name="thisRecieve_member_infoRequest2Msg" messageType="this:Recieve_member_infoRequest"></bpel:variable>
+    <bpel:variable name="thisRecieve_member_infoResponse1Msg" messageType="this:Recieve_member_infoResponse"></bpel:variable>
+    <bpel:variable name="support" element="Technical:EducationSupport"></bpel:variable>
+    <bpel:variable name="counter" type="xs:int"></bpel:variable>
+    <bpel:variable name="key" type="xs:string"></bpel:variable>
+    <bpel:variable name="MemberActions-keys" element="metrics:MemberActions-keys"></bpel:variable>
+    <bpel:variable name="MemberActions" element="metrics:MemberActions" xvar:id="MemberActions-_6Lo4ofdUEeWT-cmkmXAQzw" xvar:relates-to="MemberActions-keys"></bpel:variable>
+  </bpel:variables>
+  <bpel:sequence>
+    <bpel:receive partnerLink="master_processAndEducation_processPlkVar" portType="this:ForMaster_process" operation="Recieve_member_info" variable="thisRecieve_member_infoRequest2Msg" createInstance="yes" bpmn:label="Recieve member info" name="Recieve_member_info" bpmn:id="_7Gx7YO92EeW-F9Cnjo6rGQ"></bpel:receive>
+    <bpel:assign name="init-variables-Education_process" bpmn:id="_7Gx7YO92EeW-F9Cnjo6rGQ">
+      <bpel:copy bpmn:label="$thisRecieve_member_infoResponse1Msg">
+        <bpel:from>
+          <bpel:literal>
+<this:Recieve_member_infoResponse>
+  <tns:ProcessID></tns:ProcessID>
+  <tns:Timestamp></tns:Timestamp>
+</this:Recieve_member_infoResponse></bpel:literal>
+        </bpel:from>
+        <bpel:to>$thisRecieve_member_infoResponse1Msg.body</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$support">
+        <bpel:from>
+          <bpel:literal>
+<Technical:EducationSupport>
+  <Technical:userOwner></Technical:userOwner>
+  <Technical:roleOwner></Technical:roleOwner>
+  <Technical:expiration></Technical:expiration>
+  <Technical:priority></Technical:priority>
+</Technical:EducationSupport></bpel:literal>
+        </bpel:from>
+        <bpel:to>$support</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$counter">
+        <bpel:from>
+          <bpel:literal></bpel:literal>
+        </bpel:from>
+        <bpel:to>$counter</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$key">
+        <bpel:from>
+          <bpel:literal>education.level</bpel:literal>
+        </bpel:from>
+        <bpel:to>$key</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>
+          <bpel:literal><metrics:MemberActions><metrics:id></metrics:id></metrics:MemberActions></bpel:literal>
+        </bpel:from>
+        <bpel:to>$MemberActions-keys</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:assign bpmn:label="Recieve member info" name="Recieve_member_info-1" bpmn:id="_7Gx7YO92EeW-F9Cnjo6rGQ">
+      <bpel:copy>
+        <bpel:from>$ode:pid</bpel:from>
+        <bpel:to>$thisRecieve_member_infoResponse1Msg.body/tns:ProcessID</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>current-dateTime()</bpel:from>
+        <bpel:to>$thisRecieve_member_infoResponse1Msg.body/tns:Timestamp</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>1</bpel:from>
+        <bpel:to>$counter</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:reply partnerLink="master_processAndEducation_processPlkVar" portType="this:ForMaster_process" operation="Recieve_member_info" variable="thisRecieve_member_infoResponse1Msg" bpmn:label="Recieve member info" name="Recieve_member_info-2" bpmn:id="_7Gx7YO92EeW-F9Cnjo6rGQ"></bpel:reply>
+    <bpel:scope bpmn:label="Perform education engagement" name="Perform_education_engagement" bpmn:id="__S8eMO-UEeW-F9Cnjo6rGQ">
+      <bpel:variables>
+        <bpel:variable name="frmMemberCreateTaskSingleActivityResponse1Msg" messageType="frmMember:createTaskSingleActivityResponse"></bpel:variable>
+        <bpel:variable name="frmMemberCreateTaskSingleActivityRequest1Msg" messageType="frmMember:createTaskSingleActivityRequest"></bpel:variable>
+      </bpel:variables>
+      <bpel:eventHandlers>
+        <bpel:onAlarm>
+          <bpel:repeatEvery>ode:get-property-value(concat($key, $counter, ".reminder"))</bpel:repeatEvery>
+          <bpel:scope bpmn:label="Reminder handler" name="Reminder_handler" bpmn:id="_qkAUgO-VEeW-F9Cnjo6rGQ">
+            <bpel:variables>
+              <bpel:variable name="formlessNotifyResponse1Msg" messageType="formless:notifyResponse"></bpel:variable>
+              <bpel:variable name="formlessNotifyRequest1Msg" messageType="formless:notifyRequest"></bpel:variable>
+            </bpel:variables>
+            <bpel:sequence>
+              <bpel:assign name="init-variables-Reminder_handler" bpmn:id="_qkAUgO-VEeW-F9Cnjo6rGQ">
+                <bpel:copy bpmn:label="$formlessNotifyRequest1Msg">
+                  <bpel:from>
+                    <bpel:literal>
+<formless:notifyRequest>
+  <formless:metadata>
+    <formless:description/>
+    <formless:globalAttachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description/>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </formless:globalAttachments>
+    <formless:creationDate></formless:creationDate>
+    <formless:processId></formless:processId>
+    <formless:instanceId></formless:instanceId>
+    <formless:userOwner/>
+    <formless:roleOwner/>
+    <formless:formUrl>formless:b6230ae9-50d4-4f92-bd50-288e61b4b50f</formless:formUrl>
+    <formless:dismissAction>
+      <formless:user></formless:user>
+      <formless:role></formless:role>
+    </formless:dismissAction>
+    <formless:priority></formless:priority>
+  </formless:metadata>
+  <formless:input>
+    <formless:FormModel>
+      <notesTextAreaInput>
+        <notesTextArea></notesTextArea>
+      </notesTextAreaInput>
+    </formless:FormModel>
+  </formless:input>
+</formless:notifyRequest></bpel:literal>
+                  </bpel:from>
+                  <bpel:to>$formlessNotifyRequest1Msg.root</bpel:to>
+                </bpel:copy>
+              </bpel:assign>
+              <bpel:assign bpmn:label="Notify delay" name="Notify_delay" bpmn:id="_tMUakO-VEeW-F9Cnjo6rGQ">
+                <bpel:copy>
+                  <bpel:from>concat("Reminder to perform education on member #", $thisRecieve_member_infoRequest2Msg.body/tns:id)</bpel:from>
+                  <bpel:to>$formlessNotifyRequest1Msg.root/formless:metadata/formless:description</bpel:to>
+                </bpel:copy>
+                <bpel:copy>
+                  <bpel:from>$support/Technical:userOwner</bpel:from>
+                  <bpel:to>$formlessNotifyRequest1Msg.root/formless:metadata/formless:userOwner[1]</bpel:to>
+                </bpel:copy>
+                <bpel:copy>
+                  <bpel:from>$support/Technical:roleOwner</bpel:from>
+                  <bpel:to>$formlessNotifyRequest1Msg.root/formless:metadata/formless:roleOwner[1]</bpel:to>
+                </bpel:copy>
+                <bpel:copy>
+                  <bpel:from>xs:int($support/Technical:priority)</bpel:from>
+                  <bpel:to>$formlessNotifyRequest1Msg.root/formless:metadata/formless:priority</bpel:to>
+                </bpel:copy>
+              </bpel:assign>
+              <bpel:assign>
+    <bpel:copy>
+        <bpel:from>$ode:pid</bpel:from>
+        <bpel:to>$formlessNotifyRequest1Msg.root/formless:metadata/formless:instanceId</bpel:to>
+    </bpel:copy>
+  </bpel:assign>
+  <bpel:invoke partnerLink="education_processimplicitPartnerAndEducation_processForFormlessPortPlkVar" portType="formless:Workflow" operation="notify" inputVariable="formlessNotifyRequest1Msg" outputVariable="formlessNotifyResponse1Msg" bpmn:label="Notify delay" name="Notify_delay-1" bpmn:id="_tMUakO-VEeW-F9Cnjo6rGQ"></bpel:invoke>
+            </bpel:sequence>
+          </bpel:scope>
+        </bpel:onAlarm>
+      </bpel:eventHandlers>
+      <bpel:repeatUntil bpmn:label="Perform education engagement" name="Perform_education_engagement-1">
+        <bpel:sequence>
+          <bpel:assign name="init-variables-Perform_education_engagement" bpmn:id="__S8eMO-UEeW-F9Cnjo6rGQ">
+            <bpel:copy bpmn:label="$frmMemberCreateTaskSingleActivityRequest1Msg">
+              <bpel:from>
+                <bpel:literal>
+<frmMember:createTaskSingleActivityRequest>
+  <frmMember:taskMetaData>
+    <frmMember:taskId>_a2GM0e93EeW-F9Cnjo6rGQ</frmMember:taskId>
+    <frmMember:allowadhoc>true</frmMember:allowadhoc>
+    <frmMember:taskState></frmMember:taskState>
+    <frmMember:taskType></frmMember:taskType>
+    <frmMember:description/>
+    <frmMember:processId></frmMember:processId>
+    <frmMember:instanceId></frmMember:instanceId>
+    <frmMember:business>
+      <frmMember:processName></frmMember:processName>
+      <frmMember:instanceId></frmMember:instanceId>
+      <frmMember:stepName></frmMember:stepName>
+      <frmMember:customData></frmMember:customData>
+    </frmMember:business>
+    <frmMember:creationDate></frmMember:creationDate>
+    <frmMember:userOwner/>
+    <frmMember:roleOwner/>
+    <frmMember:claimAction>
+      <frmMember:user></frmMember:user>
+      <frmMember:role></frmMember:role>
+    </frmMember:claimAction>
+    <frmMember:revokeAction>
+      <frmMember:user></frmMember:user>
+      <frmMember:role></frmMember:role>
+    </frmMember:revokeAction>
+    <frmMember:saveAction>
+      <frmMember:user></frmMember:user>
+      <frmMember:role></frmMember:role>
+    </frmMember:saveAction>
+    <frmMember:completeAction>
+      <frmMember:user></frmMember:user>
+      <frmMember:role></frmMember:role>
+    </frmMember:completeAction>
+    <frmMember:formUrl>/everteam/gi/apppath/FloridaBlueDemob207e180-a05e-47ff-bbee-e995d4ca03a4/Forms/frmMember.gi/IntalioInternal/ServerLaunch.html</frmMember:formUrl>
+    <frmMember:failureCode></frmMember:failureCode>
+    <frmMember:failureReason></frmMember:failureReason>
+    <frmMember:priority></frmMember:priority>
+    <frmMember:scheduledActions>
+      <frmMember:expiration>
+        <frmMember:until></frmMember:until>
+        <frmMember:for></frmMember:for>
+      </frmMember:expiration>
+      <frmMember:deferActivation>
+        <frmMember:until></frmMember:until>
+        <frmMember:for></frmMember:for>
+      </frmMember:deferActivation>
+    </frmMember:scheduledActions>
+    <frmMember:attachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description/>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </frmMember:attachments>
+    <frmMember:globalAttachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description/>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </frmMember:globalAttachments>
+    <frmMember:userProcessCompleteSOAPAction/>
+    <frmMember:isChainedBefore></frmMember:isChainedBefore>
+    <frmMember:previousTaskId></frmMember:previousTaskId>
+    <frmMember:userProcessEndpoint/>
+    <frmMember:userProcessNamespaceURI>http://www.intalio.com/gi/Forms/frmMember.gi</frmMember:userProcessNamespaceURI>
+    <frmMember:customMetaData></frmMember:customMetaData>
+  </frmMember:taskMetaData>
+  <frmMember:participantToken></frmMember:participantToken>
+  <frmMember:taskInput>
+    <tns:Member>
+      <tns:id></tns:id>
+      <tns:name></tns:name>
+      <tns:sex></tns:sex>
+      <tns:age></tns:age>
+      <tns:diabetes></tns:diabetes>
+      <tns:heartAttack></tns:heartAttack>
+      <tns:highBloodPressure></tns:highBloodPressure>
+      <tns:pid></tns:pid>
+    </tns:Member>
+  </frmMember:taskInput>
+</frmMember:createTaskSingleActivityRequest></bpel:literal>
+              </bpel:from>
+              <bpel:to>$frmMemberCreateTaskSingleActivityRequest1Msg.root</bpel:to>
+            </bpel:copy>
+          </bpel:assign>
+          <bpel:assign bpmn:label="Setup execution" name="Setup_execution" bpmn:id="_Eo8LIO-YEeW-F9Cnjo6rGQ">
+            <bpel:copy>
+              <bpel:from>ode:get-property-value(concat($key, $counter, ".user_assignee"))</bpel:from>
+              <bpel:to>$support/Technical:userOwner[1]</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>ode:get-property-value(concat($key, $counter, ".role_assignee"))</bpel:from>
+              <bpel:to>$support/Technical:roleOwner[1]</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>ode:get-property-value(concat($key, $counter, ".expiration"))</bpel:from>
+              <bpel:to>$support/Technical:expiration</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>ode:get-property-value(concat($key, $counter, ".priority"))</bpel:from>
+              <bpel:to>$support/Technical:priority</bpel:to>
+            </bpel:copy>
+          </bpel:assign>
+          <bpel:assign bpmn:label="Perform evaluation session" name="Perform_evaluation_session" bpmn:id="_a2GM0e93EeW-F9Cnjo6rGQ">
+            <bpel:copy>
+              <bpel:from>concat("Educate member #", $thisRecieve_member_infoRequest2Msg.body/tns:id)</bpel:from>
+              <bpel:to>$frmMemberCreateTaskSingleActivityRequest1Msg.root/frmMember:taskMetaData/frmMember:description</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>current-dateTime() + xs:dayTimeDuration($support/Technical:expiration)</bpel:from>
+              <bpel:to>$frmMemberCreateTaskSingleActivityRequest1Msg.root/frmMember:taskMetaData/frmMember:scheduledActions/frmMember:expiration/frmMember:until</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>$support/Technical:userOwner</bpel:from>
+              <bpel:to>$frmMemberCreateTaskSingleActivityRequest1Msg.root/frmMember:taskMetaData/frmMember:userOwner[1]</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>$support/Technical:roleOwner</bpel:from>
+              <bpel:to>$frmMemberCreateTaskSingleActivityRequest1Msg.root/frmMember:taskMetaData/frmMember:roleOwner[1]</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>xs:int($support/Technical:priority)</bpel:from>
+              <bpel:to>$frmMemberCreateTaskSingleActivityRequest1Msg.root/frmMember:taskMetaData/frmMember:priority</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>$thisRecieve_member_infoRequest2Msg.body</bpel:from>
+              <bpel:to>$frmMemberCreateTaskSingleActivityRequest1Msg.root/frmMember:taskInput/tns:Member</bpel:to>
+            </bpel:copy>
+          </bpel:assign>
+          <bpel:assign>
+            <bpel:copy>
+              <bpel:from>"_a2GM0e93EeW-F9Cnjo6rGQ"</bpel:from>
+              <bpel:to>$frmMemberCreateTaskSingleActivityRequest1Msg.root/frmMember:taskMetaData/frmMember:taskId</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>$ode:pid</bpel:from>
+              <bpel:to>$frmMemberCreateTaskSingleActivityRequest1Msg.root/frmMember:taskMetaData/frmMember:instanceId</bpel:to>
+            </bpel:copy>
+          </bpel:assign>
+          <bpel:invoke partnerLink="wFmagic_a2GM0e93EeW-F9Cnjo6rGQPlkVar" portType="frmMember:Workflow" operation="createTaskSingleActivity" inputVariable="frmMemberCreateTaskSingleActivityRequest1Msg" outputVariable="frmMemberCreateTaskSingleActivityResponse1Msg" bpmn:label="Perform evaluation session" name="Perform_evaluation_session-1" bpmn:id="_a2GM0e93EeW-F9Cnjo6rGQ"></bpel:invoke>
+          <bpel:receive partnerLink="wFmagic_a2GM0e93EeW-F9Cnjo6rGQPlkVar" portType="frmMember:Process" operation="notifyTaskCompletionSingleActivity" variable="frmMemberCreateTaskSingleActivityResponse1Msg" bpmn:label="Perform evaluation session" name="Perform_evaluation_session-2" bpmn:id="_a2GM0e93EeW-F9Cnjo6rGQ"></bpel:receive>
+          <bpel:if>
+            <bpel:condition>"DeadlineReached" = $frmMemberCreateTaskSingleActivityResponse1Msg.root/frmMember:status</bpel:condition>
+            <bpel:sequence>
+              <bpel:assign bpmn:label="repeat" name="repeat" bpmn:id="_SWJFgO-ZEeW-F9Cnjo6rGQ">
+                <bpel:copy>
+                  <bpel:from>if (3 = $counter) then (3) else ($counter + 1)</bpel:from>
+                  <bpel:to>$counter</bpel:to>
+                </bpel:copy>
+              </bpel:assign>
+            </bpel:sequence>
+            <bpel:else>
+              <bpel:sequence>
+                <bpel:empty bpmn:label="exit" name="exit" bpmn:id="_TWg9YO-ZEeW-F9Cnjo6rGQ"></bpel:empty>
+              </bpel:sequence>
+            </bpel:else>
+          </bpel:if>
+        </bpel:sequence>
+        <bpel:condition>"DeadlineReached" != $frmMemberCreateTaskSingleActivityResponse1Msg.root/frmMember:status</bpel:condition>
+      </bpel:repeatUntil>
+    </bpel:scope>
+    <bpel:assign bpmn:label="Empty_End_Event" name="Empty_End_Event" bpmn:id="_5iE-QPdUEeWT-cmkmXAQzw">
+      <bpel:copy>
+        <bpel:from>$thisRecieve_member_infoRequest2Msg.body/tns:pid</bpel:from>
+        <bpel:to>$MemberActions-keys/metrics:id</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>current-dateTime()</bpel:from>
+        <bpel:to>$MemberActions/metrics:educationEndDate</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+  </bpel:sequence>
+</bpel:process>

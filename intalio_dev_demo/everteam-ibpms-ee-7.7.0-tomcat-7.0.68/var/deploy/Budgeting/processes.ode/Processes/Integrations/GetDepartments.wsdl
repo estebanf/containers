@@ -1,0 +1,11 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:tns="http://budgeting.example.everteam.com/Types/Business" xmlns:Technical="http://budgeting.example.everteam.com/Types/Technical" xmlns:diag="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments" xmlns:Caller="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments/Caller" xmlns:process="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments/process" xmlns:processimplicitPartner="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments/processimplicitPartner" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="urn:intalio.com:connectors:database:budgeting:select_departmentsservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" targetNamespace="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments">
+    <wsdl:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments/process" location="GetDepartments-process.wsdl"/>
+    <wsdl:import namespace="urn:intalio.com:connectors:database:budgeting:select_departmentsservice" location="../../Connectors/Database/select_departments.sql/select_departments.sql.wsdl"/>
+    <pnlk:partnerLinkType name="CallerAndProcess">
+        <pnlk:role name="process_for_Caller" portType="process:ForCaller"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="processimplicitPartnerAndProcessForSelect_departmentsPortPlk">
+        <pnlk:role name="processimplicitPartner_for_process" portType="ns:select_departmentsPort"/>
+    </pnlk:partnerLinkType>
+</wsdl:definitions>

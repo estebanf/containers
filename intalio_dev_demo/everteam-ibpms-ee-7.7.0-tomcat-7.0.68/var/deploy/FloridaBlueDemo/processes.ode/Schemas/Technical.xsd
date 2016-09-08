@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Technical" xmlns:tns="http://www.example.org/Technical" elementFormDefault="qualified">
+
+    <element name="EducationSupport">
+    	<complexType>
+    		<sequence>
+    			<element name="userOwner" type="string"></element>
+    			<element name="roleOwner" type="string"></element>
+    			<element name="expiration" type="string"></element>
+    			<element name="priority" type="string"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>

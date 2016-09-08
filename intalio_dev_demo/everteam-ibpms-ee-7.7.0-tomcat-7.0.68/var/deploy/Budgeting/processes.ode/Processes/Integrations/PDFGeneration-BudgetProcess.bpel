@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ode="http://www.apache.org/ode/type/extension" xmlns:ns="urn:intalio.com:connectors:database:budgeting:select_approved_projectsservice" xmlns:this="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration/BudgetProcess" xmlns:BudgetProcessimplicitPartner="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration/BudgetProcessimplicitPartner" xmlns:diag="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration" xmlns:Caller="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration/Caller" xmlns:ns0="http://bpms.intalio.com/tools/webservices/javainternalservices/pdf/_iPCZUKmnEeWuKtJ8pPF9gQ" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpmn="http://www.intalio.com/bpms" xmlns:atomic="http://ode.apache.org/atomicScope" queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" bpmn:label="BudgetProcess" name="BudgetProcess" bpmn:id="__YVgMKmmEeWuKtJ8pPF9gQ" targetNamespace="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration/BudgetProcess">
+  <bpel:import namespace="http://bpms.intalio.com/tools/webservices/javainternalservices/pdf/_iPCZUKmnEeWuKtJ8pPF9gQ" location="../../IntalioObjects/_iPCZUKmnEeWuKtJ8pPF9gQ.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration" location="PDFGeneration.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration/BudgetProcess" location="PDFGeneration-BudgetProcess.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="urn:intalio.com:connectors:database:budgeting:select_approved_projectsservice" location="../../Connectors/Database/select_approved_projects.sql/select_approved_projects.sql.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:partnerLinks>
+    <bpel:partnerLink name="budgetProcessAndCallerPlkVar" partnerLinkType="diag:BudgetProcessAndCaller" myRole="BudgetProcess_for_Caller"/>
+    <bpel:partnerLink name="budgetProcessimplicitPartnerAndBudgetProcessForSelect_approved_projectsPortPlkVar" partnerLinkType="diag:BudgetProcessimplicitPartnerAndBudgetProcessForSelect_approved_projectsPortPlk" initializePartnerRole="yes" partnerRole="BudgetProcessimplicitPartner_for_BudgetProcess"/>
+    <bpel:partnerLink name="budgetProcessimplicitPartnerAndBudgetProcessForJavaInternalWSSOAP11port_httpPlkVar" partnerLinkType="diag:BudgetProcessimplicitPartnerAndBudgetProcessForJavaInternalWSSOAP11port_httpPlk" initializePartnerRole="yes" partnerRole="BudgetProcessimplicitPartner_for_BudgetProcess"/>
+  </bpel:partnerLinks>
+  <bpel:variables>
+    <bpel:variable name="thisStartRequest1Msg" messageType="this:StartRequest"/>
+    <bpel:variable name="PDFTaskResponse1Msg" messageType="ns0:sendResponse"/>
+    <bpel:variable name="PDFTaskRequest1Msg" messageType="ns0:sendRequest"/>
+    <bpel:variable name="nsSelect_approved_projectsResponse1Msg" messageType="ns:select_approved_projectsOutput"/>
+    <bpel:variable name="nsSelect_approved_projectsRequest1Msg" messageType="ns:select_approved_projectsInput"/>
+    <bpel:variable name="thisStartResponse1Msg" messageType="this:StartResponse"/>
+  </bpel:variables>
+  <bpel:sequence>
+    <bpel:receive partnerLink="budgetProcessAndCallerPlkVar" portType="this:ForCaller" operation="Start" variable="thisStartRequest1Msg" createInstance="yes" bpmn:label="Start" name="Start" bpmn:id="__YVgMqmmEeWuKtJ8pPF9gQ"></bpel:receive>
+    <bpel:assign name="init-variables-BudgetProcess" bpmn:id="__YVgMqmmEeWuKtJ8pPF9gQ">
+      <bpel:copy bpmn:label="$PDFTaskRequest1Msg">
+        <bpel:from>
+          <bpel:literal>
+<ns0:inputParams>
+  <ns0:processId></ns0:processId>
+  <ns0:instanceId></ns0:instanceId>
+  <ns0:pdfMetaData>
+    <ns0:fileName></ns0:fileName>
+    <ns0:title></ns0:title>
+    <ns0:subject></ns0:subject>
+    <ns0:keywords></ns0:keywords>
+    <ns0:author></ns0:author>
+    <ns0:creator></ns0:creator>
+  </ns0:pdfMetaData>
+  <ns0:templatePath></ns0:templatePath>
+  <ns0:templateVariables>
+    <ns0:projects></ns0:projects>
+  </ns0:templateVariables>
+</ns0:inputParams></bpel:literal>
+        </bpel:from>
+        <bpel:to>$PDFTaskRequest1Msg.inputParams</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$nsSelect_approved_projectsRequest1Msg">
+        <bpel:from>
+          <bpel:literal>
+<ns:select_approved_projectsParameterSet>
+  <ns:connection>
+    <ns:user></ns:user>
+    <ns:password></ns:password>
+  </ns:connection>
+  <ns:execute>
+    <ns:parameters>
+      <ns:EXCERCISE_ID></ns:EXCERCISE_ID>
+    </ns:parameters>
+  </ns:execute>
+</ns:select_approved_projectsParameterSet></bpel:literal>
+        </bpel:from>
+        <bpel:to>$nsSelect_approved_projectsRequest1Msg.parameters</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$thisStartResponse1Msg">
+        <bpel:from>
+          <bpel:literal>
+<this:StartResponse></this:StartResponse></bpel:literal>
+        </bpel:from>
+        <bpel:to>$thisStartResponse1Msg.body</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:assign bpmn:label="Select approved projects" name="Select_approved_projects" bpmn:id="_We5hNampEeWRE_dEqBu0KA">
+      <bpel:copy>
+        <bpel:from>xs:int($thisStartRequest1Msg.body)</bpel:from>
+        <bpel:to>$nsSelect_approved_projectsRequest1Msg.parameters/ns:execute/ns:parameters/ns:EXCERCISE_ID</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:invoke partnerLink="budgetProcessimplicitPartnerAndBudgetProcessForSelect_approved_projectsPortPlkVar" portType="ns:select_approved_projectsPort" operation="select_approved_projects" inputVariable="nsSelect_approved_projectsRequest1Msg" outputVariable="nsSelect_approved_projectsResponse1Msg" bpmn:label="Select approved projects" name="Select_approved_projects-1" bpmn:id="_We5hNampEeWRE_dEqBu0KA"></bpel:invoke>
+    <bpel:assign bpmn:label="Generate Budget PDF" name="Generate_Budget_PDF" bpmn:id="_iPCZUKmnEeWuKtJ8pPF9gQ">
+      <bpel:copy>
+        <bpel:from>concat("budget_", $thisStartRequest1Msg.body, ".pdf")</bpel:from>
+        <bpel:to>$PDFTaskRequest1Msg.inputParams/ns0:pdfMetaData/ns0:fileName</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$nsSelect_approved_projectsResponse1Msg.parameters/ns:rows</bpel:from>
+        <bpel:to>$PDFTaskRequest1Msg.inputParams/ns0:templateVariables/ns0:projects</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$ode:processVersionId</bpel:from>
+        <bpel:to>$PDFTaskRequest1Msg.inputParams/ns0:processId</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$ode:pid</bpel:from>
+        <bpel:to>$PDFTaskRequest1Msg.inputParams/ns0:instanceId</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>"Approved budget"</bpel:from>
+        <bpel:to>$PDFTaskRequest1Msg.inputParams/ns0:pdfMetaData/ns0:subject</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>"Projects included in budget"</bpel:from>
+        <bpel:to>$PDFTaskRequest1Msg.inputParams/ns0:pdfMetaData/ns0:title</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>"Everteam.ibpms"</bpel:from>
+        <bpel:to>$PDFTaskRequest1Msg.inputParams/ns0:pdfMetaData/ns0:author</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>"EverTeam Team"</bpel:from>
+        <bpel:to>$PDFTaskRequest1Msg.inputParams/ns0:pdfMetaData/ns0:creator</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>ode:rel-to-abs-path("../../Templates/budget_template.vm")</bpel:from>
+        <bpel:to>$PDFTaskRequest1Msg.inputParams/ns0:templatePath</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:invoke partnerLink="budgetProcessimplicitPartnerAndBudgetProcessForJavaInternalWSSOAP11port_httpPlkVar" portType="ns0:JavaInternalWSPortType" operation="com.intalio.bpms.pdfgen.PDFGenerator.generatePDF" inputVariable="PDFTaskRequest1Msg" outputVariable="PDFTaskResponse1Msg" bpmn:label="Generate Budget PDF" name="Generate_Budget_PDF-1" bpmn:id="_iPCZUKmnEeWuKtJ8pPF9gQ"></bpel:invoke>
+    <bpel:assign bpmn:label="Reply" name="Reply" bpmn:id="_gdG2wKmpEeWRE_dEqBu0KA">
+      <bpel:copy>
+        <bpel:from>$PDFTaskResponse1Msg.pdfAccessUrl</bpel:from>
+        <bpel:to>$thisStartResponse1Msg.body</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:reply partnerLink="budgetProcessAndCallerPlkVar" portType="this:ForCaller" operation="Start" variable="thisStartResponse1Msg" bpmn:label="Reply" name="Reply-1" bpmn:id="_gdG2wKmpEeWRE_dEqBu0KA"></bpel:reply>
+  </bpel:sequence>
+</bpel:process>

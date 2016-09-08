@@ -1,0 +1,13 @@
+.table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td {
+	border-top-width : 0px;
+}
+.language-select,.date-format-select {
+	width:200px;
+}
+#preferencesDiv{
+height:280px !important;
+}
+
+#editablebuttons {
+margin-top:3px;
+}

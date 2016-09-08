@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:intalio.com:connectors:database:floridabluedemo:memberservice" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:intalio.com:connectors:database:floridabluedemo:memberservice">
+  <xsd:element name="memberParameterSet">
+    <xsd:annotation>
+      <xsd:documentation>Main element in request message for operation - member</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="execute">
+          <xsd:annotation>
+            <xsd:documentation>Execution with empty input parameter values</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="memberResultSet">
+    <xsd:annotation>
+      <xsd:documentation>Main element in response message for operation - member</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="rows">
+          <xsd:annotation>
+            <xsd:documentation/>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element form="qualified" name="row" maxOccurs="unbounded">
+                <xsd:annotation>
+                  <xsd:documentation>The row taken from database query</xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="id">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  id</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                          <xsd:totalDigits value="10"/>
+                          <xsd:fractionDigits value="0"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element nillable="true" name="name">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  name</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                          <xsd:maxLength value="200"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element nillable="true" name="sex">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  sex</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                          <xsd:maxLength value="1"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="age">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  age</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                          <xsd:totalDigits value="10"/>
+                          <xsd:fractionDigits value="0"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element nillable="true" name="diabetes">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  diabetes</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:boolean"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element nillable="true" name="heartattack">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  heartattack</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:boolean"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element nillable="true" name="highbloodpressure">
+                      <xsd:annotation>
+                        <xsd:documentation>The type definition for  highbloodpressure</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:boolean"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

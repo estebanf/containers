@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:Business="http://budgeting.example.everteam.com/Types/Business" xmlns:tns="http://budgeting.example.everteam.com/Types/Technical" xmlns:diag="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement" xmlns:caller="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/caller" xmlns:process="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/process" xmlns:processimplicitPartner="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/processimplicitPartner" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="urn:intalio.com:connectors:database:budgeting:insert_attachmentservice" xmlns:select_attachmetns="urn:intalio.com:connectors:database:budgeting:select_attachmetnsservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" targetNamespace="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement">
+    <wsdl:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/process" location="AttachmentManagement-process.wsdl"/>
+    <wsdl:import namespace="urn:intalio.com:connectors:database:budgeting:insert_attachmentservice" location="../../Connectors/Database/insert_attachment.sql/insert_attachment.sql.wsdl"/>
+    <wsdl:import namespace="urn:intalio.com:connectors:database:budgeting:select_attachmetnsservice" location="../../Connectors/Database/select_attachmetns.sql/select_attachmetns.sql.wsdl"/>
+    <pnlk:partnerLinkType name="callerAndProcess">
+        <pnlk:role name="process_for_caller" portType="process:Forcaller"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="processimplicitPartnerAndProcessForInsert_attachmentPortPlk">
+        <pnlk:role name="processimplicitPartner_for_process" portType="ns:insert_attachmentPort"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="processimplicitPartnerAndProcessForSelect_attachmetnsPortPlk">
+        <pnlk:role name="processimplicitPartner_for_process" portType="select_attachmetns:select_attachmetnsPort"/>
+    </pnlk:partnerLinkType>
+</wsdl:definitions>

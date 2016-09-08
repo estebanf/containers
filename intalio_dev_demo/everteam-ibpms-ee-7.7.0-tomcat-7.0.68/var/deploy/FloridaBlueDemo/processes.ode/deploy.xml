@@ -1,0 +1,166 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<dd:deploy xmlns:dd="http://www.apache.org/ode/schemas/dd/2007/03"><dd:schemaVersion>7</dd:schemaVersion><dd:process xmlns:dd="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:ns="urn:intalio.com:connectors:database:floridabluedemo:insert_memberservice" xmlns:Caller="http://floridabluedemo.com/Processes/CreateMember/Caller" xmlns:diag="http://floridabluedemo.com/Processes/CreateMember" xmlns:tns="http://www.example.org/Demo" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:this="http://floridabluedemo.com/Processes/CreateMember/Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ProcessimplicitPartner="http://floridabluedemo.com/Processes/CreateMember/ProcessimplicitPartner" name="this:Process" fileName="Processes/CreateMember-Process.bpel">
+  <dd:process-events>
+    <dd:enable-event>activityLifecycle</dd:enable-event>
+    <dd:enable-event>scopeHandling</dd:enable-event>
+    <dd:enable-event>instanceLifecycle</dd:enable-event>
+  </dd:process-events>
+  <dd:property name="PATH">Processes/CreateMember</dd:property>
+  <dd:property name="SVG">Processes/CreateMember.svg</dd:property>
+  <dd:provide partnerLink="callerAndProcessPlkVar">
+    <dd:service name="this:CanonicServiceForCaller" port="canonicPort"></dd:service>
+  </dd:provide>
+  <dd:invoke partnerLink="processimplicitPartnerAndProcessForInsert_memberPortPlkVar">
+    <dd:service name="ns:insert_memberService" port="insert_memberPort"></dd:service>
+  </dd:invoke>
+</dd:process><dd:process xmlns:ns="urn:intalio.com:connectors:database:floridabluedemo:memberservice" xmlns:client="http://floridabluedemo.com/Processes/Monitor/client" xmlns:ax217="http://memberevaluation.rules.floridabluedemo/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax218="http://memberevaluation.rules.floridabluedemo/bre" xmlns:Scheduling-Scheduling="http://floridabluedemo.com/Processes/Scheduling/Scheduling" xmlns:dtws_floridabluedemo_rules_membereva="http://memberevaluation.rules.floridabluedemo" xmlns:business_database="http://floridabluedemo.com/Processes/Monitor/business_database" xmlns:dd="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:diag="http://floridabluedemo.com/Processes/Monitor" xmlns:Education-Education_process="http://floridabluedemo.com/Processes/Education/Education_process" xmlns:metrics="http://test.com/xvar/example" xmlns:tns="http://www.example.org/Demo" xmlns:processimplicitPartner="http://floridabluedemo.com/Processes/Monitor/processimplicitPartner" xmlns:attachments="http://www.intalio.com/gi/Forms/frmEvaluation.gi/attachments" xmlns:this="http://floridabluedemo.com/Processes/Monitor/process" xmlns:frmEvaluation="http://www.intalio.com/gi/Forms/frmEvaluation.gi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="this:process" fileName="Processes/Monitor-process.bpel">
+  <dd:process-events>
+    <dd:enable-event>activityLifecycle</dd:enable-event>
+    <dd:enable-event>scopeHandling</dd:enable-event>
+    <dd:enable-event>instanceLifecycle</dd:enable-event>
+  </dd:process-events>
+  <dd:property name="PATH">Processes/Monitor</dd:property>
+  <dd:property name="SVG">Processes/Monitor.svg</dd:property>
+  <xvar:externalVariable xmlns:xvar="http://ode.apache.org/externalVariables" xmlns:xbpms="http://bpms.intalio.com/externalVariables" id="MemberActions-_cdmNUfdSEeWT-cmkmXAQzw">
+    <xjdbc:jdbc xmlns:xjdbc="http://ode.apache.org/externalVariables/jdbc">
+      <xjdbc:datasource-jndi>java:comp/env/jdbc/BPMSDB</xjdbc:datasource-jndi>
+      <xjdbc:table xbpms:isDefault="true">MemberActions</xjdbc:table>
+      <xjdbc:column key="yes" name="id" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"></xjdbc:column>
+      <xjdbc:column key="no" name="memberId" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"></xjdbc:column>
+      <xjdbc:column key="no" name="sex" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"></xjdbc:column>
+      <xjdbc:column key="no" name="age" sql-type="INTEGER" xbpms:type-label="integer" xsd-type="xs:integer"></xjdbc:column>
+      <xjdbc:column key="no" name="diabetes" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="highBloodPressure" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="heartAttack" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="education" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="educationStartDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="educationEndDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="primaryCare" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="primaryStartDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="primaryEndDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="referral" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="referralStartDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="referralEndDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:init mode="update-insert"></xjdbc:init>
+    </xjdbc:jdbc>
+  </xvar:externalVariable>
+  <dd:provide partnerLink="business_databaseAndProcessForMemberPortPlkVar">
+    <dd:service name="this:business_databaseAndProcessForMemberPortPlkService" port="process_for_business_databasePort"></dd:service>
+  </dd:provide>
+  <dd:provide partnerLink="processAndClientPlkVar">
+    <dd:service name="this:CanonicServiceForclient" port="canonicPort"></dd:service>
+  </dd:provide>
+  <dd:invoke partnerLink="processimplicitPartnerAndProcessForPortDtws_floridabluedemo_rules_memberevaluationHttpSoap11EndpointPlkVar">
+    <dd:service name="dtws_floridabluedemo_rules_membereva:dtws_floridabluedemo_rules_memberevaluation" port="dtws_floridabluedemo_rules_memberevaluationHttpSoap11Endpoint"></dd:service>
+  </dd:invoke>
+  <dd:invoke partnerLink="processimplicitPartnerAndProcessForCanonicPortPlk0Var">
+    <dd:service name="Education-Education_process:CanonicServiceForMaster_process" port="canonicPort"></dd:service>
+  </dd:invoke>
+  <dd:invoke partnerLink="processimplicitPartnerAndProcessForCanonicPortPlk1Var">
+    <dd:service name="Scheduling-Scheduling:CanonicServiceForMaster_process" port="canonicPort"></dd:service>
+  </dd:invoke>
+  <dd:invoke partnerLink="processimplicitPartnerAndProcessForFrmEvaluationPortPlkVar">
+    <dd:service name="frmEvaluation:WorkflowSoapService" port="frmEvaluationPort"></dd:service>
+  </dd:invoke>
+</dd:process><dd:process xmlns:ns="urn:intalio.com:connectors:database:floridabluedemo:select_primaryservice" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:provider="http://floridabluedemo.com/Processes/Scheduling/provider" xmlns:frmScheduling="http://www.intalio.com/gi/Forms/frmScheduling.gi" xmlns:formless-ytivitca="http://www.intalio.com/formless/attachments" xmlns:Master_process="http://floridabluedemo.com/Processes/Scheduling/Master_process" xmlns:dd="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:diag="http://floridabluedemo.com/Processes/Scheduling" xmlns:metrics="http://test.com/xvar/example" xmlns:tns="http://www.example.org/Demo" xmlns:select_providers="urn:intalio.com:connectors:database:floridabluedemo:select_providersservice" xmlns:SchedulingimplicitPartner="http://floridabluedemo.com/Processes/Scheduling/SchedulingimplicitPartner" xmlns:attachments="http://www.intalio.com/gi/Forms/frmScheduling.gi/attachments" xmlns:this="http://floridabluedemo.com/Processes/Scheduling/Scheduling" xmlns:formless="http://www.intalio.com/formless" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="this:Scheduling" fileName="Processes/Scheduling-Scheduling.bpel">
+  <dd:process-events>
+    <dd:enable-event>activityLifecycle</dd:enable-event>
+    <dd:enable-event>scopeHandling</dd:enable-event>
+    <dd:enable-event>instanceLifecycle</dd:enable-event>
+  </dd:process-events>
+  <dd:property name="PATH">Processes/Scheduling</dd:property>
+  <dd:property name="SVG">Processes/Scheduling.svg</dd:property>
+  <xvar:externalVariable xmlns:xvar="http://ode.apache.org/externalVariables" xmlns:xbpms="http://bpms.intalio.com/externalVariables" id="MemberActions-_IALmlvdVEeWT-cmkmXAQzw">
+    <xjdbc:jdbc xmlns:xjdbc="http://ode.apache.org/externalVariables/jdbc">
+      <xjdbc:datasource-jndi>java:comp/env/jdbc/BPMSDB</xjdbc:datasource-jndi>
+      <xjdbc:table xbpms:isDefault="true">MemberActions</xjdbc:table>
+      <xjdbc:column key="yes" name="id" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"></xjdbc:column>
+      <xjdbc:column key="no" name="memberId" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"></xjdbc:column>
+      <xjdbc:column key="no" name="sex" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"></xjdbc:column>
+      <xjdbc:column key="no" name="age" sql-type="INTEGER" xbpms:type-label="integer" xsd-type="xs:integer"></xjdbc:column>
+      <xjdbc:column key="no" name="diabetes" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="highBloodPressure" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="heartAttack" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="education" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="educationStartDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="educationEndDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="primaryCare" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="primaryStartDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="primaryEndDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="referral" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="referralStartDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="referralEndDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:init mode="update-insert"></xjdbc:init>
+    </xjdbc:jdbc>
+  </xvar:externalVariable>
+  <dd:provide partnerLink="schedulingAndMaster_processPlkVar">
+    <dd:service name="this:CanonicServiceForMaster_process" port="canonicPort"></dd:service>
+  </dd:provide>
+  <dd:invoke partnerLink="schedulingimplicitPartnerAndSchedulingForSelect_primaryPortPlkVar">
+    <dd:service name="ns:select_primaryService" port="select_primaryPort"></dd:service>
+  </dd:invoke>
+  <dd:invoke partnerLink="schedulingimplicitPartnerAndSchedulingForSelect_providersPortPlkVar">
+    <dd:service name="select_providers:select_providersService" port="select_providersPort"></dd:service>
+  </dd:invoke>
+  <dd:provide partnerLink="wFmagic_Cb8n9u_AEeW-F9Cnjo6rGQPlkVar">
+    <dd:service name="this:WFmagic_Cb8n9u_AEeW-F9Cnjo6rGQService" port="SchedulingForFrmSch_for_SchedulingimplicitPartnerForThePortTypeProcessPort"></dd:service>
+  </dd:provide>
+  <dd:invoke partnerLink="wFmagic_Cb8n9u_AEeW-F9Cnjo6rGQPlkVar">
+    <dd:service name="frmScheduling:WorkflowSoapService" port="frmSchedulingPort"></dd:service>
+  </dd:invoke>
+  <dd:provide partnerLink="wFmagic_l0nlsO_AEeW-F9Cnjo6rGQPlkVar">
+    <dd:service name="this:WFmagic_l0nlsO_AEeW-F9Cnjo6rGQService" port="Scheduling_for_SchedulingimplicitPartnerForThePortTypeProcessPort"></dd:service>
+  </dd:provide>
+  <dd:invoke partnerLink="wFmagic_l0nlsO_AEeW-F9Cnjo6rGQPlkVar">
+    <dd:service name="formless:WorkflowSoapService" port="formlessPort"></dd:service>
+  </dd:invoke>
+  <dd:provide partnerLink="schedulingAndProviderPlkVar">
+    <dd:service name="this:CanonicServiceForprovider" port="canonicPort"></dd:service>
+  </dd:provide>
+  <dd:invoke partnerLink="schedulingimplicitPartnerAndSchedulingForFormlessPortPlkVar">
+    <dd:service name="formless:WorkflowSoapService" port="formlessPort"></dd:service>
+  </dd:invoke>
+</dd:process><dd:process xmlns:Master_process="http://floridabluedemo.com/Processes/Education/Master_process" xmlns:dd="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:diag="http://floridabluedemo.com/Processes/Education" xmlns:tns="http://www.example.org/Demo" xmlns:metrics="http://test.com/xvar/example" xmlns:frmMember="http://www.intalio.com/gi/Forms/frmMember.gi" xmlns:Education_processimplicitPartner="http://floridabluedemo.com/Processes/Education/Education_processimplicitPartner" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:Technical="http://www.example.org/Technical" xmlns:attachments="http://www.intalio.com/gi/Forms/frmMember.gi/attachments" xmlns:this="http://floridabluedemo.com/Processes/Education/Education_process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:formless-ytivitca="http://www.intalio.com/formless/attachments" xmlns:formless="http://www.intalio.com/formless" name="this:Education_process" fileName="Processes/Education-Education_process.bpel">
+  <dd:process-events>
+    <dd:enable-event>activityLifecycle</dd:enable-event>
+    <dd:enable-event>scopeHandling</dd:enable-event>
+    <dd:enable-event>instanceLifecycle</dd:enable-event>
+  </dd:process-events>
+  <dd:property name="PATH">Processes/Education</dd:property>
+  <dd:property name="SVG">Processes/Education.svg</dd:property>
+  <xvar:externalVariable xmlns:xvar="http://ode.apache.org/externalVariables" xmlns:xbpms="http://bpms.intalio.com/externalVariables" id="MemberActions-_6Lo4ofdUEeWT-cmkmXAQzw">
+    <xjdbc:jdbc xmlns:xjdbc="http://ode.apache.org/externalVariables/jdbc">
+      <xjdbc:datasource-jndi>java:comp/env/jdbc/BPMSDB</xjdbc:datasource-jndi>
+      <xjdbc:table xbpms:isDefault="true">MemberActions</xjdbc:table>
+      <xjdbc:column key="yes" name="id" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"></xjdbc:column>
+      <xjdbc:column key="no" name="memberId" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"></xjdbc:column>
+      <xjdbc:column key="no" name="sex" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"></xjdbc:column>
+      <xjdbc:column key="no" name="age" sql-type="INTEGER" xbpms:type-label="integer" xsd-type="xs:integer"></xjdbc:column>
+      <xjdbc:column key="no" name="diabetes" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="highBloodPressure" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="heartAttack" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="education" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="educationStartDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="educationEndDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="primaryCare" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="primaryStartDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="primaryEndDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="referral" sql-type="BOOLEAN" xbpms:type-label="boolean" xsd-type="xs:boolean"></xjdbc:column>
+      <xjdbc:column key="no" name="referralStartDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:column key="no" name="referralEndDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"></xjdbc:column>
+      <xjdbc:init mode="update-insert"></xjdbc:init>
+    </xjdbc:jdbc>
+  </xvar:externalVariable>
+  <dd:provide partnerLink="master_processAndEducation_processPlkVar">
+    <dd:service name="this:CanonicServiceForMaster_process" port="canonicPort"></dd:service>
+  </dd:provide>
+  <dd:invoke partnerLink="education_processimplicitPartnerAndEducation_processForFormlessPortPlkVar">
+    <dd:service name="formless:WorkflowSoapService" port="formlessPort"></dd:service>
+  </dd:invoke>
+  <dd:provide partnerLink="wFmagic_a2GM0e93EeW-F9Cnjo6rGQPlkVar">
+    <dd:service name="this:WFmagic_a2GM0e93EeW-F9Cnjo6rGQService" port="Education_processForFr_for_Education_processimplicitPartnerForThePortTypeProcessPort"></dd:service>
+  </dd:provide>
+  <dd:invoke partnerLink="wFmagic_a2GM0e93EeW-F9Cnjo6rGQPlkVar">
+    <dd:service name="frmMember:WorkflowSoapService" port="frmMemberPort"></dd:service>
+  </dd:invoke>
+</dd:process></dd:deploy>

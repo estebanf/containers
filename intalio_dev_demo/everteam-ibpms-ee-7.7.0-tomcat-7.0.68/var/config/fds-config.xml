@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Form Dispatcher Services configuration -->
+<config>
+    <pxeBaseUrl>http://localhost:8080/intalio/ode/processes</pxeBaseUrl>
+    <workflowProcessesRelativeUrl>/workflow/ib4p</workflowProcessesRelativeUrl>
+    <!-- Changing tmsUrl as TaskManagementServices in migrated to ode. -->
+    <!--<tmsUrl>http://localhost:8080/intalio/ode/processes/TaskManagementServices</tmsUrl>-->
+    <tmsUrl>http://localhost:8080/intalio/ode/processes/TaskManagementServices</tmsUrl>
+    <fdsUrl>http://bpms.local:8080/fds/workflow/ib4p</fdsUrl>
+    <httpTimeout>600000</httpTimeout>
+	<odeServerURL>http://localhost:8080</odeServerURL>
+</config>

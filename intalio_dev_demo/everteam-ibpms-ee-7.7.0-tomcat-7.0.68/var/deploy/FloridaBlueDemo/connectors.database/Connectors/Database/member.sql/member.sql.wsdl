@@ -1,0 +1,24 @@
+﻿<wsdl:definitions targetNamespace="urn:intalio.com:connectors:database:floridabluedemo:memberservice" xmlns:tns="urn:intalio.com:connectors:database:floridabluedemo:memberservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="urn:intalio.com:connectors:database:floridabluedemo:memberservice">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import schemaLocation="member.xsd" namespace="urn:intalio.com:connectors:database:floridabluedemo:memberservice"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="memberInput">
+        <wsdl:part name="parameters" element="ns:memberResultSet"/>
+    </wsdl:message>
+    <wsdl:portType name="memberPort">
+        <wsdl:operation name="member">
+            <wsdl:input message="tns:memberInput"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="memberPortSoapBinding" type="tns:memberPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="member">
+            <soap:operation soapAction="urn:intalio:connector:jdbc:query:member"/>
+            <wsdl:input>
+                <soap:body namespace="urn:intalio.com:connectors:database:floridabluedemo:memberservice" use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

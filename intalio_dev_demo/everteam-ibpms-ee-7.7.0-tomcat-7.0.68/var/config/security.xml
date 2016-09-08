@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Define security realms, users and roles -->
+<security>
+
+    <defaultRealm>intalio</defaultRealm>
+
+    <realm identifier="intalio">
+        <user identifier="admin">
+            <name>Administrator</name>
+            <email>admin@example.com</email>
+            <password>changeit</password>
+            <assignRole>ProcessAdministrator</assignRole>
+            <assignRole>examples\manager</assignRole>
+     	    <assignRole>WorkflowAdministrator</assignRole>
+            <assignRole>CollabAdministrator</assignRole>
+        </user>
+    
+        <user identifier="manager">
+            <name>Manager</name>
+            <email>manager@example.com</email>
+            <password>changeit</password>
+            <assignRole>ProcessManager</assignRole>
+            <assignRole>examples\manager</assignRole>
+            <assignRole>examples\employee</assignRole>
+        </user>
+		
+		<user identifier="eng1">
+            <name>eng1</name>
+            <email>test@example.com</email>
+            <password>test</password>
+			<assignRole>eng</assignRole>			
+        </user>
+
+        <role identifier="ProcessAdministrator">
+            <description>Process Administrator</description>
+            <descendantRole>ProcessManager</descendantRole>
+        </role>
+
+        <role identifier="ProcessManager">
+            <description>Process Manager</description>
+        </role>
+
+         <role identifier="WorkflowAdministrator">
+            <description>Tempo Workflow Administrator</description>
+         </role>
+		 
+		 <role identifier="eng">
+			<description>Test Role</description>
+		 </role>
+        <role identifier="CollabAdministrator">
+            <description>Collaboration Administrator</description>
+            <descendantRole>CollabDeveloper</descendantRole>
+        </role>
+        <role identifier="CollabDeveloper">
+            <description>Collaboration Developer</description>
+        </role>
+    </realm>
+
+    <realm identifier="examples">
+
+        <user identifier="msmith">
+            <name>Michael Smith</name>
+            <email>msmith@examples.intalio.com</email>
+            <password>password</password>
+            <assignRole>employee</assignRole>
+        </user>
+
+        <user identifier="ewilliams">
+            <name>Emily Williams</name>
+            <email>ewilliams@examples.intalio.com</email>
+            <password>password</password>
+            <assignRole>manager</assignRole>
+        </user>
+
+        <role identifier="manager">
+            <description>Manager</description>
+            <descendantRole>employee</descendantRole>
+        </role>
+
+        <role identifier="employee">
+            <description>Employee</description>
+        </role>
+
+    </realm>
+
+</security>

@@ -1,0 +1,105 @@
+.editable-click, a.editable-click, a.editable-click:hover{
+	border-bottom: 0 dashed #0088CC;
+}
+.editable-unsaved {
+    font-weight: normal;
+}
+.click {
+	cursor: pointer;
+}
+.editable-empty, .editable-empty:hover, .editable-empty:focus {
+	color: #3F3F3F;
+}
+.modifyBre{
+    border-width: 2px;
+    font-size: 11px;
+    line-height: 12px;
+    margin: 0 1px 0 0;
+    padding: 0;
+    width: 21px;
+}
+.breTableHeader{
+	background : #9EA4ED;
+}
+
+#breTable th{
+	cursor:pointer;
+}
+.dottedBorder{
+	border:2px dotted #0000FF;
+}
+#breTable tr td{
+	vertical-align: middle;
+}
+select.xorSelect{
+	position:absolute;
+	width:95px;
+	height:23px;
+	margin-top: -11px;
+}
+input.xorInput{
+	position: absolute;
+	width: 74px;
+	height:23px;
+	margin-top: -11px;
+}
+.greyBackground{
+	background-color : #DDDDDD !important;
+}
+.lightGrey{
+	background : #FAFAFA !important;
+}
+.redBackground{
+	background-color : #FF6666 !important;
+}
+.conditionColor{
+	background : #EFF3FA;
+}
+.actionColor{
+	background : #EFF3FA;
+}
+.optionsColor{
+	background : #E8F0F8;
+}
+.lightYellow{
+	background : #FFFFD0;
+}
+.breAlignment {
+    margin-left: 8px;
+}
+.bre-package-row {
+	background-color: #F9F9F9 !important;
+}
+#business_rules tr.even {
+	background-color: white;
+}
+#business_rules tr.odd {
+	background-color: white;
+}
+#business_rules tr td{
+	vertical-align: middle;
+}
+#breAuditTableModal .modal-dialog{
+	width: 850px;
+}
+.lockAction{
+	vertical-align: top !important;
+	font-size: 15px;
+}
+.auditAction{
+	vertical-align: top !important;
+	font-size: 13px;
+}
+.permissionAction{
+	vertical-align: top !important;
+	font-size: 15px;
+}
+.editable-empty{
+	font-style: normal !important;
+}
+.xorRuleGroup {
+    min-width: 115px;
+}
+.breActions{
+	width: 75px;
+}

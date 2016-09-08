@@ -1,0 +1,19 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:tns="http://budgeting.example.everteam.com/Types/Business" xmlns:Technical="http://budgeting.example.everteam.com/Types/Technical" xmlns:Variables="http://test.com/xvar/example" xmlns:diag="http://budgeting.example.everteam.com/Processes/Integrations/ProjectReviewAPI" xmlns:caller="http://budgeting.example.everteam.com/Processes/Integrations/ProjectReviewAPI/caller" xmlns:process="http://budgeting.example.everteam.com/Processes/Integrations/ProjectReviewAPI/process" xmlns:processimplicitPartner="http://budgeting.example.everteam.com/Processes/Integrations/ProjectReviewAPI/processimplicitPartner" xmlns:GetSingleDepartment-Process="http://budgeting.example.everteam.com/Processes/Integrations/GetSingleDepartment/Process" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:select_project_attachments="urn:intalio.com:connectors:database:budgeting:select_project_attachmentsservice" xmlns:ns="urn:intalio.com:connectors:database:budgeting:select_projectsservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" targetNamespace="http://budgeting.example.everteam.com/Processes/Integrations/ProjectReviewAPI">
+    <wsdl:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/ProjectReviewAPI/process" location="ProjectReviewAPI-process.wsdl"/>
+    <wsdl:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/GetSingleDepartment/Process" location="GetSingleDepartment-Process.wsdl"/>
+    <wsdl:import namespace="urn:intalio.com:connectors:database:budgeting:select_project_attachmentsservice" location="../../Connectors/Database/select_project_attachments.sql/select_project_attachments.sql.wsdl"/>
+    <wsdl:import namespace="urn:intalio.com:connectors:database:budgeting:select_projectsservice" location="../../Connectors/Database/select_projects.sql/select_projects.sql.wsdl"/>
+    <pnlk:partnerLinkType name="callerAndProcess">
+        <pnlk:role name="process_for_caller" portType="process:Forcaller"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="processimplicitPartnerAndProcessForCanonicPortPlk">
+        <pnlk:role name="processimplicitPartner_for_process" portType="GetSingleDepartment-Process:ForCaller"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="processimplicitPartnerAndProcessForSelect_project_attachmentsPortPlk">
+        <pnlk:role name="processimplicitPartner_for_process" portType="select_project_attachments:select_project_attachmentsPort"/>
+    </pnlk:partnerLinkType>
+    <pnlk:partnerLinkType name="processimplicitPartnerAndProcessForSelect_projectsPortPlk">
+        <pnlk:role name="processimplicitPartner_for_process" portType="ns:select_projectsPort"/>
+    </pnlk:partnerLinkType>
+</wsdl:definitions>

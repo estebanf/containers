@@ -1,0 +1,581 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ode="http://www.apache.org/ode/type/extension" xmlns:Variables="http://test.com/xvar/example" xmlns:formless-ytivitca="http://www.intalio.com/formless/attachments" xmlns:budget_review1="http://www.intalio.com/Budgeting/Webcontents/budget_review.html" xmlns:budget_review="http://www.intalio.com/Budgeting/Webcontents/budget_review.html/attachments" xmlns:GetDepartments-process="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments/process" xmlns:AttachmentManagement-process="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/process" xmlns:PDFGeneration-BudgetProcess="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration/BudgetProcess" xmlns:attachments="http://www.intalio.com/Budgeting/Webcontents/index.html/attachments" xmlns:diag="http://budgeting.example.everteam.com/Processes/Budgeting" xmlns:tns="http://www.intalio.com/Budgeting/Webcontents/index.html" xmlns:this="http://budgeting.example.everteam.com/Processes/Budgeting/Chief_financial_officer" xmlns:Chief_financial_officerimplicitPartner="http://budgeting.example.everteam.com/Processes/Budgeting/Chief_financial_officerimplicitPartner" xmlns:Department_director="http://budgeting.example.everteam.com/Processes/Budgeting/Department_director" xmlns:Business="http://budgeting.example.everteam.com/Types/Business" xmlns:formless="http://www.intalio.com/formless" xmlns:Technical="http://budgeting.example.everteam.com/Types/Technical" xmlns:bpmn="http://www.intalio.com/bpms" xmlns:atomic="http://ode.apache.org/atomicScope" queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" bpmn:label="Chief financial officer" name="Chief_financial_officer" bpmn:id="_hR3l8J6wEeWv3pH85Bt1PA" targetNamespace="http://budgeting.example.everteam.com/Processes/Budgeting/Chief_financial_officer">
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Budgeting" location="Budgeting.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Budgeting/Chief_financial_officer" location="Budgeting-Chief_financial_officer.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Budgeting/Department_director" location="Budgeting-Department_director.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/process" location="Integrations/AttachmentManagement-process.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/GetDepartments/process" location="Integrations/GetDepartments-process.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/PDFGeneration/BudgetProcess" location="Integrations/PDFGeneration-BudgetProcess.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://www.intalio.com/Budgeting/Webcontents/budget_review.html" location="../Webcontents/budget_review.html.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://www.intalio.com/Budgeting/Webcontents/index.html" location="../Webcontents/index.html.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://www.intalio.com/formless" location="../formless-ytivitca.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Types/Business" location="../Schemas/Business.xsd" importType="http://www.w3.org/2001/XMLSchema"></bpel:import>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Types/Technical" location="../Schemas/Technical.xsd" importType="http://www.w3.org/2001/XMLSchema"></bpel:import>
+  <bpel:partnerLinks>
+    <bpel:partnerLink name="chief_financial_officerimplicitPartnerAndChief_financial_officerForPortTypeProcessPlkVar" partnerLinkType="diag:Chief_financial_officerimplicitPartnerAndChief_financial_officerForPortTypeProcessPlk" myRole="Chief_financial_officer_for_Chief_financial_officerimplicitPartner"></bpel:partnerLink>
+    <bpel:partnerLink name="chief_financial_officerimplicitPartnerAndChief_financial_officerForCanonicPortPlk0Var" partnerLinkType="diag:Chief_financial_officerimplicitPartnerAndChief_financial_officerForCanonicPortPlk0" initializePartnerRole="yes" partnerRole="Chief_financial_officerimplicitPartner_for_Chief_financial_officer"></bpel:partnerLink>
+    <bpel:partnerLink name="chief_financial_officerimplicitPartnerAndChief_financial_officerForCanonicPortPlk1Var" partnerLinkType="diag:Chief_financial_officerimplicitPartnerAndChief_financial_officerForCanonicPortPlk1" initializePartnerRole="yes" partnerRole="Chief_financial_officerimplicitPartner_for_Chief_financial_officer"></bpel:partnerLink>
+    <bpel:partnerLink name="wFmagic_DfaF1tEQEeWIHuPdUr6NDgPlkVar" partnerLinkType="diag:WFmagic_DfaF1tEQEeWIHuPdUr6NDg" initializePartnerRole="no" myRole="Chief_financial_office_for_Chief_financial_officerimplicitPartnerForThePortTypeProcess" partnerRole="Chief_financial_officerimplicitPartner_for_Chief_financial_officerForTnsPort"></bpel:partnerLink>
+    <bpel:partnerLink name="chief_financial_officerimplicitPartnerAndChief_financial_officerForCanonicPortPlk2Var" partnerLinkType="diag:Chief_financial_officerimplicitPartnerAndChief_financial_officerForCanonicPortPlk2" initializePartnerRole="yes" partnerRole="Chief_financial_officerimplicitPartner_for_Chief_financial_officer"></bpel:partnerLink>
+    <bpel:partnerLink name="wFmagic_mwdUIL7yEeWJXYruIRp_igPlkVar" partnerLinkType="diag:WFmagic_mwdUIL7yEeWJXYruIRp_ig" myRole="Chief_financial_officer_for_Chief_financial_officerimplicitPartnerForThePortTypeProcess"></bpel:partnerLink>
+  </bpel:partnerLinks>
+  <bpel:variables xmlns:xvar="http://ode.apache.org/externalVariables">
+    <bpel:variable name="BudgetingVar-keys" element="Variables:BudgetingVar-keys"></bpel:variable>
+    <bpel:variable name="BudgetingVar" element="Variables:BudgetingVar" xvar:id="BudgetingVar-_IQX-caAQEeW6r4g6sr4TOg" xvar:relates-to="BudgetingVar-keys"></bpel:variable>
+    <bpel:variable name="tnsInitProcessRequest1Msg" messageType="tns:initProcessRequest"></bpel:variable>
+    <bpel:variable name="tnsInitProcessResponse1Msg" messageType="tns:initProcessResponse"></bpel:variable>
+    <bpel:variable name="getDepartments-processRecieve_requestResponse1Msg" messageType="GetDepartments-process:Recieve_requestResponse"></bpel:variable>
+    <bpel:variable name="getDepartments-processRecieve_request1Msg" messageType="GetDepartments-process:Recieve_requestRequest"></bpel:variable>
+    <bpel:variable name="pDFGeneration-BudgetProcessStartResponse1Msg" messageType="PDFGeneration-BudgetProcess:StartResponse"></bpel:variable>
+    <bpel:variable name="pDFGeneration-BudgetProcessStart1Msg" messageType="PDFGeneration-BudgetProcess:StartRequest"></bpel:variable>
+    <bpel:variable name="formlessCreateTaskSingleActivityResponse1Msg" messageType="formless:createTaskSingleActivityResponse"></bpel:variable>
+    <bpel:variable name="formlessCreateTaskSingleActivityRequest1Msg" messageType="formless:createTaskSingleActivityRequest"></bpel:variable>
+    <bpel:variable name="budget_review1CreateTaskSingleActivityResponse1Msg" messageType="budget_review1:createTaskSingleActivityResponse"></bpel:variable>
+    <bpel:variable name="budget_review1CreateTaskSingleActivityRequest1Msg" messageType="budget_review1:createTaskSingleActivityRequest"></bpel:variable>
+  </bpel:variables>
+  <bpel:sequence>
+    <bpel:receive partnerLink="chief_financial_officerimplicitPartnerAndChief_financial_officerForPortTypeProcessPlkVar" portType="tns:Process" operation="initProcess" variable="tnsInitProcessRequest1Msg" createInstance="yes" bpmn:label="Define variables" name="Define_variables" bpmn:id="_x24aJp7hEeWoQuJhqwM1Bg"></bpel:receive>
+    <bpel:assign name="init-variables-Chief_financial_officer" bpmn:id="_x24aJp7hEeWoQuJhqwM1Bg">
+      <bpel:copy>
+        <bpel:from>
+          <bpel:literal><Variables:BudgetingVar><Variables:excercise_id></Variables:excercise_id></Variables:BudgetingVar></bpel:literal>
+        </bpel:from>
+        <bpel:to>$BudgetingVar-keys</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$tnsInitProcessResponse1Msg">
+        <bpel:from>
+          <bpel:literal>
+<tns:initProcessResponse>
+  <tns:status>OK</tns:status>
+  <tns:errorCode></tns:errorCode>
+  <tns:errorReason></tns:errorReason>
+  <tns:taskMetaData>
+    <tns:globalAttachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description></description>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </tns:globalAttachments>
+    <tns:nextTaskId></tns:nextTaskId>
+    <tns:nextTaskURL></tns:nextTaskURL>
+    <tns:instanceId></tns:instanceId>
+  </tns:taskMetaData>
+</tns:initProcessResponse></bpel:literal>
+        </bpel:from>
+        <bpel:to>$tnsInitProcessResponse1Msg.root</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$getDepartments-processRecieve_request1Msg">
+        <bpel:from>
+          <bpel:literal>
+<GetDepartments-process:Recieve_requestRequest></GetDepartments-process:Recieve_requestRequest></bpel:literal>
+        </bpel:from>
+        <bpel:to>$getDepartments-processRecieve_request1Msg.body</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$pDFGeneration-BudgetProcessStart1Msg">
+        <bpel:from>
+          <bpel:literal>
+<PDFGeneration-BudgetProcess:StartRequest></PDFGeneration-BudgetProcess:StartRequest></bpel:literal>
+        </bpel:from>
+        <bpel:to>$pDFGeneration-BudgetProcessStart1Msg.body</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$formlessCreateTaskSingleActivityRequest1Msg">
+        <bpel:from>
+          <bpel:literal>
+<formless:createTaskSingleActivityRequest>
+  <formless:taskMetaData>
+    <formless:taskId></formless:taskId>
+    <formless:taskState></formless:taskState>
+    <formless:taskType></formless:taskType>
+    <formless:description></formless:description>
+    <formless:processId></formless:processId>
+    <formless:instanceId></formless:instanceId>
+    <formless:business>
+      <formless:processName></formless:processName>
+      <formless:instanceId></formless:instanceId>
+      <formless:stepName></formless:stepName>
+      <formless:customData></formless:customData>
+    </formless:business>
+    <formless:creationDate></formless:creationDate>
+    <formless:userOwner></formless:userOwner>
+    <formless:roleOwner></formless:roleOwner>
+    <formless:claimAction>
+      <formless:user></formless:user>
+      <formless:role></formless:role>
+    </formless:claimAction>
+    <formless:revokeAction>
+      <formless:user></formless:user>
+      <formless:role></formless:role>
+    </formless:revokeAction>
+    <formless:saveAction>
+      <formless:user></formless:user>
+      <formless:role></formless:role>
+    </formless:saveAction>
+    <formless:completeAction>
+      <formless:user></formless:user>
+      <formless:role></formless:role>
+    </formless:completeAction>
+    <formless:formUrl></formless:formUrl>
+    <formless:failureCode></formless:failureCode>
+    <formless:failureReason></formless:failureReason>
+    <formless:priority></formless:priority>
+    <formless:scheduledActions>
+      <formless:expiration>
+        <formless:until></formless:until>
+        <formless:for></formless:for>
+      </formless:expiration>
+      <formless:deferActivation>
+        <formless:until></formless:until>
+        <formless:for></formless:for>
+      </formless:deferActivation>
+    </formless:scheduledActions>
+    <formless:attachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description></description>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </formless:attachments>
+    <formless:globalAttachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description></description>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </formless:globalAttachments>
+    <formless:userProcessCompleteSOAPAction></formless:userProcessCompleteSOAPAction>
+    <formless:isChainedBefore></formless:isChainedBefore>
+    <formless:previousTaskId></formless:previousTaskId>
+    <formless:userProcessEndpoint></formless:userProcessEndpoint>
+    <formless:userProcessNamespaceURI></formless:userProcessNamespaceURI>
+    <formless:customMetaData></formless:customMetaData>
+  </formless:taskMetaData>
+  <formless:participantToken></formless:participantToken>
+  <formless:taskInput>
+    <formless:FormModel>
+      <notesTextAreaInput>
+        <notesTextArea></notesTextArea>
+      </notesTextAreaInput>
+    </formless:FormModel>
+  </formless:taskInput>
+</formless:createTaskSingleActivityRequest></bpel:literal>
+        </bpel:from>
+        <bpel:to>$formlessCreateTaskSingleActivityRequest1Msg.root</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$budget_review1CreateTaskSingleActivityRequest1Msg">
+        <bpel:from>
+          <bpel:literal>
+<budget_review1:createTaskSingleActivityRequest>
+  <budget_review1:taskMetaData>
+    <budget_review1:taskId>_DfaF1tEQEeWIHuPdUr6NDg</budget_review1:taskId>
+    <budget_review1:allowadhoc>true</budget_review1:allowadhoc>
+    <budget_review1:taskState></budget_review1:taskState>
+    <budget_review1:taskType></budget_review1:taskType>
+    <budget_review1:description/>
+    <budget_review1:processId></budget_review1:processId>
+    <budget_review1:instanceId></budget_review1:instanceId>
+    <budget_review1:business>
+      <budget_review1:processName></budget_review1:processName>
+      <budget_review1:instanceId></budget_review1:instanceId>
+      <budget_review1:stepName></budget_review1:stepName>
+      <budget_review1:customData></budget_review1:customData>
+    </budget_review1:business>
+    <budget_review1:creationDate></budget_review1:creationDate>
+    <budget_review1:userOwner/>
+    <budget_review1:roleOwner/>
+    <budget_review1:claimAction>
+      <budget_review1:user></budget_review1:user>
+      <budget_review1:role></budget_review1:role>
+    </budget_review1:claimAction>
+    <budget_review1:revokeAction>
+      <budget_review1:user></budget_review1:user>
+      <budget_review1:role></budget_review1:role>
+    </budget_review1:revokeAction>
+    <budget_review1:saveAction>
+      <budget_review1:user></budget_review1:user>
+      <budget_review1:role></budget_review1:role>
+    </budget_review1:saveAction>
+    <budget_review1:completeAction>
+      <budget_review1:user></budget_review1:user>
+      <budget_review1:role></budget_review1:role>
+    </budget_review1:completeAction>
+    <budget_review1:formUrl>/smrofmotsuc/Webcontents/budget_review.html</budget_review1:formUrl>
+    <budget_review1:failureCode></budget_review1:failureCode>
+    <budget_review1:failureReason></budget_review1:failureReason>
+    <budget_review1:priority></budget_review1:priority>
+    <budget_review1:scheduledActions>
+      <budget_review1:expiration>
+        <budget_review1:until></budget_review1:until>
+        <budget_review1:for></budget_review1:for>
+      </budget_review1:expiration>
+      <budget_review1:deferActivation>
+        <budget_review1:until></budget_review1:until>
+        <budget_review1:for></budget_review1:for>
+      </budget_review1:deferActivation>
+    </budget_review1:scheduledActions>
+    <budget_review1:attachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description/>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </budget_review1:attachments>
+    <budget_review1:globalAttachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description/>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </budget_review1:globalAttachments>
+    <budget_review1:userProcessCompleteSOAPAction/>
+    <budget_review1:isChainedBefore></budget_review1:isChainedBefore>
+    <budget_review1:previousTaskId></budget_review1:previousTaskId>
+    <budget_review1:userProcessEndpoint/>
+    <budget_review1:userProcessNamespaceURI>http://www.intalio.com/Budgeting/Webcontents/budget_review.html</budget_review1:userProcessNamespaceURI>
+    <budget_review1:customMetaData></budget_review1:customMetaData>
+  </budget_review1:taskMetaData>
+  <budget_review1:participantToken></budget_review1:participantToken>
+  <budget_review1:taskInput>
+    <Business:ProjectDepartmentIdentifier>
+      <Business:DepartmentId></Business:DepartmentId>
+      <Business:ExcerciseId></Business:ExcerciseId>
+    </Business:ProjectDepartmentIdentifier>
+  </budget_review1:taskInput>
+</budget_review1:createTaskSingleActivityRequest></bpel:literal>
+        </bpel:from>
+        <bpel:to>$budget_review1CreateTaskSingleActivityRequest1Msg.root</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:assign>
+    <bpel:copy>
+        <bpel:from>$ode:pid</bpel:from>
+        <bpel:to>$tnsInitProcessResponse1Msg.root/tns:taskMetaData/tns:instanceId</bpel:to>
+    </bpel:copy>
+  </bpel:assign>
+  <bpel:reply partnerLink="chief_financial_officerimplicitPartnerAndChief_financial_officerForPortTypeProcessPlkVar" portType="tns:Process" operation="initProcess" variable="tnsInitProcessResponse1Msg" bpmn:label="Define variables" name="Define_variables-1" bpmn:id="_x24aJp7hEeWoQuJhqwM1Bg"></bpel:reply>
+    <bpel:scope bpmn:label="Manage variables" name="Manage_variables" bpmn:id="_q9z78KASEeW6r4g6sr4TOg">
+      <bpel:sequence>
+        <bpel:empty bpmn:label="Empty_Start_Event" name="Empty_Start_Event" bpmn:id="_-h67IKAaEeW6r4g6sr4TOg"></bpel:empty>
+        <bpel:flow bpmn:label="Parallel_Gateway" name="Parallel_Gateway" bpmn:id="_FBqcMKAPEeW0J6TOrDqjOw">
+          <bpel:sequence>
+            <bpel:assign bpmn:label="Store variables" name="Store_variables" bpmn:id="_GXyhoKAPEeW0J6TOrDqjOw">
+              <bpel:copy>
+                <bpel:from>$ode:pid</bpel:from>
+                <bpel:to>$BudgetingVar-keys/Variables:excercise_id</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>xs:int($tnsInitProcessRequest1Msg.root/tns:taskOutput/Business:Variables/Business:fiscal_year)</bpel:from>
+                <bpel:to>$BudgetingVar/Variables:fiscal_year</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>xs:double($tnsInitProcessRequest1Msg.root/tns:taskOutput/Business:Variables/Business:target_expenses)</bpel:from>
+                <bpel:to>$BudgetingVar/Variables:target_expenses</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>xs:double($tnsInitProcessRequest1Msg.root/tns:taskOutput/Business:Variables/Business:ExpectedIncrease)</bpel:from>
+                <bpel:to>$BudgetingVar/Variables:expected_increase</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$tnsInitProcessRequest1Msg.root/tns:taskOutput/Business:Variables/Business:new_investements</bpel:from>
+                <bpel:to>$BudgetingVar/Variables:new_investments</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$tnsInitProcessRequest1Msg.root/tns:taskOutput/Business:Variables/Business:TargetSubmision</bpel:from>
+                <bpel:to>$BudgetingVar/Variables:target_submission</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$tnsInitProcessRequest1Msg.root/tns:taskOutput/Business:Variables/Business:TargetApproval</bpel:from>
+                <bpel:to>$BudgetingVar/Variables:target_approval</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+            <bpel:empty bpmn:label="Empty_End_Event" name="Empty_End_Event" bpmn:id="_OMcIsKAaEeW6r4g6sr4TOg"></bpel:empty>
+          </bpel:sequence>
+          <bpel:sequence>
+            <bpel:if>
+              <bpel:condition>exists($tnsInitProcessRequest1Msg.root/tns:attachments)</bpel:condition>
+              <bpel:scope bpmn:label="Store attachments" name="Store_attachments" bpmn:id="_QwYtIKAPEeW0J6TOrDqjOw">
+                <bpel:variables>
+                  <bpel:variable name="Attachments" element="Technical:Attachments"></bpel:variable>
+                  <bpel:variable name="attachmentManagement-processStore_attachmentsResponse1Msg" messageType="AttachmentManagement-process:Store_attachmentsResponse"></bpel:variable>
+                  <bpel:variable name="attachmentManagement-processStore_attachments1Msg" messageType="AttachmentManagement-process:Store_attachmentsRequest"></bpel:variable>
+                </bpel:variables>
+                <bpel:sequence>
+                  <bpel:assign name="init-variables-Store_attachments" bpmn:id="_QwYtIKAPEeW0J6TOrDqjOw">
+                    <bpel:copy bpmn:label="$Attachments">
+                      <bpel:from>
+                        <bpel:literal>
+<Technical:Attachments>
+  <Technical:attachment>
+    <Technical:mimeType></Technical:mimeType>
+    <Technical:fileName></Technical:fileName>
+    <Technical:title></Technical:title>
+    <Technical:description></Technical:description>
+    <Technical:creationDate></Technical:creationDate>
+    <Technical:payloadUrl></Technical:payloadUrl>
+  </Technical:attachment>
+</Technical:Attachments></bpel:literal>
+                      </bpel:from>
+                      <bpel:to>$Attachments</bpel:to>
+                    </bpel:copy>
+                    <bpel:copy bpmn:label="$attachmentManagement-processStore_attachments1Msg">
+                      <bpel:from>
+                        <bpel:literal>
+<AttachmentManagement-process:Store_attachmentsRequest>
+  <Technical:Reference></Technical:Reference>
+  <Technical:Attachments>
+    <Technical:attachment>
+      <Technical:mimeType></Technical:mimeType>
+      <Technical:fileName></Technical:fileName>
+      <Technical:title></Technical:title>
+      <Technical:description></Technical:description>
+      <Technical:creationDate></Technical:creationDate>
+      <Technical:payloadUrl></Technical:payloadUrl>
+    </Technical:attachment>
+  </Technical:Attachments>
+</AttachmentManagement-process:Store_attachmentsRequest></bpel:literal>
+                      </bpel:from>
+                      <bpel:to>$attachmentManagement-processStore_attachments1Msg.body</bpel:to>
+                    </bpel:copy>
+                  </bpel:assign>
+                  <bpel:empty bpmn:label="Empty_Start_Event" name="Empty_Start_Event-1" bpmn:id="_I-rrYKAPEeW0J6TOrDqjOw"></bpel:empty>
+                  <bpel:assign bpmn:label="Extract attachments" name="Extract_attachments" bpmn:id="_KprNkKAPEeW0J6TOrDqjOw">
+                    <bpel:copy>
+                      <bpel:from>bpel:doXslTransform("../XSLT/transform_get_global_attachments.xsl", $tnsInitProcessRequest1Msg.root/tns:attachments)</bpel:from>
+                      <bpel:to>$Attachments</bpel:to>
+                    </bpel:copy>
+                  </bpel:assign>
+                  <bpel:assign bpmn:label="Save attachments" name="Save_attachments" bpmn:id="_ODiFUKAPEeW0J6TOrDqjOw">
+                    <bpel:copy>
+                      <bpel:from>$Attachments</bpel:from>
+                      <bpel:to>$attachmentManagement-processStore_attachments1Msg.body/Technical:Attachments</bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                      <bpel:from>$ode:pid</bpel:from>
+                      <bpel:to>$attachmentManagement-processStore_attachments1Msg.body/Technical:Reference</bpel:to>
+                    </bpel:copy>
+                  </bpel:assign>
+                  <bpel:invoke partnerLink="chief_financial_officerimplicitPartnerAndChief_financial_officerForCanonicPortPlk0Var" portType="AttachmentManagement-process:Forcaller" operation="Store_attachments" inputVariable="attachmentManagement-processStore_attachments1Msg" outputVariable="attachmentManagement-processStore_attachmentsResponse1Msg" bpmn:label="Save attachments" name="Save_attachments-1" bpmn:id="_ODiFUKAPEeW0J6TOrDqjOw"></bpel:invoke>
+                </bpel:sequence>
+              </bpel:scope>
+            </bpel:if>
+            <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway" bpmn:id="_bQkuYKAPEeW0J6TOrDqjOw">
+              <bpel:links>
+                <bpel:targets></bpel:targets>
+              </bpel:links>
+            </bpel:empty>
+            <bpel:empty bpmn:label="Empty_End_Event" name="Empty_End_Event-1" bpmn:id="_MmXiwKAaEeW6r4g6sr4TOg"></bpel:empty>
+          </bpel:sequence>
+        </bpel:flow>
+      </bpel:sequence>
+    </bpel:scope>
+    <bpel:invoke partnerLink="chief_financial_officerimplicitPartnerAndChief_financial_officerForCanonicPortPlk1Var" portType="GetDepartments-process:ForCaller" operation="Recieve_request" inputVariable="getDepartments-processRecieve_request1Msg" outputVariable="getDepartments-processRecieve_requestResponse1Msg" bpmn:label="Retrieve list of departments" name="Retrieve_list_of_departments" bpmn:id="_IKMu1qW_EeW1o-GnJ_ijAQ"></bpel:invoke>
+    <bpel:scope bpmn:label="outer-Gather departments budget requirements" name="outer-Gather_departments_budget_requirements" bpmn:id="_bwIzoKW_EeW1o-GnJ_ijAQ">
+      <bpel:forEach bpmn:label="Gather departments budget requirements" name="Gather_departments_budget_requirements" bpmn:id="_bwIzoKW_EeW1o-GnJ_ijAQ" parallel="yes" counterName="Gather_departments_budget_requirementsCounter">
+        <bpel:startCounterValue>1</bpel:startCounterValue>
+        <bpel:finalCounterValue>count($getDepartments-processRecieve_requestResponse1Msg.body/Business:Department)</bpel:finalCounterValue>
+        <bpel:scope bpmn:label="Gather departments budget requirements" name="Gather_departments_budget_requirements-1" bpmn:id="_bwIzoKW_EeW1o-GnJ_ijAQ">
+          <bpel:partnerLinks>
+            <bpel:partnerLink name="department_directorAndChief_financial_officerPlkVar" partnerLinkType="diag:Department_directorAndChief_financial_officer" initializePartnerRole="yes" myRole="Chief_financial_officer_for_Department_director" partnerRole="Department_director_for_Chief_financial_officer"></bpel:partnerLink>
+          </bpel:partnerLinks>
+          <bpel:correlationSets>
+            <bpel:correlationSet name="departmentRequirements" properties="this:excercise this:department" unique="yes"></bpel:correlationSet>
+          </bpel:correlationSets>
+          <bpel:variables xmlns:xvar="http://ode.apache.org/externalVariables">
+            <bpel:variable name="department" type="Business:DepartmentType"></bpel:variable>
+            <bpel:variable name="ExcerciseDepartment-keys" element="Variables:ExcerciseDepartment-keys"></bpel:variable>
+            <bpel:variable name="ExcerciseDepartment" element="Variables:ExcerciseDepartment" xvar:id="ExcerciseDepartment-_qYqjRqW_EeW1o-GnJ_ijAQ" xvar:relates-to="ExcerciseDepartment-keys"></bpel:variable>
+            <bpel:variable name="department_directorRecieve_requirement_requestRequest1Msg" messageType="Department_director:Recieve_requirement_requestRequest"></bpel:variable>
+            <bpel:variable name="department_directorRecieve_requirement_requestResponse2Msg" messageType="Department_director:Recieve_requirement_requestResponse"></bpel:variable>
+            <bpel:variable name="thisRecieve_department_requirementsRequest1Msg" messageType="this:Recieve_department_requirementsRequest"></bpel:variable>
+            <bpel:variable name="thisRecieve_department_requirementsResponse2Msg" messageType="this:Recieve_department_requirementsResponse"></bpel:variable>
+          </bpel:variables>
+          <bpel:sequence>
+            <bpel:assign name="init-variables-Gather_departments_budget_requirements" bpmn:id="_bwIzoKW_EeW1o-GnJ_ijAQ">
+              <bpel:copy bpmn:label="$department">
+                <bpel:from>
+                  <bpel:literal>
+<typeWrapper>
+  <Business:DepartmentId></Business:DepartmentId>
+  <Business:DeparmentName></Business:DeparmentName>
+  <Business:DepartmentDirector></Business:DepartmentDirector>
+</typeWrapper></bpel:literal>
+                </bpel:from>
+                <bpel:to>$department</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>
+                  <bpel:literal><Variables:ExcerciseDepartment><Variables:excercise_id></Variables:excercise_id><Variables:DepartmentId></Variables:DepartmentId></Variables:ExcerciseDepartment></bpel:literal>
+                </bpel:from>
+                <bpel:to>$ExcerciseDepartment-keys</bpel:to>
+              </bpel:copy>
+              <bpel:copy bpmn:label="$department_directorRecieve_requirement_requestRequest1Msg">
+                <bpel:from>
+                  <bpel:literal>
+<Department_director:Recieve_requirement_requestRequest>
+  <Technical:Reference></Technical:Reference>
+  <Technical:DepartmentId></Technical:DepartmentId>
+</Department_director:Recieve_requirement_requestRequest></bpel:literal>
+                </bpel:from>
+                <bpel:to>$department_directorRecieve_requirement_requestRequest1Msg.body</bpel:to>
+              </bpel:copy>
+              <bpel:copy bpmn:label="$thisRecieve_department_requirementsResponse2Msg">
+                <bpel:from>
+                  <bpel:literal>
+<this:Recieve_department_requirementsResponse>
+  <Technical:InstanceId></Technical:InstanceId>
+  <Technical:Timestamp></Technical:Timestamp>
+</this:Recieve_department_requirementsResponse></bpel:literal>
+                </bpel:from>
+                <bpel:to>$thisRecieve_department_requirementsResponse2Msg.body</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+            <bpel:assign bpmn:label="Empty_Start_Event" name="Empty_Start_Event-2" bpmn:id="_SKzREKW_EeW1o-GnJ_ijAQ">
+              <bpel:copy>
+                <bpel:from>bpel:doXslTransform("../XSLT/transform_extract_department.xsl", $getDepartments-processRecieve_requestResponse1Msg.body, "counter", $Gather_departments_budget_requirementsCounter)</bpel:from>
+                <bpel:to>$department</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+            <bpel:assign bpmn:label="Request department requirement" name="Request_department_requirement" bpmn:id="_TI7tQKW_EeW1o-GnJ_ijAQ">
+              <bpel:copy>
+                <bpel:from>$BudgetingVar-keys/Variables:excercise_id</bpel:from>
+                <bpel:to>$department_directorRecieve_requirement_requestRequest1Msg.body/Technical:Reference</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$department/Business:DepartmentId</bpel:from>
+                <bpel:to>$department_directorRecieve_requirement_requestRequest1Msg.body/Technical:DepartmentId</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+            <bpel:invoke partnerLink="department_directorAndChief_financial_officerPlkVar" portType="Department_director:ForChief_financial_officer" operation="Recieve_requirement_request" inputVariable="department_directorRecieve_requirement_requestRequest1Msg" outputVariable="department_directorRecieve_requirement_requestResponse2Msg" bpmn:label="Request department requirement" name="Request_department_requirement-1" bpmn:id="_TI7tQKW_EeW1o-GnJ_ijAQ">
+              <bpel:correlations>
+                <bpel:correlation set="departmentRequirements" initiate="join" pattern="request"></bpel:correlation>
+              </bpel:correlations>
+            </bpel:invoke>
+            <bpel:assign bpmn:label="Empty_Intermediate_Event" name="Empty_Intermediate_Event" bpmn:id="_VNQ8gKW_EeW1o-GnJ_ijAQ">
+              <bpel:copy>
+                <bpel:from>$BudgetingVar-keys/Variables:excercise_id</bpel:from>
+                <bpel:to>$ExcerciseDepartment-keys/Variables:excercise_id</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$department/Business:DepartmentId</bpel:from>
+                <bpel:to>$ExcerciseDepartment-keys/Variables:DepartmentId</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>current-dateTime()</bpel:from>
+                <bpel:to>$ExcerciseDepartment/Variables:RequestedDate</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+            <bpel:receive partnerLink="department_directorAndChief_financial_officerPlkVar" portType="this:ForDepartment_director" operation="Recieve_department_requirements" variable="thisRecieve_department_requirementsRequest1Msg" bpmn:label="Recieve department requirements" name="Recieve_department_requirements" bpmn:id="_XTN8YKW_EeW1o-GnJ_ijAQ">
+              <bpel:correlations>
+                <bpel:correlation set="departmentRequirements" initiate="join"></bpel:correlation>
+              </bpel:correlations>
+            </bpel:receive>
+            <bpel:assign bpmn:label="Recieve department requirements" name="Recieve_department_requirements-1" bpmn:id="_XTN8YKW_EeW1o-GnJ_ijAQ">
+              <bpel:copy>
+                <bpel:from>$ode:pid</bpel:from>
+                <bpel:to>$thisRecieve_department_requirementsResponse2Msg.body/Technical:InstanceId</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>current-dateTime()</bpel:from>
+                <bpel:to>$thisRecieve_department_requirementsResponse2Msg.body/Technical:Timestamp</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+            <bpel:reply partnerLink="department_directorAndChief_financial_officerPlkVar" portType="this:ForDepartment_director" operation="Recieve_department_requirements" variable="thisRecieve_department_requirementsResponse2Msg" bpmn:label="Recieve department requirements" name="Recieve_department_requirements-2" bpmn:id="_XTN8YKW_EeW1o-GnJ_ijAQ"></bpel:reply>
+            <bpel:assign bpmn:label="Empty_End_Event" name="Empty_End_Event-2" bpmn:id="_ZnCZIKW_EeW1o-GnJ_ijAQ">
+              <bpel:copy>
+                <bpel:from>$BudgetingVar-keys/Variables:excercise_id</bpel:from>
+                <bpel:to>$ExcerciseDepartment-keys/Variables:excercise_id</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$department/Business:DepartmentId</bpel:from>
+                <bpel:to>$ExcerciseDepartment-keys/Variables:DepartmentId</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>current-dateTime()</bpel:from>
+                <bpel:to>$ExcerciseDepartment/Variables:RecievedDate</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+          </bpel:sequence>
+        </bpel:scope>
+      </bpel:forEach>
+    </bpel:scope>
+    <bpel:assign bpmn:label="Review and approve budget" name="Review_and_approve_budget" bpmn:id="_DfaF1tEQEeWIHuPdUr6NDg">
+      <bpel:copy>
+        <bpel:from>concat("Review budget requirements for ", $BudgetingVar/Variables:fiscal_year)</bpel:from>
+        <bpel:to>$budget_review1CreateTaskSingleActivityRequest1Msg.root/budget_review1:taskMetaData/budget_review1:description</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$tnsInitProcessRequest1Msg.root/tns:user</bpel:from>
+        <bpel:to>$budget_review1CreateTaskSingleActivityRequest1Msg.root/budget_review1:taskMetaData/budget_review1:userOwner[1]</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>0</bpel:from>
+        <bpel:to>$budget_review1CreateTaskSingleActivityRequest1Msg.root/budget_review1:taskInput/Business:ProjectDepartmentIdentifier/Business:DepartmentId</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$BudgetingVar-keys/Variables:excercise_id</bpel:from>
+        <bpel:to>$budget_review1CreateTaskSingleActivityRequest1Msg.root/budget_review1:taskInput/Business:ProjectDepartmentIdentifier/Business:ExcerciseId</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:assign>
+      <bpel:copy>
+        <bpel:from>"_DfaF1tEQEeWIHuPdUr6NDg"</bpel:from>
+        <bpel:to>$budget_review1CreateTaskSingleActivityRequest1Msg.root/budget_review1:taskMetaData/budget_review1:taskId</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$ode:pid</bpel:from>
+        <bpel:to>$budget_review1CreateTaskSingleActivityRequest1Msg.root/budget_review1:taskMetaData/budget_review1:instanceId</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:invoke partnerLink="wFmagic_DfaF1tEQEeWIHuPdUr6NDgPlkVar" portType="budget_review1:Workflow" operation="createTaskSingleActivity" inputVariable="budget_review1CreateTaskSingleActivityRequest1Msg" outputVariable="budget_review1CreateTaskSingleActivityResponse1Msg" bpmn:label="Review and approve budget" name="Review_and_approve_budget-1" bpmn:id="_DfaF1tEQEeWIHuPdUr6NDg"></bpel:invoke>
+    <bpel:receive partnerLink="wFmagic_DfaF1tEQEeWIHuPdUr6NDgPlkVar" portType="budget_review1:Process" operation="notifyTaskCompletionSingleActivity" variable="budget_review1CreateTaskSingleActivityResponse1Msg" bpmn:label="Review and approve budget" name="Review_and_approve_budget-2" bpmn:id="_DfaF1tEQEeWIHuPdUr6NDg"></bpel:receive>
+    <bpel:assign bpmn:label="Request Budget Distribution" name="Request_Budget_Distribution" bpmn:id="_YCtGRb7yEeWJXYruIRp_ig">
+      <bpel:copy>
+        <bpel:from>$BudgetingVar-keys/Variables:excercise_id</bpel:from>
+        <bpel:to>$pDFGeneration-BudgetProcessStart1Msg.body</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:invoke partnerLink="chief_financial_officerimplicitPartnerAndChief_financial_officerForCanonicPortPlk2Var" portType="PDFGeneration-BudgetProcess:ForCaller" operation="Start" inputVariable="pDFGeneration-BudgetProcessStart1Msg" outputVariable="pDFGeneration-BudgetProcessStartResponse1Msg" bpmn:label="Request Budget Distribution" name="Request_Budget_Distribution-1" bpmn:id="_YCtGRb7yEeWJXYruIRp_ig"></bpel:invoke>
+    <bpel:receive partnerLink="wFmagic_mwdUIL7yEeWJXYruIRp_igPlkVar" portType="formless:Process" operation="createCompleteTaskSingleActivity" variable="formlessCreateTaskSingleActivityResponse1Msg" bpmn:label="Send budget file to CFO" name="Send_budget_file_to_CFO" bpmn:id="_mwdUIL7yEeWJXYruIRp_ig"></bpel:receive>
+    <bpel:assign bpmn:label="Send budget file to CFO" name="Send_budget_file_to_CFO-1" bpmn:id="_mwdUIL7yEeWJXYruIRp_ig">
+      <bpel:copy>
+        <bpel:from>concat("Final budget for ", $BudgetingVar/Variables:fiscal_year)</bpel:from>
+        <bpel:to>$formlessCreateTaskSingleActivityRequest1Msg.root/formless:taskMetaData/formless:description</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>"Final budget attached"</bpel:from>
+        <bpel:to>$formlessCreateTaskSingleActivityRequest1Msg.root/formless:taskInput/formless:FormModel/notesTextAreaInput/notesTextArea</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>bpel:doXslTransform("../XSLT/transform_pdf_to_form_attachment.xsl", $pDFGeneration-BudgetProcessStartResponse1Msg.body)</bpel:from>
+        <bpel:to>$formlessCreateTaskSingleActivityRequest1Msg.root/formless:taskMetaData/formless:attachments</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:reply partnerLink="wFmagic_mwdUIL7yEeWJXYruIRp_igPlkVar" portType="formless:Process" operation="createCompleteTaskSingleActivity" variable="formlessCreateTaskSingleActivityRequest1Msg" bpmn:label="Send budget file to CFO" name="Send_budget_file_to_CFO-2" bpmn:id="_mwdUIL7yEeWJXYruIRp_ig"></bpel:reply>
+    <bpel:empty bpmn:label="Empty_End_Event" name="Empty_End_Event-3" bpmn:id="_qbc_ML7yEeWJXYruIRp_ig"></bpel:empty>
+  </bpel:sequence>
+</bpel:process>

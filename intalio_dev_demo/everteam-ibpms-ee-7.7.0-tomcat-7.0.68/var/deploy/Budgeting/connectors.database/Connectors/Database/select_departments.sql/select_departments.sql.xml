@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jdbc:descriptor wsdlLocation="select_departments.sql.wsdl" targetNamespace="urn:intalio.com:connectors:database:budgeting:select_departmentsservice" xmlns:jdbc="http://bpms.intalio.com/connectors/jdbc/">
+    <jdbc:service name="select_departmentsService">
+        <jdbc:operation name="urn:select_departments" sqlStatement="select DEPARTMENT_ID,DEPARTMENT_NAME,DIRECTOR from Departments order by DEPARTMENT_ID;" event="false" dynamicCredentials="true" xmlns:urn="urn:intalio.com:connectors:database:budgeting:select_departmentsservice">
+            <jdbc:input/>
+            <jdbc:filter rowsToSendService="1" rowsToFetch="-1" duration="-PT1S">
+                <jdbc:unique scope="none"/>
+            </jdbc:filter>
+            <jdbc:output/>
+        </jdbc:operation>
+        <jdbc:port>
+            <jdbc:address location="http://bpms.local:8080/intalio/ode/processes/select_departmentsService"/>
+        </jdbc:port>
+        <jdbc:connection jndiName="java:comp/env/jdbc/">
+            <jdbc:databaseProductName>Generic JDBC</jdbc:databaseProductName>
+            <jdbc:databaseProductVersion>1.0</jdbc:databaseProductVersion>
+            <jdbc:driverClass>org.h2.Driver</jdbc:driverClass>
+            <jdbc:databaseUrl>jdbc:h2:tcp://bpms.local:9092/BPMSDB;SCHEMA=bpms;MODE=MYSQL;DATABASE_TO_UPPER=FALSE;MVCC=TRUE</jdbc:databaseUrl>
+            <jdbc:databaseName>BPMSDB</jdbc:databaseName>
+            <jdbc:userName>sa</jdbc:userName>
+            <jdbc:password/>
+        </jdbc:connection>
+    </jdbc:service>
+</jdbc:descriptor>

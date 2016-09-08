@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Copyright (c) 2005-2014 Intalio inc.
+ 
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+ 
+  Contributors:
+  Intalio inc. - initial API and implementation
+ -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<context:property-placeholder
+		location="file:${INTALIO_CONF}/common/base-config.properties" order="1" ignore-unresolvable="false" />
+
+	<bean id="tas.storageStrategy" class="org.intalio.tempo.workflow.tas.core.WDSStorageStrategy">
+		<property name="endpoint">
+			<value>http://${com.intalio.bpms.server.baseUrl}/${com.intalio.bpms.endpoint.wds}</value>
+		</property>
+	</bean>
+
+	<!-- Uncomment the below, and comment the above to get alfresco configuration -->
+	<!-- <bean id="tas.storageStrategy" class="com.intalio.tempo.workflow.tas.alfresco.AlfrescoStorageStrategy">
+		<property name="url"><value>http://127.0.0.1:8180/alfresco</value></property>
+		<property name="username"><value>admin</value></property>
+		<property name="password"><value>admin</value></property>
+		<property name="folderName"><value>Intalio</value></property>
+		<property name="illegalCharacters"><value>\:+.</value></property>
+	</bean>  -->
+
+	<!-- Uncomment the below, and comment the above to get sling configuration -->
+	<!-- <bean id="tas.storageStrategy" class="org.intalio.tempo.workflow.tas.sling.SlingStorageStrategy">
+		<property name="baseFolder" value="/sling-test"/>
+		<property name="userName" value="admin"/>
+		<property name="password" value="admin"/>
+		<property name="slingUrl" value="http://bpms.local:8080/sling"/>
+	</bean>  -->
+
+	<!-- <bean id="tas.storageStrategy" class="com.intalio.tempo.workflow.tas.sharepoint.SharepointStorageStrategy">
+		<property name="hostname"><value>host.sharepoint.com</value></property>
+		<property name="port"><value>443</value></property>
+		<property name="workstation"><value></value></property>
+		<property name="domain"><value></value></property>
+		<property name="username"><value>user@host.com</value></property>
+		<property name="password"><value>password</value></property>
+		<property name="parentFolderName"><value>Shared%20Documents</value></property>
+		<property name="storageFolderName"><value>Forms</value></property>
+		<property name="scheme"><value>https</value></property>
+	</bean> -->
+</beans>

@@ -1,0 +1,31 @@
+{
+  "name": "Customer",
+  "plural": "Customers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "contact_name": {
+      "type": "string",
+      "required": true
+    },
+    "contact_phone": {
+      "type": "string",
+      "required": true
+    },
+    "contact_email": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:this="http://budgeting.example.everteam.com/Processes/Integrations/GetSingleDepartment/Process" xmlns:ProcessimplicitPartner="http://budgeting.example.everteam.com/Processes/Integrations/GetSingleDepartment/ProcessimplicitPartner" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://budgeting.example.everteam.com/Types/Business" xmlns:Technical="http://budgeting.example.everteam.com/Types/Technical" xmlns:diag="http://budgeting.example.everteam.com/Processes/Integrations/GetSingleDepartment" xmlns:Caller="http://budgeting.example.everteam.com/Processes/Integrations/GetSingleDepartment/Caller" xmlns:ns="urn:intalio.com:connectors:database:budgeting:select_single_departmentservice" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://budgeting.example.everteam.com/Processes/Integrations/GetSingleDepartment/Process">
+    <wsdl:types>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://budgeting.example.everteam.com/Processes/Integrations/GetSingleDepartment/Process">
+            <xs:import namespace="http://budgeting.example.everteam.com/Types/Business" schemaLocation="../../Schemas/Business.xsd"/>
+            <xs:import namespace="http://budgeting.example.everteam.com/Types/Technical" schemaLocation="../../Schemas/Technical.xsd"/>
+            <xs:element name="Recieve__requestGetSingleDepartmentFault" type="Technical:ErrorType"/>
+            <xs:element name="Recieve__requestRequest" type="xs:string"/>
+            <xs:element name="Recieve__requestResponse" type="tns:DepartmentType"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="Recieve__requestGetSingleDepartmentFault">
+        <wsdl:part name="body" element="this:Recieve__requestGetSingleDepartmentFault"/>
+    </wsdl:message>
+    <wsdl:message name="Recieve__requestRequest">
+        <wsdl:part name="body" element="this:Recieve__requestRequest"/>
+    </wsdl:message>
+    <wsdl:message name="Recieve__requestResponse">
+        <wsdl:part name="body" element="this:Recieve__requestResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ForCaller">
+        <wsdl:operation name="Recieve__request">
+            <wsdl:input message="this:Recieve__requestRequest" name="Recieve__request"/>
+            <wsdl:output message="this:Recieve__requestResponse" name="Recieve__requestResponse"/>
+            <wsdl:fault name="GetSingleDepartmentFault" message="this:Recieve__requestGetSingleDepartmentFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CanonicBindingForCaller" type="this:ForCaller">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Recieve__request">
+            <soap:operation style="document" soapAction="http://budgeting.example.everteam.com/Processes/Integrations/GetSingleDepartment/Process/ForCaller/Recieve__request"/>
+            <wsdl:input name="Recieve__request">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="Recieve__requestResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="GetSingleDepartmentFault">
+                <soap:fault name="GetSingleDepartmentFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CanonicServiceForCaller">
+        <wsdl:port name="canonicPort" binding="this:CanonicBindingForCaller">
+            <soap:address location="http://bpms.local:8080/everteam/ode/processes/Budgeting/Processes/Integrations/GetSingleDepartment/Process/Caller"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

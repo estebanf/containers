@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ode="http://www.apache.org/ode/type/extension" xmlns:ProcessimplicitPartner="http://floridabluedemo.com/Processes/CreateMember/ProcessimplicitPartner" xmlns:tns="http://www.example.org/Demo" xmlns:this="http://floridabluedemo.com/Processes/CreateMember/Process" xmlns:diag="http://floridabluedemo.com/Processes/CreateMember" xmlns:ns="urn:intalio.com:connectors:database:floridabluedemo:insert_memberservice" xmlns:Caller="http://floridabluedemo.com/Processes/CreateMember/Caller" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpmn="http://www.intalio.com/bpms" xmlns:atomic="http://ode.apache.org/atomicScope" queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" bpmn:label="Process" name="Process" bpmn:id="_ZHCIIO9lEeWmDdSFjabuNA" targetNamespace="http://floridabluedemo.com/Processes/CreateMember/Process">
+  <bpel:import namespace="http://floridabluedemo.com/Processes/CreateMember" location="CreateMember.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="http://floridabluedemo.com/Processes/CreateMember/Process" location="CreateMember-Process.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="urn:intalio.com:connectors:database:floridabluedemo:insert_memberservice" location="../Connectors/Database/insert_member.sql/insert_member.sql.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:partnerLinks>
+    <bpel:partnerLink name="callerAndProcessPlkVar" partnerLinkType="diag:CallerAndProcess" myRole="Process_for_Caller"/>
+    <bpel:partnerLink name="processimplicitPartnerAndProcessForInsert_memberPortPlkVar" partnerLinkType="diag:ProcessimplicitPartnerAndProcessForInsert_memberPortPlk" initializePartnerRole="yes" partnerRole="ProcessimplicitPartner_for_Process"/>
+  </bpel:partnerLinks>
+  <bpel:variables>
+    <bpel:variable name="thisRecieve_new_member_infoRequest2Msg" messageType="this:Recieve_new_member_infoRequest"/>
+    <bpel:variable name="nsInsert_memberResponse1Msg" messageType="ns:insert_memberOutput"/>
+    <bpel:variable name="nsInsert_memberRequest1Msg" messageType="ns:insert_memberInput"/>
+    <bpel:variable name="thisRecieve_new_member_infoResponse1Msg" messageType="this:Recieve_new_member_infoResponse"/>
+  </bpel:variables>
+  <bpel:sequence>
+    <bpel:receive partnerLink="callerAndProcessPlkVar" portType="this:ForCaller" operation="Recieve_new_member_info" variable="thisRecieve_new_member_infoRequest2Msg" createInstance="yes" bpmn:label="Recieve new member info" name="Recieve_new_member_info" bpmn:id="_egk_sO9lEeWmDdSFjabuNA"></bpel:receive>
+    <bpel:assign name="init-variables-Process" bpmn:id="_egk_sO9lEeWmDdSFjabuNA">
+      <bpel:copy bpmn:label="$nsInsert_memberRequest1Msg">
+        <bpel:from>
+          <bpel:literal>
+<ns:insert_memberParameterSet>
+  <ns:connection>
+    <ns:user></ns:user>
+    <ns:password></ns:password>
+  </ns:connection>
+  <ns:execute>
+    <ns:parameters>
+      <ns:name></ns:name>
+      <ns:sex></ns:sex>
+      <ns:age></ns:age>
+      <ns:diabetes></ns:diabetes>
+      <ns:heartattack></ns:heartattack>
+      <ns:highbloodpressure></ns:highbloodpressure>
+    </ns:parameters>
+  </ns:execute>
+</ns:insert_memberParameterSet></bpel:literal>
+        </bpel:from>
+        <bpel:to>$nsInsert_memberRequest1Msg.parameters</bpel:to>
+      </bpel:copy>
+      <bpel:copy bpmn:label="$thisRecieve_new_member_infoResponse1Msg">
+        <bpel:from>
+          <bpel:literal>
+<this:Recieve_new_member_infoResponse></this:Recieve_new_member_infoResponse></bpel:literal>
+        </bpel:from>
+        <bpel:to>$thisRecieve_new_member_infoResponse1Msg.body</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:assign bpmn:label="Insert member" name="Insert_member" bpmn:id="_gTyCsO9lEeWmDdSFjabuNA">
+      <bpel:copy>
+        <bpel:from>if ("Male" = $thisRecieve_new_member_infoRequest2Msg.body/tns:sex) then ("M") else ("F")</bpel:from>
+        <bpel:to>$nsInsert_memberRequest1Msg.parameters/ns:execute/ns:parameters/ns:sex</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$thisRecieve_new_member_infoRequest2Msg.body/tns:name</bpel:from>
+        <bpel:to>$nsInsert_memberRequest1Msg.parameters/ns:execute/ns:parameters/ns:name</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$thisRecieve_new_member_infoRequest2Msg.body/tns:age</bpel:from>
+        <bpel:to>$nsInsert_memberRequest1Msg.parameters/ns:execute/ns:parameters/ns:age</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$thisRecieve_new_member_infoRequest2Msg.body/tns:diabetes</bpel:from>
+        <bpel:to>$nsInsert_memberRequest1Msg.parameters/ns:execute/ns:parameters/ns:diabetes</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$thisRecieve_new_member_infoRequest2Msg.body/tns:heartAttack</bpel:from>
+        <bpel:to>$nsInsert_memberRequest1Msg.parameters/ns:execute/ns:parameters/ns:heartattack</bpel:to>
+      </bpel:copy>
+      <bpel:copy>
+        <bpel:from>$thisRecieve_new_member_infoRequest2Msg.body/tns:highBloodPressure</bpel:from>
+        <bpel:to>$nsInsert_memberRequest1Msg.parameters/ns:execute/ns:parameters/ns:highbloodpressure</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:invoke partnerLink="processimplicitPartnerAndProcessForInsert_memberPortPlkVar" portType="ns:insert_memberPort" operation="insert_member" inputVariable="nsInsert_memberRequest1Msg" outputVariable="nsInsert_memberResponse1Msg" bpmn:label="Insert member" name="Insert_member-1" bpmn:id="_gTyCsO9lEeWmDdSFjabuNA"></bpel:invoke>
+    <bpel:assign bpmn:label="Message_End_Event" name="Message_End_Event" bpmn:id="_vzYkQO9lEeWmDdSFjabuNA">
+      <bpel:copy>
+        <bpel:from>$ode:pid</bpel:from>
+        <bpel:to>$thisRecieve_new_member_infoResponse1Msg.body</bpel:to>
+      </bpel:copy>
+    </bpel:assign>
+    <bpel:reply partnerLink="callerAndProcessPlkVar" portType="this:ForCaller" operation="Recieve_new_member_info" variable="thisRecieve_new_member_infoResponse1Msg" bpmn:label="Message_End_Event" name="Message_End_Event-1" bpmn:id="_vzYkQO9lEeWmDdSFjabuNA"></bpel:reply>
+  </bpel:sequence>
+</bpel:process>

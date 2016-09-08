@@ -1,0 +1,24 @@
+#collb-column2
+{
+width:286px;
+}
+.itemdiv.memberdiv {
+width: 30%;
+}
+.select_list select {
+width:100px;
+margin-bottom:0;
+}
+#ace-settings-btn{
+	border-radius: 8px;
+	background-color: #999999 !important;
+	filter:none;
+}
+.btn-warning.btn-app, .no-hover.btn-warning.btn-app:hover, .disabled.btn-warning.btn-app:hover{
+	filter:none;
+	background-color: white;
+}
+
+#projectPage_Template .dataTables_wrapper .row, #branchPage_Template .dataTables_wrapper .row{
+	height:40px;
+}

@@ -1,0 +1,22 @@
+.chzn-container-single .chzn-single {
+
+border-radius: 0px 0px 0px 0px;
+box-shadow: 0 0 3px #FFFFFF inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+background:#FFFFFF ;
+}
+.border-class
+{
+border: 0.5px dotted red;
+}
+ul.chzn-results li
+{
+    text-align:left;
+}
+a.accordion-toggle{
+outline:none;
+}
+#rolesCombo_chzn {
+	margin-right: 160px;
+	float:right;
+	text-align: center;
+}

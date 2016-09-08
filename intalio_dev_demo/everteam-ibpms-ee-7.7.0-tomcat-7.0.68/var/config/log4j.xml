@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="false"
+                     xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+  <appender name="ASYNC" class="org.apache.log4j.AsyncAppender">
+    <param name="threshold" value="TRACE"/>
+    <param name="blocking" value="true" />
+    <param name="bufferSize" value="16384" />
+    <appender-ref ref="CONSOLE" />
+    <appender-ref ref="FILE" />
+  </appender>
+
+   <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+     <param name="threshold" value="TRACE"/>
+     <param name="target" value="System.out"/>
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="conversionPattern" value="%d{ISO8601} %-5r %-5p [%c] (%t:%x) %m%n"/>
+      </layout>
+   </appender>
+
+   <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+     <param name="threshold" value="TRACE"/>
+      <param name="append" value="true"/>
+      <param name="bufferedIO" value="false"/>
+      <param name="immediateFlush" value="true"/>
+      <param name="maxBackupIndex" value="5"/>
+      <param name="maxFileSize" value="10MB"/>
+      <param name="file" value="${INTALIO_CONF}/../log/bpms.log"/>
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="conversionPattern" value="%d{ISO8601} %-5r %-5p [%c] (%t:%x) %m%n"/>
+      </layout>
+   </appender>
+
+   <category name="org.apache.geronimo.gbean.runtime.GBeanSingleReference">
+      <priority value="DEBUG"/>
+   </category>
+
+   <category name="org.apache.commons.digester">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.jasper.compiler.SmapUtil">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- ActiveMQ -->
+   <category name="org.activemq.ActiveMQConnection">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.activemq.store.jdbc.adapter.DefaultJDBCAdapter">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.activemq.store.jdbc.JDBCPersistenceAdapter">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.activemq.store.journal.JournalPersistenceAdapter">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.activemq.broker.impl.BrokerContainerImpl">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.activemq.broker.impl.BrokerConnectorImpl">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.activemq.transport.tcp.TcpTransportChannel">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.activemq.transport.tcp.TcpTransportServerChannel">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.activemq.transport.vm.VmTransportServerChannel">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="com.eviware.soapui">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- Don't need so much info on every web page that's rendered -->
+   <category name="org.mortbay">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.pluto">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.jasper">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- Various Jetty startup/shutdown output -->
+   <category name="org.mortbay.http.HttpServer">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.mortbay.http.SocketListener">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.mortbay.http.ajp.AJP13Listener">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.mortbay.util.Container">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.mortbay.util.Credential">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.mortbay.util.ThreadedServer">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.mortbay.jetty.servlet.WebApplicationContext">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.mortbay.jetty.context">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- Various Tomcat startup output -->
+   <category name="org.apache.catalina.core">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.catalina.session.ManagerBase">
+      <priority value="FATAL"/>
+   </category>
+
+   <category name="org.apache.catalina.realm.JAASRealm">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.catalina.realm.RealmBase">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.catalina.loader.WebappLoader">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.catalina.startup">
+      <priority value="INFO"/>
+   </category>
+
+   <category name="org.apache.catalina.startup.Embedded">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.catalina.core.StandardEngine">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.catalina.core.StandardHost">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.jk.common.ChannelSocket">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.jk.server.JkMain">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.coyote.http11.Http11BaseProtocol">
+      <priority value="INFO"/>
+   </category>
+
+   <category name="org.apache.coyote.http11.Http11Protocol">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.catalina.core.ContainerBase">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- Emits a spurious WARN during startup on /some-path/* security mappings -->
+   <category name="org.apache.catalina.deploy.SecurityCollection">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- Prints the MBean Server ID -->
+   <category name="javax.management.MBeanServerFactory">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- Prints the RMI connection URL -->
+   <category name="javax.management.remote.rmi.RMIConnectorServer">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="javax.management.remote.JMXServiceURL">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- Prints various stuff during startup -->
+   <category name="org.apache.juddi.registry.RegistryServlet">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- Prints various stuff when the portal is used -->
+   <category name="org.apache.pluto.portalImpl.Servlet">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- Prints stuff for AJAX calls -->
+   <category name="uk.ltd.getahead.dwr.impl.DefaultConfiguration">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="uk.ltd.getahead.dwr.impl.ExecuteQuery">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="uk.ltd.getahead.dwr.util.Logger">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="openjpa.Runtime">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="openjpa.MetaData">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.intalio">
+      <priority value="WARN"/>
+   </category>
+
+   <category name="com.intalio.bpms">
+      <priority value="WARN"/>
+   </category>
+
+   <category name="com.intalio.bpms.console">
+      <priority value="WARN"/>
+   </category>
+
+   <category name="tempo.security">
+      <priority value="WARN"/>
+   </category>
+
+   <category name="org.apache.myfaces">
+      <priority value="FATAL"/>
+   </category>
+
+   <category name="org.apache.myfaces.tobago.util.LayoutInfo">
+      <priority value="FATAL"/>
+   </category>
+
+   <category name="org.apache.myfaces.tobago.context.ResourceManagerImpl">
+      <priority value="FATAL"/>
+   </category>
+
+   <category name="org.apache.myfaces.tobago.context.ResourceLocator">
+      <priority value="FATAL"/>
+   </category>
+
+   <category name="org.apache.myfaces.tobago.renderkit.RendererBase">
+      <priority value="FATAL"/>
+   </category>
+
+   <category name="org.apache.myfaces.tobago.component.UIData">
+      <priority value="FATAL"/>
+   </category>
+
+   <category name="org.apache">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.axis2">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.struts">
+      <priority value="FATAL"/>
+   </category>
+
+   <category name="org.apache.servicemix">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.xbean">
+      <priority value="FATAL"/>
+   </category>
+
+   <category name="org.apache.myfaces">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- Apache Ode process engine -->
+   <category name="org.apache.ode">
+      <priority value="WARN"/>
+   </category>
+
+   <category name="org.apache.ode.jacob">
+      <priority value="WARN"/>
+   </category>
+
+   <category name="org.apache.ode.bpel.engine.DebuggerSupport">
+      <priority value="WARN"/>
+   </category>
+
+   <category name="org.apache.ode.utils.NSContext">
+      <priority value="WARN"/>
+   </category>
+
+   <category name="org.intalio.deploy">
+      <priority value="WARN"/>
+   </category>
+
+   <category name="org.apache.ode.axis2.deploy">
+      <priority value="WARN"/>
+   </category>
+
+   <category name="org.apache.ode.sax">
+      <priority value="WARN"/>
+   </category>
+
+   <category name="org.apache.directory">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.orbeon.oxf">
+      <priority value="ERROR"/>
+   </category>
+
+   <!-- category name="org.orbeon.oxf.processor.DebugProcessor">
+      <priority value="WARN"/>
+   </category -->
+
+   <!-- category name="org.orbeon.oxf.xforms.processor.XFormsServer">
+      <priority value="INFO"/>
+   </category -->
+
+   <!-- category name="org.orbeon.oxf.xforms.processor.XFormsModelSubmission">
+      <priority value="DEBUG"/>
+   </category -->
+
+<!-- To track XSL and XPath function evaluation, set these to DEBUG -->
+   <category name="org.apache.ode.bpel.elang.xpath10.runtime">
+      <priority value="WARN"/>
+   </category>
+
+   <category name="org.apache.ode.bpel.elang.xpath20.runtime">
+      <priority value="WARN"/>
+   </category>
+
+<!-- BRE: Business Rule Engine -->
+   <category name="com.intalio.bre">
+      <priority value="WARN"/>
+   </category>
+
+   <category name="com.intalio.bpms.dt.deploy">
+      <priority value="WARN"/>
+   </category>
+
+<!-- uncomment following to enable BRE audit logging
+# com.intalio.bre.runtime.audit=DEBUG -->
+
+<!-- CAS -->
+   <category name="org.jasig.cas">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.jasig.cas.web.flow">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- COLLABORATION -->
+   <category name="com.intalio.collaboration">
+      <priority value="WARN"/>
+   </category>
+
+   <!-- process analytics -->
+   <category name="com.intalio.bpms.analytics">
+      <priority value="WARN"/>
+   </category>
+
+   <!-- pdf generation utility -->
+   <category name="com.intalio.bpms.pdfgen">
+      <priority value="WARN"/>
+   </category>
+
+<!-- SOCIAL -->
+   <category name="com.intalio.bpms.social">
+      <priority value="WARN"/>
+   </category>
+
+<!-- MOBILE-WORKFLOW -->
+   <category name="com.intalio.mobi">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- Hibernate -->
+   <category name="org.hibernate">
+      <priority value="ERROR"/>
+   </category>
+
+<!-- HttpClient -->
+   <category name="httpclient.wire">
+      <priority value="ERROR"/>
+   </category>
+
+   <category name="org.apache.commons.httpclient">
+      <priority value="ERROR"/>
+   </category>
+
+   <root>
+      <level value="WARN"/>
+      <appender-ref ref="ASYNC"/>
+   </root>
+
+</log4j:configuration>

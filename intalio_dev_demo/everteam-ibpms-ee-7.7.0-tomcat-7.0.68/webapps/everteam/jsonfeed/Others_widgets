@@ -1,0 +1,16 @@
+{
+"result" :
+  {
+  "data" : [
+	{
+      "id" : "cat-5-58",
+      "title" : "Average Web Service Response Time",
+      "description" : "Average time taken by web services to complete request processing.",
+      "creator" : "Intalio Inc",
+      "url" : "widgets/others/ws_avg_response_time.jsp",
+      "filter":"",
+      "image": "images/ws_response.png"
+    }
+	]
+  }
+} 

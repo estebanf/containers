@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+	http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+	<context:component-scan base-package="com.intalio.bpms.dt.deploy" >
+	  <context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<tx:annotation-driven transaction-manager="dtdeployment.transactionManager" />
+
+	<context:property-placeholder
+		location="file:${INTALIO_CONF}/common/base-config.properties" order="1" ignore-unresolvable="false" />
+
+	<import resource="file:${INTALIO_CONF}/hibernate/hibernate-properties.xml" />
+
+	<import resource="file:${INTALIO_CONF}/bre/bre-access-control.xml" />
+
+    <bean id="dtdeployment.messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>bre-dtdeployment/bre-dtdeployment-messages</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dtdeployment.breAdminListHolder"
+		class="com.intalio.bpms.dt.deploy.utils.BreAdminListHolder">
+		<property name="breAdminRoles" ref="breAdminRoles"/>
+
+	</bean>
+
+<!--
+    <bean id="dtdeployment.breAccessService" name="dtdeployment.breAccessService"
+		class="com.intalio.bpms.dt.deploy.service.BREAccessService">
+		<property name="breAdminRoles" ref="breAdminRoles"/>
+	</bean>
+-->
+
+	<bean id="dtdeployment.configuration" class="com.intalio.bpms.dt.deploy.utils.Configuration">
+		<property name="breTempDir" value="${INTALIO_CONF}/temp" />
+	</bean>
+
+	<bean id="dtdeployment.dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>${com.intalio.bpms.jndi.bpmsdb}</value>
+		</property>
+	</bean>
+
+	<bean id="dtdeployment.sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="dtdeployment.dataSource" />
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.intalio.bpms.dt.deploy.pojo.BreAccessHolder</value>
+				<value>com.intalio.bpms.dt.deploy.pojo.BreDecisionTable</value>
+				<value>com.intalio.bpms.dt.deploy.pojo.BreAccessLock</value>
+				<value>com.intalio.bpms.dt.deploy.pojo.BreAudit</value>
+			</list>
+		</property>
+		<property name="hibernateProperties" ref="hibernateProperties" />
+	</bean>
+
+	<!-- Spring Data Access Exception Translator Defintion -->
+	<bean id="dtdeployment.jdbcExceptionTranslator"
+		class="org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator">
+		<property name="dataSource">
+			<ref bean="dtdeployment.dataSource" />
+		</property>
+	</bean>
+
+	<!-- Hibernate Template Defintion -->
+	<bean id="dtdeployment.hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref bean="dtdeployment.sessionFactory" />
+		</property>
+		<property name="jdbcExceptionTranslator">
+			<ref bean="dtdeployment.jdbcExceptionTranslator" />
+		</property>
+	</bean>
+
+	<bean id="dtdeployment.breDecisionTableDao" class="com.intalio.bpms.dt.deploy.dao.BreDecisionTableDao">
+		<property name="hibernateTemplate">
+			<ref bean="dtdeployment.hibernateTemplate" />
+		</property>
+	</bean>
+
+	<bean id="dtdeployment.breAuditDao" class="com.intalio.bpms.dt.deploy.dao.BreAuditDao">
+		<property name="hibernateTemplate">
+			<ref bean="dtdeployment.hibernateTemplate" />
+		</property>
+	</bean>
+
+	<!-- Aspect -->
+	<bean id="dtdeployment.auditAspect" class="com.intalio.bpms.dt.deploy.aop.BreAuditAspect" />
+
+	<bean id="dtdeployment.transactionManager"
+		class="org.springframework.transaction.jta.JtaTransactionManager">
+		<property name="transactionManagerName" value="${com.intalio.bpms.jndi.txmanager}" />
+		<property name="userTransactionName" value="${com.intalio.bpms.jndi.usertx}" />
+	</bean>
+
+	<context:annotation-config />
+	<aop:aspectj-autoproxy />
+</beans>

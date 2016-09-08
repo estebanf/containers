@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ode="http://www.apache.org/ode/type/extension" xmlns:caller="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/caller" xmlns:processimplicitPartner="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/processimplicitPartner" xmlns:Business="http://budgeting.example.everteam.com/Types/Business" xmlns:this="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/process" xmlns:select_attachmetns="urn:intalio.com:connectors:database:budgeting:select_attachmetnsservice" xmlns:tns="http://budgeting.example.everteam.com/Types/Technical" xmlns:diag="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement" xmlns:ns="urn:intalio.com:connectors:database:budgeting:insert_attachmentservice" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpmn="http://www.intalio.com/bpms" xmlns:atomic="http://ode.apache.org/atomicScope" queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" bpmn:label="process" name="process" bpmn:id="_YD4wgIMyEeWG07MHKwyOLA" targetNamespace="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/process">
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement" location="AttachmentManagement.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Processes/Integrations/AttachmentManagement/process" location="AttachmentManagement-process.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="urn:intalio.com:connectors:database:budgeting:insert_attachmentservice" location="../../Connectors/Database/insert_attachment.sql/insert_attachment.sql.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="urn:intalio.com:connectors:database:budgeting:select_attachmetnsservice" location="../../Connectors/Database/select_attachmetns.sql/select_attachmetns.sql.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="http://budgeting.example.everteam.com/Types/Technical" location="../../Schemas/Technical.xsd" importType="http://www.w3.org/2001/XMLSchema"></bpel:import>
+  <bpel:partnerLinks>
+    <bpel:partnerLink name="callerAndProcessPlkVar" partnerLinkType="diag:callerAndProcess" myRole="process_for_caller"/>
+    <bpel:partnerLink name="processimplicitPartnerAndProcessForSelect_attachmetnsPortPlkVar" partnerLinkType="diag:processimplicitPartnerAndProcessForSelect_attachmetnsPortPlk" initializePartnerRole="yes" partnerRole="processimplicitPartner_for_process"/>
+    <bpel:partnerLink name="processimplicitPartnerAndProcessForInsert_attachmentPortPlkVar" partnerLinkType="diag:processimplicitPartnerAndProcessForInsert_attachmentPortPlk" initializePartnerRole="yes" partnerRole="processimplicitPartner_for_process"/>
+  </bpel:partnerLinks>
+  <bpel:variables>
+    <bpel:variable name="thisStore_attachmentsRequestMsg" messageType="this:Store_attachmentsRequest"/>
+    <bpel:variable name="thisStore_attachmentsResponseMsg" messageType="this:Store_attachmentsResponse"/>
+    <bpel:variable name="thisGet_attachmentsRequestMsg" messageType="this:Get_attachmentsRequest"/>
+    <bpel:variable name="thisGet_attachmentsResponseMsg" messageType="this:Get_attachmentsResponse"/>
+    <bpel:variable name="select_attachmetnsSelect_attachmetnsResponse1Msg" messageType="select_attachmetns:select_attachmetnsOutput"/>
+    <bpel:variable name="select_attachmetnsSelect_attachmetnsRequest1Msg" messageType="select_attachmetns:select_attachmetnsInput"/>
+  </bpel:variables>
+  <bpel:pick createInstance="yes" bpmn:label="Exclusive_Event-Based_Gateway" name="Exclusive_Event-Based_Gateway" bpmn:id="_c_o40IMyEeWG07MHKwyOLA">
+    <bpel:onMessage partnerLink="callerAndProcessPlkVar" portType="this:Forcaller" operation="Get_attachments" variable="thisGet_attachmentsRequestMsg" bpmn:label="Get attachments" name="Get_attachments" bpmn:id="_ePYCYIMyEeWG07MHKwyOLA">
+      <bpel:sequence>
+        <bpel:sequence>
+          <bpel:assign name="init-variables-process" bpmn:id="_YD4wgIMyEeWG07MHKwyOLA">
+            <bpel:copy bpmn:label="$thisStore_attachmentsResponseMsg">
+              <bpel:from>
+                <bpel:literal>
+<this:Store_attachmentsResponse>
+  <tns:InstanceId></tns:InstanceId>
+  <tns:Timestamp></tns:Timestamp>
+</this:Store_attachmentsResponse></bpel:literal>
+              </bpel:from>
+              <bpel:to>$thisStore_attachmentsResponseMsg.body</bpel:to>
+            </bpel:copy>
+            <bpel:copy bpmn:label="$thisGet_attachmentsResponseMsg">
+              <bpel:from>
+                <bpel:literal>
+<this:Get_attachmentsResponse>
+  <tns:attachment>
+    <tns:mimeType></tns:mimeType>
+    <tns:fileName></tns:fileName>
+    <tns:title></tns:title>
+    <tns:description></tns:description>
+    <tns:creationDate></tns:creationDate>
+    <tns:payloadUrl></tns:payloadUrl>
+  </tns:attachment>
+</this:Get_attachmentsResponse></bpel:literal>
+              </bpel:from>
+              <bpel:to>$thisGet_attachmentsResponseMsg.body</bpel:to>
+            </bpel:copy>
+            <bpel:copy bpmn:label="$select_attachmetnsSelect_attachmetnsRequest1Msg">
+              <bpel:from>
+                <bpel:literal>
+<select_attachmetns:select_attachmetnsParameterSet>
+  <select_attachmetns:connection>
+    <select_attachmetns:user></select_attachmetns:user>
+    <select_attachmetns:password></select_attachmetns:password>
+  </select_attachmetns:connection>
+  <select_attachmetns:execute>
+    <select_attachmetns:parameters>
+      <select_attachmetns:REFERENCE></select_attachmetns:REFERENCE>
+    </select_attachmetns:parameters>
+  </select_attachmetns:execute>
+</select_attachmetns:select_attachmetnsParameterSet></bpel:literal>
+              </bpel:from>
+              <bpel:to>$select_attachmetnsSelect_attachmetnsRequest1Msg.parameters</bpel:to>
+            </bpel:copy>
+          </bpel:assign>
+          <bpel:assign bpmn:label="Query attachments" name="Query_attachments" bpmn:id="_3Rxv4IMyEeWG07MHKwyOLA">
+            <bpel:copy>
+              <bpel:from>$thisGet_attachmentsRequestMsg.body</bpel:from>
+              <bpel:to>$select_attachmetnsSelect_attachmetnsRequest1Msg.parameters/select_attachmetns:execute/select_attachmetns:parameters/select_attachmetns:REFERENCE</bpel:to>
+            </bpel:copy>
+          </bpel:assign>
+          <bpel:invoke partnerLink="processimplicitPartnerAndProcessForSelect_attachmetnsPortPlkVar" portType="select_attachmetns:select_attachmetnsPort" operation="select_attachmetns" inputVariable="select_attachmetnsSelect_attachmetnsRequest1Msg" outputVariable="select_attachmetnsSelect_attachmetnsResponse1Msg" bpmn:label="Query attachments" name="Query_attachments-1" bpmn:id="_3Rxv4IMyEeWG07MHKwyOLA"></bpel:invoke>
+          <bpel:assign bpmn:label="Message_End_Event" name="Message_End_Event" bpmn:id="_4HG1YIMyEeWG07MHKwyOLA">
+            <bpel:copy>
+              <bpel:from>bpel:doXslTransform("../../XSLT/transform_db_to_attachments.xsl", $select_attachmetnsSelect_attachmetnsResponse1Msg.parameters)</bpel:from>
+              <bpel:to>$thisGet_attachmentsResponseMsg.body</bpel:to>
+            </bpel:copy>
+          </bpel:assign>
+          <bpel:reply partnerLink="callerAndProcessPlkVar" portType="this:Forcaller" operation="Get_attachments" variable="thisGet_attachmentsResponseMsg" bpmn:label="Message_End_Event" name="Message_End_Event-1" bpmn:id="_4HG1YIMyEeWG07MHKwyOLA"></bpel:reply>
+        </bpel:sequence>
+      </bpel:sequence>
+    </bpel:onMessage>
+    <bpel:onMessage partnerLink="callerAndProcessPlkVar" portType="this:Forcaller" operation="Store_attachments" variable="thisStore_attachmentsRequestMsg" bpmn:label="Store attachments" name="Store_attachments" bpmn:id="_fy2AQIMyEeWG07MHKwyOLA">
+      <bpel:sequence>
+        <bpel:sequence>
+          <bpel:assign name="init-variables-process" bpmn:id="_YD4wgIMyEeWG07MHKwyOLA">
+            <bpel:copy bpmn:label="$thisStore_attachmentsResponseMsg">
+              <bpel:from>
+                <bpel:literal>
+<this:Store_attachmentsResponse>
+  <tns:InstanceId></tns:InstanceId>
+  <tns:Timestamp></tns:Timestamp>
+</this:Store_attachmentsResponse></bpel:literal>
+              </bpel:from>
+              <bpel:to>$thisStore_attachmentsResponseMsg.body</bpel:to>
+            </bpel:copy>
+            <bpel:copy bpmn:label="$thisGet_attachmentsResponseMsg">
+              <bpel:from>
+                <bpel:literal>
+<this:Get_attachmentsResponse>
+  <tns:attachment>
+    <tns:mimeType></tns:mimeType>
+    <tns:fileName></tns:fileName>
+    <tns:title></tns:title>
+    <tns:description></tns:description>
+    <tns:creationDate></tns:creationDate>
+    <tns:payloadUrl></tns:payloadUrl>
+  </tns:attachment>
+</this:Get_attachmentsResponse></bpel:literal>
+              </bpel:from>
+              <bpel:to>$thisGet_attachmentsResponseMsg.body</bpel:to>
+            </bpel:copy>
+            <bpel:copy bpmn:label="$select_attachmetnsSelect_attachmetnsRequest1Msg">
+              <bpel:from>
+                <bpel:literal>
+<select_attachmetns:select_attachmetnsParameterSet>
+  <select_attachmetns:connection>
+    <select_attachmetns:user></select_attachmetns:user>
+    <select_attachmetns:password></select_attachmetns:password>
+  </select_attachmetns:connection>
+  <select_attachmetns:execute>
+    <select_attachmetns:parameters>
+      <select_attachmetns:REFERENCE></select_attachmetns:REFERENCE>
+    </select_attachmetns:parameters>
+  </select_attachmetns:execute>
+</select_attachmetns:select_attachmetnsParameterSet></bpel:literal>
+              </bpel:from>
+              <bpel:to>$select_attachmetnsSelect_attachmetnsRequest1Msg.parameters</bpel:to>
+            </bpel:copy>
+          </bpel:assign>
+          <bpel:scope bpmn:label="outer-Iterate over attachments" name="outer-Iterate_over_attachments" bpmn:id="_Iie6UINBEeWG07MHKwyOLA">
+            <bpel:forEach bpmn:label="Iterate over attachments" name="Iterate_over_attachments" bpmn:id="_Iie6UINBEeWG07MHKwyOLA" parallel="no" counterName="attachmentCounter">
+              <bpel:startCounterValue>1</bpel:startCounterValue>
+              <bpel:finalCounterValue>count($thisStore_attachmentsRequestMsg.body/tns:Attachments/tns:attachment)</bpel:finalCounterValue>
+              <bpel:scope bpmn:label="Iterate over attachments" name="Iterate_over_attachments-1" bpmn:id="_Iie6UINBEeWG07MHKwyOLA">
+                <bpel:variables>
+                  <bpel:variable name="nsInsert_attachmentResponseMsg" messageType="ns:insert_attachmentOutput"/>
+                  <bpel:variable name="nsInsert_attachmentRequestMsg" messageType="ns:insert_attachmentInput"/>
+                  <bpel:variable name="Attachment" element="tns:Attachment"/>
+                </bpel:variables>
+                <bpel:sequence>
+                  <bpel:assign name="init-variables-Iterate_over_attachments" bpmn:id="_Iie6UINBEeWG07MHKwyOLA">
+                    <bpel:copy bpmn:label="$nsInsert_attachmentRequestMsg">
+                      <bpel:from>
+                        <bpel:literal>
+<ns:insert_attachmentParameterSet>
+  <ns:connection>
+    <ns:user></ns:user>
+    <ns:password></ns:password>
+  </ns:connection>
+  <ns:execute>
+    <ns:parameters>
+      <ns:REFERENCE></ns:REFERENCE>
+      <ns:MIMETYPE></ns:MIMETYPE>
+      <ns:FILENAME></ns:FILENAME>
+      <ns:TITLE></ns:TITLE>
+      <ns:DESCRIPTION></ns:DESCRIPTION>
+      <ns:CREATIONDATE></ns:CREATIONDATE>
+      <ns:PAYLOADURL></ns:PAYLOADURL>
+    </ns:parameters>
+  </ns:execute>
+</ns:insert_attachmentParameterSet></bpel:literal>
+                      </bpel:from>
+                      <bpel:to>$nsInsert_attachmentRequestMsg.parameters</bpel:to>
+                    </bpel:copy>
+                    <bpel:copy bpmn:label="$Attachment">
+                      <bpel:from>
+                        <bpel:literal>
+<tns:Attachment>
+  <tns:mimeType></tns:mimeType>
+  <tns:fileName></tns:fileName>
+  <tns:title></tns:title>
+  <tns:description></tns:description>
+  <tns:creationDate></tns:creationDate>
+  <tns:payloadUrl></tns:payloadUrl>
+</tns:Attachment></bpel:literal>
+                      </bpel:from>
+                      <bpel:to>$Attachment</bpel:to>
+                    </bpel:copy>
+                  </bpel:assign>
+                  <bpel:assign bpmn:label="Extract attachment" name="Extract_attachment" bpmn:id="_GwTyEINBEeWG07MHKwyOLA">
+                    <bpel:copy>
+                      <bpel:from>bpel:doXslTransform("../../XSLT/transform_attachment_to_db.xsl", $thisStore_attachmentsRequestMsg.body/tns:Attachments, "pos", $attachmentCounter)</bpel:from>
+                      <bpel:to>$Attachment</bpel:to>
+                    </bpel:copy>
+                  </bpel:assign>
+                  <bpel:assign bpmn:label="Insert attachment" name="Insert_attachment" bpmn:id="_wT7M8IMyEeWG07MHKwyOLA">
+                    <bpel:copy>
+                      <bpel:from>$Attachment/tns:mimeType</bpel:from>
+                      <bpel:to>$nsInsert_attachmentRequestMsg.parameters/ns:execute/ns:parameters/ns:MIMETYPE</bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                      <bpel:from>$Attachment/tns:fileName</bpel:from>
+                      <bpel:to>$nsInsert_attachmentRequestMsg.parameters/ns:execute/ns:parameters/ns:FILENAME</bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                      <bpel:from>$Attachment/tns:title</bpel:from>
+                      <bpel:to>$nsInsert_attachmentRequestMsg.parameters/ns:execute/ns:parameters/ns:TITLE</bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                      <bpel:from>$Attachment/tns:description</bpel:from>
+                      <bpel:to>$nsInsert_attachmentRequestMsg.parameters/ns:execute/ns:parameters/ns:DESCRIPTION</bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                      <bpel:from>$Attachment/tns:creationDate</bpel:from>
+                      <bpel:to>$nsInsert_attachmentRequestMsg.parameters/ns:execute/ns:parameters/ns:CREATIONDATE</bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                      <bpel:from>$Attachment/tns:payloadUrl</bpel:from>
+                      <bpel:to>$nsInsert_attachmentRequestMsg.parameters/ns:execute/ns:parameters/ns:PAYLOADURL</bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                      <bpel:from>$thisStore_attachmentsRequestMsg.body/tns:Reference</bpel:from>
+                      <bpel:to>$nsInsert_attachmentRequestMsg.parameters/ns:execute/ns:parameters/ns:REFERENCE</bpel:to>
+                    </bpel:copy>
+                  </bpel:assign>
+                  <bpel:invoke partnerLink="processimplicitPartnerAndProcessForInsert_attachmentPortPlkVar" portType="ns:insert_attachmentPort" operation="insert_attachment" inputVariable="nsInsert_attachmentRequestMsg" outputVariable="nsInsert_attachmentResponseMsg" bpmn:label="Insert attachment" name="Insert_attachment-1" bpmn:id="_wT7M8IMyEeWG07MHKwyOLA"></bpel:invoke>
+                </bpel:sequence>
+              </bpel:scope>
+            </bpel:forEach>
+          </bpel:scope>
+          <bpel:assign bpmn:label="Message_End_Event" name="Message_End_Event-2" bpmn:id="_w-HZcIMyEeWG07MHKwyOLA">
+            <bpel:copy>
+              <bpel:from>$ode:pid</bpel:from>
+              <bpel:to>$thisStore_attachmentsResponseMsg.body/tns:InstanceId</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>current-dateTime()</bpel:from>
+              <bpel:to>$thisStore_attachmentsResponseMsg.body/tns:Timestamp</bpel:to>
+            </bpel:copy>
+          </bpel:assign>
+          <bpel:reply partnerLink="callerAndProcessPlkVar" portType="this:Forcaller" operation="Store_attachments" variable="thisStore_attachmentsResponseMsg" bpmn:label="Message_End_Event" name="Message_End_Event-3" bpmn:id="_w-HZcIMyEeWG07MHKwyOLA"></bpel:reply>
+        </bpel:sequence>
+      </bpel:sequence>
+    </bpel:onMessage>
+  </bpel:pick>
+</bpel:process>

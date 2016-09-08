@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jdbc:descriptor wsdlLocation="select_projects.sql.wsdl" targetNamespace="urn:intalio.com:connectors:database:budgeting:select_projectsservice" xmlns:jdbc="http://bpms.intalio.com/connectors/jdbc/">
+    <jdbc:service name="select_projectsService">
+        <jdbc:operation name="urn:select_projects" sqlStatement="select EXCERCISE_ID,DEPARTMENTID, PROJECT_ID, NAME, RESPONSIBLE , TARGET_BUDGET, NOTES,LASTYEARBUDGET , BUDGET , PRIORITY , STARTEXECUTION , ENDEXECUTION , NEWPROJECT , DESCRIPTION , JUSTIFICATION  from ExcerciseProject WHERE EXCERCISE_ID = ? and DEPARTMENTID = ? oRDER BY PROJECT_ID" event="false" dynamicCredentials="true" xmlns:urn="urn:intalio.com:connectors:database:budgeting:select_projectsservice">
+            <jdbc:input>
+                <jdbc:parameter>
+                    <jdbc:mode>1</jdbc:mode>
+                    <jdbc:name>EXCERCISE_ID</jdbc:name>
+                    <jdbc:type>20</jdbc:type>
+                    <jdbc:length>0</jdbc:length>
+                    <jdbc:typeName xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    <jdbc:precision>15</jdbc:precision>
+                    <jdbc:scale>2</jdbc:scale>
+                    <jdbc:nullable>false</jdbc:nullable>
+                    <jdbc:value>1</jdbc:value>
+                    <jdbc:index>0</jdbc:index>
+                </jdbc:parameter>
+                <jdbc:parameter>
+                    <jdbc:mode>1</jdbc:mode>
+                    <jdbc:name>DEPARTMENTID</jdbc:name>
+                    <jdbc:type>20</jdbc:type>
+                    <jdbc:length>0</jdbc:length>
+                    <jdbc:typeName xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    <jdbc:precision>15</jdbc:precision>
+                    <jdbc:scale>2</jdbc:scale>
+                    <jdbc:nullable>false</jdbc:nullable>
+                    <jdbc:value>1</jdbc:value>
+                    <jdbc:index>1</jdbc:index>
+                </jdbc:parameter>
+            </jdbc:input>
+            <jdbc:filter rowsToSendService="1" rowsToFetch="-1" duration="-PT1S">
+                <jdbc:unique scope="none"/>
+            </jdbc:filter>
+            <jdbc:output/>
+        </jdbc:operation>
+        <jdbc:port>
+            <jdbc:address location="http://bpms.local:8080/intalio/ode/processes/select_projectsService"/>
+        </jdbc:port>
+        <jdbc:connection jndiName="java:comp/env/jdbc/">
+            <jdbc:databaseProductName>Generic JDBC</jdbc:databaseProductName>
+            <jdbc:databaseProductVersion>1.0</jdbc:databaseProductVersion>
+            <jdbc:driverClass>org.h2.Driver</jdbc:driverClass>
+            <jdbc:databaseUrl>jdbc:h2:tcp://bpms.local:9092/BPMSDB;SCHEMA=bpms;MODE=MYSQL;DATABASE_TO_UPPER=FALSE;MVCC=TRUE</jdbc:databaseUrl>
+            <jdbc:databaseName>BPMSDB</jdbc:databaseName>
+            <jdbc:userName>sa</jdbc:userName>
+            <jdbc:password/>
+        </jdbc:connection>
+    </jdbc:service>
+</jdbc:descriptor>

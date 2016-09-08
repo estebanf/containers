@@ -1,0 +1,32 @@
+#manageTimerTable {
+	padding: 0px;
+}
+.dataTable th[class*="sorting"]:after {
+    content: "";
+}
+#fromTimer{
+	font-size: 12px;
+	width:100px;
+}
+#toTimer{
+	font-size: 12px;
+	width:100px;
+}
+#findTimer{
+	margin-top: -2px;
+	padding-top: 5px
+}
+#manageTimerTable tr td {
+	color: #393939
+}
+#manageTimerTable .dataTables_wrapper label {
+	color: #393939
+}
+#timepicker {
+	cursor: pointer;
+	background-color: #ffffff !important;
+}
+#timeEditTable tr td {
+	padding:4px !important;
+	vertical-align: middle;
+}

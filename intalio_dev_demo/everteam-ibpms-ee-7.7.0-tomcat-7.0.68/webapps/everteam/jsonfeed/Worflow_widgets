@@ -1,0 +1,72 @@
+{
+"result" :
+  {
+  "data" : [
+    {
+      "id" : "cat-3-50",
+      "title" : "Task Completion Summary by User",
+      "description" : "Count of tasks completed by users.",
+      "creator" : "Intalio Inc",
+      "url" : "widgets/workflow/task_completion_summary_by_user.jsp",
+      "image": "images/task_summary.png",
+      "filter":"",
+      "accessible": "true"
+    },
+	{
+      "id" : "cat-3-51",
+      "title" : "Task Distribution Summary by User",
+      "description" : "Count of tasks in different status, grouped by users.",
+      "creator" : "Intalio Inc",
+      "url" : "widgets/workflow/task_distribution_summary_by_user.jsp",
+      "image": "images/task_summary.png",
+      "filter":"",
+      "accessible": "true"
+    },
+    {
+      "id" : "cat-3-52",
+      "title" : "Task Distribution Summary by Role",
+      "description" : "Count of tasks in different statuses, grouped by roles.",
+      "creator" : "Intalio Inc",
+      "url" : "widgets/workflow/task_distribution_summary_by_role.jsp",
+      "filter":"",
+      "image": "images/user_wise_task_pending.png"
+    },
+    {
+      "id" : "cat-3-53",
+      "title" : "Average Task Completion Summary by User",
+      "description" : "Average time taken to complete assigned tasks, grouped by users.",
+      "creator" : "Intalio Inc",
+      "url" : "widgets/workflow/average_completion_summary_by_user.jsp",
+      "filter":"",
+      "image": "images/user_wise_task_pending.png"
+    },
+    {
+      "id" : "cat-3-54",
+      "title" : "Task Summary by Status",
+      "description" : "Count of tasks based on statuses.",
+      "creator" : "Intalio Inc",
+      "url" : "widgets/workflow/task_summary_by_status.jsp",
+      "filter":"",
+      "image": "images/user_wise_task_pending.png"
+    },
+    {
+      "id" : "cat-3-55",
+      "title" : "Task Summary by Priority",
+      "description" : "Count of tasks based on priorities.",
+      "creator" : "Intalio Inc",
+      "url" : "widgets/workflow/task_summary_by_priority.jsp",
+      "filter":"",
+      "image": "images/user_wise_task_pending.png"
+    },
+    {
+      "id" : "cat-3-56",
+      "title" : "Task Summary by Creation Date",
+      "description" : "Count of tasks based on creation date.",
+      "creator" : "Intalio Inc",
+      "url" : "widgets/workflow/task_summary_by_creation_date.jsp",
+      "filter":"",
+      "image": "images/user_wise_task_pending.png"
+    }
+  ]
+  }
+}

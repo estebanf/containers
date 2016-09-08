@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://budgeting.example.everteam.com/Types/Business" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://budgeting.example.everteam.com/Types/Business" xmlns:Q1="http://budgeting.example.everteam.com/Types/Technical">
+
+    <complexType name="DepartmentType">
+    	<sequence>
+    		<element name="DepartmentId" type="int" maxOccurs="1" minOccurs="1"></element>
+    		<element name="DeparmentName" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="DepartmentDirector" type="string" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="DepartmentsType">
+    	<sequence>
+    		<element name="Department" type="tns:DepartmentType" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="Departments" type="tns:DepartmentsType"></element>
+
+
+
+    <complexType name="RequirementsDefinitionInputType">
+    	<sequence>
+    		<element name="Variables" maxOccurs="1" minOccurs="1">
+    			<complexType>
+    				<sequence>
+    					<element name="ExcerciseId" type="int"></element>
+    					<element name="FiscalYear" type="int"></element>
+    					<element name="TargetExpenses" type="double"></element>
+    					<element name="ExpectedIncrease"
+    						type="double">
+    					</element>
+    					<element name="NewInvestments" type="string"></element>
+    					<element name="TargetSubmission" type="date"></element>
+    					<element name="TargetApproval" type="date"></element>
+    				</sequence>
+    			</complexType>
+    		</element>
+    		<element name="DepartmentInfo" type="tns:DepartmentType"
+    			maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="Team" maxOccurs="1" minOccurs="1" type="tns:TeamMembersType">
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="RequirementsDefinitionOutputType">
+    	<sequence>
+    		<element name="Projects" type="tns:ProjectsType" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ProjectsType">
+    	<sequence>
+    		<element name="ProjectName" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="ProjectResponsible" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="TargetBudget" type="double" maxOccurs="1" minOccurs="1"></element>
+    		<element name="Notes" type="string" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="RequirementDefinitionInput"
+    	type="tns:RequirementsDefinitionInputType">
+    </element>
+
+    <element name="RequirementDefinisionOutput"
+    	type="tns:RequirementsDefinitionOutputType">
+    </element>
+    <complexType name="TeamMemberType">
+    	<sequence>
+    		<element name="DisplayName" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="username" type="string" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="TeamMembers" type="tns:TeamMembersType"></element>
+    
+    <complexType name="TeamMembersType">
+    	<sequence>
+    		<element name="Member" type="tns:TeamMemberType" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+    
+  <element name="Variables" type="tns:VariablesComplexType">
+  </element>
+  <complexType name="VariablesComplexType">
+  	<sequence>
+  		<element name="fiscal_year" type="string" maxOccurs="1" minOccurs="1"></element>
+  		<element name="target_expenses" type="string" maxOccurs="1" minOccurs="1"></element>
+  		<element minOccurs="1" name="ExpectedIncrease" type="float"></element>
+  		<element minOccurs="1" name="new_investements"
+  			default="Yes">
+  			<simpleType>
+  				<restriction base="string">
+  					<enumeration value="Yes"></enumeration>
+  					<enumeration value="No"></enumeration>
+  					<enumeration value="HighPriority"></enumeration>
+  				</restriction>
+  			</simpleType>
+  		</element>
+  		<element name="TargetSubmision" type="date" maxOccurs="1" minOccurs="1"></element>
+  		<element name="TargetApproval" type="date" maxOccurs="1" minOccurs="1"></element>
+  	</sequence>
+  </complexType>
+
+  <element name="Project" type="tns:ProjectsType"></element>
+
+  <complexType name="ProjectIdentifierType">
+  	<sequence>
+  		<element name="ExcerciseId" type="int" maxOccurs="1" minOccurs="1"></element>
+  		<element name="DepartmentId" type="int" maxOccurs="1" minOccurs="1"></element>
+  		<element name="ProjectId" type="int" maxOccurs="1" minOccurs="1"></element>
+  	</sequence>
+  </complexType>
+
+  <complexType name="SingleProjectRequestType">
+  	<sequence>
+  		<element name="id" type="tns:ProjectIdentifierType"></element>
+  		<element name="Project" type="tns:ProjectsType"></element>
+  	</sequence>
+  </complexType>
+
+  <complexType name="SingleProjectRequirementsType">
+  	<sequence>
+  		<element name="Id" type="tns:ProjectIdentifierType" maxOccurs="1" minOccurs="1"></element>
+  		<element name="Requirements" maxOccurs="1" minOccurs="1" type="tns:RequirementsComplexType"></element>
+  	</sequence>
+  </complexType>
+
+  <element name="ProjectDefinitionInput"
+  	type="tns:SingleProjectRequestType">
+  </element>
+
+  <element name="ProjectDefinitionOutput"
+  	type="tns:SingleProjectRequirementsType">
+  </element>
+
+  <complexType name="ProjectDeparmentIdentifierType">
+  	<sequence>
+  		<element name="DepartmentId" type="int"></element>
+  		<element name="ExcerciseId" type="int"></element>
+  	</sequence>
+  </complexType>
+
+  <element name="ProjectDepartmentIdentifier"
+  	type="tns:ProjectDeparmentIdentifierType">
+  </element>
+
+
+  <complexType name="RequirementsComplexType">
+  	<sequence>
+  		<element minOccurs="0" maxOccurs="1" name="LastYearBudget"
+  			type="double">
+  		</element>
+  		<element minOccurs="1" maxOccurs="1" name="Budget"
+  			type="double">
+  		</element>
+  		<element minOccurs="1" maxOccurs="1" name="Priority">
+  			<simpleType>
+  				<restriction base="string">
+  					<enumeration value="Low"></enumeration>
+  					<enumeration value="Medium"></enumeration>
+  					<enumeration value="High"></enumeration>
+  				</restriction>
+  			</simpleType>
+  		</element>
+  		<element minOccurs="1" maxOccurs="1" name="StartExecution"
+  			type="date">
+  		</element>
+  		<element minOccurs="1" maxOccurs="1" name="EndExecution"
+  			type="date">
+  		</element>
+  		<element minOccurs="1" maxOccurs="1" name="NewProject"
+  			type="boolean">
+  		</element>
+  		<element minOccurs="1" maxOccurs="1" name="Description"
+  			type="string">
+  		</element>
+  		<element minOccurs="1" maxOccurs="1" name="Justification"
+  			type="string">
+  		</element>
+  	</sequence>
+  </complexType>
+</schema>

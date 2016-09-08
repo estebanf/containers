@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://bpms.intalio.com/tools/webservices/javainternalservices/pdf/_iPCZUKmnEeWuKtJ8pPF9gQ" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://bpms.intalio.com/tools/webservices/javainternalservices/pdf/_iPCZUKmnEeWuKtJ8pPF9gQ">
+
+	<wsdl:documentation>JavaInternalWS : Wsdl for PDF Activity. The 'velocityVariables'
+		schema should vary for each PDF activity. To support this, namespace
+		'ns0' is made unique by appending activity id.
+	</wsdl:documentation>
+
+	<wsdl:types>
+		<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://bpms.intalio.com/tools/webservices/javainternalservices/pdf/_iPCZUKmnEeWuKtJ8pPF9gQ">
+			<xsd:element name="inputParams">
+				<xsd:complexType>
+					<xsd:sequence>
+						<!-- Map ode:processVersionId to this variable -->
+						<xsd:element name="processId" type="xsd:long"/>
+						<!-- Map ode:pid to this variable </wsdl:documentation -->
+						<xsd:element name="instanceId" type="xsd:long"/>
+						<xsd:element name="pdfMetaData">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="fileName" type="xsd:string"/>
+									<xsd:element name="title" type="xsd:string"/>
+									<xsd:element name="subject" type="xsd:string"/>
+									<xsd:element name="keywords" type="xsd:string"/>
+									<xsd:element name="author" type="xsd:string"/>
+									<xsd:element name="creator" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<!-- Map absolute path of velocity template file to this variable -->
+						<xsd:element name="templatePath" type="xsd:string"/>
+						<!-- This will act as a parent for all the velocity variables. Map 
+							all velocity variables as this element's children -->
+						<xsd:element name="templateVariables" type="ns0:variableComplexType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- This is the response. It gives access url for the created pdf document -->
+			<xsd:element name="pdfAccessUrl" type="xsd:string"/>
+			<xsd:element name="pdfFault">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="reason" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:complexType name="variableComplexType">
+				
+			<xsd:sequence><xsd:element name="projects" type="xsd:anyType"/></xsd:sequence></xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="sendRequest">
+		<wsdl:part element="ns0:inputParams" name="inputParams"/>
+	</wsdl:message>
+	<wsdl:message name="sendResponse">
+		<wsdl:part element="ns0:pdfAccessUrl" name="pdfAccessUrl"/>
+	</wsdl:message>
+	<wsdl:message name="sendFault">
+		<wsdl:part element="ns0:pdfFault" name="pdfFault"/>
+	</wsdl:message>
+
+	<wsdl:portType name="JavaInternalWSPortType">
+		<wsdl:operation name="com.intalio.bpms.pdfgen.PDFGenerator.generatePDF">
+			<wsdl:input message="ns0:sendRequest"/>
+			<wsdl:output message="ns0:sendResponse"/>
+			<wsdl:fault message="ns0:sendFault" name="fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="JavaInternalWSSOAP11Binding" type="ns0:JavaInternalWSPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="com.intalio.bpms.pdfgen.PDFGenerator.generatePDF">
+			<soap:operation soapAction="urn:generatePDF" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="pdfFault">
+				<soap:fault name="pdfFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="JavaInternalWS">
+		<wsdl:port binding="ns0:JavaInternalWSSOAP11Binding" name="JavaInternalWSSOAP11port_http">
+			<soap:address location="http://localhost:8080/intalio/ode/processes/JavaInternalWS/_iPCZUKmnEeWuKtJ8pPF9gQ"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

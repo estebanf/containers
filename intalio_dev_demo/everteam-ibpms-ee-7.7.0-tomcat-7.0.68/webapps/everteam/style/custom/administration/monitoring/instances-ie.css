@@ -1,0 +1,7 @@
+#createFilter input.ace{
+	width: 20px;
+	margin-top: 5px;
+}
+#createFilter .filterChoiceTable tr td label {
+	padding-bottom:15px;
+}

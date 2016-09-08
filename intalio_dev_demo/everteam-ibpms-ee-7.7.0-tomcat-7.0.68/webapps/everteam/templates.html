@@ -1,0 +1,37 @@
+<script type="text/html" id="categorytemplate">
+	<li id="<%= id %>" class="selectcategory"><a data-toggle="tab"><%= title %> &nbsp;<span class="badge badge-primary"><%= amount %></span></a></li>
+</script>
+
+
+<script type="text/html" id="widgettemplate"><div class="widget" id="<%= id %>"><div class="widget-box"><div class="widget-header widget-header-small widgetheader"><span class="widget-title"><i class="fa fa-bar-chart-o"></i><span class="widget-name"><%=title%></span></span><div class="widget-toolbar"><a href="#" data-action="settings" class="widgetopenfullscreen"><i title="Full Screen" class="fa fa-external-link widgetopenfullscreen"></i></a>&nbsp;<a href="#" data-action="reload" class="widgetRefresh"><i title="Refresh" class="fa fa-refresh"></i></a>&nbsp;<a href="#" data-action="collapse" class="widgetClose"><i title="Collapse" class="ace-icon fa fa-chevron-up"></i></a><a href="#" data-action="collapse" class="widgetOpen"><i title="Expand" class="ace-icon fa fa-chevron-down"></i></a>&nbsp;<a href="#" data-action="close"  class="widgetDelete"><i title="Remove Widget" class="fa fa-times deleteWidget"></i></a></div></div><div class="widget-body"></div></div></div></script>
+<script type="text/html" id="selectlayouttemplate">
+	<li class="layoutchoice" id="<%= id %>" style="background-image: url('<%= image %>')"></li>
+</script>
+
+<script type="text/html" id="addwidgettemplate">
+
+	<li class="widgetitem">
+		<img src="<%= image %>" alt="" height="60" width="120">
+		<div class="add-button">
+				<input class="macro-button-add btn btn-primary btn-xs addwidget" id="addwidget<%= id %>" value="Add" type="button"><br>
+				<input class="macro-hidden-uri" value="<%= url %>" type="hidden">
+		</div>
+		<!-- // .add-button -->
+		<div class="addWidgetDescription">
+		<span class="widget_title"><%= title %></span><br>
+		<span class="widget_creator">By <%= creator %></span><br>
+		<span class="widget_description"><%= description %></span><br>
+		</div>
+	</li>
+
+</script>
+
+
+
+<div class="dialog" id="editLayout" title="Edit layout">
+	<div class="panel-body" id="layout-dialog">
+			<p><strong>Choose dashboard layout</strong></p>
+			<ul class="layoutselection">
+			</ul>
+	</div>
+</div>
